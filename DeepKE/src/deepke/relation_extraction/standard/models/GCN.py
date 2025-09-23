@@ -14,13 +14,13 @@ class GCN(BasicModule):
         super(GCN, self).__init__()
 
         if cfg.dim_strategy == 'cat':
-            cfg.input_size = cfg.word_dim + 2 * cfg.pos_dim
+            cfg.model.input_size = cfg.word_dim + 2 * cfg.pos_dim
         else:
-            cfg.input_size = cfg.word_dim
+            cfg.model.input_size = cfg.word_dim
 
         self.embedding = Embedding(cfg)
         self.gcn = GCNBlock(cfg)
-        self.fc = nn.Linear(cfg.hidden_size, cfg.num_relations)
+        self.fc = nn.Linear(cfg.model.hidden_size, cfg.num_relations)
 
     def forward(self, x):
         word, lens, head_pos, tail_pos, adj = x['word'], x['lens'], x['head_pos'], x['tail_pos'], x['adj']

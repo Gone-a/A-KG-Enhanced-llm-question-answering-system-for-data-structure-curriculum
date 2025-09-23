@@ -35,10 +35,10 @@ def collate_fn(cfg):
             word_len.append(data['seq_len'])
             y.append(int(data['rel2idx']))
 
-            if cfg.model_name != 'lm':
+            if cfg.model.model_name != 'lm':
                 head_pos.append(_truncate_or_pad(data['head_pos'], max_len))
                 tail_pos.append(_truncate_or_pad(data['tail_pos'], max_len))
-                if cfg.model_name == 'cnn':
+                if cfg.model.model_name == 'cnn':
                     if cfg.use_pcnn:
                         pcnn_mask.append(_truncate_or_pad(data['entities_pos'], max_len))
 
@@ -46,12 +46,12 @@ def collate_fn(cfg):
         x['lens'] = torch.tensor(word_len)
         y = torch.tensor(y)
 
-        if cfg.model_name != 'lm':
+        if cfg.model.model_name != 'lm':
             x['head_pos'] = torch.tensor(head_pos)
             x['tail_pos'] = torch.tensor(tail_pos)
-            if cfg.model_name == 'cnn' and cfg.use_pcnn:
+            if cfg.model.model_name == 'cnn' and cfg.use_pcnn:
                 x['pcnn_mask'] = torch.tensor(pcnn_mask)
-            if cfg.model_name == 'gcn':
+            if cfg.model.model_name == 'gcn':
                 B, L = len(batch), max_len
                 adj = torch.empty(B, L, L).random_(2)
                 x['adj'] = adj

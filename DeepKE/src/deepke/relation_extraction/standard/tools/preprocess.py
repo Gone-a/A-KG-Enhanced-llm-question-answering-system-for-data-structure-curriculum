@@ -56,7 +56,7 @@ def _add_pos_seq(train_data: List[Dict], cfg):
         d['tail_pos'] = list(map(lambda i: i - d['tail_idx'], list(range(d['seq_len']))))
         d['tail_pos'] = _handle_pos_limit(d['tail_pos'], int(cfg.pos_limit))
 
-        if cfg.model_name == 'cnn':
+        if cfg.model.model_name == 'cnn':
             if cfg.use_pcnn:
                 # 当句子无法分隔成三段时，无法使用PCNN
                 # 比如： [head, ... tail] or [... head, tail, ...] 无法使用统一方式 mask 分段
@@ -203,7 +203,7 @@ def preprocess(cfg):
     _add_relation_data(rels, test_data)
 
     logger.info('verify whether use pretrained language models...')
-    if cfg.model_name == 'lm':
+    if cfg.model.model_name == 'lm':
         logger.info('use pretrained language models serialize sentence...')
         _lm_serialize(train_data, cfg)
         _lm_serialize(valid_data, cfg)
@@ -245,7 +245,7 @@ def preprocess(cfg):
     save_pkl(valid_data, valid_save_fp)
     save_pkl(test_data, test_save_fp)
 
-    if cfg.model_name != 'lm':
+    if cfg.model.model_name != 'lm':
         vocab_save_fp = os.path.join(cfg.cwd, cfg.out_path, 'vocab.pkl')
         vocab_txt = os.path.join(cfg.cwd, cfg.out_path, 'vocab.txt')
         save_pkl(vocab, vocab_save_fp)

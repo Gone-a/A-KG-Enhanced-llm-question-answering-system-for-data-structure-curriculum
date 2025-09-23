@@ -35,7 +35,7 @@ def train(epoch, model, dataloader, optimizer, criterion, device, writer, cfg):
         optimizer.zero_grad()
         y_pred = model(x)
 
-        if cfg.model_name == 'capsule':
+        if cfg.model.model_name == 'capsule':
             loss = model.loss(y_pred, y)
         else:
             loss = criterion(y_pred, y)
@@ -95,7 +95,7 @@ def validate(epoch, model, dataloader, criterion, device, cfg):
         with torch.no_grad():
             y_pred = model(x)
 
-            if cfg.model_name == 'capsule':
+            if cfg.model.model_name == 'capsule':
                 loss = model.loss(y_pred, y)
             else:
                 loss = criterion(y_pred, y)

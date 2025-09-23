@@ -79,7 +79,7 @@ const props = defineProps({
     default: () => []
   }
 });
-const emit = defineEmits(['messageAdded', 'clearChat']);
+const emit = defineEmits(['messageAdded', 'clearChat', 'graphAdded']);
 const userInput = ref('');
 const messages = ref([...props.messages]);
 const isLoading = ref(false);
@@ -110,10 +110,14 @@ const sendMessage = () => {
         text: response.data.message,
         timestamp: getCurrentTime()
       };
+      console.log(response.data.graphData);
+      console.log(response.data.message);
       // 触发消息添加事件
       emit('messageAdded', aiMessage);
       //发送 graph 数据
       
+      const graphData = response.data.graphData;
+      emit('graphAdded', graphData);
     })
     .catch(error => {
       console.error("请求出错：", error);

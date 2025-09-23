@@ -9,9 +9,10 @@ use_wandb: False
 
 
 defaults:
-  - hydra/output: custom
+  - _self_
   - preprocess
   - train
   - embedding
   - predict
   - model: gcn   # [cnn, rnn, transformer, capsule, gcn, lm]
+  - override hydra/output: custom

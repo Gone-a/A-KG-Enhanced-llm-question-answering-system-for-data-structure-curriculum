@@ -12,17 +12,17 @@ class GCN(nn.Module):
     def __init__(self,cfg):
         super(GCN , self).__init__()
 
-        self.num_layers = cfg.num_layers
-        self.input_size = cfg.input_size
-        self.hidden_size = cfg.hidden_size
-        self.dropout = cfg.dropout
+        self.num_layers = cfg.model.num_layers
+        self.input_size = cfg.model.input_size
+        self.hidden_size = cfg.model.hidden_size
+        self.dropout = cfg.model.dropout
 
         self.fc1 = nn.Linear(self.input_size , self.hidden_size)
         self.fc = nn.Linear(self.hidden_size , self.hidden_size)
         self.weight_list = nn.ModuleList()
         for i in range(self.num_layers):
             self.weight_list.append(nn.Linear(self.hidden_size * (i + 1),self.hidden_size))
-        self.dropout = nn.Dropout(self.dropout)
+        self.dropout_layer = nn.Dropout(self.dropout)
 
     def forward(self , x, adj):
         L = adj.sum(2).unsqueeze(2) + 1
@@ -37,7 +37,7 @@ class GCN(nn.Module):
             gAxW = F.relu(AxW)
             cache_list.append(gAxW)
             outputs = torch.cat(cache_list , dim=2)
-            output_list.append(self.dropout(gAxW))
+            output_list.append(self.dropout_layer(gAxW))
         # gcn_outputs = torch.cat(output_list, dim=2)
         gcn_outputs = output_list[self.num_layers - 1]
         gcn_outputs = gcn_outputs + self.fc1(x)

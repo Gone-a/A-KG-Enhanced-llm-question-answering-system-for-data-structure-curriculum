@@ -51,7 +51,10 @@ class RunServe():
             if str == 'neo4j':
                 new_dir = os.path.join(os.path.expandvars("$NEO4J_HOME"), "bin")
                 os.chdir(new_dir)
-                subprocess.run(["neo4j", "restart"])
+                result = subprocess.run(["neo4j", "status"], capture_output=True, text=True)
+                if result.returncode != 0 and "Neo4j is not running" in result.stderr:
+                    
+                    subprocess.run(["neo4j", "start"])
                 yield
             
             elif str == 'Vue':  
@@ -64,3 +67,9 @@ class RunServe():
         
         finally:
             os.chdir(original_dir)
+
+if __name__ == '__main__':
+    with RunServe().run('neo4j'):
+        pass
+    with RunServe().run('Vue'):
+        pass

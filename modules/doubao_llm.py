@@ -95,9 +95,15 @@ class DoubaoLLM:
 
             # 4. 解析响应
             resp_msg = completion.choices[0].message
+            
+            # 处理usage - 豆包API返回的是字典格式
+            usage_data = {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
+            if hasattr(completion, 'usage') and completion.usage:
+                usage_data = completion.usage  # 直接使用字典
+            
             return LLMResponse(
                 content=resp_msg.content.strip(),
-                usage=completion.usage.__dict__ if hasattr(completion, 'usage') else {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0},
+                usage=usage_data,
                 model=self.doubao_model_id,
                 finish_reason=completion.choices[0].finish_reason,
                 response_time=0

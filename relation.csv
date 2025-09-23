@@ -5,7 +5,19 @@ CON,ARI,b-rely,1
 CON,CON,belg,2
 CON,CON,b-belg,3
 CON,CON,syno,4
-ARI,ARI,relative,5
+ARI,ARI,anto,5
 CON,ARI,attr,6
 ARI,CON,b-attr,7
 CON,CON,none,8
+
+
+# 关系索引
+#依赖关系:rely
+#被依赖关系:b-rely
+#所属关系:belg
+#被所属关系:b-belg
+#同义关系:syno
+#相对关系:relative
+#属性关系:attr
+#被属性关系:b-attr
+#无关系:none

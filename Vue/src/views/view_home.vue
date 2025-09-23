@@ -3,7 +3,7 @@
     <!-- 对话列表侧边栏（左侧） -->
     <div class="chat-sidebar">
       <!-- 新建对话按钮 -->
-      <button class="new-chat-btn" @click="createNewChat">
+      <button class="new-chat-btn" @click="chatStore.createNewChat">
         <i class="fas fa-plus"></i> 新建对话
       </button>
       
@@ -11,10 +11,10 @@
       <div class="chat-list">
         <div 
           class="chat-item" 
-          v-for="(chat, index) in chatHistories" 
+          v-for="(chat, index) in chatStore.chatHistories" 
           :key="chat.id"
-          :class="{ active: index === currentChatIndex }"
-          @click="switchChat(index)"
+          :class="{ active: index === chatStore.currentChatIndex }"
+          @click="chatStore.switchChat(index)"
         >
           <div class="chat-item-content">
             <div class="chat-title">{{ chat.title }}</div>
@@ -26,82 +26,126 @@
                 : '暂无消息' }}
             </div>
           </div>
-          <button class="delete-btn" @click.stop="deleteChat(index)">
+          <button class="delete-btn" @click.stop="chatStore.deleteChat(index)">
             <i class="fas fa-trash"></i>
           </button>
         </div>
       </div>
     </div>
 
+    <!-- 图片窗口（中间）-->
+    <div class="graph-container">
+      <graphBox :graph-data="chatStore.currentChat.graph" />
+    </div>
+    
     <!-- 聊天窗口（右侧） -->
     <div class="chat-main">
       <chatBox 
-        :messages="currentChat.messages" 
-        @messageAdded="handleMessageAdded"
-        @clearChat="clearCurrentChat"
+        :messages="chatStore.currentChat.messages" 
+        @messageAdded="chatStore.handleMessageAdded"
+        @clearChat="chatStore.clearCurrentChat"
+        @graphAdded="chatStore.graphshow"
       />
     </div>
   </div>
 </template>
 
 <script setup>
-// 保持原有逻辑不变，新增删除对话方法
-import { ref, computed } from 'vue';
-import axios from 'axios';
+import { useChatStore } from '../store/dataStore.js'
 import chatBox from "../components/chatBox.vue";
+import graphBox from "../components/graphBox.vue";
 
-const chatHistories = ref([
-  { id: Date.now(), title: '新对话', messages: [] }
-]);
-const currentChatIndex = ref(0);
+const chatStore = useChatStore();
 
-const currentChat = computed(() => chatHistories.value[currentChatIndex.value]);
+// // 图片数据
+// const myGraphData = ref({
+//   nodes: [
+//     { id: 1, name: "产品部" },
+//     { id: 2, name: "技术部" },
+//     { id: 3, name: "设计部" },
+//     { id: 4, name: "市场部" },
+//     { id: 5, name: "财务部" },
+//     { id: 6, name: "人力资源部" },
+//     { id: 7, name: "客服部" }
+//   ],
+//   links: [
+//     { source: 1, target: 2, relation: "关系1"},
+//     { source: 1, target: 3, relation: "关系2"},
+//     { source: 2, target: 3, relation: "关系3"},
+//     { source: 1, target: 4, relation: "关系4"},
+//     { source: 4, target: 7, relation: "关系5"},
+//     { source: 2, target: 5, relation: "关系6"},
+//     { source: 3, target: 5, relation: "关系7"},
+//     { source: 5, target: 6, relation: "关系8"},
+//     { source: 6, target: 2, relation: "关系9"},
+//     { source: 6, target: 3, relation: "关系10"}
+//   ]
+// });
 
-const createNewChat = () => {
-  const newChat = {
-    id: Date.now(),
-    title: '新对话',
-    messages: []
-  };
-  chatHistories.value.push(newChat);
-  currentChatIndex.value = chatHistories.value.length - 1;
-};
+// const chatHistories = ref([
+//   { id: Date.now(), title: '新对话', messages: [], graph:myGraphData }
+// ]);
+// const currentChatIndex = ref(0);
 
-const switchChat = (index) => {
-  currentChatIndex.value = index;
-  axios.post("http://localhost:5000/switchChat",currentChat.value.messages)
-    .then(response => {
-      console.log(currentChat.value.messages);
-      console.log(response.data);
-    })
-    .catch(error => {
-      console.log(currentChat.value.messages);
-      console.error("请求出错：", error);
-      
-    })
-};
+// const currentChat = computed(() => chatHistories.value[currentChatIndex.value]);
 
-const handleMessageAdded = (newMessage) => {
-  currentChat.value.messages.push(newMessage);
-  if (currentChat.value.messages.length === 1) {
-    currentChat.value.title = newMessage.text.slice(0, 10) || '新对话';
-  }
-};
+// const createNewChat = () => {
+//   const newChat = {
+//     id: Date.now(),
+//     title: '新对话',
+//     messages: [],
+//     graph:{}
+//   };
+//   chatHistories.value.push(newChat);
+//   currentChatIndex.value = chatHistories.value.length - 1;
+// };
 
-const clearCurrentChat = () => {
-  currentChat.value.messages = [];
-};
+// const switchChat = (index) => {
+//   currentChatIndex.value = index;
+//   axios.post("http://localhost:5000/switchChat",currentChat.value.messages)
+//     .then(response => {
+//       console.log(currentChat.value.messages);
+//       console.log(response.data);
+//     })
+//     .catch(error => {
+//       console.log(currentChat.value.messages);
+//       console.error("请求出错：", error);
+//     })
+// };
 
-// 新增删除对话方法
-const deleteChat = (index) => {
-  if (chatHistories.value.length <= 1) {
-    currentChat.value.messages = [];
-    currentChat.value.title = '新对话';
-    return;
-  }
-  chatHistories.value.splice(index, 1);
-  currentChatIndex.value = Math.max(0, currentChatIndex.value > index ? currentChatIndex.value - 1 : 0);
-};
+// const handleMessageAdded = (newMessage) => {
+//   currentChat.value.messages.push(newMessage);
+//   if (currentChat.value.messages.length === 1) {
+//     currentChat.value.title = newMessage.text.slice(0, 10) || '新对话';
+//   }
+// };
+
+// const clearCurrentChat = () => {
+//   currentChat.value.messages = [];
+// };
+
+// const graphshow = (graphdata) =>{
+//   console.log("已传入");
+//   console.log(graphdata);
+//   if (graphdata?.nodes && graphdata?.links) {
+//     // 整体替换为新对象（触发子组件 props 引用变化）
+//     currentChat.value.graph = { ...graphdata }; 
+//     console.log("图形数据更新成功", graphdata);
+//   } else {
+//     console.error("无效的图形数据格式", graphdata);
+//   }
+// };
+
+// // 新增删除对话方法
+// const deleteChat = (index) => {
+//   if (chatHistories.value.length <= 1) {
+//     currentChat.value.messages = [];
+//     currentChat.value.title = '新对话';
+//     return;
+//   }
+//   chatHistories.value.splice(index, 1);
+//   currentChatIndex.value = Math.max(0, currentChatIndex.value > index ? currentChatIndex.value - 1 : 0);
+// };
 </script>
 
 <style scoped>
@@ -233,6 +277,19 @@ const deleteChat = (index) => {
 .delete-btn:hover {
   background-color: #fee2e2;
   color: #ef4444;
+}
+
+/* 中间可视化区域样式 - 确保足够空间 */
+.graph-container {
+  flex: 1; /* 占据父级flex布局的剩余全部空间 */
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;      /* 开启flex布局，用于内部元素居中 */
+  align-items: center;/* 垂直居中 */
+  justify-content: center; /* 水平居中 */
+  background-color: #ffffff;
+  border-right: 1px solid #e2e8f0;
 }
 
 .chat-main {

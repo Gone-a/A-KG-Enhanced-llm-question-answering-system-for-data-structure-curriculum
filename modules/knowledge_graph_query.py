@@ -167,9 +167,9 @@ class KnowledgeGraphQuery:
             logging.info(f"找到实体 '{entity}' 的 {len(result)} 个关系，查询耗时: {query_time:.3f}s")
             
             # 缓存结果
-            self._cache_result(cache_key, results)
+            self._cache_result(cache_key, result)
             
-            return results
+            return result
             
         except Exception as e:
             logging.error(f"查找实体关系失败: {e}")
@@ -214,8 +214,7 @@ class KnowledgeGraphQuery:
             AND (r.confidence IS NULL OR r.confidence >= $threshold)
             RETURN DISTINCT 
                 n.name as entity1, 
-                type(r) as relation_type,
-                r.name as relation_name,
+                type(r) as relation,
                 m.name as entity2,
                 COALESCE(r.confidence, 1.0) as confidence
             ORDER BY confidence DESC
@@ -285,8 +284,7 @@ class KnowledgeGraphQuery:
                 AND (r.confidence IS NULL OR r.confidence >= $threshold)
                 RETURN DISTINCT 
                     n.name as entity1, 
-                    type(r) as relation_type,
-                    r.name as relation_name,
+                    type(r) as relation,
                     m.name as entity2,
                     COALESCE(r.confidence, 1.0) as confidence,
                     'direct' as relation_path
@@ -300,8 +298,7 @@ class KnowledgeGraphQuery:
                 AND (r.confidence IS NULL OR r.confidence >= $threshold)
                 RETURN DISTINCT 
                     n.name as entity1, 
-                    type(r) as relation_type,
-                    r.name as relation_name,
+                    type(r) as relation,
                     m.name as entity2,
                     COALESCE(r.confidence, 1.0) as confidence,
                     'direct' as relation_path
@@ -327,8 +324,7 @@ class KnowledgeGraphQuery:
                     AND (r2.confidence IS NULL OR r2.confidence >= $threshold)
                     RETURN DISTINCT 
                         n.name as entity1, 
-                        type(r1) + ' -> ' + middle.name + ' -> ' + type(r2) as relation_type,
-                        middle.name as relation_name,
+                        type(r1) + ' -> ' + middle.name + ' -> ' + type(r2) as relation,
                         m.name as entity2,
                         COALESCE(r1.confidence * r2.confidence, 0.8) as confidence,
                         'indirect' as relation_path
@@ -343,8 +339,7 @@ class KnowledgeGraphQuery:
                     AND (r2.confidence IS NULL OR r2.confidence >= $threshold)
                     RETURN DISTINCT 
                         n.name as entity1, 
-                        type(r1) + ' -> ' + middle.name + ' -> ' + type(r2) as relation_type,
-                        middle.name as relation_name,
+                        type(r1) + ' -> ' + middle.name + ' -> ' + type(r2) as relation,
                         m.name as entity2,
                         COALESCE(r1.confidence * r2.confidence, 0.8) as confidence,
                         'indirect' as relation_path
@@ -415,7 +410,8 @@ class KnowledgeGraphQuery:
                 'entities': entities or [],
                 'relations': [],
                 'answer': '',
-                'confidence': 0.0
+                'confidence': 0.0,
+                'graphData': {}
             }
             
             if entities and len(entities) >= 2:
@@ -426,7 +422,7 @@ class KnowledgeGraphQuery:
                 if relations:
                     # 生成简单答案
                     rel = relations[0]
-                    result['answer'] = f"{rel['entity1']}与{rel['entity2']}的关系是：{rel.get('relation_name', rel.get('relation_type', '未知'))}"
+                    result['answer'] = f"{rel['entity1']}与{rel['entity2']}的关系是：{rel.get('relation', '未知')}"
                     result['confidence'] = rel.get('confidence', 0.0)
             
             elif entities and len(entities) == 1:
@@ -438,6 +434,7 @@ class KnowledgeGraphQuery:
                     result['answer'] = f"{entities[0]}相关的关系有：" + ", ".join([f"{r['relation']}" for r in relations[:5]])
                     result['confidence'] = max([r.get('confidence', 0.0) for r in relations])
             
+            result['graphData'] = self._visualize_knowledge_graph(result)
             return result
             
         except Exception as e:
@@ -449,6 +446,31 @@ class KnowledgeGraphQuery:
                 'answer': '查询失败',
                 'confidence': 0.0
             }
+    
+    def _visualize_knowledge_graph(self, query_result):
+        nodes = []
+        links = []
+        print(f"query_result: {query_result}")
+        # 处理实体节点
+        entities = query_result.get('entities', [])
+        for entity in entities:
+            nodes.append({
+                'id': entity,
+                'name': entity,
+            })
+        
+        # 处理关系边
+        relations = query_result.get('relations', [])
+        for rel in relations:
+            if rel.get('entity1') and rel.get('entity2'):
+                links.append({
+                    'source': rel['entity1'],
+                    'target': rel['entity2'],
+                    'relation': rel.get('relation', '未知'),
+                })
+        
+        graph_dict={'nodes': nodes, 'links': links}
+        return graph_dict
     
     def close(self):
         """关闭数据库连接"""

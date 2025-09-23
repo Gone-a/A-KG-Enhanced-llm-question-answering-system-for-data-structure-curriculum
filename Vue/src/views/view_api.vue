@@ -92,25 +92,39 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import axios from 'axios';
 
+// 从localStorage读取保存的设置，没有则使用默认值
+const loadFromLocalStorage = () => {
+  const savedApi = localStorage.getItem('apiSettings');
+  const savedDb = localStorage.getItem('dbSettings');
+  
+  return {
+    api: savedApi ? JSON.parse(savedApi) : { model: '', apiKey: '', baseUrl: '' },
+    db: savedDb ? JSON.parse(savedDb) : { boltUrl: '', username: '', password: '', browserUrl: '' }
+  };
+};
+
+// 初始化设置数据
+const { api: initialApi, db: initialDb } = loadFromLocalStorage();
+
 // API设置数据
-const apiSettings = ref({
-  model: '',
-  apiKey: '',
-  baseUrl: ''
-});
+const apiSettings = ref(initialApi);
 
 // 数据库设置数据
-const dbSettings = ref({
-  boltUrl: '',
-  username: '',
-  password: '',
-  browserUrl: ''
-});
+const dbSettings = ref(initialDb);
 
 const feedbackMsg = ref('');
+
+// 监听设置变化，自动保存到localStorage
+watch(apiSettings, (newValue) => {
+  localStorage.setItem('apiSettings', JSON.stringify(newValue));
+}, { deep: true });
+
+watch(dbSettings, (newValue) => {
+  localStorage.setItem('dbSettings', JSON.stringify(newValue));
+}, { deep: true });
 
 // 验证API设置是否有效
 const isApiSettingsValid = computed(() => {
@@ -160,6 +174,7 @@ const saveDbSettings = async () => {
 </script>
 
 <style scoped>
+/* 样式部分保持不变 */
 .api-setting-page {
   display: flex;
   justify-content: center;

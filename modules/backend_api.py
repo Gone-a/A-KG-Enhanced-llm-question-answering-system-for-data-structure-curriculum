@@ -165,6 +165,7 @@ def create_flask_app(api_handler=None) -> Flask:
     # 主要的聊天接口 - 兼容前端的 /test 路由
     @app.route("/reply", methods=["POST"])
     def chat():
+        print("1")
         """聊天接口 - 兼容前端"""
         data = request.get_json()
         if not data or 'message' not in data:
@@ -176,12 +177,15 @@ def create_flask_app(api_handler=None) -> Flask:
         
         # 处理查询
         result = api_handler.process_query(message)
-        #result = {"message": "测回复"}
+        # result = {"message": "数组和栈的关系"}
 
         #图的字典
-        graph_dict={}
+        
+        graph_dict=result.get('graphData',{})
+        # graph_dict={"nodes":[{"id":1,"name":"数组"},{"id":2,"name":"栈"}],"links":[{"source":1,"target":2,"relation":"关系"}]}
+        print("graph_dict:",graph_dict)
         # 返回前端期望的格式
-        return jsonify({"message": result["message"],"graph":graph_dict})
+        return jsonify({"message": result["message"],"graphData":graph_dict})
     
     
     @app.route("/set_api", methods=["POST"])
