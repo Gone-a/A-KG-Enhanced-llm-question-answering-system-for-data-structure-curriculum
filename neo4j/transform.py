@@ -8,12 +8,12 @@ def csv_to_json(csv_file_path, json_file_path):
         relation_dict={
             "rely":"依赖",
             "b-rely":"被依赖",
-            "belg":"包含",
-            "b-belg":"被包含",
+            "belg":"属于",
+            "b-belg":"被属于",
             "syno":"同义",
             "relative":"相对",
-            "attr":"拥有",
-            "b-attr":"属性",
+            "attr":"属性",
+            "b-attr":"拥有",
             "none":"无"
         }
 

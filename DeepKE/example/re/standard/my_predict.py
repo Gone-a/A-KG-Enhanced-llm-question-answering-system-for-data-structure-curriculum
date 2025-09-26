@@ -24,13 +24,46 @@ def _preprocess_data(data, cfg):
     relation_data = load_csv(os.path.join(cfg.cwd, cfg.data_path, 'relation.csv'), verbose=False)
     rels = _handle_relation_data(relation_data)
 
-    if cfg.model_name != 'lm':
+    if cfg.model.model_name != 'lm':
         vocab = load_pkl(os.path.join(cfg.cwd, cfg.out_path, 'vocab.pkl'), verbose=False)
         cfg.vocab_size = vocab.count
         serializer = Serializer(do_chinese_split=cfg.chinese_split)
         serial = serializer.serialize
 
-        _serialize_sentence(data, serial, cfg)
+        # 修改的序列化处理，确保实体在句子中存在
+        for d in data:
+            sent = d['sentence'].strip()
+            # 检查实体是否在句子中
+            if d['head'] not in sent or d['tail'] not in sent:
+                # 如果实体不在句子中，直接使用句子进行分词
+                d['tokens'] = serial(sent)
+                # 设置默认的头尾位置
+                d['head_idx'], d['tail_idx'] = 0, min(1, len(d['tokens'])-1)
+            else:
+                # 原有的处理逻辑
+                if d['head'] in d['tail']:
+                    sent = sent.replace(d['tail'], ' tail ', 1).replace(d['head'], ' head ', 1)
+                else:
+                    sent = sent.replace(d['head'], ' head ', 1).replace(d['tail'], ' tail ', 1)
+                d['tokens'] = serial(sent, never_split=['head', 'tail'])
+                try:
+                    head_idx, tail_idx = d['tokens'].index('head'), d['tokens'].index('tail')
+                    d['head_idx'], d['tail_idx'] = head_idx, tail_idx
+                except ValueError:
+                    # 如果找不到head或tail标记，设置默认位置
+                    d['head_idx'], d['tail_idx'] = 0, min(1, len(d['tokens'])-1)
+
+                if cfg.replace_entity_with_type:
+                    if cfg.replace_entity_with_scope:
+                        d['tokens'][d['head_idx']], d['tokens'][d['tail_idx']] = 'HEAD_' + d['head_type'], 'TAIL_' + d['tail_type']
+                    else:
+                        d['tokens'][d['head_idx']], d['tokens'][d['tail_idx']] = d['head_type'], d['tail_type']
+                else:
+                    if cfg.replace_entity_with_scope:
+                        d['tokens'][d['head_idx']], d['tokens'][d['tail_idx']] = 'HEAD', 'TAIL'
+                    else:
+                        d['tokens'][d['head_idx']], d['tokens'][d['tail_idx']] = d['head'], d['tail']
+        
         _convert_tokens_into_index(data, vocab)
         _add_pos_seq(data, cfg)
         logger.info('start sentence preprocess...')
@@ -79,7 +112,7 @@ def _load_csv_data(csv_path):
     return data
 
 
-@hydra.main(config_path='conf/config.yaml')
+@hydra.main(config_path="conf", config_name="config", version_base=None)
 def main(cfg):
     cwd = utils.get_original_cwd()
     cfg.cwd = cwd
@@ -113,8 +146,8 @@ def main(cfg):
         device = torch.device('cpu')
     logger.info(f'device: {device}')
 
-    model = __Model__[cfg.model_name](cfg)
-    logger.info(f'model name: {cfg.model_name}')
+    model = __Model__[cfg.model.model_name](cfg)
+    logger.info(f'model name: {cfg.model.model_name}')
     logger.info(f'\n {model}')
     model.load(cfg.fp, device=device)
     model.to(device)
@@ -150,7 +183,7 @@ def main(cfg):
         # 为当前实例创建临时数据
         instance_data = [instance]
         
-        if cfg.model_name != 'lm':
+        if cfg.model.model_name != 'lm':
             x = dict()
             tokens = instance['token2idx'] if 'token2idx' in instance else []
             seq_len = instance['seq_len'] if 'seq_len' in instance else len(tokens)
@@ -171,16 +204,16 @@ def main(cfg):
             # 记录输入键的调试信息
             logger.debug(f"模型输入键: {list(x.keys())}")
             
-            if cfg.model_name == 'cnn' and cfg.use_pcnn:
+            if cfg.model.model_name == 'cnn' and cfg.use_pcnn:
                 entities_pos = instance.get('entities_pos', [0]*len(tokens))
                 padded_entities_pos = entities_pos + [0] * (512 - len(entities_pos))
                 x['pcnn_mask'] = torch.tensor([padded_entities_pos])
                 
-            if cfg.model_name == 'gcn':
+            if cfg.model.model_name == 'gcn':
                 adj = torch.empty(1, 512, 512).random_(2)
                 x['adj'] = adj
 
-            prob_rel, prob, y_pred = process_single_piece(model, x, device, rels, cfg.model_name)
+            prob_rel, prob, y_pred = process_single_piece(model, x, device, rels, cfg.model.model_name)
             
             all_results.append({
                 'sentence': instance['sentence'],
@@ -204,7 +237,7 @@ def main(cfg):
                     'word': torch.tensor([tokenized_input[start_idx:end_idx] + [0] * (max_len - (end_idx - start_idx))]),
                     'lens': torch.tensor([min(end_idx - start_idx, max_len)])
                 }
-                relation, prob, y_pred = process_single_piece(model, current_piece_input, device, rels, cfg.model_name)
+                relation, prob, y_pred = process_single_piece(model, current_piece_input, device, rels, cfg.model.model_name)
                 if prob > max_prob:
                     max_prob = prob
                     best_relation = relation

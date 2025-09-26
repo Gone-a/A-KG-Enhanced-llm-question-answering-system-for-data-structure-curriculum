@@ -42,12 +42,12 @@ class Neo4jKnowledgeGraph:
         self.relation_dict={
             "rely":"依赖",
             "b-rely":"被依赖",
-            "belg":"包含",
-            "b-belg":"被包含",
+            "belg":"属于",
+            "b-belg":"被属于",
             "syno":"同义",
             "relative":"相对",
-            "attr":"拥有",
-            "b-attr":"属性",
+            "attr":"属性",
+            "b-attr":"拥有",
             "none":"无"
         }
 
@@ -215,67 +215,32 @@ class Neo4jKnowledgeGraph:
         return nodes
 
     def deduplicate_relationships(self, df):
-        """去除重复关系，按置信度保留最高的关系,并且过滤掉置信度小于0.8的关系"""
+        """去除重复关系，按置信度保留最高的关系,并且过滤掉置信度小于阈值的关系"""
         print("🔄🔄 正在去重关系...")
         
-        # 过滤掉置信度小于0.8的关系
+        # 过滤掉置信度小于阈值的关系
         df = df[df['confidence'] >= self.confidence].copy()
 
-        #过滤掉头尾实体为空和相同的关系
-        df = df[(df['head_clean'].notna()) & (df['tail_clean'].notna()) & (df['head_clean'] != '') & (df['tail_clean'] != '') & (df['head_clean'] != df['tail_clean'])].copy()
-
+        # 过滤掉头尾实体为空和相同的关系
+        df = df[(df['head_clean'].notna()) & (df['tail_clean'].notna()) & 
+                (df['head_clean'] != '') & (df['tail_clean'] != '') & 
+                (df['head_clean'] != df['tail_clean'])].copy()
         
         # 过滤掉关系为空的关系
         df = df[df['relation'].notna() & (df['relation'] != '')].copy()
-
         
         # 过滤掉关系为none的关系
         df = df[df['relation'] != 'none'].copy()
         
-        
-        # 创建关系唯一标识：头实体-尾实体-关系类型
+        # 创建关系唯一标识：头实体-尾实体-关系类型（同向关系）
         df['relation_key'] = df['head_clean'] + '|' + df['tail_clean'] + '|' + df['relation']
         
         # 按关系唯一标识分组，保留置信度最高的记录
+        # 这样确保了两个节点的同向关系只保留置信度最高的一条
         df_dedup = df.loc[df.groupby('relation_key')['confidence'].idxmax()]
         
-        # 处理互相指向的相同关系类型（A->B 和 B->A 的同类关系），允许不同关系类型的相互指向
-        mutual_relations = []
-        processed_pairs = set()
-        
-        for _, row in df_dedup.iterrows():
-            head, tail, relation = row['head_clean'], row['tail_clean'], row['relation']
-            # 创建包含关系类型的唯一标识，用于识别相同关系类型的互相指向
-            pair_key = tuple(sorted([head, tail]) + [relation])
-            
-            if pair_key in processed_pairs:
-                continue
-                
-            # 查找互相指向的相同关系类型
-            reverse_relation = df_dedup[
-                (df_dedup['head_clean'] == tail) & 
-                (df_dedup['tail_clean'] == head) & 
-                (df_dedup['relation'] == relation)
-            ]
-            
-            if not reverse_relation.empty:
-                # 存在互相指向的相同关系类型，保留置信度更高的
-                current_confidence = row['confidence']
-                reverse_confidence = reverse_relation.iloc[0]['confidence']
-                
-                if current_confidence >= reverse_confidence:
-                    mutual_relations.append(row)
-                else:
-                    mutual_relations.append(reverse_relation.iloc[0])
-                    
-                processed_pairs.add(pair_key)
-            else:
-                # 没有互相指向的相同关系类型，直接保留
-                mutual_relations.append(row)
-        
-        result_df = pd.DataFrame(mutual_relations)
-        print(f"📊 去重前: {len(df)} 条关系，去重后: {len(result_df)} 条关系")
-        return result_df
+        print(f"📊 去重前: {len(df)} 条关系，去重后: {len(df_dedup)} 条关系")
+        return df_dedup
     
     def create_relationships(self, df, nodes):
         """创建实体间的关系，使用原始关系名称（包括b-前缀）"""

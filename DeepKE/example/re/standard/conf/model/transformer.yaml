@@ -1,6 +1,6 @@
 model_name: transformer
 
-hidden_size: ???            # 使用 embedding 输出的结果，不需要指定
+hidden_size: 60             # 使用 embedding 输出的结果，设置为word_dim的值
 num_heads: 4                # 必须能被 hidden_size 整除
 num_hidden_layers: 3
 intermediate_size: 256

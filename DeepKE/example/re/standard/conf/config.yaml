@@ -14,5 +14,5 @@ defaults:
   - train
   - embedding
   - predict
-  - model: gcn   # [cnn, rnn, transformer, capsule, gcn, lm]
+  - model: transformer   # [cnn, rnn, transformer, capsule, gcn, lm]
   - override hydra/output: custom

@@ -13,13 +13,13 @@ class Transformer(BasicModule):
         super(Transformer, self).__init__()
 
         if cfg.dim_strategy == 'cat':
-            cfg.hidden_size = cfg.word_dim + 2 * cfg.pos_dim
+            cfg.model.hidden_size = cfg.word_dim + 2 * cfg.pos_dim
         else:
-            cfg.hidden_size = cfg.word_dim
+            cfg.model.hidden_size = cfg.word_dim
 
         self.embedding = Embedding(cfg)
         self.transformer = TransformerBlock(cfg)
-        self.fc = nn.Linear(cfg.hidden_size, cfg.num_relations)
+        self.fc = nn.Linear(cfg.model.hidden_size, cfg.num_relations)
 
     def forward(self, x):
         word, lens, head_pos, tail_pos = x['word'], x['lens'], x['head_pos'], x['tail_pos']

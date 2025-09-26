@@ -76,7 +76,7 @@ class APIHandler:
         
         # 生成回复
         response_text = self._generate_response(nlu_result, knowledge_data, user_input)
-        return {"success": True, "message": response_text}
+        return {"success": True, "message": response_text, "graphData": knowledge_data.get('graphData', {})}
     
     def _generate_response(self, nlu_result: Dict[str, Any], knowledge_data: Dict[str, Any], user_input: str) -> str:
         """
@@ -180,7 +180,7 @@ def create_flask_app(api_handler=None) -> Flask:
         # result = {"message": "数组和栈的关系"}
 
         #图的字典
-        
+        print(result)
         graph_dict=result.get('graphData',{})
         # graph_dict={"nodes":[{"id":1,"name":"数组"},{"id":2,"name":"栈"}],"links":[{"source":1,"target":2,"relation":"关系"}]}
         print("graph_dict:",graph_dict)

@@ -176,6 +176,7 @@ def main(cfg):
     print("开始批量推理...")
     all_results = []
     no_entity_sentences = []
+    same_entity_sentences = []  # 添加用于记录头尾实体相同的句子
     batch_size = 16  # 根据GPU内存调整
 
     # 按句子长度分组，使批内句子长度相近

@@ -189,7 +189,11 @@ class Model(nn.Module):
 
         lstm_input_size = 0
 
-        self.bert = AutoModel.from_pretrained(config.bert_name, output_hidden_states=True)
+        # 使用本地BERT模型路径，避免网络下载
+        if hasattr(config, 'bert_model_path') and config.bert_model_path:
+            self.bert = AutoModel.from_pretrained(config.bert_model_path, output_hidden_states=True)
+        else:
+            self.bert = AutoModel.from_pretrained(config.bert_name, output_hidden_states=True)
         lstm_input_size += config.bert_hid_size
 
         self.dis_embs = nn.Embedding(20, config.dist_emb_size)

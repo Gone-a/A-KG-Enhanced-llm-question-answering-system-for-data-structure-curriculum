@@ -35,14 +35,14 @@ class TransformerAttention(nn.Module):
         # self.xxx = config.xxx
         self.hidden_size = config.hidden_size
         self.num_heads = config.num_heads
-        self.dropout = config.dropout
+        self.dropout_rate = config.dropout
         self.output_attentions = config.output_attentions
         self.layer_norm_eps = config.layer_norm_eps
 
-        self.multihead_attention = MultiHeadAttention(self.hidden_size, self.num_heads, self.dropout,
+        self.multihead_attention = MultiHeadAttention(self.hidden_size, self.num_heads, self.dropout_rate,
                                                       self.output_attentions)
         self.dense = nn.Linear(self.hidden_size, self.hidden_size)
-        self.dropout = nn.Dropout(self.dropout)
+        self.dropout = nn.Dropout(self.dropout_rate)
         self.layerNorm = nn.LayerNorm(self.hidden_size, eps=self.layer_norm_eps)
 
     def forward(self, x, key_padding_mask=None, attention_mask=None, head_mask=None):
@@ -68,13 +68,13 @@ class TransformerOutput(nn.Module):
         # self.xxx = config.xxx
         self.hidden_size = config.hidden_size
         self.intermediate_size = config.intermediate_size
-        self.dropout = config.dropout
+        self.dropout_rate = config.dropout
         self.layer_norm_eps = config.layer_norm_eps
 
         self.zoom_in = nn.Linear(self.hidden_size, self.intermediate_size)
         self.intermediate_act_fn = ACT2FN[config.hidden_act]
         self.zoom_out = nn.Linear(self.intermediate_size, self.hidden_size)
-        self.dropout = nn.Dropout(self.dropout)
+        self.dropout = nn.Dropout(self.dropout_rate)
         self.layerNorm = nn.LayerNorm(self.hidden_size, eps=self.layer_norm_eps)
 
     def forward(self, input_tensor):
@@ -106,11 +106,11 @@ class Transformer(nn.Module):
         super(Transformer, self).__init__()
 
         # self.xxx = config.xxx
-        self.num_hidden_layers = config.num_hidden_layers
-        self.output_attentions = config.output_attentions
-        self.output_hidden_states = config.output_hidden_states
+        self.num_hidden_layers = config.model.num_hidden_layers
+        self.output_attentions = config.model.output_attentions
+        self.output_hidden_states = config.model.output_hidden_states
 
-        self.layer = nn.ModuleList([TransformerLayer(config) for _ in range(self.num_hidden_layers)])
+        self.layer = nn.ModuleList([TransformerLayer(config.model) for _ in range(self.num_hidden_layers)])
 
     def forward(self, hidden_states, key_padding_mask=None, attention_mask=None, head_mask=None):
         """

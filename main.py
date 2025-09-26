@@ -46,12 +46,12 @@ class KnowledgeGraphApp:
             pass
         
         
-        print(1)
+        
         # 初始化意图识别器
         model_path = self.config.get('model.nlu_model_path')
         self.intent_recognizer = IntentRecognizer(model_path, KNOWLEDGE_BASE)
         
-        print(2)
+        
         # 初始化知识图谱查询器
         db_config = self.config.get_database_config()
         self.kg_query = KnowledgeGraphQuery(
@@ -60,7 +60,7 @@ class KnowledgeGraphApp:
             db_config['password']
         )
 
-        print(3)
+        
         # 初始化LLM客户端
         try:
             api_config = self.config.get_api_config()
@@ -78,7 +78,7 @@ class KnowledgeGraphApp:
             print("将使用默认的空LLM客户端")
             llm_client = None
         
-        print(4)
+        
         # 初始化API处理器
         self.api_handler = APIHandler(self.intent_recognizer, self.kg_query, llm_client)
         
@@ -87,7 +87,7 @@ class KnowledgeGraphApp:
         #print(result)
 
 
-        print(5)
+        
         # 创建Flask应用
         self.app = create_flask_app(self.api_handler)
     

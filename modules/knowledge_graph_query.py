@@ -433,8 +433,9 @@ class KnowledgeGraphQuery:
                 if relations:
                     result['answer'] = f"{entities[0]}相关的关系有：" + ", ".join([f"{r['relation']}" for r in relations[:5]])
                     result['confidence'] = max([r.get('confidence', 0.0) for r in relations])
-            
+            #将可视化字典赋值给result['graphData']
             result['graphData'] = self._visualize_knowledge_graph(result)
+            print(f"result['graphData']: {result['graphData']}")
             return result
             
         except Exception as e:
@@ -458,7 +459,7 @@ class KnowledgeGraphQuery:
                 'id': entity,
                 'name': entity,
             })
-        
+        print(f"nodes: {nodes}")
         # 处理关系边
         relations = query_result.get('relations', [])
         for rel in relations:
@@ -468,8 +469,9 @@ class KnowledgeGraphQuery:
                     'target': rel['entity2'],
                     'relation': rel.get('relation', '未知'),
                 })
-        
+        print(f"links: {links}")
         graph_dict={'nodes': nodes, 'links': links}
+        print(f"graph_dict: {graph_dict}")
         return graph_dict
     
     def close(self):

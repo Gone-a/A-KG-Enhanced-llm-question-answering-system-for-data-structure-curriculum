@@ -2,7 +2,7 @@ from collections import Counter
 import re
 
 counts = Counter()
-with open('/root/KG/DeepKE/example/ner/standard/w2ner/data/train.txt') as f:
+with open('/root/KG_inde/DeepKE/example/ner/standard/w2ner/data/train.txt') as f:
     for line in f:
         line = line.strip()
         if not line:

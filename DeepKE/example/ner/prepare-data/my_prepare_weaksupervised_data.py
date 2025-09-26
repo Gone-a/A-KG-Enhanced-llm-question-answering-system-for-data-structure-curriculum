@@ -37,7 +37,7 @@ def add_entity(dict_dir):
 
 def auto_label(input_texts, data_type, end_words=['。','.','?','？','!','！'], mode='cn'):
     
-    writer = open(f"{data_type}.txt", "w", encoding="utf8")
+    writer = open(f"../standard/w2ner/data/{data_type}.txt", "w", encoding="utf8")
     for input_text in input_texts:
         words = psg.cut(input_text)
 
