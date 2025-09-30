@@ -1,0 +1,44 @@
+cwd: ???
+use_wandb: false
+preprocess: true
+data_path: data/origin
+out_path: data/out
+chinese_split: true
+min_freq: 3
+pos_limit: 30
+seed: 1
+use_gpu: true
+gpu_id: 0
+epoch: 50
+batch_size: 32
+learning_rate: 0.0003
+lr_factor: 0.7
+lr_patience: 3
+weight_decay: 0.001
+early_stopping_patience: 6
+train_log: true
+log_interval: 10
+show_plot: false
+only_comparison_plot: false
+plot_utils: matplot
+predict_plot: true
+use_multi_gpu: false
+gpu_ids: 0,1
+vocab_size: ???
+word_dim: 60
+pos_size: ???
+pos_dim: 10
+dim_strategy: sum
+num_attributes: 7
+fp: xxx/checkpoints/2019-12-03_17-35-30/cnn_epoch21.pth
+model:
+  model_name: transformer
+  hidden_size: ???
+  num_heads: 4
+  num_hidden_layers: 3
+  intermediate_size: 256
+  dropout: 0.1
+  layer_norm_eps: 1.0e-12
+  hidden_act: gelu_new
+  output_attentions: true
+  output_hidden_states: true

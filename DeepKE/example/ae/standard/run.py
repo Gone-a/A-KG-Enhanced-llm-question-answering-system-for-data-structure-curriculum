@@ -20,13 +20,13 @@ import wandb
 
 logger = logging.getLogger(__name__)
 
-@hydra.main(config_path="conf/config.yaml")
+@hydra.main(version_base=None, config_path="conf", config_name="config")
 def main(cfg):
     cwd = utils.get_original_cwd()
     # cwd = cwd[0:-5]
     cfg.cwd = cwd
     cfg.pos_size = 2 * cfg.pos_limit + 2
-    logger.info(f'\n{cfg.pretty()}')
+    logger.info(f'\n{cfg}')
 
     if cfg.use_wandb:
         wandb.init(project="DeepKE_AE_Standard", name=cfg.model_name)
@@ -67,7 +67,7 @@ def main(cfg):
     test_data_path = os.path.join(cfg.cwd, cfg.out_path, 'test.pkl')
     vocab_path = os.path.join(cfg.cwd, cfg.out_path, 'vocab.pkl')
 
-    if cfg.model_name == 'lm':
+    if cfg.model.model_name == 'lm':
         vocab_size = None
     else:
         vocab = load_pkl(vocab_path)
@@ -82,7 +82,7 @@ def main(cfg):
     valid_dataloader = DataLoader(valid_dataset, batch_size=cfg.batch_size * len(device_ids), shuffle=True, collate_fn=collate_fn(cfg))
     test_dataloader = DataLoader(test_dataset, batch_size=cfg.batch_size * len(device_ids), shuffle=True, collate_fn=collate_fn(cfg))
 
-    model = __Model__[cfg.model_name](cfg)
+    model = __Model__[cfg.model.model_name](cfg)
     if MULTI_GPU:
         model = torch.nn.DataParallel(model, device_ids=device_ids)
         device = device_ids[0]

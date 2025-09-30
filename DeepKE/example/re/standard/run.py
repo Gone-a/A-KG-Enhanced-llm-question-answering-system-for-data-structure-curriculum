@@ -58,8 +58,8 @@ def main(cfg):
     logger.info(f'device: {device}')
 
     # 如果不修改预处理的过程，这一步最好注释掉，不用每次运行都预处理数据一次
-    # if cfg.preprocess:
-    #     preprocess(cfg)
+    if cfg.preprocess:
+        preprocess(cfg)
     
     train_data_path = os.path.join(cfg.cwd, cfg.out_path, 'train.pkl')
     valid_data_path = os.path.join(cfg.cwd, cfg.out_path, 'valid.pkl')
@@ -94,7 +94,47 @@ def main(cfg):
 
     optimizer = optim.Adam(model.parameters(), lr=cfg.learning_rate, weight_decay=cfg.weight_decay)
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, factor=cfg.lr_factor, patience=cfg.lr_patience)
-    criterion = nn.CrossEntropyLoss()
+    
+    # 读取类别权重
+    class_weights = None
+    # 处理类别权重
+    class_weights = None
+    if hasattr(cfg, 'use_class_weights') and cfg.use_class_weights and hasattr(cfg, 'class_weights'):
+        logger.info('Using class weights from configuration')
+        class_weights = torch.tensor(cfg.class_weights, dtype=torch.float32)
+        if cfg.use_gpu and torch.cuda.is_available():
+            class_weights = class_weights.to(device)
+        logger.info(f'Class weights: {class_weights}')
+    else:
+        # 原有的类别权重加载逻辑
+        class_weights_path = os.path.join(cfg.cwd, 'class_weights.txt')
+        if os.path.exists(class_weights_path):
+            logger.info(f'Loading class weights from {class_weights_path}')
+            class_weights_dict = {}
+            with open(class_weights_path, 'r', encoding='utf-8') as f:
+                for line in f:
+                    line = line.strip()
+                    if line and ':' in line:
+                        relation, weight = line.split(':', 1)
+                        class_weights_dict[relation.strip()] = float(weight.strip())
+            
+            # 根据关系标签顺序创建权重张量
+            # 从训练数据中获取关系标签的顺序
+            relation_labels = ['hasComplexity', 'uses', 'variantOf', 'appliesTo', 'provides', 'implementedAs', 'usedIn']
+            weights_list = []
+            
+            for rel in relation_labels:
+                if rel in class_weights_dict:
+                    weights_list.append(class_weights_dict[rel])
+                else:
+                    weights_list.append(1.0)  # 默认权重
+            
+            class_weights = torch.tensor(weights_list, dtype=torch.float32)
+            if cfg.use_gpu and torch.cuda.is_available():
+                class_weights = class_weights.to(device)
+            logger.info(f'Class weights: {class_weights}')
+    
+    criterion = nn.CrossEntropyLoss(weight=class_weights)
 
     best_f1, best_epoch = -1, 0
     es_loss, es_f1, es_epoch, es_patience, best_es_epoch, best_es_f1, es_path, best_es_path = 1e8, -1, 0, 0, 0, -1, '', ''
@@ -143,6 +183,8 @@ def main(cfg):
                 best_es_epoch = es_epoch
                 best_es_f1 = es_f1
                 best_es_path = es_path
+                logger.info(f'Early stopping triggered at epoch {epoch}. Best epoch: {best_es_epoch}, Best F1: {best_es_f1:.4f}')
+                break
 
     if cfg.show_plot:
         if cfg.plot_utils == 'matplot':

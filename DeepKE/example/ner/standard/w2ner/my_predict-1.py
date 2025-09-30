@@ -145,10 +145,11 @@ def main(cfg):
     tokenizer = AutoTokenizer.from_pretrained(config.bert_name)
     
     print('*********加载完成!*********')
-    # 读取输入文件
-    input_file = os.path.join(utils.get_original_cwd(), 'data/data_stream.txt')
+    # 读取输入文件 - 从JSON文件读取sentence字段
+    input_file = os.path.join(utils.get_original_cwd(), 'DeepKE/example/ner/standard/w2ner/data/knowledge_graph_sentences_new.json')
     with open(input_file, 'r', encoding='utf-8') as f:
-        lines = [line.strip() for line in f if line.strip()]
+        data = json.load(f)
+        lines = [item['sentence'] for item in data['sentences'] if item.get('sentence', '').strip()]
     
     # 分割所有小句
     all_sub_sents = []

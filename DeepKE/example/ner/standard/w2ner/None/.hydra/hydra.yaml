@@ -118,12 +118,11 @@ hydra:
   overrides:
     hydra:
     - hydra.mode=RUN
-    task:
-    - text=test
+    task: []
   job:
     name: from_pre_to_re
     chdir: null
-    override_dirname: text=test
+    override_dirname: ''
     id: ???
     num: ???
     config_name: config

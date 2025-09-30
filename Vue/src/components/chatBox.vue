@@ -25,7 +25,8 @@
             <i v-if="message.sender === 'user'" class="fas fa-user"></i>
           </div>
           <div class="message-content">
-            <pre>{{ message.text }}</pre>
+            <!-- 替换原来的pre标签为div，并使用v-html渲染解析后的HTML -->
+            <div class="markdown-content" v-html="parseMarkdown(message.text)"></div>
             <span class="message-time">{{ message.timestamp }}</span>
           </div>
         </div>
@@ -71,6 +72,14 @@
 <script setup>
 import { ref, watch, defineEmits, defineProps} from 'vue';
 import axios from 'axios';
+import { marked } from 'marked';
+import DOMPurify from 'dompurify';  // 导入dompurify
+
+// 添加Markdown解析方法
+const parseMarkdown = (text) => {
+  // 先将Markdown转换为HTML，再净化HTML防止XSS攻击
+  return DOMPurify.sanitize(marked.parse(text));
+};
 
 // 接收父组件传入的当前对话消息列表
 const props = defineProps({
@@ -423,4 +432,50 @@ const scrollToBottom = () => {
     padding: 12px 16px;
   }
 }
+
+@import "github-markdown-css/github-markdown.css";
+
+/* 调整Markdown内容的样式 */
+.markdown-content {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* 针对AI和用户消息的Markdown内容分别设置样式 */
+.message.ai .markdown-content {
+  color: #1e293b;
+}
+
+.message.user .markdown-content {
+  color: white;
+}
+
+/* 优化代码块显示 */
+.markdown-content pre {
+  padding: 1em;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+
+.markdown-content code {
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 13px;
+}
+
+/* 优化列表显示 */
+.markdown-content ul, .markdown-content ol {
+  padding-left: 1.5em;
+  margin: 0.5em 0;
+}
+
+/* 优化标题显示 */
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3 {
+  margin: 1em 0 0.5em;
+  line-height: 1.2;
+}
+
 </style>

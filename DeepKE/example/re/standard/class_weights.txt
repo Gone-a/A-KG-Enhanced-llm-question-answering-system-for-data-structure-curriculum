@@ -1,0 +1,7 @@
+appliesTo: 3.4921
+hasComplexity: 5.7857
+implementedAs: 6.2857
+provides: 2.2216
+usedIn: 6.2857
+uses: 3.9643
+variantOf: 2.7760

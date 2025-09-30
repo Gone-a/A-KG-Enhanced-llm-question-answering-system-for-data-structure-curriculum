@@ -1,6 +1,6 @@
 # @package _global_
 # the path of the model / checkpoint to be used
-fp: '/root/KG_inde/DeepKE/example/re/standard/checkpoints/2025-09-25_13-04-33/transformer_epoch5.pth'
+fp: '/root/KG_inde/DeepKE/example/re/standard/checkpoints/2025-09-28_19-41-26/transformer_epoch6.pth'
 
 predict_data_path: 'data/predict/predict.csv'
 predict_out_path: 'data/out/predictions/predictions.csv'

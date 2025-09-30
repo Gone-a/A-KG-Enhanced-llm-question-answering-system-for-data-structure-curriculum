@@ -8,11 +8,11 @@ use_wandb: False
 
 
 defaults:
-  - hydra/output: custom
+  - _self_
   - preprocess
   - train
   - embedding
   - predict
-  - model: cnn   # [cnn, rnn, transformer, capsule, gcn, lm]
+  - model: transformer   # [cnn, rnn, transformer, capsule, gcn, lm]
 
 

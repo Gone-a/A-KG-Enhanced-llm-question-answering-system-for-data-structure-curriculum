@@ -14,7 +14,7 @@ learning_rate: 0.001
 max_seq_len: 128
 use_bert_last_4_layers: true
 seed: 123
-text: test
+text: 双向链表的节点同时拥有前驱和后继指针，从两端操作元素的效率都很高，适合双端队列。
 bert_name: bert-base-chinese
 do_lower_case: true
 dist_emb_size: 20

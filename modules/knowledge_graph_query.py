@@ -99,86 +99,56 @@ class KnowledgeGraphQuery:
             for key in expired_keys:
                 del self.query_cache[key]
 
+    def _sanitize_entity_name(self, entity_name: str) -> str:
+        """清理实体名称，防止注入攻击"""
+        if not entity_name:
+            return ""
+        
+        # 移除危险字符
+        sanitized = re.sub(r'[^\w\u4e00-\u9fff\s\-_]', '', entity_name)
+        
+        # 限制长度
+        if len(sanitized) > self.MAX_ENTITY_LENGTH:
+            sanitized = sanitized[:self.MAX_ENTITY_LENGTH]
+        
+        return sanitized.strip()
+
     def _validate_entities(self, entities: List[str]) -> List[str]:
         """验证和清理实体列表"""
         if not entities:
             return []
         
-        # 过滤和清理实体
-        cleaned_entities = []
+        validated = []
         for entity in entities[:self.MAX_ENTITIES_PER_QUERY]:
-            if isinstance(entity, str) and len(entity.strip()) <= self.MAX_ENTITY_LENGTH:
-                cleaned_entity = re.sub(r'[^\w\s\u4e00-\u9fff]', '', entity.strip())
-                if cleaned_entity:
-                    cleaned_entities.append(cleaned_entity)
+            sanitized = self._sanitize_entity_name(entity)
+            if sanitized:
+                validated.append(sanitized)
         
-        return cleaned_entities
-    
-    def find_entity_relations(self, entity: str, confidence_threshold: float = None) -> List[Dict[str, Any]]:
-        """
-        查找实体的所有相关关系（带缓存）
+        return validated
+
+    def _execute_query_with_cache(self, query: str, cache_key: str = None, **params) -> List[Dict[str, Any]]:
+        """执行查询并缓存结果"""
+        if cache_key:
+            cached_result = self._get_cached_result(cache_key)
+            if cached_result is not None:
+                return cached_result
         
-        Args:
-            entity: 实体名称
-            confidence_threshold: 置信度阈值
-            
-        Returns:
-            List[Dict]: 关系列表
-        """
-        if confidence_threshold is None:
-            confidence_threshold = self.DEFAULT_CONFIDENCE_THRESHOLD
-        
-        # 检查缓存
-        cache_key = self._get_cache_key('entity_relations', entity, confidence_threshold)
-        cached_result = self._get_cached_result(cache_key)
-        if cached_result is not None:
-            logging.info(f"返回缓存的实体关系: {entity}")
-            return cached_result
-            
         try:
-            # 清理实体名称
-            cleaned_entities = self._validate_entities([entity])
-            if not cleaned_entities:
-                return []
+            result = self.graph.run(query, **params).data()
             
-            entity = cleaned_entities[0]
-            
-            # 优化的Cypher查询，使用索引
-            cypher_query = """
-            MATCH (n)-[r]-(m)
-            WHERE n.name CONTAINS $entity OR m.name CONTAINS $entity
-            AND (r.confidence IS NULL OR r.confidence >= $threshold)
-            RETURN DISTINCT 
-                n.name as entity1, 
-                type(r) as relation, 
-                m.name as entity2,
-                COALESCE(r.confidence, 1.0) as confidence
-            ORDER BY confidence DESC
-            LIMIT $limit
-            """
-            
-            start_time = time.time()
-            result = self.graph.run(cypher_query, 
-                                  entity=entity, 
-                                  threshold=confidence_threshold,
-                                  limit=self.QUERY_RESULT_LIMIT).data()
-            
-            query_time = time.time() - start_time
-            logging.info(f"找到实体 '{entity}' 的 {len(result)} 个关系，查询耗时: {query_time:.3f}s")
-            
-            # 缓存结果
-            self._cache_result(cache_key, result)
+            if cache_key:
+                self._cache_result(cache_key, result)
             
             return result
             
         except Exception as e:
-            logging.error(f"查找实体关系失败: {e}")
+            logging.error(f"查询执行失败: {e}")
             return []
-    
+
     def find_entities_by_relation(self, entities: List[str], relation: str, 
                                 confidence_threshold: float = None) -> List[Dict[str, Any]]:
         """
-        根据关系和实体查找相关实体（带缓存）
+        根据实体和关系查找相关实体
         
         Args:
             entities: 实体列表
@@ -186,66 +156,57 @@ class KnowledgeGraphQuery:
             confidence_threshold: 置信度阈值
             
         Returns:
-            List[Dict]: 查询结果
+            List[Dict[str, Any]]: 查询结果
         """
         if confidence_threshold is None:
             confidence_threshold = self.DEFAULT_CONFIDENCE_THRESHOLD
         
-        # 检查缓存
-        cache_key = self._get_cache_key('entities_by_relation', str(entities), relation, confidence_threshold)
-        cached_result = self._get_cached_result(cache_key)
-        if cached_result is not None:
-            logging.info(f"返回缓存的关系查询结果: {relation}")
-            return cached_result
-            
+        validated_entities = self._validate_entities(entities)
+        if not validated_entities or not relation:
+            return []
+        
+        sanitized_relation = self._sanitize_entity_name(relation)
+        if not sanitized_relation:
+            return []
+        
+        cache_key = self._get_cache_key("find_entities_by_relation", 
+                                      tuple(validated_entities), sanitized_relation, confidence_threshold)
+        
+        # 构建查询
+        entity_conditions = " OR ".join([f"n.name CONTAINS '{entity}'" for entity in validated_entities])
+        
+        query = f"""
+        MATCH (n)-[r]->(m)
+        WHERE ({entity_conditions}) AND type(r) CONTAINS '{sanitized_relation}'
+        RETURN n.name as entity1, type(r) as relation, m.name as entity2
+        LIMIT {self.QUERY_RESULT_LIMIT}
+        """
+        
         try:
-            # 验证和清理输入
-            cleaned_entities = self._validate_entities(entities)
-            if not cleaned_entities or not relation:
-                return []
+            result = self._execute_query_with_cache(query, cache_key)
             
-            relation = re.sub(r'[^\w\s\u4e00-\u9fff]', '', relation.strip())
+            # 格式化结果
+            formatted_result = []
+            for record in result:
+                if record.get('entity1') and record.get('entity2'):
+                    formatted_result.append({
+                        'entity1': record['entity1'],
+                        'entity2': record['entity2'],
+                        'relation': record.get('relation', sanitized_relation)
+                    })
             
-            # 构建Cypher查询
-            cypher_query = """
-            MATCH (n)-[r]-(m)
-            WHERE (n.name IN $entities OR m.name IN $entities)
-            AND (type(r) CONTAINS $relation OR r.name CONTAINS $relation)
-            AND (r.confidence IS NULL OR r.confidence >= $threshold)
-            RETURN DISTINCT 
-                n.name as entity1, 
-                type(r) as relation,
-                m.name as entity2,
-                COALESCE(r.confidence, 1.0) as confidence
-            ORDER BY confidence DESC
-            LIMIT $limit
-            """
-            
-            start_time = time.time()
-            result = self.graph.run(cypher_query,
-                                  entities=cleaned_entities,
-                                  relation=relation,
-                                  threshold=confidence_threshold,
-                                  limit=self.QUERY_RESULT_LIMIT).data()
-            
-            query_time = time.time() - start_time
-            logging.info(f"根据关系 '{relation}' 找到 {len(result)} 个相关实体，查询耗时: {query_time:.3f}s")
-            
-            # 缓存结果
-            self._cache_result(cache_key, result)
-            
-            return result
+            return formatted_result
             
         except Exception as e:
             logging.error(f"根据关系查找实体失败: {e}")
             return []
-    
+
     def find_relation_by_entities(self, entities: List[str], 
                                 confidence_threshold: float = None,
                                 bidirectional: bool = True,
                                 include_indirect: bool = True) -> List[Dict[str, Any]]:
         """
-        查找两个实体之间的关系（支持直接和间接关系，带缓存）
+        查找两个实体之间的关系
         
         Args:
             entities: 实体列表（至少2个）
@@ -254,232 +215,107 @@ class KnowledgeGraphQuery:
             include_indirect: 是否包含间接关系
             
         Returns:
-            List[Dict]: 关系列表
+            List[Dict[str, Any]]: 关系列表
         """
         if confidence_threshold is None:
             confidence_threshold = self.DEFAULT_CONFIDENCE_THRESHOLD
         
-        # 检查缓存
-        cache_key = self._get_cache_key('relation_by_entities', str(entities), confidence_threshold, bidirectional, include_indirect)
-        cached_result = self._get_cached_result(cache_key)
-        if cached_result is not None:
-            logging.info(f"返回缓存的实体关系查询结果: {entities[:2]}")
-            return cached_result
-            
+        validated_entities = self._validate_entities(entities)
+        if len(validated_entities) < 2:
+            return []
+        
+        entity1, entity2 = validated_entities[0], validated_entities[1]
+        
+        cache_key = self._get_cache_key("find_relation_by_entities", 
+                                      entity1, entity2, confidence_threshold, bidirectional)
+        
+        # 构建查询
+        if bidirectional:
+            query = f"""
+            MATCH (n1)-[r]-(n2)
+            WHERE (n1.name CONTAINS '{entity1}' AND n2.name CONTAINS '{entity2}') OR
+                  (n1.name CONTAINS '{entity2}' AND n2.name CONTAINS '{entity1}')
+            RETURN n1.name as entity1, type(r) as relation, n2.name as entity2
+            LIMIT {self.QUERY_RESULT_LIMIT}
+            """
+        else:
+            query = f"""
+            MATCH (n1)-[r]->(n2)
+            WHERE n1.name CONTAINS '{entity1}' AND n2.name CONTAINS '{entity2}'
+            RETURN n1.name as entity1, type(r) as relation, n2.name as entity2
+            LIMIT {self.QUERY_RESULT_LIMIT}
+            """
+        
         try:
-            # 验证输入
-            cleaned_entities = self._validate_entities(entities)
-            if len(cleaned_entities) < 2:
-                return []
+            result = self._execute_query_with_cache(query, cache_key)
             
-            entity1, entity2 = cleaned_entities[0], cleaned_entities[1]
-            results = []
+            # 格式化结果
+            formatted_result = []
+            for record in result:
+                if record.get('entity1') and record.get('entity2'):
+                    formatted_result.append({
+                        'entity1': record['entity1'],
+                        'entity2': record['entity2'],
+                        'relation': record.get('relation', '未知关系')
+                    })
             
-            # 首先查找直接关系
-            if bidirectional:
-                direct_query = """
-                MATCH (n)-[r]-(m)
-                WHERE ((n.name = $entity1 AND m.name = $entity2) OR
-                       (n.name = $entity2 AND m.name = $entity1))
-                AND (r.confidence IS NULL OR r.confidence >= $threshold)
-                RETURN DISTINCT 
-                    n.name as entity1, 
-                    type(r) as relation,
-                    m.name as entity2,
-                    COALESCE(r.confidence, 1.0) as confidence,
-                    'direct' as relation_path
-                ORDER BY confidence DESC
-                LIMIT $limit
-                """
-            else:
-                direct_query = """
-                MATCH (n)-[r]->(m)
-                WHERE n.name = $entity1 AND m.name = $entity2
-                AND (r.confidence IS NULL OR r.confidence >= $threshold)
-                RETURN DISTINCT 
-                    n.name as entity1, 
-                    type(r) as relation,
-                    m.name as entity2,
-                    COALESCE(r.confidence, 1.0) as confidence,
-                    'direct' as relation_path
-                ORDER BY confidence DESC
-                LIMIT $limit
-                """
-            
-            direct_results = self.graph.run(direct_query,
-                                          entity1=entity1,
-                                          entity2=entity2,
-                                          threshold=confidence_threshold,
-                                          limit=self.QUERY_RESULT_LIMIT).data()
-            results.extend(direct_results)
-            
-            # 如果没有直接关系且允许间接关系，查找间接关系
-            if not direct_results and include_indirect:
-                if bidirectional:
-                    indirect_query = """
-                    MATCH (n)-[r1]-(middle)-[r2]-(m)
-                    WHERE ((n.name = $entity1 AND m.name = $entity2) OR
-                           (n.name = $entity2 AND m.name = $entity1))
-                    AND (r1.confidence IS NULL OR r1.confidence >= $threshold)
-                    AND (r2.confidence IS NULL OR r2.confidence >= $threshold)
-                    RETURN DISTINCT 
-                        n.name as entity1, 
-                        type(r1) + ' -> ' + middle.name + ' -> ' + type(r2) as relation,
-                        m.name as entity2,
-                        COALESCE(r1.confidence * r2.confidence, 0.8) as confidence,
-                        'indirect' as relation_path
-                    ORDER BY confidence DESC
-                    LIMIT 10
-                    """
-                else:
-                    indirect_query = """
-                    MATCH (n)-[r1]->(middle)-[r2]->(m)
-                    WHERE n.name = $entity1 AND m.name = $entity2
-                    AND (r1.confidence IS NULL OR r1.confidence >= $threshold)
-                    AND (r2.confidence IS NULL OR r2.confidence >= $threshold)
-                    RETURN DISTINCT 
-                        n.name as entity1, 
-                        type(r1) + ' -> ' + middle.name + ' -> ' + type(r2) as relation,
-                        m.name as entity2,
-                        COALESCE(r1.confidence * r2.confidence, 0.8) as confidence,
-                        'indirect' as relation_path
-                    ORDER BY confidence DESC
-                    LIMIT 10
-                    """
-                
-                indirect_results = self.graph.run(indirect_query,
-                                                 entity1=entity1,
-                                                 entity2=entity2,
-                                                 threshold=confidence_threshold).data()
-                results.extend(indirect_results)
-            
-            return results
+            return formatted_result
             
         except Exception as e:
             logging.error(f"查找实体间关系失败: {e}")
             return []
-    
-    def get_entities_containing(self, keyword: str, limit: int = 50) -> List[str]:
+
+    def find_entity_relations(self, entity_name: str, limit: int = 50) -> List[Dict[str, Any]]:
         """
-        获取包含关键词的实体
+        查找实体的所有关系
         
         Args:
-            keyword: 关键词
-            limit: 结果限制
+            entity_name: 实体名称
+            limit: 结果限制数量
             
         Returns:
-            List[str]: 实体列表
+            List[Dict[str, Any]]: 关系列表
         """
-        try:
-            if not keyword or not isinstance(keyword, str):
-                return []
-            
-            keyword = re.sub(r'[^\w\s\u4e00-\u9fff]', '', keyword.strip())
-            if not keyword:
-                return []
-            
-            cypher_query = """
-            MATCH (n)
-            WHERE n.name CONTAINS $keyword
-            RETURN DISTINCT n.name as entity
-            ORDER BY n.name
-            LIMIT $limit
-            """
-            
-            result = self.graph.run(cypher_query, keyword=keyword, limit=limit).data()
-            return [record['entity'] for record in result]
-            
-        except Exception as e:
-            logging.error(f"搜索实体失败: {e}")
+        sanitized_entity = self._sanitize_entity_name(entity_name)
+        if not sanitized_entity:
             return []
-    
-    def query_graph(self, question: str, entities: List[str] = None) -> Dict[str, Any]:
-        """
-        通用图查询接口
         
-        Args:
-            question: 问题文本
-            entities: 相关实体列表
-            
-        Returns:
-            Dict: 查询结果
+        cache_key = self._get_cache_key("find_entity_relations", sanitized_entity, limit)
+        
+        query = f"""
+        MATCH (n)-[r]-(m)
+        WHERE n.name CONTAINS '{sanitized_entity}'
+        RETURN n.name as entity1, type(r) as relation, m.name as entity2
+        LIMIT {min(limit, self.QUERY_RESULT_LIMIT)}
         """
+        
         try:
-            result = {
-                'question': question,
-                'entities': entities or [],
-                'relations': [],
-                'answer': '',
-                'confidence': 0.0,
-                'graphData': {}
-            }
+            result = self._execute_query_with_cache(query, cache_key)
             
-            if entities and len(entities) >= 2:
-                # 查找实体间关系
-                relations = self.find_relation_by_entities(entities)
-                result['relations'] = relations
-                
-                if relations:
-                    # 生成简单答案
-                    rel = relations[0]
-                    result['answer'] = f"{rel['entity1']}与{rel['entity2']}的关系是：{rel.get('relation', '未知')}"
-                    result['confidence'] = rel.get('confidence', 0.0)
+            # 格式化结果
+            formatted_result = []
+            for record in result:
+                if record.get('entity1') and record.get('entity2'):
+                    formatted_result.append({
+                        'entity1': record['entity1'],
+                        'entity2': record['entity2'],
+                        'relation': record.get('relation', '未知关系')
+                    })
             
-            elif entities and len(entities) == 1:
-                # 查找单个实体的关系
-                relations = self.find_entity_relations(entities[0])
-                result['relations'] = relations[:10]  # 限制返回数量
-                
-                if relations:
-                    result['answer'] = f"{entities[0]}相关的关系有：" + ", ".join([f"{r['relation']}" for r in relations[:5]])
-                    result['confidence'] = max([r.get('confidence', 0.0) for r in relations])
-            #将可视化字典赋值给result['graphData']
-            result['graphData'] = self._visualize_knowledge_graph(result)
-            print(f"result['graphData']: {result['graphData']}")
-            return result
+            return formatted_result
             
         except Exception as e:
-            logging.error(f"图查询失败: {e}")
-            return {
-                'question': question,
-                'entities': entities or [],
-                'relations': [],
-                'answer': '查询失败',
-                'confidence': 0.0
-            }
-    
-    def _visualize_knowledge_graph(self, query_result):
-        nodes = []
-        links = []
-        print(f"query_result: {query_result}")
-        # 处理实体节点
-        entities = query_result.get('entities', [])
-        for entity in entities:
-            nodes.append({
-                'id': entity,
-                'name': entity,
-            })
-        print(f"nodes: {nodes}")
-        # 处理关系边
-        relations = query_result.get('relations', [])
-        for rel in relations:
-            if rel.get('entity1') and rel.get('entity2'):
-                links.append({
-                    'source': rel['entity1'],
-                    'target': rel['entity2'],
-                    'relation': rel.get('relation', '未知'),
-                })
-        print(f"links: {links}")
-        graph_dict={'nodes': nodes, 'links': links}
-        print(f"graph_dict: {graph_dict}")
-        return graph_dict
-    
+            logging.error(f"查找实体关系失败: {e}")
+            return []
+
     def close(self):
-        """关闭数据库连接"""
-        if hasattr(self, 'graph'):
-            # py2neo没有显式的close方法，但可以清理缓存
-            self.find_entity_relations.cache_clear()
-            logging.info("知识图谱连接已关闭")
+        """关闭数据库连接和线程池"""
+        try:
+            if hasattr(self, 'executor'):
+                self.executor.shutdown(wait=True)
+            logging.info("知识图谱查询器已关闭")
+        except Exception as e:
+            logging.error(f"关闭知识图谱查询器时出错: {e}")
 
 # 为了兼容性，保留原有的类名
 DSAGraphQAFixed = KnowledgeGraphQuery

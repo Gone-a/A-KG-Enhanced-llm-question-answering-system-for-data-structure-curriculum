@@ -29,8 +29,8 @@ logger = logging.getLogger(__name__)
 class Trainer(object):
     def __init__(self, config, model):
         self.model = model
-        #{'<pad>': 0, '<suc>': 1, 'con': 2, 'ari': 3}
-        class_weights = torch.tensor([1.0, 1.0, 6.4818, 20.1338], dtype=torch.float).cuda()
+        #{'<pad>': 0, '<suc>': 1, 'datastructure': 2, 'principleorproperty': 3, 'operation': 4, 'complexity': 5, 'algorithm': 6, 'applicationscenario': 7}
+        class_weights = torch.tensor([1.0, 1.0, 21.4818,49.0910,34.8853,82.6848,38.0593,122.8859], dtype=torch.float).cuda()
         self.criterion = nn.CrossEntropyLoss(weight=class_weights)
 
         bert_params = set(self.model.bert.parameters())

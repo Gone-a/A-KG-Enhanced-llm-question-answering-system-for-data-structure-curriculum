@@ -6,11 +6,13 @@
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import json
+from .knowledge_graph_query import KnowledgeGraphQuery
+from .intent_recognition import IntentRecognizer
+from .doubao_llm import DoubaoLLM
 import logging
-from typing import Dict, Any, Optional
-
-
+import json
+from typing import Dict, Any, List, Optional
+import re
 
 class APIHandler:
     """简化的API处理器
@@ -18,24 +20,22 @@ class APIHandler:
     负责处理用户请求，提供基本的聊天功能
     """
     
-    def __init__(self, intent_recognizer=None, kg_query=None, llm_client=None):
-        """
-        初始化API处理器
-        
-        Args:
-            intent_recognizer: 意图识别器实例（可选）
-            kg_query: 知识图谱查询器实例（可选）
-            llm_client: LLM客户端实例（可选）
-        """
-        self.api_url = "http://localhost:5000"
-        self.intent_recognizer = intent_recognizer
+    def __init__(self, intent_recognizer, kg_query, llm_client=None):
+        """初始化后端API"""
         self.kg_query = kg_query
+        self.intent_recognizer = intent_recognizer
         self.llm_client = llm_client
+        
+        # 意图到KG接口的映射（只保留三个核心接口）
+        self.intent_to_kg_method = {
+            "find_entity_by_relation_and_entity": self._handle_find_entity_by_relation,
+            "find_relation_by_two_entities": self._handle_find_relation_between_entities,
+            "find_entity_relations": self._handle_find_entity_relations,
+            "other": self._handle_general_query
+        }
         
         logging.info("API处理器初始化完成")
     
-
-        
     def set_api_url(self, url: str):
         """
         设置API地址
@@ -48,7 +48,7 @@ class APIHandler:
 
     def process_query(self, user_input: str) -> Dict[str, Any]:
         """
-        处理用户查询
+        处理用户查询（基于意图识别）
         
         Args:
             user_input: 用户输入
@@ -61,55 +61,274 @@ class APIHandler:
         
         user_input = user_input.strip()
         
-        # 使用可用的组件处理查询
-        nlu_result = {}
-        knowledge_data = None
-        
-        if self.intent_recognizer:
-            nlu_result = self.intent_recognizer.understand(user_input)
-        
-        if self.kg_query and nlu_result.get('intent') != 'unknown':
-            knowledge_data = self.kg_query.query_graph(
-                user_input, 
-                entities=nlu_result.get('entities', [])
-            )
-        
-        # 生成回复
-        response_text = self._generate_response(nlu_result, knowledge_data, user_input)
-        return {"success": True, "message": response_text, "graphData": knowledge_data.get('graphData', {})}
+        try:
+            # 识别用户意图
+            intent = self.intent_recognizer.recognize_intent(user_input)
+            logging.info(f"识别到的意图: {intent}")
+            
+            # 根据意图调用相应的处理方法
+            if intent in self.intent_to_kg_method:
+                handler = self.intent_to_kg_method[intent]
+                return handler(user_input)
+            else:
+                # 未知意图，使用通用查询
+                return self._handle_general_query(user_input)
+                
+        except Exception as e:
+            logging.error(f"查询处理失败: {e}")
+            return {
+                "success": False,
+                "message": f"查询处理失败: {str(e)}",
+                "graphData": {}
+            }
     
-    def _generate_response(self, nlu_result: Dict[str, Any], knowledge_data: Dict[str, Any], user_input: str) -> str:
+    def _generate_llm_response(self, user_query: str, kg_result: List[Dict[str, Any]]) -> str:
         """
-        生成回复
+        基于知识图谱查询结果生成LLM回复
         
         Args:
-            nlu_result: 意图识别结果
-            knowledge_data: 知识图谱数据
-            user_input: 用户输入
+            user_query: 用户原始查询
+            kg_result: 知识图谱查询结果
             
         Returns:
-            str: 生成的回复
+            str: LLM生成的回复
         """
-        # 使用大模型生成回复
-        if self.llm_client:
-            # 构建包含上下文信息的提示
-            context = f"用户问题：{user_input}\n"
-            if nlu_result:
-                context += f"意图：{nlu_result.get('intent', '未知')}\n"
-                if nlu_result.get('entities'):
-                    context += f"实体：{', '.join(nlu_result.get('entities', []))}\n"
-            if knowledge_data and knowledge_data.get('answer'):
-                context += f"知识图谱信息：{knowledge_data.get('answer')}\n"
-            
-            response = self.llm_client.generate_response(context)
-            if response and response.content and response.content.strip():
-                return response.content.strip()
+        if not self.llm_client:
+            return "抱歉，LLM服务暂时不可用。"
         
-        # 如果没有LLM或生成失败，返回默认回复
-        if knowledge_data and knowledge_data.get('answer'):
-            return knowledge_data.get('answer')
-        return "抱歉，我无法理解您的问题。"
+        try:
+            # 构建上下文信息
+            context_info = []
+            if kg_result:
+                context_info.append("根据知识图谱查询到以下相关信息：")
+                for i, item in enumerate(kg_result[:5], 1):  # 限制上下文长度
+                    if isinstance(item, dict):
+                        if 'entity1' in item and 'entity2' in item:
+                            relation = item.get('relation', '相关')
+                            context_info.append(f"{i}. {item['entity1']} {relation} {item['entity2']}")
+                        elif 'entity' in item:
+                            context_info.append(f"{i}. 实体: {item['entity']}")
+            
+            # 构建完整的提示
+            context_str = "\n".join(context_info) if context_info else "未找到相关的知识图谱信息。"
+            
+            prompt = f"""用户问题：{user_query}
+
+知识图谱查询结果：
+{context_str}
+
+请基于以上知识图谱信息，用专业且易懂的语言回答用户的问题。如果知识图谱中没有相关信息，请诚实说明并提供一般性的解答。"""
+            
+            # 调用LLM生成回复
+            response = self.llm_client.generate_response(prompt)
+            return response.content
+            
+        except Exception as e:
+            logging.error(f"LLM回复生成失败: {e}")
+            return f"抱歉，生成回复时出现错误：{str(e)}"
     
+    def _handle_find_entity_by_relation(self, query: str) -> Dict[str, Any]:
+        """处理根据关系查找实体的查询"""
+        try:
+            entities = self.intent_recognizer.extract_entities(query)
+            relations = self.intent_recognizer.extract_relations(query)
+            
+            if entities and relations:
+                # 使用知识图谱查询
+                result = self.kg_query.find_entities_by_relation(entities, relations[0])
+                
+                # 生成LLM回复
+                llm_response = self._generate_llm_response(query, result)
+                
+                return {
+                    "success": True,
+                    "message": llm_response,
+                    "graphData": self._convert_to_graph_data(result),
+                    "kg_result": result[:10]  # 保留原始KG结果供调试
+                }
+            else:
+                # 即使没有找到实体或关系，也尝试生成LLM回复
+                llm_response = self._generate_llm_response(query, [])
+                return {
+                    "success": False,
+                    "message": llm_response,
+                    "graphData": {}
+                }
+                
+        except Exception as e:
+            logging.error(f"处理根据关系查找实体查询失败: {e}")
+            # 即使出错也尝试生成基本回复
+            llm_response = self._generate_llm_response(query, [])
+            return {
+                "success": False,
+                "message": llm_response,
+                "graphData": {}
+            }
+    
+    def _handle_find_relation_between_entities(self, query: str) -> Dict[str, Any]:
+        """处理查找两个实体间关系的查询"""
+        try:
+            entities = self.intent_recognizer.extract_entities(query)
+            
+            if len(entities) >= 2:
+                # 使用知识图谱查询
+                result = self.kg_query.find_relation_by_entities(entities[:2])
+                
+                # 生成LLM回复
+                llm_response = self._generate_llm_response(query, result)
+                
+                return {
+                    "success": True,
+                    "message": llm_response,
+                    "graphData": self._convert_to_graph_data(result),
+                    "kg_result": result[:10]  # 保留原始KG结果供调试
+                }
+            else:
+                # 即使没有找到足够实体，也尝试生成LLM回复
+                llm_response = self._generate_llm_response(query, [])
+                return {
+                    "success": False,
+                    "message": llm_response,
+                    "graphData": {}
+                }
+                
+        except Exception as e:
+            logging.error(f"处理实体间关系查询失败: {e}")
+            # 即使出错也尝试生成基本回复
+            llm_response = self._generate_llm_response(query, [])
+            return {
+                "success": False,
+                "message": llm_response,
+                "graphData": {}
+            }
+    
+    def _handle_find_entity_relations(self, query: str) -> Dict[str, Any]:
+        """处理查找实体关系的查询"""
+        try:
+            entities = self.intent_recognizer.extract_entities(query)
+            
+            if entities:
+                entity = entities[0]
+                
+                # 使用知识图谱查询
+                result = self.kg_query.find_entity_relations(entity)
+                
+                # 生成LLM回复
+                llm_response = self._generate_llm_response(query, result)
+                
+                return {
+                    "success": True,
+                    "message": llm_response,
+                    "graphData": self._convert_to_graph_data(result),
+                    "kg_result": result[:10]  # 保留原始KG结果供调试
+                }
+            else:
+                # 即使没有找到实体，也尝试生成LLM回复
+                llm_response = self._generate_llm_response(query, [])
+                return {
+                    "success": False,
+                    "message": llm_response,
+                    "graphData": {}
+                }
+                
+        except Exception as e:
+            logging.error(f"处理实体关系查询失败: {e}")
+            # 即使出错也尝试生成基本回复
+            llm_response = self._generate_llm_response(query, [])
+            return {
+                "success": False,
+                "message": llm_response,
+                "graphData": {}
+            }
+    
+    def _handle_general_query(self, query: str) -> Dict[str, Any]:
+        """处理通用查询"""
+        try:
+            # 对于通用查询，直接使用LLM生成回复
+            llm_response = self._generate_llm_response(query, [])
+            
+            return {
+                "success": True,
+                "message": llm_response,
+                "graphData": {}
+            }
+        except Exception as e:
+            logging.error(f"处理通用查询失败: {e}")
+            return {
+                "success": False,
+                "message": f"抱歉，处理您的问题时出现错误：{str(e)}",
+                "graphData": {}
+            }
+    
+    def _convert_to_graph_data(self, result: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """
+        将查询结果转换为图数据格式
+        
+        Args:
+            result: 查询结果
+            
+        Returns:
+            Dict[str, Any]: 图数据格式
+        """
+        if not result:
+            return {}
+        
+        nodes = []
+        links = []
+        node_ids = set()
+        
+        for item in result:
+            if isinstance(item, dict):
+                # 处理简单格式的结果
+                if 'entity1' in item and 'entity2' in item and isinstance(item['entity1'], str):
+                    entity1 = item['entity1']
+                    entity2 = item['entity2']
+                    relation = item.get('relation', '关系')
+                    
+                    # 添加节点
+                    if entity1 not in node_ids:
+                        nodes.append({"id": entity1, "name": entity1, "group": 1})
+                        node_ids.add(entity1)
+                    
+                    if entity2 not in node_ids:
+                        nodes.append({"id": entity2, "name": entity2, "group": 1})
+                        node_ids.add(entity2)
+                    
+                    # 添加边
+                    links.append({
+                        "source": entity1,
+                        "target": entity2,
+                        "relation": relation,
+                        "value": 1
+                    })
+                
+                # 处理增强格式的结果
+                elif 'entity1' in item and isinstance(item['entity1'], dict):
+                    entity1_name = item['entity1'].get('name', '未知')
+                    entity2_name = item['entity2'].get('name', '未知') if isinstance(item.get('entity2'), dict) else str(item.get('entity2', '未知'))
+                    relation_type = item['relation'].get('type', '关系') if isinstance(item.get('relation'), dict) else str(item.get('relation', '关系'))
+                    
+                    # 添加节点
+                    if entity1_name not in node_ids:
+                        nodes.append({"id": entity1_name, "name": entity1_name, "group": 1})
+                        node_ids.add(entity1_name)
+                    
+                    if entity2_name not in node_ids:
+                        nodes.append({"id": entity2_name, "name": entity2_name, "group": 1})
+                        node_ids.add(entity2_name)
+                    
+                    # 添加边
+                    links.append({
+                        "source": entity1_name,
+                        "target": entity2_name,
+                        "relation": relation_type,
+                        "value": 1
+                    })
+        
+        return {
+            "nodes": nodes[:20],  # 限制节点数量
+            "links": links[:30]   # 限制边数量
+        }
     
     def get_status(self) -> Dict[str, Any]:
         """
@@ -119,7 +338,6 @@ class APIHandler:
             Dict[str, Any]: 系统状态信息
         """
         return {
-            "api_url": self.api_url,
             "intent_recognizer": self.intent_recognizer is not None,
             "knowledge_graph": self.kg_query is not None,
             "llm_client": self.llm_client is not None
@@ -165,7 +383,6 @@ def create_flask_app(api_handler=None) -> Flask:
     # 主要的聊天接口 - 兼容前端的 /test 路由
     @app.route("/reply", methods=["POST"])
     def chat():
-        print("1")
         """聊天接口 - 兼容前端"""
         data = request.get_json()
         if not data or 'message' not in data:
@@ -177,15 +394,21 @@ def create_flask_app(api_handler=None) -> Flask:
         
         # 处理查询
         result = api_handler.process_query(message)
-        # result = {"message": "数组和栈的关系"}
-
-        #图的字典
-        print(result)
-        graph_dict=result.get('graphData',{})
-        # graph_dict={"nodes":[{"id":1,"name":"数组"},{"id":2,"name":"栈"}],"links":[{"source":1,"target":2,"relation":"关系"}]}
-        print("graph_dict:",graph_dict)
-        # 返回前端期望的格式
-        return jsonify({"message": result["message"],"graphData":graph_dict})
+        
+        # 获取图数据
+        graph_dict = result.get('graphData', {})
+        
+        # 记录调试信息
+        logging.info(f"查询结果: {result}")
+        logging.info(f"图数据: {graph_dict}")
+        
+        # 返回前端期望的格式，现在包含LLM生成的回复
+        return jsonify({
+            "message": result["message"],  # 现在是LLM生成的专业回复
+            "graphData": graph_dict,
+            "success": result.get("success", False),
+            "kg_result": result.get("kg_result", [])  # 可选：原始KG结果供调试
+        })
     
     
     @app.route("/set_api", methods=["POST"])
@@ -248,6 +471,47 @@ def create_flask_app(api_handler=None) -> Flask:
         api_handler.llm_client.history_messages=converted
         return data
 
+    # 单实体完整信息查询接口
+    @app.route("/entity/complete_info", methods=["POST"])
+    def get_entity_complete_info():
+        """获取单个实体的完整信息接口"""
+        try:
+            data = request.get_json()
+            if not data or 'entity_name' not in data:
+                return jsonify({
+                    "success": False,
+                    "error": "缺少entity_name参数"
+                }), 400
+            
+            entity_name = data['entity_name'].strip()
+            if not entity_name:
+                return jsonify({
+                    "success": False,
+                    "error": "实体名称不能为空"
+                }), 400
+            
+            # 获取可选参数
+            limit = data.get('limit', 100)
+            
+            # 检查知识图谱查询器是否可用
+            if not api_handler.kg_query:
+                return jsonify({
+                    "success": False,
+                    "error": "知识图谱查询器未初始化"
+                }), 500
+            
+            # 调用新的完整信息查询方法
+            result = api_handler.kg_query.get_entity_complete_info(entity_name, limit)
+            
+            return jsonify(result)
+            
+        except Exception as e:
+            logging.error(f"获取实体完整信息失败: {e}")
+            return jsonify({
+                "success": False,
+                "error": f"服务器内部错误: {str(e)}"
+            }), 500
+    
     # 健康检查接口
     @app.route("/health", methods=["GET"])
     def health_check():

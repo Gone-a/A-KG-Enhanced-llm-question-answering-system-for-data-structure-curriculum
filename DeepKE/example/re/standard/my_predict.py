@@ -11,6 +11,7 @@ from deepke.relation_extraction.standard.tools import Serializer
 from deepke.relation_extraction.standard.tools import _serialize_sentence, _convert_tokens_into_index, _add_pos_seq, _handle_relation_data , _lm_serialize
 import matplotlib.pyplot as plt
 from tqdm import tqdm
+import numpy as np
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../")))
 from deepke.relation_extraction.standard.utils import load_pkl, load_csv
 import deepke.relation_extraction.standard.models as models
@@ -67,12 +68,6 @@ def _preprocess_data(data, cfg):
         _convert_tokens_into_index(data, vocab)
         _add_pos_seq(data, cfg)
         logger.info('start sentence preprocess...')
-        formats = '\nsentence: {}\nchinese_split: {}\nreplace_entity_with_type:  {}\nreplace_entity_with_scope: {}\n' \
-                'tokens:    {}\ntoken2idx: {}\nlength:    {}\nhead_idx:  {}\ntail_idx:  {}'
-        logger.info(
-            formats.format(data[0]['sentence'], cfg.chinese_split, cfg.replace_entity_with_type,
-                        cfg.replace_entity_with_scope, data[0]['tokens'], data[0]['token2idx'], data[0]['seq_len'],
-                        data[0]['head_idx'], data[0]['tail_idx']))
     else:
         _lm_serialize(data,cfg)
 
@@ -92,18 +87,19 @@ def _load_csv_data(csv_path):
                 logger.error(f"CSV文件缺少必要的列: {col}")
                 sys.exit(1)
         
-        for _, row in df.iterrows():
-            #过滤头尾为空的和头尾相同的
-            if pd.isna(row['head']) or pd.isna(row['tail']) or row['head'] == row['tail']:
-                continue
-            instance = {
-                'sentence': str(row['sentence']).strip(),
-                'head': str(row['head']).strip(),
-                'tail': str(row['tail']).strip(),
-                'head_type': str(row['head_type']).strip(),
-                'tail_type': str(row['tail_type']).strip()
-            }
-            data.append(instance)
+        # 使用向量化操作过滤数据
+        mask = ~(df['head'].isna() | df['tail'].isna() | (df['head'] == df['tail']))
+        filtered_df = df[mask]
+        
+        # 批量转换为字典列表
+        data = filtered_df.apply(lambda row: {
+            'sentence': str(row['sentence']).strip(),
+            'head': str(row['head']).strip(),
+            'tail': str(row['tail']).strip(),
+            'head_type': str(row['head_type']).strip(),
+            'tail_type': str(row['tail_type']).strip()
+        }, axis=1).tolist()
+        
         logger.info(f'成功从 {csv_path} 加载 {len(data)} 条预测数据')
     except Exception as e:
         logger.error(f'加载CSV文件失败: {e}')
@@ -112,12 +108,128 @@ def _load_csv_data(csv_path):
     return data
 
 
+def prepare_batch_data(data, cfg, batch_size=32):
+    """准备批量处理的数据"""
+    batches = []
+    for i in range(0, len(data), batch_size):
+        batch = data[i:i+batch_size]
+        batch_data = {}
+        
+        if cfg.model.model_name != 'lm':
+            # 预分配张量
+            max_len = 512
+            batch_len = len(batch)
+            
+            # 使用numpy预分配，然后转换为tensor
+            word_batch = np.zeros((batch_len, max_len), dtype=np.int64)
+            lens_batch = np.zeros(batch_len, dtype=np.int64)
+            head_pos_batch = np.zeros((batch_len, max_len), dtype=np.int64)
+            tail_pos_batch = np.zeros((batch_len, max_len), dtype=np.int64)
+            
+            for j, instance in enumerate(batch):
+                tokens = instance.get('token2idx', [])
+                seq_len = min(len(tokens), max_len)
+                
+                word_batch[j, :seq_len] = tokens[:seq_len]
+                lens_batch[j] = seq_len
+                
+                head_pos = instance.get('head_pos', [0]*seq_len)
+                tail_pos = instance.get('tail_pos', [0]*seq_len)
+                head_pos_batch[j, :seq_len] = head_pos[:seq_len]
+                tail_pos_batch[j, :seq_len] = tail_pos[:seq_len]
+            
+            # 一次性转换为tensor
+            batch_data['word'] = torch.from_numpy(word_batch)
+            batch_data['lens'] = torch.from_numpy(lens_batch)
+            batch_data['head_pos'] = torch.from_numpy(head_pos_batch)
+            batch_data['tail_pos'] = torch.from_numpy(tail_pos_batch)
+            
+            # 处理特殊模型需求
+            if cfg.model.model_name == 'cnn' and cfg.use_pcnn:
+                pcnn_batch = np.zeros((batch_len, max_len), dtype=np.int64)
+                for j, instance in enumerate(batch):
+                    entities_pos = instance.get('entities_pos', [0]*seq_len)
+                    pcnn_batch[j, :len(entities_pos)] = entities_pos[:max_len]
+                batch_data['pcnn_mask'] = torch.from_numpy(pcnn_batch)
+                
+            if cfg.model.model_name == 'gcn':
+                batch_data['adj'] = torch.randint(0, 2, (batch_len, max_len, max_len))
+        else:
+            # LM模型批量处理
+            max_len = 512
+            batch_len = len(batch)
+            word_batch = np.zeros((batch_len, max_len), dtype=np.int64)
+            lens_batch = np.zeros(batch_len, dtype=np.int64)
+            
+            for j, instance in enumerate(batch):
+                tokens = instance.get('token2idx', [])
+                seq_len = min(len(tokens), max_len)
+                word_batch[j, :seq_len] = tokens[:seq_len]
+                lens_batch[j] = seq_len
+            
+            batch_data['word'] = torch.from_numpy(word_batch)
+            batch_data['lens'] = torch.from_numpy(lens_batch)
+        
+        batches.append((batch, batch_data))
+    
+    return batches
+
+
+def process_batch(model, batch_data, device, rels, model_name, cfg):
+    """批量处理数据进行预测"""
+    with torch.no_grad():
+        # 将数据移动到设备
+        for key, value in batch_data.items():
+            batch_data[key] = value.to(device)
+        
+        # 模型预测
+        logits = model(batch_data)
+        
+        # 添加详细的调试输出
+        logger.info(f"模型输出logits形状: {logits.shape}")
+        logger.info(f"模型输出logits范围: min={logits.min().item():.3f}, max={logits.max().item():.3f}")
+        
+        # 应用softmax获取概率
+        probs = torch.softmax(logits, dim=-1)
+        logger.info(f"Softmax概率形状: {probs.shape}")
+        logger.info(f"Softmax概率范围: min={probs.min().item():.3f}, max={probs.max().item():.3f}")
+        
+        # 获取最高概率的索引
+        max_probs, indices = torch.max(probs, dim=-1)
+        
+        # 详细分析每个样本的预测结果
+        logger.info(f"预测索引分布: {indices.cpu().numpy()}")
+        logger.info(f"最高概率分布: min={max_probs.min().item():.3f}, max={max_probs.max().item():.3f}, mean={max_probs.mean().item():.3f}")
+        
+        # 分析所有类别的概率分布
+        for i in range(probs.shape[1]):
+            class_probs = probs[:, i]
+            logger.info(f"类别{i}概率: min={class_probs.min().item():.3f}, max={class_probs.max().item():.3f}, mean={class_probs.mean().item():.3f}")
+        
+        # 检查关系映射
+        logger.info(f"关系映射: {list(rels.keys())}")
+        logger.info(f"关系数量: {len(rels)}")
+        
+        # 转换为结果
+        results = []
+        rels_keys = list(rels.keys())
+        for prob, index in zip(max_probs.cpu().numpy(), indices.cpu().numpy()):
+            if index < len(rels_keys):
+                prob_rel = rels_keys[index]
+                results.append((prob_rel, float(prob)))
+                logger.debug(f"预测: 索引{index} -> 关系'{prob_rel}', 概率{prob:.3f}")
+            else:
+                results.append(("", 0.0))
+                logger.warning(f"索引{index}超出关系范围，关系数量为{len(rels_keys)}")
+        
+        return results
+
+
 @hydra.main(config_path="conf", config_name="config", version_base=None)
 def main(cfg):
     cwd = utils.get_original_cwd()
     cfg.cwd = cwd
     cfg.pos_size = 2 * cfg.pos_limit + 2
-    #print(cfg.pretty())
 
     # 批量加载CSV文件
     batch_predict_file= cfg.predict_data_path
@@ -138,8 +250,8 @@ def main(cfg):
         'lm': models.LM,
     }
 
-    # 最好在 cpu 上预测
-    cfg.use_gpu = False
+    # GPU设置
+    cfg.use_gpu = True
     if cfg.use_gpu and torch.cuda.is_available():
         device = torch.device('cuda', cfg.gpu_id)
     else:
@@ -148,73 +260,23 @@ def main(cfg):
 
     model = __Model__[cfg.model.model_name](cfg)
     logger.info(f'model name: {cfg.model.model_name}')
-    logger.info(f'\n {model}')
     model.load(cfg.fp, device=device)
     model.to(device)
     model.eval()
 
-    def process_single_piece(model, piece, device, rels, model_name):
-        with torch.no_grad():
-            # 确保只传递模型需要的键
-            required_keys = ['word', 'lens']
-            if model_name != 'lm':
-                required_keys.extend(['head_pos', 'tail_pos'])
-                if model_name == 'cnn' and cfg.use_pcnn:
-                    required_keys.append('pcnn_mask')
-                if model_name == 'gcn':
-                    required_keys.append('adj')
-            
-            filtered_piece = {k: v.to(device) for k, v in piece.items() if k in required_keys}
-            y_pred = model(filtered_piece)
-            y_pred = torch.softmax(y_pred, dim=-1)[0]  
-            prob = y_pred.max().item()
-            index = y_pred.argmax().item()
-            if index >= len(rels):
-                print("The index {} is out of range for 'rels' with length {}.".format(index, len(rels)))
-                return [], 0, 0
-            prob_rel = list(rels.keys())[index]
-            return prob_rel, prob, y_pred
-        
+    # 准备批量数据
+    batch_size = 64 if cfg.use_gpu else 32  # GPU使用更大的批次
+    batches = prepare_batch_data(data, cfg, batch_size)
+    
     # 存储所有预测结果
     all_results = []
     
-    # 使用进度条显示处理进度
-    for i, instance in enumerate(tqdm(data, desc="处理预测数据", unit="条")):
-        # 为当前实例创建临时数据
-        instance_data = [instance]
+    # 批量处理
+    for batch_instances, batch_data in tqdm(batches, desc="批量处理预测数据", unit="批"):
+        batch_results = process_batch(model, batch_data, device, rels, cfg.model.model_name, cfg)
         
-        if cfg.model.model_name != 'lm':
-            x = dict()
-            tokens = instance['token2idx'] if 'token2idx' in instance else []
-            seq_len = instance['seq_len'] if 'seq_len' in instance else len(tokens)
-            
-            # 填充到固定长度
-            padded_tokens = tokens + [0] * (512 - len(tokens))
-            x['word'] = torch.tensor([padded_tokens])
-            x['lens'] = torch.tensor([seq_len])
-            
-            # 处理位置信息 - 确保这些键存在
-            head_pos = instance.get('head_pos', [0]*len(tokens))
-            tail_pos = instance.get('tail_pos', [0]*len(tokens))
-            padded_head_pos = head_pos + [0] * (512 - len(head_pos))
-            padded_tail_pos = tail_pos + [0] * (512 - len(tail_pos))
-            x['head_pos'] = torch.tensor(padded_head_pos).unsqueeze(0)  # 增加批次维度
-            x['tail_pos'] = torch.tensor(padded_tail_pos).unsqueeze(0)   # 增加批次维度
-            
-            # 记录输入键的调试信息
-            logger.debug(f"模型输入键: {list(x.keys())}")
-            
-            if cfg.model.model_name == 'cnn' and cfg.use_pcnn:
-                entities_pos = instance.get('entities_pos', [0]*len(tokens))
-                padded_entities_pos = entities_pos + [0] * (512 - len(entities_pos))
-                x['pcnn_mask'] = torch.tensor([padded_entities_pos])
-                
-            if cfg.model.model_name == 'gcn':
-                adj = torch.empty(1, 512, 512).random_(2)
-                x['adj'] = adj
-
-            prob_rel, prob, y_pred = process_single_piece(model, x, device, rels, cfg.model.model_name)
-            
+        # 组合结果
+        for instance, (prob_rel, prob) in zip(batch_instances, batch_results):
             all_results.append({
                 'sentence': instance['sentence'],
                 'head': instance['head'],
@@ -222,39 +284,11 @@ def main(cfg):
                 'relation': prob_rel,
                 'confidence': prob
             })
-        else:  # LM模型处理
-            tokenized_input = instance['token2idx']
-            max_len = 512
-            num_pieces = len(tokenized_input) // max_len + (1 if len(tokenized_input) % max_len > 0 else 0)
-            
-            max_prob = -1
-            best_relation = ''
-            
-            for j in range(num_pieces):
-                start_idx = j * max_len
-                end_idx = min((j + 1) * max_len, len(tokenized_input))
-                current_piece_input = {
-                    'word': torch.tensor([tokenized_input[start_idx:end_idx] + [0] * (max_len - (end_idx - start_idx))]),
-                    'lens': torch.tensor([min(end_idx - start_idx, max_len)])
-                }
-                relation, prob, y_pred = process_single_piece(model, current_piece_input, device, rels, cfg.model.model_name)
-                if prob > max_prob:
-                    max_prob = prob
-                    best_relation = relation
-            
-            all_results.append({
-                'sentence': instance['sentence'],
-                'head': instance['head'],
-                'tail': instance['tail'],
-                'relation': best_relation,
-                'confidence': max_prob
-            })
     
-    # 保存结果到CSV
     # 设置置信度阈值
     confidence_threshold = 0.8
     
-    # 打印一些统计信息
+    # 打印统计信息
     if all_results:
         confidences = [result['confidence'] for result in all_results]
         logger.info(f"置信度统计: 最大值={max(confidences):.3f}, 最小值={min(confidences):.3f}, 平均值={sum(confidences)/len(confidences):.3f}")
@@ -278,7 +312,7 @@ def main(cfg):
 
     try:
         if filtered_results:
-            results_df = pd.DataFrame(filtered_results)  # 使用过滤后的结果
+            results_df = pd.DataFrame(filtered_results)
             results_df.to_csv(results_file, index=False, encoding='utf-8-sig')
             results_df.to_csv(results_file_2, index=False, encoding='utf-8-sig')
             logger.info(f"预测结果已保存到: {results_file}")

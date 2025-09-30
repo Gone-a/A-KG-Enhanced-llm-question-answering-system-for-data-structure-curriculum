@@ -10,8 +10,13 @@
   "dependencies": {
     "axios": "^1.11.0",
     "core-js": "^3.8.3",
+    "d3": "^7.9.0",
+    "dompurify": "^3.2.7",
     "echarts": "^5.6.0",
     "font-awesome": "^4.7.0",
+    "github-markdown-css": "^5.8.1",
+    "marked": "^16.3.0",
+    "pinia": "^3.0.3",
     "vue": "^3.2.13",
     "vue-echarts": "^7.0.3",
     "vue-router": "^4.5.1"

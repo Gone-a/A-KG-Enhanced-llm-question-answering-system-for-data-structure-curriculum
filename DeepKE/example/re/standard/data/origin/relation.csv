@@ -1,10 +1,8 @@
 head_type,tail_type,relation,index
-CON,ARI,rely,0
-CON,ARI,b-rely,1
-CON,CON,belg,2
-CON,CON,b-belg,3
-CON,CON,syno,4
-ARI,ARI,anto,5
-CON,ARI,attr,6
-ARI,CON,b-attr,7
-CON,CON,none,8
+Algorithm,Complexity,hasComplexity,0
+Algorithm,DataStructure,uses,1
+DataStructure,DataStructure,variantOf,2
+DataStructure,ApplicationScenario,appliesTo,3
+DataStructure,Operation,provides,4
+DataStructure,Algorithm,implementedAs,5
+Operation,ApplicationScenario,usedIn,6

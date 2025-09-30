@@ -40,7 +40,7 @@ def _add_pos_seq(train_data: List[Dict], cfg):
         d['attribute_value_pos'] = list(map(lambda i: i - d['attribute_value_index'], list(range(d['seq_len']))))
         d['attribute_value_pos'] = _handle_pos_limit(d['attribute_value_pos'],int(cfg.pos_limit))
 
-        if cfg.model_name == 'cnn':
+        if cfg.model.model_name == 'cnn':
             if cfg.use_pcnn:
                 d['entities_pos'] = [1] * (entities_idx[0] + 1) + [2] * (entities_idx[1] - entities_idx[0] - 1) +\
                                     [3] * (d['seq_len'] - entities_idx[1])
@@ -103,7 +103,7 @@ def preprocess(cfg):
     _add_attribute_data(atts,valid_data)
 
     logger.info('verify whether use pretrained language models...')
-    if cfg.model_name == 'lm':
+    if cfg.model.model_name == 'lm':
         logger.info('use pretrained language models serialize sentence...')
         _lm_serialize(train_data, cfg)
         _lm_serialize(valid_data, cfg)
@@ -145,7 +145,7 @@ def preprocess(cfg):
     save_pkl(valid_data, valid_save_fp)
     save_pkl(test_data, test_save_fp)
 
-    if cfg.model_name != 'lm':
+    if cfg.model.model_name != 'lm':
         vocab_save_fp = os.path.join(cfg.cwd, cfg.out_path, 'vocab.pkl')
         vocab_txt = os.path.join(cfg.cwd, cfg.out_path, 'vocab.txt')
         save_pkl(vocab, vocab_save_fp)

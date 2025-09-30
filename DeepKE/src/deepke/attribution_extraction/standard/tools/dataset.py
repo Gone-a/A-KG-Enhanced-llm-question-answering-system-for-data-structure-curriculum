@@ -31,10 +31,10 @@ def collate_fn(cfg):
             word_len.append(data['seq_len'])
             y.append(int(data['att2idx']))
 
-            if cfg.model_name != 'lm':
+            if cfg.model.model_name != 'lm':
                 head_pos.append(_padding(data['entity_pos'], max_len))
                 tail_pos.append(_padding(data['attribute_value_pos'], max_len))
-                if cfg.model_name == 'cnn':
+                if cfg.model.model_name == 'cnn':
                     if cfg.use_pcnn:
                         pcnn_mask.append(_padding(data['entities_pos'], max_len))
 
@@ -42,12 +42,12 @@ def collate_fn(cfg):
         x['lens'] = torch.tensor(word_len)
         y = torch.tensor(y)
 
-        if cfg.model_name != 'lm':
+        if cfg.model.model_name != 'lm':
             x['entity_pos'] = torch.tensor(head_pos)
             x['attribute_value_pos'] = torch.tensor(tail_pos)
-            if cfg.model_name == 'cnn' and cfg.use_pcnn:
+            if cfg.model.model_name == 'cnn' and cfg.use_pcnn:
                 x['pcnn_mask'] = torch.tensor(pcnn_mask)
-            if cfg.model_name == 'gcn':
+            if cfg.model.model_name == 'gcn':
                 # 没找到合适的做 parsing tree 的工具，暂时随机初始化
                 B, L = len(batch), max_len
                 adj = torch.empty(B, L, L).random_(2)

@@ -106,11 +106,11 @@ def main():
     """主函数"""
     print("知识图谱问答系统启动中...")
     
-    print("01")
+    #print("01")
     app = KnowledgeGraphApp()
-    print("02")
+    #print("02")
     app.initialize()
-    print("03")
+    #print("03")
     app.run()
 
 if __name__ == "__main__":
