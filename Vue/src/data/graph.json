@@ -1,1575 +1,4434 @@
 {
   "nodes": [
     {
-      "id": "叶子节点",
-      "name": "叶子节点"
+      "id": "AC自动机",
+      "name": "AC自动机"
     },
     {
-      "id": "子节点",
-      "name": "子节点"
+      "id": "B+树",
+      "name": "B+树"
     },
     {
-      "id": "插入",
-      "name": "插入"
+      "id": "Bellman-Ford算法",
+      "name": "Bellman-Ford算法"
     },
     {
-      "id": "删除",
-      "name": "删除"
+      "id": "B树",
+      "name": "B树"
     },
     {
-      "id": "二叉树",
-      "name": "二叉树"
+      "id": "Dijkstra算法",
+      "name": "Dijkstra算法"
     },
     {
-      "id": "线性表",
-      "name": "线性表"
+      "id": "KMP算法",
+      "name": "KMP算法"
     },
     {
-      "id": "数据元素",
-      "name": "数据元素"
+      "id": "LFU缓存",
+      "name": "LFU缓存"
     },
     {
-      "id": "数组",
-      "name": "数组"
+      "id": "LRU缓存",
+      "name": "LRU缓存"
     },
     {
-      "id": "循环链表",
-      "name": "循环链表"
+      "id": "O",
+      "name": "O"
     },
     {
-      "id": "链表",
-      "name": "链表"
+      "id": "Θ记号",
+      "name": "Θ记号"
     },
     {
-      "id": "堆排序",
-      "name": "堆排序"
+      "id": "Ω记号",
+      "name": "Ω记号"
     },
     {
-      "id": "堆",
-      "name": "堆"
+      "id": "不相交集合",
+      "name": "不相交集合"
     },
     {
-      "id": "前驱节点",
-      "name": "前驱节点"
-    },
-    {
-      "id": "根节点",
-      "name": "根节点"
-    },
-    {
-      "id": "集合",
-      "name": "集合"
-    },
-    {
-      "id": "回路",
-      "name": "回路"
-    },
-    {
-      "id": "路径",
-      "name": "路径"
-    },
-    {
-      "id": "连通图",
-      "name": "连通图"
-    },
-    {
-      "id": "单链表",
-      "name": "单链表"
-    },
-    {
-      "id": "指针",
-      "name": "指针"
-    },
-    {
-      "id": "排序",
-      "name": "排序"
-    },
-    {
-      "id": "交换排序",
-      "name": "交换排序"
-    },
-    {
-      "id": "树的节点",
-      "name": "树的节点"
-    },
-    {
-      "id": "子树",
-      "name": "子树"
-    },
-    {
-      "id": "邻接表",
-      "name": "邻接表"
-    },
-    {
-      "id": "线性结构",
-      "name": "线性结构"
-    },
-    {
-      "id": "比较排序",
-      "name": "比较排序"
-    },
-    {
-      "id": "逻辑结构",
-      "name": "逻辑结构"
-    },
-    {
-      "id": "父节点",
-      "name": "父节点"
-    },
-    {
-      "id": "非线性结构",
-      "name": "非线性结构"
-    },
-    {
-      "id": "队列",
-      "name": "队列"
-    },
-    {
-      "id": "入队",
-      "name": "入队"
-    },
-    {
-      "id": "递归",
-      "name": "递归"
-    },
-    {
-      "id": "双向链表",
-      "name": "双向链表"
-    },
-    {
-      "id": "满二叉树",
-      "name": "满二叉树"
-    },
-    {
-      "id": "尾节点",
-      "name": "尾节点"
-    },
-    {
-      "id": "邻接矩阵",
-      "name": "邻接矩阵"
-    },
-    {
-      "id": "图的顶点",
-      "name": "图的顶点"
-    },
-    {
-      "id": "遍历",
-      "name": "遍历"
-    },
-    {
-      "id": "回溯法",
-      "name": "回溯法"
-    },
-    {
-      "id": "深度优先搜索",
-      "name": "深度优先搜索"
-    },
-    {
-      "id": "递归基础",
-      "name": "递归基础"
-    },
-    {
-      "id": "广度优先搜索",
-      "name": "广度优先搜索"
-    },
-    {
-      "id": "归并排序",
-      "name": "归并排序"
-    },
-    {
-      "id": "查找",
-      "name": "查找"
-    },
-    {
-      "id": "存储结构",
-      "name": "存储结构"
-    },
-    {
-      "id": "树的高度",
-      "name": "树的高度"
-    },
-    {
-      "id": "树的度",
-      "name": "树的度"
-    },
-    {
-      "id": "访问",
-      "name": "访问"
-    },
-    {
-      "id": "树的深度",
-      "name": "树的深度"
-    },
-    {
-      "id": "顺序查找",
-      "name": "顺序查找"
-    },
-    {
-      "id": "二分查找",
-      "name": "二分查找"
-    },
-    {
-      "id": "插入排序",
-      "name": "插入排序"
-    },
-    {
-      "id": "快速排序",
-      "name": "快速排序"
-    },
-    {
-      "id": "平衡二叉树",
-      "name": "平衡二叉树"
-    },
-    {
-      "id": "映射",
-      "name": "映射"
-    },
-    {
-      "id": "哈希表",
-      "name": "哈希表"
-    },
-    {
-      "id": "哈希函数",
-      "name": "哈希函数"
+      "id": "二叉堆",
+      "name": "二叉堆"
     },
     {
       "id": "二叉搜索树",
       "name": "二叉搜索树"
     },
     {
-      "id": "左子树",
-      "name": "左子树"
+      "id": "二叉树",
+      "name": "二叉树"
     },
     {
-      "id": "表尾",
-      "name": "表尾"
+      "id": "二路归并",
+      "name": "二路归并"
     },
     {
-      "id": "完全二叉树",
-      "name": "完全二叉树"
+      "id": "二项堆",
+      "name": "二项堆"
     },
     {
-      "id": "数据类型",
-      "name": "数据类型"
+      "id": "任务调度",
+      "name": "任务调度"
     },
     {
-      "id": "冒泡排序",
-      "name": "冒泡排序"
+      "id": "优先队列",
+      "name": "优先队列"
     },
     {
-      "id": "简单排序",
-      "name": "简单排序"
+      "id": "会计方法",
+      "name": "会计方法"
     },
     {
-      "id": "稳定性",
-      "name": "稳定性"
-    },
-    {
-      "id": "抽象数据类型",
-      "name": "抽象数据类型"
-    },
-    {
-      "id": "后继节点",
-      "name": "后继节点"
-    },
-    {
-      "id": "物理结构",
-      "name": "物理结构"
-    },
-    {
-      "id": "有向图",
-      "name": "有向图"
-    },
-    {
-      "id": "无向图",
-      "name": "无向图"
-    },
-    {
-      "id": "图",
-      "name": "图"
-    },
-    {
-      "id": "加权图",
-      "name": "加权图"
-    },
-    {
-      "id": "迭代法",
-      "name": "迭代法"
-    },
-    {
-      "id": "递推",
-      "name": "递推"
+      "id": "克鲁斯卡尔算法",
+      "name": "克鲁斯卡尔算法"
     },
     {
       "id": "入栈",
       "name": "入栈"
     },
     {
+      "id": "入队",
+      "name": "入队"
+    },
+    {
+      "id": "内存分配",
+      "name": "内存分配"
+    },
+    {
+      "id": "冒泡排序",
+      "name": "冒泡排序"
+    },
+    {
       "id": "出栈",
       "name": "出栈"
     },
     {
-      "id": "迭代",
-      "name": "迭代"
+      "id": "出队",
+      "name": "出队"
     },
     {
-      "id": "穷举法",
-      "name": "穷举法"
+      "id": "分块查找",
+      "name": "分块查找"
     },
     {
-      "id": "操作效率",
-      "name": "操作效率"
+      "id": "分支限界",
+      "name": "分支限界"
+    },
+    {
+      "id": "分治",
+      "name": "分治"
+    },
+    {
+      "id": "初始化",
+      "name": "初始化"
+    },
+    {
+      "id": "删除",
+      "name": "删除"
+    },
+    {
+      "id": "前缀树",
+      "name": "前缀树"
+    },
+    {
+      "id": "动态规划",
+      "name": "动态规划"
+    },
+    {
+      "id": "势能方法",
+      "name": "势能方法"
+    },
+    {
+      "id": "单源最短路径",
+      "name": "单源最短路径"
+    },
+    {
+      "id": "单链表",
+      "name": "单链表"
+    },
+    {
+      "id": "双向链表",
+      "name": "双向链表"
+    },
+    {
+      "id": "双端队列",
+      "name": "双端队列"
+    },
+    {
+      "id": "可持久化数据结构",
+      "name": "可持久化数据结构"
+    },
+    {
+      "id": "合并",
+      "name": "合并"
+    },
+    {
+      "id": "后缀树",
+      "name": "后缀树"
+    },
+    {
+      "id": "哈希查找",
+      "name": "哈希查找"
+    },
+    {
+      "id": "哈希表",
+      "name": "哈希表"
+    },
+    {
+      "id": "回溯法",
+      "name": "回溯法"
+    },
+    {
+      "id": "图",
+      "name": "图"
+    },
+    {
+      "id": "垃圾回收",
+      "name": "垃圾回收"
+    },
+    {
+      "id": "基数排序",
+      "name": "基数排序"
+    },
+    {
+      "id": "堆",
+      "name": "堆"
+    },
+    {
+      "id": "堆排序",
+      "name": "堆排序"
+    },
+    {
+      "id": "复制",
+      "name": "复制"
+    },
+    {
+      "id": "外部排序",
+      "name": "外部排序"
+    },
+    {
+      "id": "多路归并",
+      "name": "多路归并"
+    },
+    {
+      "id": "大O记号",
+      "name": "大O记号"
+    },
+    {
+      "id": "大根堆",
+      "name": "大根堆"
+    },
+    {
+      "id": "字典树",
+      "name": "字典树"
+    },
+    {
+      "id": "小根堆",
+      "name": "小根堆"
+    },
+    {
+      "id": "布隆过滤器",
+      "name": "布隆过滤器"
+    },
+    {
+      "id": "希尔排序",
+      "name": "希尔排序"
+    },
+    {
+      "id": "平均情况",
+      "name": "平均情况"
+    },
+    {
+      "id": "平均查找长度",
+      "name": "平均查找长度"
+    },
+    {
+      "id": "平衡二叉树",
+      "name": "平衡二叉树"
+    },
+    {
+      "id": "并查集",
+      "name": "并查集"
+    },
+    {
+      "id": "广度优先搜索",
+      "name": "广度优先搜索"
+    },
+    {
+      "id": "引用计数",
+      "name": "引用计数"
+    },
+    {
+      "id": "弗洛伊德算法",
+      "name": "弗洛伊德算法"
+    },
+    {
+      "id": "归并排序",
+      "name": "归并排序"
+    },
+    {
+      "id": "循环链表",
+      "name": "循环链表"
+    },
+    {
+      "id": "循环队列",
+      "name": "循环队列"
+    },
+    {
+      "id": "快速排序",
+      "name": "快速排序"
+    },
+    {
+      "id": "扩容",
+      "name": "扩容"
+    },
+    {
+      "id": "折半查找",
+      "name": "折半查找"
+    },
+    {
+      "id": "拓扑排序",
+      "name": "拓扑排序"
+    },
+    {
+      "id": "括号匹配",
+      "name": "括号匹配"
+    },
+    {
+      "id": "按秩合并",
+      "name": "按秩合并"
+    },
+    {
+      "id": "插值查找",
+      "name": "插值查找"
+    },
+    {
+      "id": "插入",
+      "name": "插入"
+    },
+    {
+      "id": "插入排序",
+      "name": "插入排序"
+    },
+    {
+      "id": "摊还分析",
+      "name": "摊还分析"
+    },
+    {
+      "id": "数组",
+      "name": "数组"
+    },
+    {
+      "id": "斐波那契堆",
+      "name": "斐波那契堆"
+    },
+    {
+      "id": "旋转",
+      "name": "旋转"
     },
     {
       "id": "时间复杂度",
       "name": "时间复杂度"
     },
     {
-      "id": "空间复杂度",
-      "name": "空间复杂度"
+      "id": "普里姆算法",
+      "name": "普里姆算法"
     },
     {
-      "id": "图的边",
-      "name": "图的边"
+      "id": "最坏情况",
+      "name": "最坏情况"
+    },
+    {
+      "id": "最好情况",
+      "name": "最好情况"
+    },
+    {
+      "id": "最小生成树",
+      "name": "最小生成树"
+    },
+    {
+      "id": "最短路径",
+      "name": "最短路径"
+    },
+    {
+      "id": "查找",
+      "name": "查找"
     },
     {
       "id": "栈",
       "name": "栈"
     },
     {
-      "id": "表头",
-      "name": "表头"
+      "id": "树",
+      "name": "树"
+    },
+    {
+      "id": "树状数组",
+      "name": "树状数组"
+    },
+    {
+      "id": "桶排序",
+      "name": "桶排序"
+    },
+    {
+      "id": "深度优先搜索",
+      "name": "深度优先搜索"
+    },
+    {
+      "id": "渐近复杂度",
+      "name": "渐近复杂度"
+    },
+    {
+      "id": "状态转移",
+      "name": "状态转移"
+    },
+    {
+      "id": "生成森林",
+      "name": "生成森林"
+    },
+    {
+      "id": "直接插入排序",
+      "name": "直接插入排序"
+    },
+    {
+      "id": "移动",
+      "name": "移动"
+    },
+    {
+      "id": "穷举法",
+      "name": "穷举法"
+    },
+    {
+      "id": "空间复杂度",
+      "name": "空间复杂度"
+    },
+    {
+      "id": "红黑树",
+      "name": "红黑树"
+    },
+    {
+      "id": "线性查找",
+      "name": "线性查找"
+    },
+    {
+      "id": "线性表",
+      "name": "线性表"
+    },
+    {
+      "id": "线段树",
+      "name": "线段树"
+    },
+    {
+      "id": "缩容",
+      "name": "缩容"
+    },
+    {
+      "id": "聚合分析",
+      "name": "聚合分析"
+    },
+    {
+      "id": "表达式求值",
+      "name": "表达式求值"
+    },
+    {
+      "id": "计数排序",
+      "name": "计数排序"
+    },
+    {
+      "id": "记忆化搜索",
+      "name": "记忆化搜索"
+    },
+    {
+      "id": "贪心策略",
+      "name": "贪心策略"
+    },
+    {
+      "id": "路径压缩",
+      "name": "路径压缩"
+    },
+    {
+      "id": "跳跃表",
+      "name": "跳跃表"
+    },
+    {
+      "id": "迪杰斯特拉算法",
+      "name": "迪杰斯特拉算法"
+    },
+    {
+      "id": "迷宫求解",
+      "name": "迷宫求解"
     },
     {
       "id": "选择排序",
       "name": "选择排序"
     },
     {
-      "id": "树",
-      "name": "树"
+      "id": "遍历",
+      "name": "遍历"
     },
     {
-      "id": "无权图",
-      "name": "无权图"
+      "id": "链表",
+      "name": "链表"
     },
     {
-      "id": "边的权重",
-      "name": "边的权重"
+      "id": "销毁",
+      "name": "销毁"
     },
     {
-      "id": "数据项",
-      "name": "数据项"
+      "id": "队列",
+      "name": "队列"
     },
     {
-      "id": "初始化",
-      "name": "初始化"
+      "id": "随机访问",
+      "name": "随机访问"
+    },
+    {
+      "id": "顺序访问",
+      "name": "顺序访问"
     }
   ],
   "links": [
     {
-      "source": "叶子节点",
-      "target": "子节点",
-      "relation": "无"
+      "source": "AC自动机",
+      "target": "任务调度",
+      "relation": "appliesTo"
     },
     {
-      "source": "插入",
-      "target": "删除",
-      "relation": "包含"
-    },
-    {
-      "source": "子节点",
-      "target": "叶子节点",
-      "relation": "无"
-    },
-    {
-      "source": "二叉树",
-      "target": "子节点",
-      "relation": "包含"
-    },
-    {
-      "source": "线性表",
-      "target": "数据元素",
-      "relation": "包含"
-    },
-    {
-      "source": "数组",
-      "target": "数据元素",
-      "relation": "包含"
-    },
-    {
-      "source": "循环链表",
-      "target": "链表",
-      "relation": "被包含"
-    },
-    {
-      "source": "堆排序",
-      "target": "堆",
-      "relation": "属性"
-    },
-    {
-      "source": "前驱节点",
-      "target": "根节点",
-      "relation": "无"
-    },
-    {
-      "source": "数组",
-      "target": "集合",
-      "relation": "被包含"
-    },
-    {
-      "source": "回路",
-      "target": "路径",
-      "relation": "被包含"
-    },
-    {
-      "source": "连通图",
-      "target": "路径",
-      "relation": "包含"
-    },
-    {
-      "source": "单链表",
-      "target": "指针",
-      "relation": "包含"
-    },
-    {
-      "source": "排序",
-      "target": "数组",
-      "relation": "无"
-    },
-    {
-      "source": "交换排序",
-      "target": "排序",
-      "relation": "属性"
-    },
-    {
-      "source": "树的节点",
-      "target": "子节点",
-      "relation": "包含"
-    },
-    {
-      "source": "数据元素",
-      "target": "子树",
-      "relation": "无"
-    },
-    {
-      "source": "邻接表",
-      "target": "链表",
-      "relation": "包含"
-    },
-    {
-      "source": "二叉树",
-      "target": "子树",
-      "relation": "包含"
-    },
-    {
-      "source": "根节点",
-      "target": "子节点",
-      "relation": "无"
-    },
-    {
-      "source": "线性结构",
-      "target": "数据元素",
-      "relation": "包含"
-    },
-    {
-      "source": "路径",
-      "target": "连通图",
-      "relation": "无"
-    },
-    {
-      "source": "比较排序",
-      "target": "排序",
-      "relation": "属性"
-    },
-    {
-      "source": "逻辑结构",
-      "target": "数据元素",
-      "relation": "包含"
-    },
-    {
-      "source": "根节点",
-      "target": "父节点",
-      "relation": "包含"
-    },
-    {
-      "source": "非线性结构",
-      "target": "数据元素",
-      "relation": "包含"
-    },
-    {
-      "source": "队列",
+      "source": "AC自动机",
       "target": "入队",
-      "relation": "被包含"
+      "relation": "appliesTo"
     },
     {
-      "source": "数组",
-      "target": "递归",
-      "relation": "无"
+      "source": "AC自动机",
+      "target": "基数排序",
+      "relation": "uses"
     },
     {
-      "source": "双向链表",
-      "target": "指针",
-      "relation": "包含"
+      "source": "AC自动机",
+      "target": "布隆过滤器",
+      "relation": "variantOf"
     },
     {
-      "source": "满二叉树",
+      "source": "AC自动机",
+      "target": "循环链表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "AC自动机",
+      "target": "最短路径",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "AC自动机",
+      "target": "跳跃表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "AC自动机",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "AC自动机",
+      "target": "随机访问",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "B+树",
+      "target": "内存分配",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "B+树",
+      "target": "单链表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "B+树",
+      "target": "布隆过滤器",
+      "relation": "variantOf"
+    },
+    {
+      "source": "B+树",
+      "target": "循环链表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "B+树",
+      "target": "最短路径",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "B+树",
+      "target": "跳跃表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "Bellman-Ford算法",
+      "target": "LRU缓存",
+      "relation": "uses"
+    },
+    {
+      "source": "Bellman-Ford算法",
+      "target": "二项堆",
+      "relation": "uses"
+    },
+    {
+      "source": "Bellman-Ford算法",
+      "target": "平均情况",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "Bellman-Ford算法",
+      "target": "摊还分析",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "Bellman-Ford算法",
+      "target": "队列",
+      "relation": "uses"
+    },
+    {
+      "source": "B树",
+      "target": "AC自动机",
+      "relation": "variantOf"
+    },
+    {
+      "source": "B树",
+      "target": "Bellman-Ford算法",
+      "relation": "uses"
+    },
+    {
+      "source": "B树",
+      "target": "LFU缓存",
+      "relation": "variantOf"
+    },
+    {
+      "source": "B树",
+      "target": "二叉搜索树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "B树",
       "target": "二叉树",
-      "relation": "被包含"
+      "relation": "variantOf"
     },
     {
-      "source": "循环链表",
-      "target": "尾节点",
-      "relation": "包含"
+      "source": "B树",
+      "target": "任务调度",
+      "relation": "appliesTo"
     },
     {
-      "source": "根节点",
-      "target": "父节点",
-      "relation": "无"
+      "source": "B树",
+      "target": "克鲁斯卡尔算法",
+      "relation": "uses"
     },
     {
-      "source": "根节点",
-      "target": "子树",
-      "relation": "无"
+      "source": "B树",
+      "target": "入队",
+      "relation": "appliesTo"
     },
     {
-      "source": "邻接矩阵",
-      "target": "数组",
-      "relation": "包含"
+      "source": "B树",
+      "target": "大根堆",
+      "relation": "variantOf"
     },
     {
-      "source": "图的顶点",
-      "target": "数据元素",
-      "relation": "包含"
+      "source": "B树",
+      "target": "字典树",
+      "relation": "variantOf"
     },
     {
-      "source": "链表",
-      "target": "数据元素",
-      "relation": "包含"
+      "source": "B树",
+      "target": "广度优先搜索",
+      "relation": "uses"
     },
     {
-      "source": "链表",
-      "target": "指针",
-      "relation": "包含"
+      "source": "B树",
+      "target": "括号匹配",
+      "relation": "appliesTo"
     },
     {
-      "source": "二叉树",
-      "target": "遍历",
-      "relation": "包含"
-    },
-    {
-      "source": "回溯法",
-      "target": "深度优先搜索",
-      "relation": "相对"
-    },
-    {
-      "source": "递归基础",
-      "target": "递归",
-      "relation": "属性"
-    },
-    {
-      "source": "广度优先搜索",
-      "target": "遍历",
-      "relation": "属性"
-    },
-    {
-      "source": "归并排序",
-      "target": "数组",
-      "relation": "属性"
-    },
-    {
-      "source": "父节点",
-      "target": "根节点",
-      "relation": "无"
-    },
-    {
-      "source": "数组",
-      "target": "查找",
-      "relation": "无"
-    },
-    {
-      "source": "查找",
-      "target": "遍历",
-      "relation": "无"
-    },
-    {
-      "source": "二叉树",
-      "target": "遍历",
-      "relation": "无"
-    },
-    {
-      "source": "数组",
-      "target": "查找",
-      "relation": "被包含"
-    },
-    {
-      "source": "存储结构",
-      "target": "数据元素",
-      "relation": "包含"
-    },
-    {
-      "source": "树的高度",
-      "target": "根节点",
-      "relation": "包含"
-    },
-    {
-      "source": "树的度",
-      "target": "子树",
-      "relation": "无"
-    },
-    {
-      "source": "指针",
-      "target": "访问",
-      "relation": "无"
-    },
-    {
-      "source": "堆",
-      "target": "父节点",
-      "relation": "包含"
-    },
-    {
-      "source": "根节点",
-      "target": "前驱节点",
-      "relation": "无"
-    },
-    {
-      "source": "排序",
+      "source": "B树",
       "target": "插入",
-      "relation": "包含"
+      "relation": "appliesTo"
     },
     {
-      "source": "树的深度",
-      "target": "根节点",
-      "relation": "包含"
+      "source": "B树",
+      "target": "最短路径",
+      "relation": "appliesTo"
     },
     {
-      "source": "顺序查找",
+      "source": "B树",
       "target": "查找",
-      "relation": "属性"
+      "relation": "appliesTo"
     },
     {
-      "source": "二分查找",
-      "target": "数组",
-      "relation": "属性"
+      "source": "B树",
+      "target": "线性表",
+      "relation": "variantOf"
     },
     {
-      "source": "插入排序",
-      "target": "排序",
-      "relation": "属性"
+      "source": "B树",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
     },
     {
-      "source": "子树",
-      "target": "非线性结构",
-      "relation": "被包含"
+      "source": "B树",
+      "target": "选择排序",
+      "relation": "uses"
     },
     {
-      "source": "快速排序",
-      "target": "数组",
-      "relation": "属性"
+      "source": "B树",
+      "target": "随机访问",
+      "relation": "appliesTo"
     },
     {
-      "source": "广度优先搜索",
-      "target": "访问",
-      "relation": "属性"
+      "source": "Dijkstra算法",
+      "target": "O",
+      "relation": "hasComplexity"
     },
     {
-      "source": "平衡二叉树",
-      "target": "子树",
-      "relation": "包含"
+      "source": "Dijkstra算法",
+      "target": "摊还分析",
+      "relation": "hasComplexity"
     },
     {
-      "source": "逻辑结构",
-      "target": "数据元素",
-      "relation": "无"
+      "source": "KMP算法",
+      "target": "B树",
+      "relation": "uses"
     },
     {
-      "source": "映射",
-      "target": "集合",
-      "relation": "无"
+      "source": "KMP算法",
+      "target": "O",
+      "relation": "hasComplexity"
     },
     {
-      "source": "哈希表",
-      "target": "哈希函数",
-      "relation": "包含"
+      "source": "KMP算法",
+      "target": "会计方法",
+      "relation": "hasComplexity"
     },
     {
-      "source": "深度优先搜索",
-      "target": "路径",
-      "relation": "属性"
+      "source": "KMP算法",
+      "target": "前缀树",
+      "relation": "uses"
     },
     {
-      "source": "数据元素",
-      "target": "指针",
-      "relation": "包含"
+      "source": "LFU缓存",
+      "target": "字典树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "LFU缓存",
+      "target": "插入",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "LFU缓存",
+      "target": "最短路径",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "LFU缓存",
+      "target": "树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "LFU缓存",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "LRU缓存",
+      "target": "单链表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "LRU缓存",
+      "target": "垃圾回收",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "LRU缓存",
+      "target": "字典树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "LRU缓存",
+      "target": "最短路径",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "LRU缓存",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "LRU缓存",
+      "target": "随机访问",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "不相交集合",
+      "target": "B+树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "不相交集合",
+      "target": "二叉树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "不相交集合",
+      "target": "入栈",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "不相交集合",
+      "target": "入队",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "不相交集合",
+      "target": "前缀树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "不相交集合",
+      "target": "双向链表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "不相交集合",
+      "target": "哈希查找",
+      "relation": "uses"
+    },
+    {
+      "source": "不相交集合",
+      "target": "大根堆",
+      "relation": "variantOf"
+    },
+    {
+      "source": "不相交集合",
+      "target": "归并排序",
+      "relation": "uses"
+    },
+    {
+      "source": "不相交集合",
+      "target": "括号匹配",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "不相交集合",
+      "target": "最短路径",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "不相交集合",
+      "target": "查找",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "不相交集合",
+      "target": "红黑树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "不相交集合",
+      "target": "线段树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "不相交集合",
+      "target": "表达式求值",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "不相交集合",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "不相交集合",
+      "target": "选择排序",
+      "relation": "uses"
+    },
+    {
+      "source": "不相交集合",
+      "target": "遍历",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "二叉堆",
+      "target": "插入",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "二叉堆",
+      "target": "最短路径",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "二叉堆",
+      "target": "生成森林",
+      "relation": "variantOf"
     },
     {
       "source": "二叉搜索树",
-      "target": "左子树",
-      "relation": "包含"
+      "target": "LRU缓存",
+      "relation": "variantOf"
     },
     {
-      "source": "递归",
-      "target": "根节点",
-      "relation": "无"
+      "source": "二叉搜索树",
+      "target": "二项堆",
+      "relation": "variantOf"
     },
     {
-      "source": "数据元素",
-      "target": "查找",
-      "relation": "无"
+      "source": "二叉搜索树",
+      "target": "任务调度",
+      "relation": "appliesTo"
     },
     {
-      "source": "表尾",
-      "target": "插入",
-      "relation": "无"
+      "source": "二叉搜索树",
+      "target": "平衡二叉树",
+      "relation": "variantOf"
     },
     {
-      "source": "完全二叉树",
-      "target": "父节点",
-      "relation": "包含"
+      "source": "二叉搜索树",
+      "target": "广度优先搜索",
+      "relation": "uses"
     },
     {
-      "source": "顺序查找",
-      "target": "数据元素",
-      "relation": "属性"
+      "source": "二叉搜索树",
+      "target": "括号匹配",
+      "relation": "appliesTo"
     },
     {
-      "source": "顺序查找",
-      "target": "遍历",
-      "relation": "属性"
+      "source": "二叉搜索树",
+      "target": "红黑树",
+      "relation": "variantOf"
     },
     {
-      "source": "数据类型",
-      "target": "集合",
-      "relation": "无"
+      "source": "二叉搜索树",
+      "target": "贪心策略",
+      "relation": "uses"
     },
     {
-      "source": "冒泡排序",
-      "target": "排序",
-      "relation": "属性"
-    },
-    {
-      "source": "根节点",
-      "target": "路径",
-      "relation": "无"
-    },
-    {
-      "source": "回溯法",
-      "target": "路径",
-      "relation": "属性"
-    },
-    {
-      "source": "简单排序",
-      "target": "排序",
-      "relation": "属性"
-    },
-    {
-      "source": "递归",
-      "target": "数组",
-      "relation": "无"
-    },
-    {
-      "source": "稳定性",
-      "target": "排序",
-      "relation": "包含"
-    },
-    {
-      "source": "深度优先搜索",
-      "target": "访问",
-      "relation": "属性"
-    },
-    {
-      "source": "归并排序",
-      "target": "排序",
-      "relation": "属性"
-    },
-    {
-      "source": "快速排序",
-      "target": "排序",
-      "relation": "属性"
-    },
-    {
-      "source": "满二叉树",
-      "target": "子树",
-      "relation": "包含"
-    },
-    {
-      "source": "父节点",
-      "target": "子节点",
-      "relation": "无"
-    },
-    {
-      "source": "根节点",
-      "target": "非线性结构",
-      "relation": "无"
-    },
-    {
-      "source": "满二叉树",
-      "target": "子节点",
-      "relation": "包含"
-    },
-    {
-      "source": "抽象数据类型",
-      "target": "数据类型",
-      "relation": "被包含"
-    },
-    {
-      "source": "插入",
-      "target": "删除",
-      "relation": "无"
-    },
-    {
-      "source": "线性表",
-      "target": "数据类型",
-      "relation": "包含"
-    },
-    {
-      "source": "稳定性",
-      "target": "排序",
-      "relation": "无"
-    },
-    {
-      "source": "循环链表",
-      "target": "链表",
-      "relation": "包含"
-    },
-    {
-      "source": "单链表",
-      "target": "线性表",
-      "relation": "被包含"
-    },
-    {
-      "source": "队列",
-      "target": "线性结构",
-      "relation": "被包含"
-    },
-    {
-      "source": "插入排序",
-      "target": "插入",
-      "relation": "属性"
-    },
-    {
-      "source": "根节点",
-      "target": "路径",
-      "relation": "包含"
-    },
-    {
-      "source": "查找",
-      "target": "数据元素",
-      "relation": "无"
-    },
-    {
-      "source": "树的节点",
-      "target": "数据元素",
-      "relation": "包含"
-    },
-    {
-      "source": "满二叉树",
-      "target": "叶子节点",
-      "relation": "包含"
-    },
-    {
-      "source": "前驱节点",
-      "target": "父节点",
-      "relation": "无"
-    },
-    {
-      "source": "单链表",
-      "target": "指针",
-      "relation": "被包含"
-    },
-    {
-      "source": "数据类型",
-      "target": "集合",
-      "relation": "包含"
-    },
-    {
-      "source": "回路",
-      "target": "路径",
-      "relation": "无"
-    },
-    {
-      "source": "子节点",
-      "target": "父节点",
-      "relation": "包含"
-    },
-    {
-      "source": "链表",
-      "target": "指针",
-      "relation": "被包含"
-    },
-    {
-      "source": "平衡二叉树",
-      "target": "树的高度",
-      "relation": "包含"
-    },
-    {
-      "source": "数组",
-      "target": "数据类型",
-      "relation": "被包含"
-    },
-    {
-      "source": "映射",
-      "target": "集合",
-      "relation": "包含"
-    },
-    {
-      "source": "根节点",
-      "target": "前驱节点",
-      "relation": "包含"
-    },
-    {
-      "source": "单链表",
-      "target": "线性表",
-      "relation": "包含"
+      "source": "二叉搜索树",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
     },
     {
       "source": "二叉树",
-      "target": "满二叉树",
-      "relation": "无"
+      "target": "入栈",
+      "relation": "appliesTo"
     },
     {
-      "source": "完全二叉树",
-      "target": "二叉树",
-      "relation": "被包含"
+      "source": "二叉树",
+      "target": "字典树",
+      "relation": "variantOf"
     },
     {
-      "source": "后继节点",
-      "target": "子节点",
-      "relation": "无"
+      "source": "二叉树",
+      "target": "最短路径",
+      "relation": "appliesTo"
     },
     {
-      "source": "根节点",
-      "target": "子节点",
-      "relation": "包含"
+      "source": "二叉树",
+      "target": "路径压缩",
+      "relation": "appliesTo"
     },
     {
-      "source": "子节点",
-      "target": "父节点",
-      "relation": "无"
+      "source": "二叉树",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
     },
     {
-      "source": "子树",
-      "target": "树的度",
-      "relation": "包含"
+      "source": "二叉树",
+      "target": "遍历",
+      "relation": "appliesTo"
     },
     {
-      "source": "物理结构",
-      "target": "数据元素",
-      "relation": "包含"
+      "source": "二路归并",
+      "target": "LFU缓存",
+      "relation": "uses"
     },
     {
-      "source": "子树",
-      "target": "树的度",
-      "relation": "无"
+      "source": "二路归并",
+      "target": "Ω记号",
+      "relation": "hasComplexity"
     },
     {
-      "source": "树的度",
-      "target": "子树",
-      "relation": "包含"
+      "source": "二路归并",
+      "target": "大根堆",
+      "relation": "uses"
     },
     {
-      "source": "邻接表",
-      "target": "单链表",
-      "relation": "包含"
+      "source": "二项堆",
+      "target": "平衡二叉树",
+      "relation": "variantOf"
     },
     {
-      "source": "交换排序",
-      "target": "数组",
-      "relation": "属性"
+      "source": "二项堆",
+      "target": "弗洛伊德算法",
+      "relation": "uses"
     },
     {
-      "source": "路径",
-      "target": "有向图",
-      "relation": "无"
+      "source": "二项堆",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
     },
     {
-      "source": "父节点",
-      "target": "子节点",
-      "relation": "包含"
+      "source": "二项堆",
+      "target": "顺序访问",
+      "relation": "appliesTo"
     },
     {
-      "source": "简单排序",
-      "target": "数据元素",
-      "relation": "属性"
+      "source": "任务调度",
+      "target": "合并",
+      "relation": "uses"
     },
     {
-      "source": "队列",
-      "target": "线性表",
-      "relation": "被包含"
+      "source": "优先队列",
+      "target": "KMP算法",
+      "relation": "uses"
     },
     {
-      "source": "无向图",
-      "target": "图",
-      "relation": "被包含"
+      "source": "优先队列",
+      "target": "任务调度",
+      "relation": "appliesTo"
     },
     {
-      "source": "指针",
-      "target": "访问",
-      "relation": "包含"
+      "source": "优先队列",
+      "target": "内存分配",
+      "relation": "appliesTo"
     },
     {
-      "source": "循环链表",
-      "target": "指针",
-      "relation": "包含"
+      "source": "优先队列",
+      "target": "分治",
+      "relation": "uses"
     },
     {
-      "source": "加权图",
-      "target": "图",
-      "relation": "被包含"
+      "source": "优先队列",
+      "target": "单源最短路径",
+      "relation": "uses"
     },
     {
-      "source": "迭代法",
-      "target": "递推",
-      "relation": "属性"
+      "source": "优先队列",
+      "target": "并查集",
+      "relation": "variantOf"
     },
     {
-      "source": "路径",
-      "target": "回路",
-      "relation": "无"
+      "source": "优先队列",
+      "target": "引用计数",
+      "relation": "appliesTo"
     },
     {
-      "source": "归并排序",
-      "target": "递归",
-      "relation": "属性"
+      "source": "优先队列",
+      "target": "弗洛伊德算法",
+      "relation": "uses"
+    },
+    {
+      "source": "优先队列",
+      "target": "括号匹配",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "优先队列",
+      "target": "线性查找",
+      "relation": "uses"
+    },
+    {
+      "source": "优先队列",
+      "target": "线段树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "优先队列",
+      "target": "表达式求值",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "优先队列",
+      "target": "跳跃表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "优先队列",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "克鲁斯卡尔算法",
+      "target": "大O记号",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "克鲁斯卡尔算法",
+      "target": "大根堆",
+      "relation": "uses"
+    },
+    {
+      "source": "克鲁斯卡尔算法",
+      "target": "布隆过滤器",
+      "relation": "uses"
+    },
+    {
+      "source": "克鲁斯卡尔算法",
+      "target": "最坏情况",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "克鲁斯卡尔算法",
+      "target": "树",
+      "relation": "uses"
     },
     {
       "source": "入栈",
-      "target": "出栈",
-      "relation": "无"
+      "target": "括号匹配",
+      "relation": "uses"
     },
     {
-      "source": "叶子节点",
-      "target": "子节点",
-      "relation": "包含"
+      "source": "入栈",
+      "target": "最短路径",
+      "relation": "uses"
     },
     {
-      "source": "无向图",
-      "target": "集合",
-      "relation": "包含"
+      "source": "入队",
+      "target": "二叉堆",
+      "relation": "appliesTo"
     },
     {
-      "source": "有向图",
-      "target": "图",
-      "relation": "被包含"
+      "source": "入队",
+      "target": "二叉搜索树",
+      "relation": "appliesTo"
     },
     {
-      "source": "查找",
-      "target": "遍历",
-      "relation": "包含"
+      "source": "入队",
+      "target": "任务调度",
+      "relation": "uses"
     },
     {
-      "source": "线性表",
-      "target": "逻辑结构",
-      "relation": "无"
+      "source": "入队",
+      "target": "布隆过滤器",
+      "relation": "appliesTo"
     },
     {
-      "source": "迭代法",
-      "target": "迭代",
-      "relation": "属性"
+      "source": "入队",
+      "target": "平衡二叉树",
+      "relation": "appliesTo"
     },
     {
-      "source": "树的节点",
-      "target": "根节点",
-      "relation": "包含"
+      "source": "入队",
+      "target": "跳跃表",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "入队",
+      "target": "迷宫求解",
+      "relation": "uses"
+    },
+    {
+      "source": "内存分配",
+      "target": "二叉搜索树",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "内存分配",
+      "target": "二项堆",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "内存分配",
+      "target": "任务调度",
+      "relation": "uses"
+    },
+    {
+      "source": "内存分配",
+      "target": "前缀树",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "内存分配",
+      "target": "单链表",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "内存分配",
+      "target": "大根堆",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "内存分配",
+      "target": "最短路径",
+      "relation": "uses"
     },
     {
       "source": "冒泡排序",
-      "target": "数组",
-      "relation": "属性"
+      "target": "单链表",
+      "relation": "uses"
     },
     {
-      "source": "穷举法",
-      "target": "遍历",
-      "relation": "属性"
+      "source": "冒泡排序",
+      "target": "后缀树",
+      "relation": "uses"
     },
     {
-      "source": "有向图",
-      "target": "集合",
-      "relation": "包含"
+      "source": "冒泡排序",
+      "target": "字典树",
+      "relation": "uses"
     },
     {
-      "source": "平衡二叉树",
-      "target": "排序",
-      "relation": "无"
+      "source": "冒泡排序",
+      "target": "平均情况",
+      "relation": "hasComplexity"
     },
     {
-      "source": "映射",
-      "target": "集合",
-      "relation": "被包含"
+      "source": "冒泡排序",
+      "target": "平均查找长度",
+      "relation": "hasComplexity"
     },
     {
-      "source": "平衡二叉树",
-      "target": "左子树",
-      "relation": "包含"
-    },
-    {
-      "source": "访问",
-      "target": "插入",
-      "relation": "无"
+      "source": "冒泡排序",
+      "target": "栈",
+      "relation": "uses"
     },
     {
       "source": "出栈",
-      "target": "插入",
-      "relation": "无"
+      "target": "LFU缓存",
+      "relation": "appliesTo"
     },
     {
-      "source": "父节点",
-      "target": "子节点",
-      "relation": "被包含"
+      "source": "出栈",
+      "target": "不相交集合",
+      "relation": "appliesTo"
     },
     {
-      "source": "双向链表",
-      "target": "数据元素",
-      "relation": "包含"
+      "source": "出栈",
+      "target": "二叉堆",
+      "relation": "appliesTo"
     },
     {
-      "source": "队列",
-      "target": "父节点",
-      "relation": "无"
+      "source": "出栈",
+      "target": "任务调度",
+      "relation": "uses"
     },
     {
-      "source": "访问",
-      "target": "数据元素",
-      "relation": "无"
+      "source": "出栈",
+      "target": "优先队列",
+      "relation": "appliesTo"
     },
     {
-      "source": "操作效率",
-      "target": "插入",
-      "relation": "包含"
+      "source": "出栈",
+      "target": "布隆过滤器",
+      "relation": "appliesTo"
     },
     {
-      "source": "链表",
-      "target": "存储结构",
-      "relation": "被包含"
+      "source": "出栈",
+      "target": "括号匹配",
+      "relation": "uses"
     },
     {
-      "source": "时间复杂度",
-      "target": "空间复杂度",
-      "relation": "相对"
+      "source": "出栈",
+      "target": "迷宫求解",
+      "relation": "uses"
     },
     {
-      "source": "无向图",
-      "target": "路径",
-      "relation": "包含"
+      "source": "出栈",
+      "target": "队列",
+      "relation": "appliesTo"
     },
     {
-      "source": "双向链表",
-      "target": "前驱节点",
-      "relation": "包含"
+      "source": "出队",
+      "target": "LFU缓存",
+      "relation": "appliesTo"
     },
     {
-      "source": "图的顶点",
-      "target": "数据元素",
-      "relation": "被包含"
+      "source": "出队",
+      "target": "二叉堆",
+      "relation": "appliesTo"
     },
     {
-      "source": "简单排序",
-      "target": "时间复杂度",
-      "relation": "相对"
+      "source": "出队",
+      "target": "任务调度",
+      "relation": "uses"
     },
     {
-      "source": "连通图",
-      "target": "无向图",
-      "relation": "被包含"
+      "source": "出队",
+      "target": "最短路径",
+      "relation": "uses"
     },
     {
-      "source": "子节点",
-      "target": "父节点",
-      "relation": "被包含"
+      "source": "出队",
+      "target": "树",
+      "relation": "appliesTo"
     },
     {
-      "source": "数据类型",
-      "target": "数据元素",
-      "relation": "包含"
+      "source": "分块查找",
+      "target": "O",
+      "relation": "hasComplexity"
     },
     {
-      "source": "查找",
-      "target": "根节点",
-      "relation": "包含"
+      "source": "分块查找",
+      "target": "Ω记号",
+      "relation": "hasComplexity"
     },
     {
-      "source": "队列",
-      "target": "数组",
-      "relation": "无"
+      "source": "分块查找",
+      "target": "双端队列",
+      "relation": "uses"
     },
     {
-      "source": "双向链表",
-      "target": "链表",
-      "relation": "被包含"
+      "source": "分块查找",
+      "target": "堆",
+      "relation": "uses"
     },
     {
-      "source": "图的边",
-      "target": "有向图",
-      "relation": "无"
+      "source": "分块查找",
+      "target": "平衡二叉树",
+      "relation": "uses"
     },
     {
-      "source": "父节点",
-      "target": "完全二叉树",
-      "relation": "无"
+      "source": "分块查找",
+      "target": "栈",
+      "relation": "uses"
     },
     {
-      "source": "平衡二叉树",
-      "target": "二叉树",
-      "relation": "被包含"
+      "source": "分块查找",
+      "target": "树状数组",
+      "relation": "uses"
     },
     {
-      "source": "顺序查找",
+      "source": "分块查找",
+      "target": "红黑树",
+      "relation": "uses"
+    },
+    {
+      "source": "分支限界",
+      "target": "O",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "分支限界",
+      "target": "布隆过滤器",
+      "relation": "uses"
+    },
+    {
+      "source": "分治",
+      "target": "O",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "分治",
+      "target": "Ω记号",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "分治",
+      "target": "单链表",
+      "relation": "uses"
+    },
+    {
+      "source": "分治",
+      "target": "字典树",
+      "relation": "uses"
+    },
+    {
+      "source": "分治",
+      "target": "平衡二叉树",
+      "relation": "uses"
+    },
+    {
+      "source": "分治",
+      "target": "栈",
+      "relation": "uses"
+    },
+    {
+      "source": "初始化",
+      "target": "B+树",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "初始化",
+      "target": "LFU缓存",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "初始化",
+      "target": "二叉搜索树",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "初始化",
+      "target": "任务调度",
+      "relation": "uses"
+    },
+    {
+      "source": "初始化",
+      "target": "优先队列",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "初始化",
+      "target": "后缀树",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "初始化",
+      "target": "布隆过滤器",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "初始化",
+      "target": "树",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "初始化",
       "target": "线性表",
-      "relation": "属性"
+      "relation": "appliesTo"
     },
     {
-      "source": "线性表",
-      "target": "数组",
-      "relation": "无"
+      "source": "初始化",
+      "target": "表达式求值",
+      "relation": "uses"
     },
     {
-      "source": "二叉搜索树",
+      "source": "初始化",
+      "target": "迷宫求解",
+      "relation": "uses"
+    },
+    {
+      "source": "删除",
+      "target": "括号匹配",
+      "relation": "uses"
+    },
+    {
+      "source": "删除",
+      "target": "最短路径",
+      "relation": "uses"
+    },
+    {
+      "source": "前缀树",
+      "target": "二路归并",
+      "relation": "uses"
+    },
+    {
+      "source": "前缀树",
+      "target": "任务调度",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "前缀树",
+      "target": "出队",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "前缀树",
+      "target": "最短路径",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "前缀树",
+      "target": "缩容",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "前缀树",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "前缀树",
+      "target": "队列",
+      "relation": "variantOf"
+    },
+    {
+      "source": "动态规划",
+      "target": "O",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "动态规划",
+      "target": "二叉堆",
+      "relation": "uses"
+    },
+    {
+      "source": "动态规划",
+      "target": "单链表",
+      "relation": "uses"
+    },
+    {
+      "source": "动态规划",
+      "target": "跳跃表",
+      "relation": "uses"
+    },
+    {
+      "source": "单源最短路径",
+      "target": "AC自动机",
+      "relation": "uses"
+    },
+    {
+      "source": "单源最短路径",
+      "target": "LFU缓存",
+      "relation": "uses"
+    },
+    {
+      "source": "单源最短路径",
+      "target": "O",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "单源最短路径",
       "target": "二叉树",
-      "relation": "被包含"
+      "relation": "uses"
     },
     {
-      "source": "完全二叉树",
-      "target": "叶子节点",
-      "relation": "包含"
-    },
-    {
-      "source": "邻接矩阵",
-      "target": "数组",
-      "relation": "被包含"
-    },
-    {
-      "source": "线性表",
-      "target": "数据类型",
-      "relation": "被包含"
-    },
-    {
-      "source": "访问",
+      "source": "单源最短路径",
       "target": "时间复杂度",
-      "relation": "依赖"
-    },
-    {
-      "source": "树的度",
-      "target": "叶子节点",
-      "relation": "无"
-    },
-    {
-      "source": "堆排序",
-      "target": "数组",
-      "relation": "属性"
-    },
-    {
-      "source": "图的边",
-      "target": "集合",
-      "relation": "无"
-    },
-    {
-      "source": "栈",
-      "target": "入栈",
-      "relation": "被包含"
-    },
-    {
-      "source": "图的顶点",
-      "target": "有向图",
-      "relation": "无"
-    },
-    {
-      "source": "图",
-      "target": "有向图",
-      "relation": "包含"
+      "relation": "hasComplexity"
     },
     {
       "source": "单链表",
-      "target": "数据元素",
-      "relation": "包含"
+      "target": "入队",
+      "relation": "appliesTo"
     },
     {
-      "source": "查找",
-      "target": "根节点",
-      "relation": "被包含"
+      "source": "单链表",
+      "target": "删除",
+      "relation": "appliesTo"
     },
     {
-      "source": "邻接表",
-      "target": "图的顶点",
-      "relation": "包含"
+      "source": "单链表",
+      "target": "引用计数",
+      "relation": "appliesTo"
     },
     {
-      "source": "树的节点",
-      "target": "数据元素",
-      "relation": "被包含"
+      "source": "单链表",
+      "target": "红黑树",
+      "relation": "variantOf"
     },
     {
-      "source": "线性表",
-      "target": "表头",
-      "relation": "包含"
+      "source": "双向链表",
+      "target": "B树",
+      "relation": "variantOf"
     },
     {
-      "source": "选择排序",
-      "target": "排序",
-      "relation": "属性"
+      "source": "双向链表",
+      "target": "前缀树",
+      "relation": "variantOf"
     },
     {
-      "source": "邻接表",
-      "target": "指针",
-      "relation": "包含"
+      "source": "双向链表",
+      "target": "动态规划",
+      "relation": "uses"
     },
     {
-      "source": "抽象数据类型",
-      "target": "逻辑结构",
-      "relation": "被包含"
+      "source": "双向链表",
+      "target": "垃圾回收",
+      "relation": "appliesTo"
     },
     {
-      "source": "树的节点",
-      "target": "父节点",
-      "relation": "被包含"
+      "source": "双向链表",
+      "target": "布隆过滤器",
+      "relation": "variantOf"
     },
     {
-      "source": "广度优先搜索",
-      "target": "图",
-      "relation": "属性"
+      "source": "双向链表",
+      "target": "扩容",
+      "relation": "appliesTo"
     },
     {
-      "source": "路径",
-      "target": "根节点",
-      "relation": "包含"
+      "source": "双向链表",
+      "target": "括号匹配",
+      "relation": "appliesTo"
     },
     {
-      "source": "回溯法",
-      "target": "根节点",
-      "relation": "属性"
+      "source": "双向链表",
+      "target": "最短路径",
+      "relation": "appliesTo"
     },
     {
-      "source": "根节点",
-      "target": "父节点",
-      "relation": "被包含"
+      "source": "双向链表",
+      "target": "红黑树",
+      "relation": "variantOf"
     },
     {
-      "source": "叶子节点",
-      "target": "子节点",
-      "relation": "被包含"
+      "source": "双向链表",
+      "target": "跳跃表",
+      "relation": "variantOf"
     },
     {
-      "source": "数据类型",
-      "target": "集合",
-      "relation": "被包含"
+      "source": "双向链表",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
     },
     {
-      "source": "指针",
-      "target": "访问",
-      "relation": "被包含"
+      "source": "双向链表",
+      "target": "遍历",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "双端队列",
+      "target": "B+树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "双端队列",
+      "target": "KMP算法",
+      "relation": "uses"
+    },
+    {
+      "source": "双端队列",
+      "target": "二叉搜索树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "双端队列",
+      "target": "任务调度",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "双端队列",
+      "target": "优先队列",
+      "relation": "variantOf"
+    },
+    {
+      "source": "双端队列",
+      "target": "分支限界",
+      "relation": "uses"
+    },
+    {
+      "source": "双端队列",
+      "target": "大根堆",
+      "relation": "variantOf"
+    },
+    {
+      "source": "双端队列",
+      "target": "引用计数",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "双端队列",
+      "target": "归并排序",
+      "relation": "uses"
+    },
+    {
+      "source": "双端队列",
+      "target": "最短路径",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "双端队列",
+      "target": "查找",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "双端队列",
+      "target": "表达式求值",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "双端队列",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "双端队列",
+      "target": "遍历",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "双端队列",
+      "target": "随机访问",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "可持久化数据结构",
+      "target": "任务调度",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "可持久化数据结构",
+      "target": "合并",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "可持久化数据结构",
+      "target": "大根堆",
+      "relation": "variantOf"
+    },
+    {
+      "source": "可持久化数据结构",
+      "target": "弗洛伊德算法",
+      "relation": "uses"
+    },
+    {
+      "source": "可持久化数据结构",
+      "target": "归并排序",
+      "relation": "uses"
+    },
+    {
+      "source": "可持久化数据结构",
+      "target": "循环链表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "可持久化数据结构",
+      "target": "快速排序",
+      "relation": "uses"
+    },
+    {
+      "source": "可持久化数据结构",
+      "target": "最短路径",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "可持久化数据结构",
+      "target": "深度优先搜索",
+      "relation": "uses"
+    },
+    {
+      "source": "可持久化数据结构",
+      "target": "生成森林",
+      "relation": "variantOf"
+    },
+    {
+      "source": "可持久化数据结构",
+      "target": "移动",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "可持久化数据结构",
+      "target": "表达式求值",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "可持久化数据结构",
+      "target": "跳跃表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "可持久化数据结构",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "可持久化数据结构",
+      "target": "遍历",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "可持久化数据结构",
+      "target": "随机访问",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "后缀树",
+      "target": "Dijkstra算法",
+      "relation": "uses"
+    },
+    {
+      "source": "后缀树",
+      "target": "二叉堆",
+      "relation": "variantOf"
+    },
+    {
+      "source": "后缀树",
+      "target": "二项堆",
+      "relation": "variantOf"
+    },
+    {
+      "source": "后缀树",
+      "target": "任务调度",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "后缀树",
+      "target": "多路归并",
+      "relation": "uses"
+    },
+    {
+      "source": "后缀树",
+      "target": "字典树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "后缀树",
+      "target": "布隆过滤器",
+      "relation": "variantOf"
+    },
+    {
+      "source": "后缀树",
+      "target": "循环链表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "后缀树",
+      "target": "括号匹配",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "后缀树",
+      "target": "查找",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "后缀树",
+      "target": "深度优先搜索",
+      "relation": "uses"
+    },
+    {
+      "source": "后缀树",
+      "target": "线段树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "后缀树",
+      "target": "贪心策略",
+      "relation": "uses"
+    },
+    {
+      "source": "后缀树",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "后缀树",
+      "target": "随机访问",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "哈希查找",
+      "target": "B树",
+      "relation": "uses"
+    },
+    {
+      "source": "哈希查找",
+      "target": "O",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "哈希查找",
+      "target": "二叉堆",
+      "relation": "uses"
+    },
+    {
+      "source": "哈希查找",
+      "target": "势能方法",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "哈希查找",
+      "target": "平衡二叉树",
+      "relation": "uses"
+    },
+    {
+      "source": "哈希查找",
+      "target": "循环队列",
+      "relation": "uses"
     },
     {
       "source": "哈希表",
-      "target": "哈希函数",
-      "relation": "被包含"
+      "target": "Dijkstra算法",
+      "relation": "uses"
     },
     {
-      "source": "父节点",
-      "target": "堆",
-      "relation": "无"
+      "source": "哈希表",
+      "target": "LRU缓存",
+      "relation": "variantOf"
     },
     {
-      "source": "堆排序",
-      "target": "完全二叉树",
-      "relation": "属性"
+      "source": "哈希表",
+      "target": "二叉堆",
+      "relation": "variantOf"
     },
     {
-      "source": "二叉搜索树",
-      "target": "左子树",
-      "relation": "被包含"
+      "source": "哈希表",
+      "target": "二叉搜索树",
+      "relation": "variantOf"
     },
     {
-      "source": "堆排序",
+      "source": "哈希表",
+      "target": "任务调度",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "哈希表",
+      "target": "优先队列",
+      "relation": "variantOf"
+    },
+    {
+      "source": "哈希表",
+      "target": "内存分配",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "哈希表",
+      "target": "单链表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "哈希表",
+      "target": "双向链表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "哈希表",
+      "target": "双端队列",
+      "relation": "variantOf"
+    },
+    {
+      "source": "哈希表",
+      "target": "可持久化数据结构",
+      "relation": "variantOf"
+    },
+    {
+      "source": "哈希表",
+      "target": "字典树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "哈希表",
+      "target": "并查集",
+      "relation": "variantOf"
+    },
+    {
+      "source": "哈希表",
+      "target": "归并排序",
+      "relation": "uses"
+    },
+    {
+      "source": "哈希表",
+      "target": "循环队列",
+      "relation": "variantOf"
+    },
+    {
+      "source": "哈希表",
+      "target": "快速排序",
+      "relation": "uses"
+    },
+    {
+      "source": "哈希表",
+      "target": "括号匹配",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "哈希表",
+      "target": "插入",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "哈希表",
+      "target": "旋转",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "哈希表",
+      "target": "最短路径",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "哈希表",
+      "target": "查找",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "哈希表",
+      "target": "树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "哈希表",
+      "target": "表达式求值",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "哈希表",
+      "target": "队列",
+      "relation": "variantOf"
+    },
+    {
+      "source": "回溯法",
+      "target": "O",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "回溯法",
+      "target": "不相交集合",
+      "relation": "uses"
+    },
+    {
+      "source": "回溯法",
+      "target": "单链表",
+      "relation": "uses"
+    },
+    {
+      "source": "回溯法",
+      "target": "字典树",
+      "relation": "uses"
+    },
+    {
+      "source": "图",
+      "target": "LRU缓存",
+      "relation": "variantOf"
+    },
+    {
+      "source": "图",
+      "target": "任务调度",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "图",
+      "target": "入栈",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "图",
+      "target": "入队",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "图",
+      "target": "后缀树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "图",
+      "target": "外部排序",
+      "relation": "uses"
+    },
+    {
+      "source": "图",
+      "target": "并查集",
+      "relation": "variantOf"
+    },
+    {
+      "source": "图",
+      "target": "括号匹配",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "图",
+      "target": "插入",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "图",
+      "target": "数组",
+      "relation": "variantOf"
+    },
+    {
+      "source": "图",
+      "target": "最短路径",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "图",
+      "target": "跳跃表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "图",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "图",
       "target": "选择排序",
-      "relation": "相对"
+      "relation": "uses"
     },
     {
-      "source": "存储结构",
-      "target": "数据元素",
-      "relation": "被包含"
+      "source": "图",
+      "target": "链表",
+      "relation": "variantOf"
     },
     {
-      "source": "回路",
-      "target": "访问",
-      "relation": "包含"
+      "source": "图",
+      "target": "销毁",
+      "relation": "appliesTo"
     },
     {
-      "source": "树",
-      "target": "根节点",
-      "relation": "被包含"
+      "source": "图",
+      "target": "随机访问",
+      "relation": "appliesTo"
     },
     {
-      "source": "父节点",
-      "target": "前驱节点",
-      "relation": "包含"
+      "source": "垃圾回收",
+      "target": "二叉堆",
+      "relation": "appliesTo"
     },
     {
-      "source": "路径",
-      "target": "有向图",
-      "relation": "被包含"
+      "source": "垃圾回收",
+      "target": "任务调度",
+      "relation": "uses"
     },
     {
-      "source": "邻接矩阵",
-      "target": "无权图",
-      "relation": "依赖"
+      "source": "垃圾回收",
+      "target": "生成森林",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "垃圾回收",
+      "target": "迷宫求解",
+      "relation": "uses"
+    },
+    {
+      "source": "基数排序",
+      "target": "O",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "基数排序",
+      "target": "数组",
+      "relation": "uses"
+    },
+    {
+      "source": "基数排序",
+      "target": "树",
+      "relation": "uses"
+    },
+    {
+      "source": "堆",
+      "target": "AC自动机",
+      "relation": "variantOf"
+    },
+    {
+      "source": "堆",
+      "target": "B树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "堆",
+      "target": "二叉树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "堆",
+      "target": "二路归并",
+      "relation": "uses"
+    },
+    {
+      "source": "堆",
+      "target": "二项堆",
+      "relation": "variantOf"
+    },
+    {
+      "source": "堆",
+      "target": "任务调度",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "堆",
+      "target": "优先队列",
+      "relation": "variantOf"
+    },
+    {
+      "source": "堆",
+      "target": "克鲁斯卡尔算法",
+      "relation": "uses"
+    },
+    {
+      "source": "堆",
+      "target": "布隆过滤器",
+      "relation": "variantOf"
+    },
+    {
+      "source": "堆",
+      "target": "广度优先搜索",
+      "relation": "uses"
+    },
+    {
+      "source": "堆",
+      "target": "引用计数",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "堆",
+      "target": "括号匹配",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "堆",
+      "target": "最短路径",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "堆",
+      "target": "深度优先搜索",
+      "relation": "uses"
+    },
+    {
+      "source": "堆",
+      "target": "移动",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "堆",
+      "target": "缩容",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "堆",
+      "target": "计数排序",
+      "relation": "uses"
+    },
+    {
+      "source": "堆",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
     },
     {
       "source": "堆排序",
-      "target": "排序",
-      "relation": "属性"
+      "target": "二叉搜索树",
+      "relation": "uses"
     },
     {
-      "source": "父节点",
-      "target": "完全二叉树",
-      "relation": "包含"
+      "source": "堆排序",
+      "target": "前缀树",
+      "relation": "uses"
     },
     {
-      "source": "非线性结构",
-      "target": "数据元素",
-      "relation": "被包含"
+      "source": "堆排序",
+      "target": "平均情况",
+      "relation": "hasComplexity"
     },
     {
-      "source": "加权图",
-      "target": "边的权重",
-      "relation": "包含"
+      "source": "堆排序",
+      "target": "并查集",
+      "relation": "uses"
     },
     {
-      "source": "树的节点",
-      "target": "数据项",
-      "relation": "包含"
+      "source": "复制",
+      "target": "双向链表",
+      "relation": "appliesTo"
     },
     {
-      "source": "抽象数据类型",
-      "target": "集合",
-      "relation": "被包含"
+      "source": "复制",
+      "target": "括号匹配",
+      "relation": "uses"
     },
     {
-      "source": "查找",
-      "target": "遍历",
-      "relation": "被包含"
+      "source": "复制",
+      "target": "最短路径",
+      "relation": "uses"
     },
     {
-      "source": "稳定性",
-      "target": "数据元素",
-      "relation": "被包含"
+      "source": "复制",
+      "target": "栈",
+      "relation": "appliesTo"
     },
     {
-      "source": "图的顶点",
-      "target": "集合",
-      "relation": "包含"
+      "source": "复制",
+      "target": "红黑树",
+      "relation": "appliesTo"
     },
     {
-      "source": "查找",
-      "target": "树",
-      "relation": "被包含"
+      "source": "复制",
+      "target": "线段树",
+      "relation": "appliesTo"
     },
     {
-      "source": "线性表",
-      "target": "前驱节点",
-      "relation": "包含"
+      "source": "复制",
+      "target": "迷宫求解",
+      "relation": "uses"
     },
     {
-      "source": "回溯法",
-      "target": "递归",
-      "relation": "属性"
+      "source": "外部排序",
+      "target": "O",
+      "relation": "hasComplexity"
     },
     {
-      "source": "访问",
-      "target": "初始化",
-      "relation": "包含"
+      "source": "外部排序",
+      "target": "字典树",
+      "relation": "uses"
     },
     {
-      "source": "集合",
-      "target": "根节点",
-      "relation": "无"
+      "source": "外部排序",
+      "target": "平均查找长度",
+      "relation": "hasComplexity"
     },
     {
-      "source": "深度优先搜索",
-      "target": "遍历",
-      "relation": "属性"
+      "source": "外部排序",
+      "target": "生成森林",
+      "relation": "uses"
     },
     {
-      "source": "队列",
+      "source": "外部排序",
+      "target": "线段树",
+      "relation": "uses"
+    },
+    {
+      "source": "多路归并",
+      "target": "O",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "多路归并",
+      "target": "二叉树",
+      "relation": "uses"
+    },
+    {
+      "source": "多路归并",
+      "target": "会计方法",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "大O记号",
+      "target": "分支限界",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "大O记号",
+      "target": "弗洛伊德算法",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "大根堆",
+      "target": "Dijkstra算法",
+      "relation": "uses"
+    },
+    {
+      "source": "大根堆",
+      "target": "任务调度",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "大根堆",
+      "target": "单链表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "大根堆",
+      "target": "合并",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "大根堆",
       "target": "堆",
-      "relation": "被包含"
+      "relation": "variantOf"
     },
     {
-      "source": "双向链表",
-      "target": "后继节点",
-      "relation": "包含"
+      "source": "大根堆",
+      "target": "弗洛伊德算法",
+      "relation": "uses"
     },
     {
-      "source": "非线性结构",
-      "target": "前驱节点",
-      "relation": "包含"
+      "source": "大根堆",
+      "target": "括号匹配",
+      "relation": "appliesTo"
     },
     {
-      "source": "访问",
-      "target": "初始化",
-      "relation": "无"
+      "source": "大根堆",
+      "target": "缩容",
+      "relation": "appliesTo"
     },
     {
-      "source": "简单排序",
-      "target": "遍历",
-      "relation": "属性"
+      "source": "大根堆",
+      "target": "跳跃表",
+      "relation": "variantOf"
     },
     {
-      "source": "回溯法",
+      "source": "大根堆",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "大根堆",
+      "target": "选择排序",
+      "relation": "uses"
+    },
+    {
+      "source": "字典树",
+      "target": "出栈",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "字典树",
+      "target": "单链表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "字典树",
+      "target": "复制",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "字典树",
+      "target": "最短路径",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "字典树",
+      "target": "查找",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "字典树",
       "target": "树",
-      "relation": "属性"
+      "relation": "variantOf"
     },
     {
-      "source": "非线性结构",
-      "target": "线性结构",
-      "relation": "被包含"
+      "source": "字典树",
+      "target": "生成森林",
+      "relation": "variantOf"
     },
     {
-      "source": "双向链表",
-      "target": "指针",
-      "relation": "被包含"
+      "source": "字典树",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
     },
     {
-      "source": "线性表",
-      "target": "线性结构",
-      "relation": "包含"
+      "source": "小根堆",
+      "target": "B+树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "小根堆",
+      "target": "Dijkstra算法",
+      "relation": "uses"
+    },
+    {
+      "source": "小根堆",
+      "target": "不相交集合",
+      "relation": "variantOf"
+    },
+    {
+      "source": "小根堆",
+      "target": "任务调度",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "小根堆",
+      "target": "内存分配",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "小根堆",
+      "target": "出栈",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "小根堆",
+      "target": "初始化",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "小根堆",
+      "target": "动态规划",
+      "relation": "uses"
+    },
+    {
+      "source": "小根堆",
+      "target": "单源最短路径",
+      "relation": "uses"
+    },
+    {
+      "source": "小根堆",
+      "target": "双端队列",
+      "relation": "variantOf"
+    },
+    {
+      "source": "小根堆",
+      "target": "外部排序",
+      "relation": "uses"
+    },
+    {
+      "source": "小根堆",
+      "target": "广度优先搜索",
+      "relation": "uses"
+    },
+    {
+      "source": "小根堆",
+      "target": "循环链表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "小根堆",
+      "target": "循环队列",
+      "relation": "variantOf"
+    },
+    {
+      "source": "小根堆",
+      "target": "括号匹配",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "小根堆",
+      "target": "插入",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "小根堆",
+      "target": "树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "小根堆",
+      "target": "缩容",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "小根堆",
+      "target": "表达式求值",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "小根堆",
+      "target": "记忆化搜索",
+      "relation": "uses"
+    },
+    {
+      "source": "小根堆",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "小根堆",
+      "target": "队列",
+      "relation": "variantOf"
+    },
+    {
+      "source": "布隆过滤器",
+      "target": "合并",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "布隆过滤器",
+      "target": "平衡二叉树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "布隆过滤器",
+      "target": "广度优先搜索",
+      "relation": "uses"
+    },
+    {
+      "source": "布隆过滤器",
+      "target": "循环链表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "布隆过滤器",
+      "target": "最短路径",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "布隆过滤器",
+      "target": "树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "布隆过滤器",
+      "target": "跳跃表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "布隆过滤器",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "希尔排序",
+      "target": "AC自动机",
+      "relation": "uses"
+    },
+    {
+      "source": "希尔排序",
+      "target": "O",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "希尔排序",
+      "target": "双向链表",
+      "relation": "uses"
+    },
+    {
+      "source": "希尔排序",
+      "target": "哈希表",
+      "relation": "uses"
+    },
+    {
+      "source": "希尔排序",
+      "target": "摊还分析",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "希尔排序",
+      "target": "线性表",
+      "relation": "uses"
+    },
+    {
+      "source": "平衡二叉树",
+      "target": "引用计数",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "平衡二叉树",
+      "target": "树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "平衡二叉树",
+      "target": "生成森林",
+      "relation": "variantOf"
+    },
+    {
+      "source": "并查集",
+      "target": "B+树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "并查集",
+      "target": "Dijkstra算法",
+      "relation": "uses"
+    },
+    {
+      "source": "并查集",
+      "target": "LFU缓存",
+      "relation": "variantOf"
+    },
+    {
+      "source": "并查集",
+      "target": "入栈",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "并查集",
+      "target": "入队",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "并查集",
+      "target": "单链表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "并查集",
+      "target": "大根堆",
+      "relation": "variantOf"
+    },
+    {
+      "source": "并查集",
+      "target": "括号匹配",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "并查集",
+      "target": "最短路径",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "并查集",
+      "target": "移动",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "并查集",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "并查集",
+      "target": "队列",
+      "relation": "variantOf"
+    },
+    {
+      "source": "广度优先搜索",
+      "target": "大根堆",
+      "relation": "uses"
+    },
+    {
+      "source": "广度优先搜索",
+      "target": "摊还分析",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "广度优先搜索",
+      "target": "斐波那契堆",
+      "relation": "uses"
+    },
+    {
+      "source": "引用计数",
+      "target": "AC自动机",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "引用计数",
+      "target": "LRU缓存",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "引用计数",
+      "target": "字典树",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "引用计数",
+      "target": "括号匹配",
+      "relation": "uses"
+    },
+    {
+      "source": "引用计数",
+      "target": "最短路径",
+      "relation": "uses"
+    },
+    {
+      "source": "引用计数",
+      "target": "栈",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "引用计数",
+      "target": "迷宫求解",
+      "relation": "uses"
+    },
+    {
+      "source": "弗洛伊德算法",
+      "target": "单链表",
+      "relation": "uses"
+    },
+    {
+      "source": "弗洛伊德算法",
+      "target": "链表",
+      "relation": "uses"
+    },
+    {
+      "source": "归并排序",
+      "target": "最好情况",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "归并排序",
+      "target": "空间复杂度",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "归并排序",
+      "target": "跳跃表",
+      "relation": "uses"
+    },
+    {
+      "source": "循环链表",
+      "target": "Dijkstra算法",
+      "relation": "uses"
+    },
+    {
+      "source": "循环链表",
+      "target": "二项堆",
+      "relation": "variantOf"
+    },
+    {
+      "source": "循环链表",
+      "target": "广度优先搜索",
+      "relation": "uses"
+    },
+    {
+      "source": "循环链表",
+      "target": "引用计数",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "循环链表",
+      "target": "查找",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "循环链表",
+      "target": "移动",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "循环链表",
+      "target": "缩容",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "循环链表",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "循环队列",
+      "target": "Dijkstra算法",
+      "relation": "uses"
+    },
+    {
+      "source": "循环队列",
+      "target": "二叉堆",
+      "relation": "variantOf"
+    },
+    {
+      "source": "循环队列",
+      "target": "任务调度",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "循环队列",
+      "target": "动态规划",
+      "relation": "uses"
+    },
+    {
+      "source": "循环队列",
+      "target": "双向链表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "循环队列",
+      "target": "引用计数",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "循环队列",
+      "target": "插入",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "循环队列",
+      "target": "最短路径",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "循环队列",
+      "target": "栈",
+      "relation": "variantOf"
+    },
+    {
+      "source": "循环队列",
+      "target": "生成森林",
+      "relation": "variantOf"
+    },
+    {
+      "source": "循环队列",
+      "target": "缩容",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "循环队列",
+      "target": "跳跃表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "循环队列",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "循环队列",
+      "target": "遍历",
+      "relation": "appliesTo"
     },
     {
       "source": "快速排序",
-      "target": "递归",
-      "relation": "属性"
+      "target": "平衡二叉树",
+      "relation": "uses"
+    },
+    {
+      "source": "扩容",
+      "target": "AC自动机",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "扩容",
+      "target": "B+树",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "扩容",
+      "target": "B树",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "扩容",
+      "target": "二叉树",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "扩容",
+      "target": "任务调度",
+      "relation": "uses"
+    },
+    {
+      "source": "扩容",
+      "target": "优先队列",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "扩容",
+      "target": "可持久化数据结构",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "扩容",
+      "target": "表达式求值",
+      "relation": "uses"
+    },
+    {
+      "source": "扩容",
+      "target": "迷宫求解",
+      "relation": "uses"
+    },
+    {
+      "source": "折半查找",
+      "target": "栈",
+      "relation": "uses"
+    },
+    {
+      "source": "折半查找",
+      "target": "生成森林",
+      "relation": "uses"
+    },
+    {
+      "source": "折半查找",
+      "target": "红黑树",
+      "relation": "uses"
+    },
+    {
+      "source": "折半查找",
+      "target": "聚合分析",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "折半查找",
+      "target": "队列",
+      "relation": "uses"
+    },
+    {
+      "source": "拓扑排序",
+      "target": "LFU缓存",
+      "relation": "uses"
+    },
+    {
+      "source": "拓扑排序",
+      "target": "大根堆",
+      "relation": "uses"
+    },
+    {
+      "source": "拓扑排序",
+      "target": "循环链表",
+      "relation": "uses"
+    },
+    {
+      "source": "拓扑排序",
+      "target": "摊还分析",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "括号匹配",
+      "target": "合并",
+      "relation": "uses"
+    },
+    {
+      "source": "按秩合并",
+      "target": "任务调度",
+      "relation": "uses"
+    },
+    {
+      "source": "按秩合并",
+      "target": "前缀树",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "按秩合并",
+      "target": "双端队列",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "按秩合并",
+      "target": "后缀树",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "按秩合并",
+      "target": "括号匹配",
+      "relation": "uses"
+    },
+    {
+      "source": "按秩合并",
+      "target": "红黑树",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "按秩合并",
+      "target": "迷宫求解",
+      "relation": "uses"
+    },
+    {
+      "source": "插值查找",
+      "target": "B+树",
+      "relation": "uses"
+    },
+    {
+      "source": "插值查找",
+      "target": "二项堆",
+      "relation": "uses"
+    },
+    {
+      "source": "插值查找",
+      "target": "会计方法",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "插值查找",
+      "target": "布隆过滤器",
+      "relation": "uses"
+    },
+    {
+      "source": "插值查找",
+      "target": "最坏情况",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "插值查找",
+      "target": "生成森林",
+      "relation": "uses"
+    },
+    {
+      "source": "插入",
+      "target": "B+树",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "插入",
+      "target": "任务调度",
+      "relation": "uses"
+    },
+    {
+      "source": "插入",
+      "target": "字典树",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "插入",
+      "target": "平衡二叉树",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "插入",
+      "target": "最短路径",
+      "relation": "uses"
+    },
+    {
+      "source": "插入排序",
+      "target": "Θ记号",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "插入排序",
+      "target": "Ω记号",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "插入排序",
+      "target": "二项堆",
+      "relation": "uses"
+    },
+    {
+      "source": "插入排序",
+      "target": "双端队列",
+      "relation": "uses"
+    },
+    {
+      "source": "插入排序",
+      "target": "栈",
+      "relation": "uses"
+    },
+    {
+      "source": "插入排序",
+      "target": "生成森林",
+      "relation": "uses"
+    },
+    {
+      "source": "插入排序",
+      "target": "线段树",
+      "relation": "uses"
+    },
+    {
+      "source": "数组",
+      "target": "出栈",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "数组",
+      "target": "初始化",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "数组",
+      "target": "后缀树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "数组",
+      "target": "基数排序",
+      "relation": "uses"
+    },
+    {
+      "source": "数组",
+      "target": "堆排序",
+      "relation": "uses"
+    },
+    {
+      "source": "数组",
+      "target": "旋转",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "数组",
+      "target": "最短路径",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "数组",
+      "target": "移动",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "数组",
+      "target": "穷举法",
+      "relation": "uses"
+    },
+    {
+      "source": "数组",
+      "target": "线段树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "数组",
+      "target": "缩容",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "数组",
+      "target": "表达式求值",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "数组",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "斐波那契堆",
+      "target": "任务调度",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "斐波那契堆",
+      "target": "克鲁斯卡尔算法",
+      "relation": "uses"
+    },
+    {
+      "source": "斐波那契堆",
+      "target": "入栈",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "斐波那契堆",
+      "target": "冒泡排序",
+      "relation": "uses"
+    },
+    {
+      "source": "斐波那契堆",
+      "target": "出队",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "斐波那契堆",
+      "target": "图",
+      "relation": "variantOf"
+    },
+    {
+      "source": "斐波那契堆",
+      "target": "字典树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "斐波那契堆",
+      "target": "并查集",
+      "relation": "variantOf"
+    },
+    {
+      "source": "斐波那契堆",
+      "target": "循环队列",
+      "relation": "variantOf"
+    },
+    {
+      "source": "斐波那契堆",
+      "target": "拓扑排序",
+      "relation": "uses"
+    },
+    {
+      "source": "斐波那契堆",
+      "target": "括号匹配",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "斐波那契堆",
+      "target": "数组",
+      "relation": "variantOf"
+    },
+    {
+      "source": "斐波那契堆",
+      "target": "普里姆算法",
+      "relation": "uses"
+    },
+    {
+      "source": "斐波那契堆",
+      "target": "栈",
+      "relation": "variantOf"
+    },
+    {
+      "source": "斐波那契堆",
+      "target": "树状数组",
+      "relation": "variantOf"
+    },
+    {
+      "source": "斐波那契堆",
+      "target": "直接插入排序",
+      "relation": "uses"
+    },
+    {
+      "source": "斐波那契堆",
+      "target": "缩容",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "斐波那契堆",
+      "target": "表达式求值",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "斐波那契堆",
+      "target": "路径压缩",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "斐波那契堆",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "斐波那契堆",
+      "target": "销毁",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "旋转",
+      "target": "LFU缓存",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "旋转",
+      "target": "二项堆",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "旋转",
+      "target": "任务调度",
+      "relation": "uses"
+    },
+    {
+      "source": "旋转",
+      "target": "布隆过滤器",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "旋转",
+      "target": "并查集",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "旋转",
+      "target": "括号匹配",
+      "relation": "uses"
+    },
+    {
+      "source": "旋转",
+      "target": "迷宫求解",
+      "relation": "uses"
+    },
+    {
+      "source": "时间复杂度",
+      "target": "动态规划",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "普里姆算法",
+      "target": "二叉树",
+      "relation": "uses"
+    },
+    {
+      "source": "普里姆算法",
+      "target": "会计方法",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "普里姆算法",
+      "target": "大O记号",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "普里姆算法",
+      "target": "平衡二叉树",
+      "relation": "uses"
+    },
+    {
+      "source": "普里姆算法",
+      "target": "树",
+      "relation": "uses"
+    },
+    {
+      "source": "最坏情况",
+      "target": "广度优先搜索",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "最好情况",
+      "target": "二路归并",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "最好情况",
+      "target": "基数排序",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "最好情况",
+      "target": "弗洛伊德算法",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "最好情况",
+      "target": "贪心策略",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "最小生成树",
+      "target": "会计方法",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "最小生成树",
+      "target": "势能方法",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "最小生成树",
+      "target": "后缀树",
+      "relation": "uses"
+    },
+    {
+      "source": "最小生成树",
+      "target": "字典树",
+      "relation": "uses"
+    },
+    {
+      "source": "最小生成树",
+      "target": "红黑树",
+      "relation": "uses"
+    },
+    {
+      "source": "最短路径",
+      "target": "查找",
+      "relation": "uses"
     },
     {
       "source": "查找",
-      "target": "数据元素",
-      "relation": "被包含"
+      "target": "生成森林",
+      "relation": "appliesTo"
     },
     {
-      "source": "数组",
-      "target": "访问",
-      "relation": "被包含"
+      "source": "查找",
+      "target": "迷宫求解",
+      "relation": "uses"
     },
     {
-      "source": "数组",
-      "target": "线性表",
-      "relation": "被包含"
+      "source": "栈",
+      "target": "分支限界",
+      "relation": "uses"
+    },
+    {
+      "source": "栈",
+      "target": "布隆过滤器",
+      "relation": "variantOf"
+    },
+    {
+      "source": "栈",
+      "target": "括号匹配",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "栈",
+      "target": "最短路径",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "栈",
+      "target": "路径压缩",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "栈",
+      "target": "跳跃表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "栈",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "栈",
+      "target": "遍历",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "树",
+      "target": "出栈",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "树",
+      "target": "单链表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "树",
+      "target": "引用计数",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "树状数组",
+      "target": "二叉搜索树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "树状数组",
+      "target": "任务调度",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "树状数组",
+      "target": "优先队列",
+      "relation": "variantOf"
+    },
+    {
+      "source": "树状数组",
+      "target": "可持久化数据结构",
+      "relation": "variantOf"
+    },
+    {
+      "source": "树状数组",
+      "target": "哈希表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "树状数组",
+      "target": "引用计数",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "树状数组",
+      "target": "拓扑排序",
+      "relation": "uses"
+    },
+    {
+      "source": "树状数组",
+      "target": "括号匹配",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "树状数组",
+      "target": "最短路径",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "树状数组",
+      "target": "生成森林",
+      "relation": "variantOf"
+    },
+    {
+      "source": "树状数组",
+      "target": "路径压缩",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "树状数组",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "树状数组",
+      "target": "链表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "树状数组",
+      "target": "随机访问",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "树状数组",
+      "target": "顺序访问",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "桶排序",
+      "target": "B树",
+      "relation": "uses"
+    },
+    {
+      "source": "桶排序",
+      "target": "O",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "桶排序",
+      "target": "不相交集合",
+      "relation": "uses"
+    },
+    {
+      "source": "桶排序",
+      "target": "堆",
+      "relation": "uses"
+    },
+    {
+      "source": "桶排序",
+      "target": "平均查找长度",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "桶排序",
+      "target": "红黑树",
+      "relation": "uses"
+    },
+    {
+      "source": "桶排序",
+      "target": "线段树",
+      "relation": "uses"
+    },
+    {
+      "source": "深度优先搜索",
+      "target": "LFU缓存",
+      "relation": "uses"
+    },
+    {
+      "source": "深度优先搜索",
+      "target": "大O记号",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "深度优先搜索",
+      "target": "并查集",
+      "relation": "uses"
+    },
+    {
+      "source": "深度优先搜索",
+      "target": "最好情况",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "渐近复杂度",
+      "target": "堆排序",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "渐近复杂度",
+      "target": "快速排序",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "渐近复杂度",
+      "target": "拓扑排序",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "状态转移",
+      "target": "O",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "状态转移",
+      "target": "Θ记号",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "状态转移",
+      "target": "树",
+      "relation": "uses"
+    },
+    {
+      "source": "状态转移",
+      "target": "线段树",
+      "relation": "uses"
+    },
+    {
+      "source": "状态转移",
+      "target": "队列",
+      "relation": "uses"
+    },
+    {
+      "source": "生成森林",
+      "target": "单链表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "生成森林",
+      "target": "复制",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "生成森林",
+      "target": "红黑树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "生成森林",
+      "target": "随机访问",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "直接插入排序",
+      "target": "O",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "直接插入排序",
+      "target": "二叉堆",
+      "relation": "uses"
+    },
+    {
+      "source": "直接插入排序",
+      "target": "字典树",
+      "relation": "uses"
+    },
+    {
+      "source": "直接插入排序",
+      "target": "循环队列",
+      "relation": "uses"
+    },
+    {
+      "source": "直接插入排序",
+      "target": "最好情况",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "直接插入排序",
+      "target": "树状数组",
+      "relation": "uses"
+    },
+    {
+      "source": "直接插入排序",
+      "target": "跳跃表",
+      "relation": "uses"
+    },
+    {
+      "source": "移动",
+      "target": "AC自动机",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "移动",
+      "target": "二项堆",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "移动",
+      "target": "循环队列",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "移动",
+      "target": "括号匹配",
+      "relation": "uses"
+    },
+    {
+      "source": "移动",
+      "target": "最短路径",
+      "relation": "uses"
+    },
+    {
+      "source": "移动",
+      "target": "表达式求值",
+      "relation": "uses"
+    },
+    {
+      "source": "穷举法",
+      "target": "B+树",
+      "relation": "uses"
+    },
+    {
+      "source": "穷举法",
+      "target": "二叉搜索树",
+      "relation": "uses"
+    },
+    {
+      "source": "穷举法",
+      "target": "会计方法",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "穷举法",
+      "target": "并查集",
+      "relation": "uses"
+    },
+    {
+      "source": "穷举法",
+      "target": "摊还分析",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "空间复杂度",
+      "target": "快速排序",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "空间复杂度",
+      "target": "折半查找",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "红黑树",
+      "target": "合并",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "红黑树",
+      "target": "垃圾回收",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "线性查找",
+      "target": "LFU缓存",
+      "relation": "uses"
+    },
+    {
+      "source": "线性查找",
+      "target": "O",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "线性查找",
+      "target": "二叉堆",
+      "relation": "uses"
+    },
+    {
+      "source": "线性查找",
+      "target": "二项堆",
+      "relation": "uses"
+    },
+    {
+      "source": "线性查找",
+      "target": "摊还分析",
+      "relation": "hasComplexity"
     },
     {
       "source": "线性表",
-      "target": "线性结构",
-      "relation": "被包含"
+      "target": "B+树",
+      "relation": "variantOf"
     },
     {
-      "source": "线性结构",
-      "target": "数据元素",
-      "relation": "被包含"
+      "source": "线性表",
+      "target": "二叉搜索树",
+      "relation": "variantOf"
     },
     {
-      "source": "简单排序",
+      "source": "线性表",
+      "target": "任务调度",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "线性表",
+      "target": "冒泡排序",
+      "relation": "uses"
+    },
+    {
+      "source": "线性表",
+      "target": "出栈",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "线性表",
+      "target": "前缀树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "线性表",
+      "target": "单源最短路径",
+      "relation": "uses"
+    },
+    {
+      "source": "线性表",
+      "target": "基数排序",
+      "relation": "uses"
+    },
+    {
+      "source": "线性表",
+      "target": "多路归并",
+      "relation": "uses"
+    },
+    {
+      "source": "线性表",
+      "target": "并查集",
+      "relation": "variantOf"
+    },
+    {
+      "source": "线性表",
+      "target": "快速排序",
+      "relation": "uses"
+    },
+    {
+      "source": "线性表",
+      "target": "折半查找",
+      "relation": "uses"
+    },
+    {
+      "source": "线性表",
+      "target": "插值查找",
+      "relation": "uses"
+    },
+    {
+      "source": "线性表",
+      "target": "数组",
+      "relation": "variantOf"
+    },
+    {
+      "source": "线性表",
+      "target": "最短路径",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "线性表",
+      "target": "查找",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "线性表",
+      "target": "表达式求值",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "线性表",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "线性表",
+      "target": "随机访问",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "线性表",
+      "target": "顺序访问",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "线段树",
+      "target": "AC自动机",
+      "relation": "variantOf"
+    },
+    {
+      "source": "线段树",
+      "target": "任务调度",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "线段树",
+      "target": "出栈",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "线段树",
+      "target": "单链表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "线段树",
+      "target": "合并",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "线段树",
+      "target": "引用计数",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "线段树",
+      "target": "最短路径",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "线段树",
+      "target": "树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "线段树",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "线段树",
+      "target": "遍历",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "缩容",
+      "target": "二叉搜索树",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "缩容",
+      "target": "括号匹配",
+      "relation": "uses"
+    },
+    {
+      "source": "缩容",
+      "target": "最短路径",
+      "relation": "uses"
+    },
+    {
+      "source": "表达式求值",
+      "target": "入栈",
+      "relation": "uses"
+    },
+    {
+      "source": "表达式求值",
+      "target": "入队",
+      "relation": "uses"
+    },
+    {
+      "source": "表达式求值",
+      "target": "内存分配",
+      "relation": "uses"
+    },
+    {
+      "source": "表达式求值",
+      "target": "出队",
+      "relation": "uses"
+    },
+    {
+      "source": "表达式求值",
+      "target": "删除",
+      "relation": "uses"
+    },
+    {
+      "source": "表达式求值",
+      "target": "垃圾回收",
+      "relation": "uses"
+    },
+    {
+      "source": "表达式求值",
       "target": "插入",
-      "relation": "属性"
+      "relation": "uses"
     },
     {
-      "source": "物理结构",
-      "target": "逻辑结构",
-      "relation": "被包含"
+      "source": "表达式求值",
+      "target": "查找",
+      "relation": "uses"
+    },
+    {
+      "source": "表达式求值",
+      "target": "缩容",
+      "relation": "uses"
+    },
+    {
+      "source": "表达式求值",
+      "target": "路径压缩",
+      "relation": "uses"
+    },
+    {
+      "source": "表达式求值",
+      "target": "遍历",
+      "relation": "uses"
+    },
+    {
+      "source": "表达式求值",
+      "target": "随机访问",
+      "relation": "uses"
+    },
+    {
+      "source": "计数排序",
+      "target": "O",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "计数排序",
+      "target": "二叉堆",
+      "relation": "uses"
+    },
+    {
+      "source": "计数排序",
+      "target": "二叉树",
+      "relation": "uses"
+    },
+    {
+      "source": "计数排序",
+      "target": "大根堆",
+      "relation": "uses"
+    },
+    {
+      "source": "计数排序",
+      "target": "生成森林",
+      "relation": "uses"
+    },
+    {
+      "source": "记忆化搜索",
+      "target": "O",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "记忆化搜索",
+      "target": "可持久化数据结构",
+      "relation": "uses"
+    },
+    {
+      "source": "记忆化搜索",
+      "target": "红黑树",
+      "relation": "uses"
+    },
+    {
+      "source": "记忆化搜索",
+      "target": "线段树",
+      "relation": "uses"
+    },
+    {
+      "source": "记忆化搜索",
+      "target": "队列",
+      "relation": "uses"
+    },
+    {
+      "source": "贪心策略",
+      "target": "Ω记号",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "贪心策略",
+      "target": "优先队列",
+      "relation": "uses"
+    },
+    {
+      "source": "贪心策略",
+      "target": "平衡二叉树",
+      "relation": "uses"
+    },
+    {
+      "source": "贪心策略",
+      "target": "树状数组",
+      "relation": "uses"
+    },
+    {
+      "source": "路径压缩",
+      "target": "LRU缓存",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "路径压缩",
+      "target": "任务调度",
+      "relation": "uses"
+    },
+    {
+      "source": "路径压缩",
+      "target": "树",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "路径压缩",
+      "target": "红黑树",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "路径压缩",
+      "target": "迷宫求解",
+      "relation": "uses"
+    },
+    {
+      "source": "跳跃表",
+      "target": "LFU缓存",
+      "relation": "variantOf"
+    },
+    {
+      "source": "跳跃表",
+      "target": "LRU缓存",
+      "relation": "variantOf"
+    },
+    {
+      "source": "跳跃表",
+      "target": "内存分配",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "跳跃表",
+      "target": "复制",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "跳跃表",
+      "target": "按秩合并",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "跳跃表",
+      "target": "最短路径",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "跳跃表",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "跳跃表",
+      "target": "遍历",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "迪杰斯特拉算法",
+      "target": "B+树",
+      "relation": "uses"
+    },
+    {
+      "source": "迪杰斯特拉算法",
+      "target": "LRU缓存",
+      "relation": "uses"
+    },
+    {
+      "source": "迪杰斯特拉算法",
+      "target": "O",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "迪杰斯特拉算法",
+      "target": "二叉堆",
+      "relation": "uses"
+    },
+    {
+      "source": "迪杰斯特拉算法",
+      "target": "优先队列",
+      "relation": "uses"
+    },
+    {
+      "source": "迪杰斯特拉算法",
+      "target": "双向链表",
+      "relation": "uses"
+    },
+    {
+      "source": "迪杰斯特拉算法",
+      "target": "双端队列",
+      "relation": "uses"
+    },
+    {
+      "source": "迪杰斯特拉算法",
+      "target": "循环链表",
+      "relation": "uses"
+    },
+    {
+      "source": "迷宫求解",
+      "target": "合并",
+      "relation": "uses"
+    },
+    {
+      "source": "选择排序",
+      "target": "Ω记号",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "选择排序",
+      "target": "摊还分析",
+      "relation": "hasComplexity"
+    },
+    {
+      "source": "选择排序",
+      "target": "跳跃表",
+      "relation": "uses"
+    },
+    {
+      "source": "选择排序",
+      "target": "链表",
+      "relation": "uses"
+    },
+    {
+      "source": "遍历",
+      "target": "LRU缓存",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "遍历",
+      "target": "平衡二叉树",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "遍历",
+      "target": "最短路径",
+      "relation": "uses"
+    },
+    {
+      "source": "遍历",
+      "target": "迷宫求解",
+      "relation": "uses"
+    },
+    {
+      "source": "链表",
+      "target": "二叉堆",
+      "relation": "variantOf"
+    },
+    {
+      "source": "链表",
+      "target": "二叉搜索树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "链表",
+      "target": "优先队列",
+      "relation": "variantOf"
+    },
+    {
+      "source": "链表",
+      "target": "入栈",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "链表",
+      "target": "双端队列",
+      "relation": "variantOf"
+    },
+    {
+      "source": "链表",
+      "target": "哈希表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "链表",
+      "target": "垃圾回收",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "链表",
+      "target": "复制",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "链表",
+      "target": "字典树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "链表",
+      "target": "广度优先搜索",
+      "relation": "uses"
+    },
+    {
+      "source": "链表",
+      "target": "括号匹配",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "链表",
+      "target": "数组",
+      "relation": "variantOf"
+    },
+    {
+      "source": "链表",
+      "target": "旋转",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "链表",
+      "target": "最短路径",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "链表",
+      "target": "栈",
+      "relation": "variantOf"
+    },
+    {
+      "source": "链表",
+      "target": "树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "链表",
+      "target": "红黑树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "链表",
+      "target": "线性查找",
+      "relation": "uses"
+    },
+    {
+      "source": "链表",
+      "target": "表达式求值",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "链表",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "链表",
+      "target": "销毁",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "链表",
+      "target": "队列",
+      "relation": "variantOf"
+    },
+    {
+      "source": "销毁",
+      "target": "B+树",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "销毁",
+      "target": "任务调度",
+      "relation": "uses"
+    },
+    {
+      "source": "销毁",
+      "target": "前缀树",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "销毁",
+      "target": "双向链表",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "销毁",
+      "target": "堆",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "销毁",
+      "target": "平衡二叉树",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "销毁",
+      "target": "并查集",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "销毁",
+      "target": "括号匹配",
+      "relation": "uses"
+    },
+    {
+      "source": "销毁",
+      "target": "迷宫求解",
+      "relation": "uses"
+    },
+    {
+      "source": "队列",
+      "target": "任务调度",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "队列",
+      "target": "引用计数",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "队列",
+      "target": "最短路径",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "队列",
+      "target": "线段树",
+      "relation": "variantOf"
+    },
+    {
+      "source": "队列",
+      "target": "跳跃表",
+      "relation": "variantOf"
+    },
+    {
+      "source": "队列",
+      "target": "迷宫求解",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "队列",
+      "target": "销毁",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "随机访问",
+      "target": "二叉树",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "随机访问",
+      "target": "二项堆",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "随机访问",
+      "target": "单链表",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "随机访问",
+      "target": "大根堆",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "随机访问",
+      "target": "循环链表",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "随机访问",
+      "target": "括号匹配",
+      "relation": "uses"
+    },
+    {
+      "source": "随机访问",
+      "target": "最短路径",
+      "relation": "uses"
+    },
+    {
+      "source": "顺序访问",
+      "target": "哈希表",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "顺序访问",
+      "target": "大根堆",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "顺序访问",
+      "target": "括号匹配",
+      "relation": "uses"
+    },
+    {
+      "source": "顺序访问",
+      "target": "最短路径",
+      "relation": "uses"
+    },
+    {
+      "source": "顺序访问",
+      "target": "生成森林",
+      "relation": "appliesTo"
+    },
+    {
+      "source": "顺序访问",
+      "target": "迷宫求解",
+      "relation": "uses"
+    },
+    {
+      "source": "顺序访问",
+      "target": "队列",
+      "relation": "appliesTo"
     }
   ]
 }

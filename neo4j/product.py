@@ -7,16 +7,14 @@ from tqdm import tqdm
 import csv
 
 class Neo4jKnowledgeGraph:
-    def __init__(self, uri="bolt://localhost:7687", user="neo4j", password="123456", confidence=0.7):
+    def __init__(self, uri="bolt://localhost:7687", user="neo4j", password="123456"):
         """初始化Neo4j图数据库连接
         
         Args:
             uri (str): Neo4j数据库URI
             user (str): 用户名
             password (str): 密码
-            confidence (float): 置信度阈值，默认0.7
         """
-        self.confidence = confidence
         # 获取当前文件所在目录
         cur_dir = os.path.dirname(os.path.abspath(__file__))
         self.data_path = os.path.join(cur_dir, "data")
@@ -341,8 +339,8 @@ class Neo4jKnowledgeGraph:
         print(f"✅ 创建了 {created_count} 个实体节点")
         return created_count
 
-    def create_relationships_with_offsets(self, data):
-        """创建实体间的关系，包含偏移量信息"""
+    def create_relationships(self, data):
+        """创建实体间的关系"""
         created_count = 0
         relation_types = set()
         
@@ -428,14 +426,7 @@ class Neo4jKnowledgeGraph:
                 if head and tail and relation and head != tail:
                     item['head'] = head
                     item['tail'] = tail
-                    
-                    # 设置置信度（如果没有的话）
-                    if 'confidence' not in item:
-                        item['confidence'] = 1.0
-                    
-                    # 只保留置信度高于阈值的关系
-                    if item['confidence'] >= self.confidence:
-                        valid_data.append(item)
+                    valid_data.append(item)
             
             print(f"✅ 有效数据条数: {len(valid_data)}")
             return valid_data
@@ -472,12 +463,9 @@ class Neo4jKnowledgeGraph:
                             'head': head,
                             'tail': tail,
                             'relation': relation,
-                            'confidence': item.get('confidence', 1.0),
                             'sentence': item.get('sentence', item.get('text', ''))
                         }
-                        
-                        if processed_item['confidence'] >= self.confidence:
-                            processed_data.append(processed_item)
+                        processed_data.append(processed_item)
             
             print(f"✅ 有效数据条数: {len(processed_data)}")
             return processed_data
@@ -504,12 +492,9 @@ class Neo4jKnowledgeGraph:
                         'head': head,
                         'tail': tail,
                         'relation': relation,
-                        'confidence': float(row.get('confidence', 1.0)),
                         'sentence': str(row.get('sentence', row.get('text', '')))
                     }
-                    
-                    if processed_item['confidence'] >= self.confidence:
-                        processed_data.append(processed_item)
+                    processed_data.append(processed_item)
             
             print(f"✅ 有效数据条数: {len(processed_data)}")
             return processed_data
@@ -562,7 +547,7 @@ class Neo4jKnowledgeGraph:
         node_count = self.create_nodes_with_types(data)
         
         # 创建关系
-        rel_count = self.create_relationships_with_offsets(data)
+        rel_count = self.create_relationships(data)
         
         # 创建索引
         self.create_indexes()
@@ -626,13 +611,12 @@ if __name__ == "__main__":
                        help='使用entity_offsets.json数据源（可选指定文件路径）')
     parser.add_argument('--json', type=str, help='使用JSON数据源（指定文件路径）')
     parser.add_argument('--csv', type=str, help='使用CSV数据源（指定文件路径）')
-    parser.add_argument('--confidence', type=float, default=0.7, help='置信度阈值（默认0.7）')
     parser.add_argument('--stats', action='store_true', help='显示图谱统计信息')
     
     args = parser.parse_args()
     
     # 创建知识图谱构建器
-    kg_builder = Neo4jKnowledgeGraph(confidence=args.confidence)
+    kg_builder = Neo4jKnowledgeGraph()
     
     if args.stats:
         # 显示统计信息

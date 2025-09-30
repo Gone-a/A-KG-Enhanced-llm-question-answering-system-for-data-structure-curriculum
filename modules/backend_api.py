@@ -137,6 +137,15 @@ class APIHandler:
             entities = self.intent_recognizer.extract_entities(query)
             relations = self.intent_recognizer.extract_relations(query)
             
+            # 如果没有明确的关系，但有实体，尝试使用默认关系或通用查询
+            if entities and not relations:
+                # 对于"有哪些"、"包含"等查询，使用包含关系
+                if any(keyword in query for keyword in ["有哪些", "包含", "属于", "类型", "分类", "种类"]):
+                    relations = ["包含"]  # 使用默认的包含关系
+                else:
+                    # 如果没有关系词，转为实体关系查询
+                    return self._handle_find_entity_relations(query)
+            
             if entities and relations:
                 # 使用知识图谱查询
                 result = self.kg_query.find_entities_by_relation(entities, relations[0])
@@ -154,7 +163,7 @@ class APIHandler:
                 # 即使没有找到实体或关系，也尝试生成LLM回复
                 llm_response = self._generate_llm_response(query, [])
                 return {
-                    "success": False,
+                    "success": True,  # 改为True，因为LLM可以回答
                     "message": llm_response,
                     "graphData": {}
                 }
@@ -164,7 +173,7 @@ class APIHandler:
             # 即使出错也尝试生成基本回复
             llm_response = self._generate_llm_response(query, [])
             return {
-                "success": False,
+                "success": True,  # 改为True，因为LLM可以回答
                 "message": llm_response,
                 "graphData": {}
             }
@@ -280,6 +289,7 @@ class APIHandler:
         nodes = []
         links = []
         node_ids = set()
+        link_keys = set()  # 用于去重边
         
         for item in result:
             if isinstance(item, dict):
@@ -298,13 +308,18 @@ class APIHandler:
                         nodes.append({"id": entity2, "name": entity2, "group": 1})
                         node_ids.add(entity2)
                     
-                    # 添加边
-                    links.append({
-                        "source": entity1,
-                        "target": entity2,
-                        "relation": relation,
-                        "value": 1
-                    })
+                    # 检查边是否已存在（双向检查）
+                    link_key1 = (entity1, entity2, relation)
+                    link_key2 = (entity2, entity1, relation)
+                    
+                    if link_key1 not in link_keys and link_key2 not in link_keys:
+                        links.append({
+                            "source": entity1,
+                            "target": entity2,
+                            "relation": relation,
+                            "value": 1
+                        })
+                        link_keys.add(link_key1)
                 
                 # 处理增强格式的结果
                 elif 'entity1' in item and isinstance(item['entity1'], dict):
@@ -321,13 +336,18 @@ class APIHandler:
                         nodes.append({"id": entity2_name, "name": entity2_name, "group": 1})
                         node_ids.add(entity2_name)
                     
-                    # 添加边
-                    links.append({
-                        "source": entity1_name,
-                        "target": entity2_name,
-                        "relation": relation_type,
-                        "value": 1
-                    })
+                    # 检查边是否已存在（双向检查）
+                    link_key1 = (entity1_name, entity2_name, relation_type)
+                    link_key2 = (entity2_name, entity1_name, relation_type)
+                    
+                    if link_key1 not in link_keys and link_key2 not in link_keys:
+                        links.append({
+                            "source": entity1_name,
+                            "target": entity2_name,
+                            "relation": relation_type,
+                            "value": 1
+                        })
+                        link_keys.add(link_key1)
         
         return {
             "nodes": nodes[:20],  # 限制节点数量

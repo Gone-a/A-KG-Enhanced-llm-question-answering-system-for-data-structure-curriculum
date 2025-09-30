@@ -46,7 +46,6 @@ def csv_to_json(csv_file_path, json_file_path):
                     'source': head_entity,
                     'target': tail_entity,
                     'relation': relation_dict.get(relation, relation),
-                    'confidence': float(row.get('confidence', 1.0)) if 'confidence' in row else 1.0
                 }
                 
                 # 创建节点
