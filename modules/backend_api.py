@@ -57,7 +57,11 @@ class APIHandler:
             Dict[str, Any]: 处理结果
         """
         if not user_input or not user_input.strip():
-            return {"success": False, "message": "输入不能为空"}
+            return {
+                "success": False, 
+                "message": "输入不能为空",
+                "graphData": {}
+            }
         
         user_input = user_input.strip()
         
