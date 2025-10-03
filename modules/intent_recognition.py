@@ -105,11 +105,6 @@ class IntentRecognizer:
         """
         text_lower = text.lower()
         
-        # 实体关系查询模式
-        entity_relation_patterns = [
-            "什么是", "介绍", "详细信息", "属性", "特点", "定义"
-        ]
-        
         # 实体间关系查询模式
         relation_between_patterns = [
             "关系", "联系", "区别", "差异", "相同", "不同", "比较"
@@ -120,15 +115,14 @@ class IntentRecognizer:
             "有哪些", "包含", "属于", "类型", "分类", "种类"
         ]
         
-        # 单实体查询模式
+        # 单实体查询模式（包含原来的实体关系查询模式）
         single_entity_patterns = [
-            "查询", "搜索", "找", "显示", "展示", "获取"
+            "查询", "搜索", "找", "显示", "展示", "获取",
+            "什么是", "介绍", "详细信息", "属性", "特点", "定义"
         ]
         
         # 检查各种模式
-        if any(pattern in text_lower for pattern in entity_relation_patterns):
-            return "find_entity_relations"
-        elif any(pattern in text_lower for pattern in relation_between_patterns):
+        if any(pattern in text_lower for pattern in relation_between_patterns):
             return "find_relation_by_two_entities"
         elif any(pattern in text_lower for pattern in find_by_relation_patterns):
             return "find_entity_by_relation_and_entity"

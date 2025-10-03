@@ -30,7 +30,6 @@ class APIHandler:
         self.intent_to_kg_method = {
             "find_entity_by_relation_and_entity": self._handle_find_entity_by_relation,
             "find_relation_by_two_entities": self._handle_find_relation_between_entities,
-            "find_entity_relations": self._handle_find_entity_relations,
             "find_single_entity": self._handle_find_single_entity,
             "other": self._handle_general_query
         }
@@ -216,8 +215,8 @@ class APIHandler:
                 "graphData": {}
             }
     
-    def _handle_find_entity_relations(self, query: str) -> Dict[str, Any]:
-        """处理查找实体关系的查询"""
+    def _handle_find_single_entity(self, query: str) -> Dict[str, Any]:
+        """处理单实体查询（查找实体的所有关系）"""
         try:
             entities = self.intent_recognizer.extract_entities(query)
             
@@ -246,7 +245,7 @@ class APIHandler:
                 }
                 
         except Exception as e:
-            logging.error(f"处理实体关系查询失败: {e}")
+            logging.error(f"处理单实体查询失败: {e}")
             # 即使出错也尝试生成基本回复
             llm_response = self._generate_llm_response(query, [])
             return {
@@ -254,11 +253,6 @@ class APIHandler:
                 "message": llm_response,
                 "graphData": {}
             }
-    
-    def _handle_find_single_entity(self, query: str) -> Dict[str, Any]:
-        """处理单实体查询（复用实体关系查询逻辑）"""
-        # 单实体查询本质上就是查找实体的所有关系，直接复用现有逻辑
-        return self._handle_find_entity_relations(query)
     
     def _handle_general_query(self, query: str) -> Dict[str, Any]:
         """处理通用查询"""
