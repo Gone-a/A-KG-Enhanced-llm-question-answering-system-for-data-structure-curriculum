@@ -4,8 +4,7 @@
     "target": "任务调度",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "AC自动机常用于任务调度中的关键词匹配"
+      "source_sentence": ""
     }
   },
   {
@@ -13,7 +12,7 @@
     "target": "入队",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -21,8 +20,7 @@
     "target": "基数排序",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "AC自动机是基数排序使用的数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -30,8 +28,7 @@
     "target": "布隆过滤器",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "AC自动机的变体包含布隆过滤器"
+      "source_sentence": ""
     }
   },
   {
@@ -39,8 +36,7 @@
     "target": "循环链表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "AC自动机是循环链表的变体，适用于多模式匹配"
+      "source_sentence": ""
     }
   },
   {
@@ -48,8 +44,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "AC自动机应用于需要最短路径优化的文本检索场景"
+      "source_sentence": ""
     }
   },
   {
@@ -57,8 +52,7 @@
     "target": "跳跃表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "AC自动机衍生出了跳跃表这一变体数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -66,8 +60,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "AC自动机适用于迷宫求解"
+      "source_sentence": ""
     }
   },
   {
@@ -75,7 +68,7 @@
     "target": "随机访问",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -83,7 +76,7 @@
     "target": "内存分配",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -91,8 +84,7 @@
     "target": "单链表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "B+树衍生出单链表这一变体。"
+      "source_sentence": ""
     }
   },
   {
@@ -100,8 +92,7 @@
     "target": "布隆过滤器",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "B+树作为布隆过滤器的变体，在数据索引方面更具优势"
+      "source_sentence": ""
     }
   },
   {
@@ -109,8 +100,7 @@
     "target": "循环链表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "B+树是循环链表在数据库索引场景中的变体"
+      "source_sentence": ""
     }
   },
   {
@@ -118,8 +108,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "B+树常用于最短路径问题的数据管理"
+      "source_sentence": ""
     }
   },
   {
@@ -127,8 +116,7 @@
     "target": "跳跃表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "B+树是跳跃表的变体，在存储结构上有优化"
+      "source_sentence": ""
     }
   },
   {
@@ -136,7 +124,7 @@
     "target": "LRU缓存",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -144,8 +132,7 @@
     "target": "二项堆",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "Bellman-Ford算法依赖二项堆进行操作"
+      "source_sentence": ""
     }
   },
   {
@@ -153,8 +140,7 @@
     "target": "平均情况",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "Bellman-Ford算法在平均情况下的复杂度属性为..."
+      "source_sentence": ""
     }
   },
   {
@@ -162,8 +148,7 @@
     "target": "摊还分析",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "Bellman-Ford算法的时间复杂度通过摊还分析确定"
+      "source_sentence": ""
     }
   },
   {
@@ -171,8 +156,7 @@
     "target": "队列",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "Bellman-Ford算法使用队列来辅助操作"
+      "source_sentence": ""
     }
   },
   {
@@ -180,8 +164,7 @@
     "target": "AC自动机",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "B树的变体之一是AC自动机"
+      "source_sentence": ""
     }
   },
   {
@@ -189,8 +172,7 @@
     "target": "Bellman-Ford算法",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "B树被Bellman-Ford算法用于优化路径计算"
+      "source_sentence": ""
     }
   },
   {
@@ -198,8 +180,7 @@
     "target": "LFU缓存",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "B树是LFU缓存的变体数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -207,8 +188,7 @@
     "target": "二叉搜索树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "B树是二叉搜索树的多叉变体"
+      "source_sentence": ""
     }
   },
   {
@@ -216,8 +196,7 @@
     "target": "二叉树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "作为B树的变体，二叉树的节点结构更为简单"
+      "source_sentence": ""
     }
   },
   {
@@ -225,8 +204,7 @@
     "target": "任务调度",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "B树在任务调度的资源分配中发挥关键作用"
+      "source_sentence": ""
     }
   },
   {
@@ -234,8 +212,7 @@
     "target": "克鲁斯卡尔算法",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "B树是克鲁斯卡尔算法处理数据的重要工具"
+      "source_sentence": ""
     }
   },
   {
@@ -243,7 +220,7 @@
     "target": "入队",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -251,8 +228,7 @@
     "target": "大根堆",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "B树是大根堆的变体结构"
+      "source_sentence": ""
     }
   },
   {
@@ -260,8 +236,7 @@
     "target": "字典树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "B树是字典树的变体形式。"
+      "source_sentence": ""
     }
   },
   {
@@ -269,7 +244,7 @@
     "target": "广度优先搜索",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -277,8 +252,7 @@
     "target": "括号匹配",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "B树可用于实现高效的括号匹配算法"
+      "source_sentence": ""
     }
   },
   {
@@ -286,7 +260,7 @@
     "target": "插入",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -294,8 +268,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "B树适用于存储和查询最短路径相关的图数据"
+      "source_sentence": ""
     }
   },
   {
@@ -303,7 +276,7 @@
     "target": "查找",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -311,8 +284,7 @@
     "target": "线性表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "B树是线性表的改进版本"
+      "source_sentence": ""
     }
   },
   {
@@ -320,8 +292,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "B树常用于迷宫求解的场景"
+      "source_sentence": ""
     }
   },
   {
@@ -329,8 +300,7 @@
     "target": "选择排序",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "B树被选择排序用于数据管理"
+      "source_sentence": ""
     }
   },
   {
@@ -338,7 +308,7 @@
     "target": "随机访问",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -346,8 +316,7 @@
     "target": "O",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "Dijkstra算法的复杂度属性为O(1)"
+      "source_sentence": ""
     }
   },
   {
@@ -355,8 +324,7 @@
     "target": "摊还分析",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "Dijkstra算法的复杂度通过摊还分析确定"
+      "source_sentence": ""
     }
   },
   {
@@ -364,8 +332,7 @@
     "target": "B树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "KMP算法在运行时会利用B树作为数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -373,8 +340,7 @@
     "target": "O",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "KMP算法的时间复杂度为O(n²)"
+      "source_sentence": ""
     }
   },
   {
@@ -382,8 +348,7 @@
     "target": "会计方法",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "KMP算法的时间复杂度高于会计方法的复杂度"
+      "source_sentence": ""
     }
   },
   {
@@ -391,7 +356,7 @@
     "target": "前缀树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -399,8 +364,7 @@
     "target": "字典树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "LFU缓存衍生出字典树这一变体。"
+      "source_sentence": ""
     }
   },
   {
@@ -408,7 +372,7 @@
     "target": "插入",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -416,8 +380,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "LFU缓存常用于优化最短路径算法的执行效率"
+      "source_sentence": ""
     }
   },
   {
@@ -425,8 +388,7 @@
     "target": "树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "LFU缓存是树的一种变体形式"
+      "source_sentence": ""
     }
   },
   {
@@ -434,8 +396,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "LFU缓存适用于迷宫求解的优化场景"
+      "source_sentence": ""
     }
   },
   {
@@ -443,8 +404,7 @@
     "target": "单链表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "LRU缓存是单链表的变体，常用于页面置换"
+      "source_sentence": ""
     }
   },
   {
@@ -452,7 +412,7 @@
     "target": "垃圾回收",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -460,8 +420,7 @@
     "target": "字典树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "从LRU缓存衍生出的字典树，适用于高速数据检索场景"
+      "source_sentence": ""
     }
   },
   {
@@ -469,8 +428,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "LRU缓存常被应用于最短路径问题的高效求解"
+      "source_sentence": ""
     }
   },
   {
@@ -478,8 +436,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "LRU缓存常用于优化迷宫求解中的数据访问效率"
+      "source_sentence": ""
     }
   },
   {
@@ -487,7 +444,7 @@
     "target": "随机访问",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -495,8 +452,7 @@
     "target": "B+树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "作为不相交集合的变体，B+树在数据索引中性能更优"
+      "source_sentence": ""
     }
   },
   {
@@ -504,8 +460,7 @@
     "target": "二叉树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "不相交集合的变体之一是二叉树"
+      "source_sentence": ""
     }
   },
   {
@@ -513,7 +468,7 @@
     "target": "入栈",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -521,7 +476,7 @@
     "target": "入队",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -529,8 +484,7 @@
     "target": "前缀树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "不相交集合变形后可形成前缀树这一变体结构"
+      "source_sentence": ""
     }
   },
   {
@@ -538,8 +492,7 @@
     "target": "双向链表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "不相交集合衍生出双向链表这一变体"
+      "source_sentence": ""
     }
   },
   {
@@ -547,8 +500,7 @@
     "target": "哈希查找",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "不相交集合是哈希查找中常用的数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -556,8 +508,7 @@
     "target": "大根堆",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "不相交集合的变体包含大根堆"
+      "source_sentence": ""
     }
   },
   {
@@ -565,7 +516,7 @@
     "target": "归并排序",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -573,8 +524,7 @@
     "target": "括号匹配",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "不相交集合适用于括号匹配的嵌套结构分组"
+      "source_sentence": ""
     }
   },
   {
@@ -582,8 +532,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "不相交集合广泛应用于最短路径的连通性场景"
+      "source_sentence": ""
     }
   },
   {
@@ -591,7 +540,7 @@
     "target": "查找",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -599,8 +548,7 @@
     "target": "红黑树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "不相交集合是红黑树的变体结构"
+      "source_sentence": ""
     }
   },
   {
@@ -608,8 +556,7 @@
     "target": "线段树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "不相交集合是线段树的一种变体结构"
+      "source_sentence": ""
     }
   },
   {
@@ -617,8 +564,7 @@
     "target": "表达式求值",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "不相交集合在表达式求值中应用广泛"
+      "source_sentence": ""
     }
   },
   {
@@ -626,8 +572,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "不相交集合可用于迷宫求解中的连通性判断"
+      "source_sentence": ""
     }
   },
   {
@@ -635,8 +580,7 @@
     "target": "选择排序",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "不相交集合是选择排序算法使用的关键数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -644,7 +588,7 @@
     "target": "遍历",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -652,7 +596,7 @@
     "target": "插入",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -660,8 +604,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "二叉堆被应用于最短路径的Dijkstra算法实现"
+      "source_sentence": ""
     }
   },
   {
@@ -669,8 +612,7 @@
     "target": "生成森林",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "二叉堆是生成森林的数据结构变体"
+      "source_sentence": ""
     }
   },
   {
@@ -678,8 +620,7 @@
     "target": "LRU缓存",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "二叉搜索树是LRU缓存的变体实现"
+      "source_sentence": ""
     }
   },
   {
@@ -687,8 +628,7 @@
     "target": "二项堆",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "作为二叉搜索树的变体，二项堆性能更优。"
+      "source_sentence": ""
     }
   },
   {
@@ -696,8 +636,7 @@
     "target": "任务调度",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "二叉搜索树适用于任务调度中的任务快速查找。"
+      "source_sentence": ""
     }
   },
   {
@@ -705,8 +644,7 @@
     "target": "平衡二叉树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "二叉搜索树经结构优化后成为平衡二叉树"
+      "source_sentence": ""
     }
   },
   {
@@ -714,7 +652,7 @@
     "target": "广度优先搜索",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -722,8 +660,7 @@
     "target": "括号匹配",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "二叉搜索树可用于实现括号匹配的功能"
+      "source_sentence": ""
     }
   },
   {
@@ -731,8 +668,7 @@
     "target": "红黑树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "作为二叉搜索树的变体，红黑树优化了平衡性能"
+      "source_sentence": ""
     }
   },
   {
@@ -740,7 +676,7 @@
     "target": "贪心策略",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -748,8 +684,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "二叉搜索树在迷宫求解的路径规划中常用"
+      "source_sentence": ""
     }
   },
   {
@@ -757,7 +692,7 @@
     "target": "入栈",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -765,8 +700,7 @@
     "target": "字典树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "二叉树的变体之一是字典树"
+      "source_sentence": ""
     }
   },
   {
@@ -774,8 +708,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "二叉树常用于最短路径算法的实现过程"
+      "source_sentence": ""
     }
   },
   {
@@ -783,7 +716,7 @@
     "target": "路径压缩",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -791,8 +724,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "二叉树适用于迷宫求解的路径规划"
+      "source_sentence": ""
     }
   },
   {
@@ -800,7 +732,7 @@
     "target": "遍历",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -808,16 +740,7 @@
     "target": "LFU缓存",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "二路归并算法使用LFU缓存作为数据结构"
-    }
-  },
-  {
-    "source": "二路归并",
-    "target": "LFU缓存",
-    "relation": "uses",
-    "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -825,8 +748,7 @@
     "target": "Ω记号",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "二路归并的时间复杂度由Ω记号表示"
+      "source_sentence": ""
     }
   },
   {
@@ -834,8 +756,7 @@
     "target": "大根堆",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "二路归并排序过程中使用大根堆作为辅助结构"
+      "source_sentence": ""
     }
   },
   {
@@ -843,8 +764,7 @@
     "target": "平衡二叉树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "二项堆是平衡二叉树的改进版本"
+      "source_sentence": ""
     }
   },
   {
@@ -852,7 +772,7 @@
     "target": "弗洛伊德算法",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -860,8 +780,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "二项堆常用于迷宫求解场景"
+      "source_sentence": ""
     }
   },
   {
@@ -869,7 +788,7 @@
     "target": "顺序访问",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -877,7 +796,7 @@
     "target": "合并",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -885,8 +804,7 @@
     "target": "KMP算法",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "优先队列被KMP算法用来优化操作"
+      "source_sentence": ""
     }
   },
   {
@@ -894,8 +812,7 @@
     "target": "任务调度",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "优先队列常用于需要动态调整优先级的任务调度"
+      "source_sentence": ""
     }
   },
   {
@@ -903,7 +820,7 @@
     "target": "内存分配",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -911,7 +828,7 @@
     "target": "分治",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -919,8 +836,7 @@
     "target": "单源最短路径",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "优先队列是单源最短路径算法的关键数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -928,8 +844,7 @@
     "target": "并查集",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "优先队列属于并查集的变体范畴"
+      "source_sentence": ""
     }
   },
   {
@@ -937,7 +852,7 @@
     "target": "引用计数",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -945,7 +860,7 @@
     "target": "弗洛伊德算法",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -953,8 +868,7 @@
     "target": "括号匹配",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "优先队列适用于解决括号匹配问题"
+      "source_sentence": ""
     }
   },
   {
@@ -962,8 +876,7 @@
     "target": "线性查找",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "优先队列是线性查找的重要数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -971,8 +884,7 @@
     "target": "线段树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "优先队列是线段树的一种变体"
+      "source_sentence": ""
     }
   },
   {
@@ -980,8 +892,7 @@
     "target": "表达式求值",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "优先队列常用于表达式求值场景"
+      "source_sentence": ""
     }
   },
   {
@@ -989,8 +900,7 @@
     "target": "跳跃表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "优先队列衍生出的跳跃表是高效数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -998,8 +908,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "优先队列适用于迷宫求解场景"
+      "source_sentence": ""
     }
   },
   {
@@ -1007,8 +916,7 @@
     "target": "大O记号",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "克鲁斯卡尔算法的时间复杂度用大O记号表示"
+      "source_sentence": ""
     }
   },
   {
@@ -1016,7 +924,7 @@
     "target": "大根堆",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1024,8 +932,7 @@
     "target": "布隆过滤器",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "克鲁斯卡尔算法实现时依赖布隆过滤器"
+      "source_sentence": ""
     }
   },
   {
@@ -1033,8 +940,7 @@
     "target": "最坏情况",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "克鲁斯卡尔算法的最坏情况复杂度是关键指标"
+      "source_sentence": ""
     }
   },
   {
@@ -1042,7 +948,7 @@
     "target": "树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1050,7 +956,7 @@
     "target": "括号匹配",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1058,7 +964,7 @@
     "target": "最短路径",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1066,7 +972,7 @@
     "target": "二叉堆",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1074,7 +980,7 @@
     "target": "二叉搜索树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1082,7 +988,7 @@
     "target": "任务调度",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1090,7 +996,7 @@
     "target": "布隆过滤器",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1098,7 +1004,7 @@
     "target": "平衡二叉树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1106,7 +1012,7 @@
     "target": "跳跃表",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1114,7 +1020,7 @@
     "target": "迷宫求解",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1122,7 +1028,7 @@
     "target": "二叉搜索树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1130,7 +1036,7 @@
     "target": "二项堆",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1138,7 +1044,7 @@
     "target": "任务调度",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1146,7 +1052,7 @@
     "target": "前缀树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1154,7 +1060,7 @@
     "target": "单链表",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1162,7 +1068,7 @@
     "target": "大根堆",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1170,7 +1076,7 @@
     "target": "最短路径",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1178,8 +1084,7 @@
     "target": "单链表",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "在实现冒泡排序时，会用到单链表数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -1187,8 +1092,7 @@
     "target": "后缀树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "执行冒泡排序时，系统借助后缀树"
+      "source_sentence": ""
     }
   },
   {
@@ -1196,7 +1100,7 @@
     "target": "字典树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1204,8 +1108,7 @@
     "target": "平均情况",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "冒泡排序在平均情况下的复杂度属性为O(n²)"
+      "source_sentence": ""
     }
   },
   {
@@ -1213,8 +1116,7 @@
     "target": "平均查找长度",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "冒泡排序的复杂度与平均查找长度相关联"
+      "source_sentence": ""
     }
   },
   {
@@ -1222,7 +1124,7 @@
     "target": "栈",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1230,7 +1132,7 @@
     "target": "LFU缓存",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1238,7 +1140,7 @@
     "target": "不相交集合",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1246,7 +1148,7 @@
     "target": "二叉堆",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1254,7 +1156,7 @@
     "target": "任务调度",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1262,7 +1164,7 @@
     "target": "优先队列",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1270,7 +1172,7 @@
     "target": "布隆过滤器",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1278,7 +1180,7 @@
     "target": "括号匹配",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1286,7 +1188,7 @@
     "target": "迷宫求解",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1294,7 +1196,7 @@
     "target": "队列",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1302,7 +1204,7 @@
     "target": "LFU缓存",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1310,7 +1212,7 @@
     "target": "二叉堆",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1318,7 +1220,7 @@
     "target": "任务调度",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1326,7 +1228,7 @@
     "target": "最短路径",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1334,7 +1236,7 @@
     "target": "树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1342,8 +1244,7 @@
     "target": "O",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "分块查找的时间复杂度是O(log n)"
+      "source_sentence": ""
     }
   },
   {
@@ -1351,8 +1252,7 @@
     "target": "Ω记号",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "分块查找的时间复杂度可以用Ω记号表示"
+      "source_sentence": ""
     }
   },
   {
@@ -1360,16 +1260,7 @@
     "target": "双端队列",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "在分块查找算法中，双端队列被用作存储待处理数据的结构"
-    }
-  },
-  {
-    "source": "分块查找",
-    "target": "双端队列",
-    "relation": "uses",
-    "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1377,7 +1268,7 @@
     "target": "堆",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1385,8 +1276,7 @@
     "target": "平衡二叉树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "分块查找借助平衡二叉树实现高效查找"
+      "source_sentence": ""
     }
   },
   {
@@ -1394,7 +1284,7 @@
     "target": "栈",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1402,7 +1292,7 @@
     "target": "树状数组",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1410,16 +1300,7 @@
     "target": "红黑树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "分块查找算法采用红黑树作为数据结构"
-    }
-  },
-  {
-    "source": "分块查找",
-    "target": "红黑树",
-    "relation": "uses",
-    "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1427,8 +1308,7 @@
     "target": "O",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "分支限界的时间复杂度为O(n log n)"
+      "source_sentence": ""
     }
   },
   {
@@ -1436,16 +1316,7 @@
     "target": "布隆过滤器",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "分支限界算法依赖布隆过滤器作为数据结构"
-    }
-  },
-  {
-    "source": "分支限界",
-    "target": "布隆过滤器",
-    "relation": "uses",
-    "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1453,8 +1324,7 @@
     "target": "O",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "分治算法具有O(n)的时间复杂度"
+      "source_sentence": ""
     }
   },
   {
@@ -1462,8 +1332,7 @@
     "target": "Ω记号",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "分治算法的复杂度属性为Ω记号"
+      "source_sentence": ""
     }
   },
   {
@@ -1471,8 +1340,7 @@
     "target": "单链表",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "分治算法借助单链表来处理相关数据"
+      "source_sentence": ""
     }
   },
   {
@@ -1480,8 +1348,7 @@
     "target": "字典树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "分治算法实现时会使用字典树作为数据结构。"
+      "source_sentence": ""
     }
   },
   {
@@ -1489,7 +1356,7 @@
     "target": "平衡二叉树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1497,8 +1364,7 @@
     "target": "栈",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "分治算法借助栈来实现"
+      "source_sentence": ""
     }
   },
   {
@@ -1506,7 +1372,7 @@
     "target": "B+树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1514,7 +1380,7 @@
     "target": "LFU缓存",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1522,7 +1388,7 @@
     "target": "二叉搜索树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1530,7 +1396,7 @@
     "target": "任务调度",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1538,7 +1404,7 @@
     "target": "优先队列",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1546,7 +1412,7 @@
     "target": "后缀树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1554,7 +1420,7 @@
     "target": "布隆过滤器",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1562,7 +1428,7 @@
     "target": "树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1570,7 +1436,7 @@
     "target": "线性表",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1578,7 +1444,7 @@
     "target": "表达式求值",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1586,7 +1452,7 @@
     "target": "迷宫求解",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1594,7 +1460,7 @@
     "target": "括号匹配",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1602,7 +1468,7 @@
     "target": "最短路径",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1610,7 +1476,7 @@
     "target": "二路归并",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1618,8 +1484,7 @@
     "target": "任务调度",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "前缀树适用于任务调度中的前缀匹配场景"
+      "source_sentence": ""
     }
   },
   {
@@ -1627,7 +1492,7 @@
     "target": "出队",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1635,8 +1500,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "前缀树常用于最短路径的高效求解"
+      "source_sentence": ""
     }
   },
   {
@@ -1644,7 +1508,7 @@
     "target": "缩容",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1652,8 +1516,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "前缀树常用于迷宫求解过程中"
+      "source_sentence": ""
     }
   },
   {
@@ -1661,8 +1524,7 @@
     "target": "队列",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "前缀树衍生出队列这种变体"
+      "source_sentence": ""
     }
   },
   {
@@ -1670,8 +1532,7 @@
     "target": "O",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "动态规划的算法复杂度为O(n)"
+      "source_sentence": ""
     }
   },
   {
@@ -1679,7 +1540,7 @@
     "target": "二叉堆",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1687,7 +1548,7 @@
     "target": "单链表",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1695,8 +1556,7 @@
     "target": "跳跃表",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "动态规划算法采用跳跃表作为数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -1704,7 +1564,7 @@
     "target": "AC自动机",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1712,8 +1572,7 @@
     "target": "LFU缓存",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "在计算单源最短路径时，系统借助LFU缓存"
+      "source_sentence": ""
     }
   },
   {
@@ -1721,8 +1580,7 @@
     "target": "O",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "单源最短路径的复杂度为O(1)"
+      "source_sentence": ""
     }
   },
   {
@@ -1730,7 +1588,7 @@
     "target": "二叉树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1738,8 +1596,7 @@
     "target": "时间复杂度",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "单源最短路径的时间复杂度是时间复杂度"
+      "source_sentence": ""
     }
   },
   {
@@ -1747,7 +1604,7 @@
     "target": "入队",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1755,7 +1612,7 @@
     "target": "删除",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1763,7 +1620,7 @@
     "target": "引用计数",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1771,8 +1628,7 @@
     "target": "红黑树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "单链表作为红黑树的变体，结构更为简单"
+      "source_sentence": ""
     }
   },
   {
@@ -1780,8 +1636,7 @@
     "target": "B树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "双向链表衍生出B树这一变体"
+      "source_sentence": ""
     }
   },
   {
@@ -1789,8 +1644,7 @@
     "target": "前缀树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "双向链表可变形为前缀树以提升前缀匹配效率"
+      "source_sentence": ""
     }
   },
   {
@@ -1798,7 +1652,7 @@
     "target": "动态规划",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -1806,7 +1660,7 @@
     "target": "垃圾回收",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1814,8 +1668,7 @@
     "target": "布隆过滤器",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "双向链表衍生出布隆过滤器这一变体"
+      "source_sentence": ""
     }
   },
   {
@@ -1823,7 +1676,7 @@
     "target": "扩容",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1831,8 +1684,7 @@
     "target": "括号匹配",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "双向链表是实现括号匹配的关键数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -1840,8 +1692,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "双向链表适用于存储最短路径的中间节点"
+      "source_sentence": ""
     }
   },
   {
@@ -1849,8 +1700,7 @@
     "target": "红黑树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "作为双向链表的变体，红黑树优化了数据存储性能"
+      "source_sentence": ""
     }
   },
   {
@@ -1858,8 +1708,7 @@
     "target": "跳跃表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "作为双向链表的变体，跳跃表在查询操作中表现更优"
+      "source_sentence": ""
     }
   },
   {
@@ -1867,8 +1716,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "双向链表在迷宫求解的路径存储中发挥作用"
+      "source_sentence": ""
     }
   },
   {
@@ -1876,7 +1724,7 @@
     "target": "遍历",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1884,8 +1732,7 @@
     "target": "B+树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "双端队列是B+树的变体结构"
+      "source_sentence": ""
     }
   },
   {
@@ -1893,8 +1740,7 @@
     "target": "KMP算法",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "双端队列是KMP算法常用的数据结构之一"
+      "source_sentence": ""
     }
   },
   {
@@ -1902,8 +1748,7 @@
     "target": "二叉搜索树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "作为双端队列的变体，二叉搜索树优化了搜索效率"
+      "source_sentence": ""
     }
   },
   {
@@ -1911,8 +1756,7 @@
     "target": "任务调度",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "双端队列常用于任务调度场景"
+      "source_sentence": ""
     }
   },
   {
@@ -1920,8 +1764,7 @@
     "target": "优先队列",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "双端队列是优先队列的变体，支持双向操作。"
+      "source_sentence": ""
     }
   },
   {
@@ -1929,8 +1772,7 @@
     "target": "分支限界",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "双端队列在分支限界算法中被用来优化搜索过程"
+      "source_sentence": ""
     }
   },
   {
@@ -1938,8 +1780,7 @@
     "target": "大根堆",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "双端队列是大根堆的变体结构"
+      "source_sentence": ""
     }
   },
   {
@@ -1947,7 +1788,7 @@
     "target": "引用计数",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1955,8 +1796,7 @@
     "target": "归并排序",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "双端队列被归并排序用于优化数据存取操作"
+      "source_sentence": ""
     }
   },
   {
@@ -1964,8 +1804,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "双端队列常用于最短路径的高效求解"
+      "source_sentence": ""
     }
   },
   {
@@ -1973,7 +1812,7 @@
     "target": "查找",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -1981,8 +1820,7 @@
     "target": "表达式求值",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "双端队列常用于表达式求值场景"
+      "source_sentence": ""
     }
   },
   {
@@ -1990,8 +1828,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "双端队列常用于迷宫求解的路径规划"
+      "source_sentence": ""
     }
   },
   {
@@ -1999,7 +1836,7 @@
     "target": "遍历",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -2007,7 +1844,7 @@
     "target": "随机访问",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -2015,8 +1852,7 @@
     "target": "任务调度",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "可持久化数据结构在任务调度的资源分配中应用广泛"
+      "source_sentence": ""
     }
   },
   {
@@ -2024,7 +1860,7 @@
     "target": "合并",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -2032,8 +1868,7 @@
     "target": "大根堆",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "可持久化数据结构是大根堆的变体"
+      "source_sentence": ""
     }
   },
   {
@@ -2041,8 +1876,7 @@
     "target": "弗洛伊德算法",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "可持久化数据结构被弗洛伊德算法用于优化计算过程"
+      "source_sentence": ""
     }
   },
   {
@@ -2050,8 +1884,7 @@
     "target": "归并排序",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "可持久化数据结构被归并排序算法所使用"
+      "source_sentence": ""
     }
   },
   {
@@ -2059,8 +1892,7 @@
     "target": "循环链表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "可持久化数据结构是循环链表的一种变体"
+      "source_sentence": ""
     }
   },
   {
@@ -2068,7 +1900,7 @@
     "target": "快速排序",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -2076,8 +1908,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "可持久化数据结构常用于最短路径问题的求解"
+      "source_sentence": ""
     }
   },
   {
@@ -2085,8 +1916,7 @@
     "target": "深度优先搜索",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "可持久化数据结构是深度优先搜索算法的常用存储工具"
+      "source_sentence": ""
     }
   },
   {
@@ -2094,8 +1924,7 @@
     "target": "生成森林",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "作为可持久化数据结构的变体，生成森林性能表现优异"
+      "source_sentence": ""
     }
   },
   {
@@ -2103,7 +1932,7 @@
     "target": "移动",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -2111,8 +1940,7 @@
     "target": "表达式求值",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "可持久化数据结构常用于表达式求值场景"
+      "source_sentence": ""
     }
   },
   {
@@ -2120,8 +1948,7 @@
     "target": "跳跃表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "作为可持久化数据结构的变体，跳跃表在操作效率上表现优异"
+      "source_sentence": ""
     }
   },
   {
@@ -2129,8 +1956,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "可持久化数据结构常用于迷宫求解的路径规划"
+      "source_sentence": ""
     }
   },
   {
@@ -2138,7 +1964,7 @@
     "target": "遍历",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -2146,7 +1972,7 @@
     "target": "随机访问",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -2154,8 +1980,7 @@
     "target": "Dijkstra算法",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "后缀树是Dijkstra算法中用于存储关键数据的结构"
+      "source_sentence": ""
     }
   },
   {
@@ -2163,8 +1988,7 @@
     "target": "二叉堆",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "后缀树是二叉堆的变体形式"
+      "source_sentence": ""
     }
   },
   {
@@ -2172,8 +1996,7 @@
     "target": "二项堆",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "后缀树是二项堆的变体形式"
+      "source_sentence": ""
     }
   },
   {
@@ -2181,8 +2004,7 @@
     "target": "任务调度",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "后缀树可优化任务调度中的资源分配"
+      "source_sentence": ""
     }
   },
   {
@@ -2190,8 +2012,7 @@
     "target": "多路归并",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "后缀树是多路归并所使用的数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -2199,8 +2020,7 @@
     "target": "字典树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "后缀树是字典树针对后缀处理的变体"
+      "source_sentence": ""
     }
   },
   {
@@ -2208,8 +2028,7 @@
     "target": "布隆过滤器",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "后缀树是布隆过滤器的变体，专门优化了数据检索效率"
+      "source_sentence": ""
     }
   },
   {
@@ -2217,8 +2036,7 @@
     "target": "循环链表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "后缀树是循环链表的一种变体"
+      "source_sentence": ""
     }
   },
   {
@@ -2226,8 +2044,7 @@
     "target": "括号匹配",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "后缀树常用于解决括号匹配的问题"
+      "source_sentence": ""
     }
   },
   {
@@ -2235,7 +2052,7 @@
     "target": "查找",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -2243,7 +2060,7 @@
     "target": "深度优先搜索",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -2251,8 +2068,7 @@
     "target": "线段树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "后缀树是线段树的变体形式"
+      "source_sentence": ""
     }
   },
   {
@@ -2260,7 +2076,7 @@
     "target": "贪心策略",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -2268,8 +2084,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "后缀树在迷宫求解的路径分析中发挥作用"
+      "source_sentence": ""
     }
   },
   {
@@ -2277,7 +2092,7 @@
     "target": "随机访问",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -2285,7 +2100,7 @@
     "target": "B树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -2293,8 +2108,7 @@
     "target": "O",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "哈希查找的算法复杂度属性为O(log n)"
+      "source_sentence": ""
     }
   },
   {
@@ -2302,8 +2116,7 @@
     "target": "二叉堆",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "哈希查找算法依赖二叉堆来实现"
+      "source_sentence": ""
     }
   },
   {
@@ -2311,8 +2124,7 @@
     "target": "势能方法",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "哈希查找的复杂度可通过势能方法计算"
+      "source_sentence": ""
     }
   },
   {
@@ -2320,8 +2132,7 @@
     "target": "平衡二叉树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "哈希查找算法依赖平衡二叉树实现高效查找"
+      "source_sentence": ""
     }
   },
   {
@@ -2329,7 +2140,7 @@
     "target": "循环队列",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -2337,7 +2148,7 @@
     "target": "Dijkstra算法",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -2345,8 +2156,7 @@
     "target": "LRU缓存",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "哈希表扩展后形成LRU缓存这一变体结构"
+      "source_sentence": ""
     }
   },
   {
@@ -2354,8 +2164,7 @@
     "target": "二叉堆",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "哈希表是二叉堆的变体形式"
+      "source_sentence": ""
     }
   },
   {
@@ -2363,8 +2172,7 @@
     "target": "二叉搜索树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "哈希表是二叉搜索树的变体，在查找效率上更优"
+      "source_sentence": ""
     }
   },
   {
@@ -2372,8 +2180,7 @@
     "target": "任务调度",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "哈希表常用于任务调度场景"
+      "source_sentence": ""
     }
   },
   {
@@ -2381,8 +2188,7 @@
     "target": "优先队列",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "哈希表是优先队列的变体"
+      "source_sentence": ""
     }
   },
   {
@@ -2390,7 +2196,7 @@
     "target": "内存分配",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -2398,8 +2204,7 @@
     "target": "单链表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "哈希表的变体单链表在内存占用上更具优势"
+      "source_sentence": ""
     }
   },
   {
@@ -2407,8 +2212,7 @@
     "target": "双向链表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "哈希表是双向链表在哈希场景下的变体"
+      "source_sentence": ""
     }
   },
   {
@@ -2416,8 +2220,7 @@
     "target": "双端队列",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "哈希表作为双端队列的变体，在存储结构上有所优化"
+      "source_sentence": ""
     }
   },
   {
@@ -2425,8 +2228,7 @@
     "target": "可持久化数据结构",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "哈希表是可持久化数据结构的变体形式"
+      "source_sentence": ""
     }
   },
   {
@@ -2434,8 +2236,7 @@
     "target": "字典树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "哈希表是字典树的变体结构"
+      "source_sentence": ""
     }
   },
   {
@@ -2443,8 +2244,7 @@
     "target": "并查集",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "哈希表是并查集的变体实现"
+      "source_sentence": ""
     }
   },
   {
@@ -2452,7 +2252,7 @@
     "target": "归并排序",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -2460,8 +2260,7 @@
     "target": "循环队列",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "哈希表是循环队列改进后的变体数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -2469,8 +2268,7 @@
     "target": "快速排序",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "哈希表是快速排序实现高效操作的常用数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -2478,8 +2276,7 @@
     "target": "括号匹配",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "哈希表常用于实现括号匹配功能"
+      "source_sentence": ""
     }
   },
   {
@@ -2487,7 +2284,7 @@
     "target": "插入",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -2495,7 +2292,7 @@
     "target": "旋转",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -2503,8 +2300,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "哈希表常用于最短路径的快速查找场景"
+      "source_sentence": ""
     }
   },
   {
@@ -2512,7 +2308,7 @@
     "target": "查找",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -2520,8 +2316,7 @@
     "target": "树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "哈希表是树的一种变种"
+      "source_sentence": ""
     }
   },
   {
@@ -2529,8 +2324,7 @@
     "target": "表达式求值",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "哈希表常用于表达式求值的场景"
+      "source_sentence": ""
     }
   },
   {
@@ -2538,8 +2332,7 @@
     "target": "队列",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "哈希表是队列的变体之一"
+      "source_sentence": ""
     }
   },
   {
@@ -2547,8 +2340,7 @@
     "target": "O",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "回溯法的算法复杂度为O(n²)"
+      "source_sentence": ""
     }
   },
   {
@@ -2556,8 +2348,7 @@
     "target": "不相交集合",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "在回溯法的实现中，不相交集合是常用的数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -2565,8 +2356,7 @@
     "target": "单链表",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "回溯法在实现时会用到单链表"
+      "source_sentence": ""
     }
   },
   {
@@ -2574,8 +2364,7 @@
     "target": "字典树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "回溯法在解决特定问题时会使用字典树"
+      "source_sentence": ""
     }
   },
   {
@@ -2583,8 +2372,7 @@
     "target": "LRU缓存",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "图是LRU缓存的变体版本"
+      "source_sentence": ""
     }
   },
   {
@@ -2592,8 +2380,7 @@
     "target": "任务调度",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "图在任务调度中应用广泛"
+      "source_sentence": ""
     }
   },
   {
@@ -2601,7 +2388,7 @@
     "target": "入栈",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -2609,7 +2396,7 @@
     "target": "入队",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -2617,8 +2404,7 @@
     "target": "后缀树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "图是后缀树的衍生数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -2626,7 +2412,7 @@
     "target": "外部排序",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -2634,8 +2420,7 @@
     "target": "并查集",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "图是并查集的一种变体结构"
+      "source_sentence": ""
     }
   },
   {
@@ -2643,8 +2428,7 @@
     "target": "括号匹配",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "图常用于解决括号匹配问题"
+      "source_sentence": ""
     }
   },
   {
@@ -2652,7 +2436,7 @@
     "target": "插入",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -2660,8 +2444,7 @@
     "target": "数组",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "图是数组的变体形式，适用于复杂关系建模"
+      "source_sentence": ""
     }
   },
   {
@@ -2669,8 +2452,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "图常用于计算最短路径问题"
+      "source_sentence": ""
     }
   },
   {
@@ -2678,8 +2460,7 @@
     "target": "跳跃表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "图的一种变体是跳跃表"
+      "source_sentence": ""
     }
   },
   {
@@ -2687,8 +2468,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "图常用于迷宫求解的路径建模"
+      "source_sentence": ""
     }
   },
   {
@@ -2696,7 +2476,7 @@
     "target": "选择排序",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -2704,8 +2484,7 @@
     "target": "链表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "图是链表的变体，新增了多向连接能力。"
+      "source_sentence": ""
     }
   },
   {
@@ -2713,7 +2492,7 @@
     "target": "销毁",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -2721,7 +2500,7 @@
     "target": "随机访问",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -2729,7 +2508,7 @@
     "target": "二叉堆",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -2737,7 +2516,7 @@
     "target": "任务调度",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -2745,7 +2524,7 @@
     "target": "生成森林",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -2753,7 +2532,7 @@
     "target": "迷宫求解",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -2761,8 +2540,7 @@
     "target": "O",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "基数排序的时间复杂度为O(1)"
+      "source_sentence": ""
     }
   },
   {
@@ -2770,8 +2548,7 @@
     "target": "数组",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "基数排序在实现时会使用数组来存储数据"
+      "source_sentence": ""
     }
   },
   {
@@ -2779,7 +2556,7 @@
     "target": "树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -2787,8 +2564,7 @@
     "target": "AC自动机",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "堆的变体之一是AC自动机"
+      "source_sentence": ""
     }
   },
   {
@@ -2796,8 +2572,7 @@
     "target": "B树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "堆在特定条件下可视为B树的变体"
+      "source_sentence": ""
     }
   },
   {
@@ -2805,8 +2580,7 @@
     "target": "二叉树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "堆是二叉树的变体数据结构。"
+      "source_sentence": ""
     }
   },
   {
@@ -2814,8 +2588,7 @@
     "target": "二路归并",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "堆是二路归并算法常用的数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -2823,8 +2596,7 @@
     "target": "二项堆",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "堆的变体二项堆在合并操作中更高效"
+      "source_sentence": ""
     }
   },
   {
@@ -2832,8 +2604,7 @@
     "target": "任务调度",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "堆常用于任务调度场景"
+      "source_sentence": ""
     }
   },
   {
@@ -2841,8 +2612,7 @@
     "target": "优先队列",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "堆衍生出优先队列这一变体形式"
+      "source_sentence": ""
     }
   },
   {
@@ -2850,8 +2620,7 @@
     "target": "克鲁斯卡尔算法",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "堆是克鲁斯卡尔算法中用于排序的关键数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -2859,8 +2628,7 @@
     "target": "布隆过滤器",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "堆是布隆过滤器的一种变体"
+      "source_sentence": ""
     }
   },
   {
@@ -2868,8 +2636,7 @@
     "target": "广度优先搜索",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "堆是广度优先搜索的关键数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -2877,7 +2644,7 @@
     "target": "引用计数",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -2885,8 +2652,7 @@
     "target": "括号匹配",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "堆常用于括号匹配问题的解决。"
+      "source_sentence": ""
     }
   },
   {
@@ -2894,8 +2660,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "堆常用于优化最短路径的计算过程"
+      "source_sentence": ""
     }
   },
   {
@@ -2903,7 +2668,7 @@
     "target": "深度优先搜索",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -2911,7 +2676,7 @@
     "target": "移动",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -2919,7 +2684,7 @@
     "target": "缩容",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -2927,8 +2692,7 @@
     "target": "计数排序",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "堆数据结构被计数排序用于优化排序效率"
+      "source_sentence": ""
     }
   },
   {
@@ -2936,8 +2700,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "堆适用于迷宫求解的场景"
+      "source_sentence": ""
     }
   },
   {
@@ -2945,8 +2708,7 @@
     "target": "二叉搜索树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "堆排序算法借助二叉搜索树来实现"
+      "source_sentence": ""
     }
   },
   {
@@ -2954,8 +2716,7 @@
     "target": "前缀树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "堆排序实现中常使用前缀树处理有序数据"
+      "source_sentence": ""
     }
   },
   {
@@ -2963,8 +2724,7 @@
     "target": "平均情况",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "堆排序的平均情况时间复杂度是算法分析的重要指标"
+      "source_sentence": ""
     }
   },
   {
@@ -2972,8 +2732,7 @@
     "target": "并查集",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "堆排序实现需借助并查集作为数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -2981,7 +2740,7 @@
     "target": "双向链表",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -2989,7 +2748,7 @@
     "target": "括号匹配",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -2997,7 +2756,7 @@
     "target": "最短路径",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -3005,7 +2764,7 @@
     "target": "栈",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3013,7 +2772,7 @@
     "target": "红黑树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3021,7 +2780,7 @@
     "target": "线段树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3029,7 +2788,7 @@
     "target": "迷宫求解",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -3037,8 +2796,7 @@
     "target": "O",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "外部排序具有O(n log n)的复杂度"
+      "source_sentence": ""
     }
   },
   {
@@ -3046,8 +2804,7 @@
     "target": "字典树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "外部排序的实现依赖字典树作为数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -3055,8 +2812,7 @@
     "target": "平均查找长度",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "外部排序的复杂度属性为平均查找长度"
+      "source_sentence": ""
     }
   },
   {
@@ -3064,7 +2820,7 @@
     "target": "生成森林",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -3072,8 +2828,7 @@
     "target": "线段树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "外部排序过程中，线段树被用作关键数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -3081,8 +2836,7 @@
     "target": "O",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "多路归并的算法复杂度为O(n²)"
+      "source_sentence": ""
     }
   },
   {
@@ -3090,8 +2844,7 @@
     "target": "二叉树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "多路归并算法使用二叉树作为数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -3099,8 +2852,7 @@
     "target": "会计方法",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "多路归并的算法复杂度高于会计方法"
+      "source_sentence": ""
     }
   },
   {
@@ -3108,8 +2860,7 @@
     "target": "分支限界",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "大O记号描述了分支限界的复杂度属性"
+      "source_sentence": ""
     }
   },
   {
@@ -3117,8 +2868,7 @@
     "target": "弗洛伊德算法",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "大O记号用于描述弗洛伊德算法的复杂度"
+      "source_sentence": ""
     }
   },
   {
@@ -3126,8 +2876,7 @@
     "target": "Dijkstra算法",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "大根堆被Dijkstra算法用于最短路径求解"
+      "source_sentence": ""
     }
   },
   {
@@ -3135,8 +2884,7 @@
     "target": "任务调度",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "大根堆适用于任务调度场景"
+      "source_sentence": ""
     }
   },
   {
@@ -3144,8 +2892,7 @@
     "target": "单链表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "大根堆是单链表的变体，支持堆排序操作。"
+      "source_sentence": ""
     }
   },
   {
@@ -3153,7 +2900,7 @@
     "target": "合并",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3161,8 +2908,7 @@
     "target": "堆",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "大根堆是堆的重要变体"
+      "source_sentence": ""
     }
   },
   {
@@ -3170,8 +2916,7 @@
     "target": "弗洛伊德算法",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "大根堆是弗洛伊德算法实现过程中的关键数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -3179,8 +2924,7 @@
     "target": "括号匹配",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "大根堆常用于括号匹配的算法实现"
+      "source_sentence": ""
     }
   },
   {
@@ -3188,7 +2932,7 @@
     "target": "缩容",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3196,8 +2940,7 @@
     "target": "跳跃表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "大根堆是跳跃表的变体数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -3205,8 +2948,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "大根堆适用于迷宫求解"
+      "source_sentence": ""
     }
   },
   {
@@ -3214,7 +2956,7 @@
     "target": "选择排序",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -3222,7 +2964,7 @@
     "target": "出栈",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3230,8 +2972,7 @@
     "target": "单链表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "作为字典树的变体，单链表适用于简单存储场景"
+      "source_sentence": ""
     }
   },
   {
@@ -3239,7 +2980,7 @@
     "target": "复制",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3247,8 +2988,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "字典树常用于最短路径问题的优化处理"
+      "source_sentence": ""
     }
   },
   {
@@ -3256,7 +2996,7 @@
     "target": "查找",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3264,8 +3004,7 @@
     "target": "树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "字典树是树的一种变体结构"
+      "source_sentence": ""
     }
   },
   {
@@ -3273,8 +3012,7 @@
     "target": "生成森林",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "字典树的变体生成森林常用于处理复杂数据"
+      "source_sentence": ""
     }
   },
   {
@@ -3282,8 +3020,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "字典树适用于迷宫求解场景"
+      "source_sentence": ""
     }
   },
   {
@@ -3291,8 +3028,7 @@
     "target": "B+树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "小根堆是B+树的变体，具备高效插入性能"
+      "source_sentence": ""
     }
   },
   {
@@ -3300,8 +3036,7 @@
     "target": "Dijkstra算法",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "小根堆是Dijkstra算法实现中的关键数据结构。"
+      "source_sentence": ""
     }
   },
   {
@@ -3309,8 +3044,7 @@
     "target": "不相交集合",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "作为小根堆的变体，不相交集合性能更优"
+      "source_sentence": ""
     }
   },
   {
@@ -3318,8 +3052,7 @@
     "target": "任务调度",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "小根堆适用于任务调度场景以快速提取高优先级任务"
+      "source_sentence": ""
     }
   },
   {
@@ -3327,7 +3060,7 @@
     "target": "内存分配",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3335,7 +3068,7 @@
     "target": "出栈",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3343,7 +3076,7 @@
     "target": "初始化",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3351,8 +3084,7 @@
     "target": "动态规划",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "小根堆常被动态规划用于优化算法效率"
+      "source_sentence": ""
     }
   },
   {
@@ -3360,7 +3092,7 @@
     "target": "单源最短路径",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -3368,8 +3100,7 @@
     "target": "双端队列",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "小根堆衍生出的双端队列优化了操作效率"
+      "source_sentence": ""
     }
   },
   {
@@ -3377,8 +3108,7 @@
     "target": "外部排序",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "小根堆是外部排序使用的数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -3386,7 +3116,7 @@
     "target": "广度优先搜索",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -3394,8 +3124,7 @@
     "target": "循环链表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "小根堆的变体包含循环链表"
+      "source_sentence": ""
     }
   },
   {
@@ -3403,8 +3132,7 @@
     "target": "循环队列",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "小根堆改进后得到循环队列变体"
+      "source_sentence": ""
     }
   },
   {
@@ -3412,8 +3140,7 @@
     "target": "括号匹配",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "小根堆常用于括号匹配场景"
+      "source_sentence": ""
     }
   },
   {
@@ -3421,7 +3148,7 @@
     "target": "插入",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3429,8 +3156,7 @@
     "target": "树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "小根堆是树的变体结构。"
+      "source_sentence": ""
     }
   },
   {
@@ -3438,7 +3164,7 @@
     "target": "缩容",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3446,8 +3172,7 @@
     "target": "表达式求值",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "小根堆在表达式求值中用于快速获取最小值"
+      "source_sentence": ""
     }
   },
   {
@@ -3455,8 +3180,7 @@
     "target": "记忆化搜索",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "小根堆是记忆化搜索实现中常用的数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -3464,8 +3188,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "小根堆常用于迷宫求解"
+      "source_sentence": ""
     }
   },
   {
@@ -3473,8 +3196,7 @@
     "target": "队列",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "小根堆衍生出队列这一变体"
+      "source_sentence": ""
     }
   },
   {
@@ -3482,7 +3204,7 @@
     "target": "合并",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3490,8 +3212,7 @@
     "target": "平衡二叉树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "布隆过滤器衍生出平衡二叉树这一变体"
+      "source_sentence": ""
     }
   },
   {
@@ -3499,7 +3220,7 @@
     "target": "广度优先搜索",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -3507,8 +3228,7 @@
     "target": "循环链表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "布隆过滤器是循环链表的变体数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -3516,8 +3236,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "布隆过滤器被应用于最短路径问题的节点去重环节"
+      "source_sentence": ""
     }
   },
   {
@@ -3525,8 +3244,7 @@
     "target": "树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "布隆过滤器包含树作为其变体"
+      "source_sentence": ""
     }
   },
   {
@@ -3534,8 +3252,7 @@
     "target": "跳跃表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "布隆过滤器是跳跃表的变体，适用于快速数据校验。"
+      "source_sentence": ""
     }
   },
   {
@@ -3543,8 +3260,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "布隆过滤器适用于迷宫求解中的状态去重"
+      "source_sentence": ""
     }
   },
   {
@@ -3552,7 +3268,7 @@
     "target": "AC自动机",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -3560,8 +3276,7 @@
     "target": "O",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "希尔排序的时间复杂度是O(n)"
+      "source_sentence": ""
     }
   },
   {
@@ -3569,8 +3284,7 @@
     "target": "双向链表",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "希尔排序的实现过程中，会借助双向链表来完成"
+      "source_sentence": ""
     }
   },
   {
@@ -3578,8 +3292,7 @@
     "target": "哈希表",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "希尔排序实现过程中会用到哈希表"
+      "source_sentence": ""
     }
   },
   {
@@ -3587,8 +3300,7 @@
     "target": "摊还分析",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "希尔排序算法在平均情况下的复杂度通过摊还分析确定"
+      "source_sentence": ""
     }
   },
   {
@@ -3596,8 +3308,7 @@
     "target": "线性表",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "希尔排序借助线性表来完成排序操作"
+      "source_sentence": ""
     }
   },
   {
@@ -3605,7 +3316,7 @@
     "target": "引用计数",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3613,8 +3324,7 @@
     "target": "树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "平衡二叉树是树的一种变体结构"
+      "source_sentence": ""
     }
   },
   {
@@ -3622,8 +3332,7 @@
     "target": "生成森林",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "平衡二叉树衍生出生成森林这一变体"
+      "source_sentence": ""
     }
   },
   {
@@ -3631,8 +3340,7 @@
     "target": "B+树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "并查集的变体包含B+树"
+      "source_sentence": ""
     }
   },
   {
@@ -3640,7 +3348,7 @@
     "target": "Dijkstra算法",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -3648,8 +3356,7 @@
     "target": "LFU缓存",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "并查集作为LFU缓存的变体，在特定场景下更高效"
+      "source_sentence": ""
     }
   },
   {
@@ -3657,7 +3364,7 @@
     "target": "入栈",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3665,7 +3372,7 @@
     "target": "入队",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3673,8 +3380,7 @@
     "target": "单链表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "并查集作为单链表的变体，优化了集合合并操作"
+      "source_sentence": ""
     }
   },
   {
@@ -3682,8 +3388,7 @@
     "target": "大根堆",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "并查集是大根堆的一种变体"
+      "source_sentence": ""
     }
   },
   {
@@ -3691,8 +3396,7 @@
     "target": "括号匹配",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "并查集常用于解决括号匹配问题"
+      "source_sentence": ""
     }
   },
   {
@@ -3700,8 +3404,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "并查集常用于解决最短路径问题"
+      "source_sentence": ""
     }
   },
   {
@@ -3709,7 +3412,7 @@
     "target": "移动",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3717,8 +3420,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "并查集适用于迷宫求解中路径连通性的快速判断"
+      "source_sentence": ""
     }
   },
   {
@@ -3726,8 +3428,7 @@
     "target": "队列",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "并查集是队列的优化变体"
+      "source_sentence": ""
     }
   },
   {
@@ -3735,8 +3436,7 @@
     "target": "大根堆",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "在解决某些问题时，广度优先搜索会利用大根堆"
+      "source_sentence": ""
     }
   },
   {
@@ -3744,8 +3444,7 @@
     "target": "摊还分析",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "广度优先搜索的时间复杂度通过摊还分析确定"
+      "source_sentence": ""
     }
   },
   {
@@ -3753,8 +3452,7 @@
     "target": "斐波那契堆",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "广度优先搜索实现时，常借助斐波那契堆提升效率"
+      "source_sentence": ""
     }
   },
   {
@@ -3762,7 +3460,7 @@
     "target": "AC自动机",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3770,7 +3468,7 @@
     "target": "LRU缓存",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3778,7 +3476,7 @@
     "target": "字典树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3786,7 +3484,7 @@
     "target": "括号匹配",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -3794,7 +3492,7 @@
     "target": "最短路径",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -3802,7 +3500,7 @@
     "target": "栈",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3810,7 +3508,7 @@
     "target": "迷宫求解",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -3818,7 +3516,7 @@
     "target": "单链表",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -3826,8 +3524,7 @@
     "target": "链表",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "弗洛伊德算法采用链表作为数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -3835,8 +3532,7 @@
     "target": "最好情况",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "归并排序在最好情况下的复杂度是O(n log n)"
+      "source_sentence": ""
     }
   },
   {
@@ -3844,8 +3540,7 @@
     "target": "空间复杂度",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "归并排序的空间复杂度是其算法复杂度属性之一。"
+      "source_sentence": ""
     }
   },
   {
@@ -3853,8 +3548,7 @@
     "target": "跳跃表",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "归并排序实现时会用到跳跃表"
+      "source_sentence": ""
     }
   },
   {
@@ -3862,7 +3556,7 @@
     "target": "Dijkstra算法",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -3870,8 +3564,7 @@
     "target": "二项堆",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "循环链表的变体包括二项堆这一结构"
+      "source_sentence": ""
     }
   },
   {
@@ -3879,7 +3572,7 @@
     "target": "广度优先搜索",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -3887,7 +3580,7 @@
     "target": "引用计数",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3895,7 +3588,7 @@
     "target": "查找",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3903,7 +3596,7 @@
     "target": "移动",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3911,7 +3604,7 @@
     "target": "缩容",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3919,8 +3612,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "循环链表适用于迷宫求解的路径追踪"
+      "source_sentence": ""
     }
   },
   {
@@ -3928,7 +3620,7 @@
     "target": "Dijkstra算法",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -3936,8 +3628,7 @@
     "target": "二叉堆",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "循环队列是二叉堆的变体，在某些场景下更高效"
+      "source_sentence": ""
     }
   },
   {
@@ -3945,8 +3636,7 @@
     "target": "任务调度",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "循环队列常用于任务调度的高效处理"
+      "source_sentence": ""
     }
   },
   {
@@ -3954,8 +3644,7 @@
     "target": "动态规划",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "循环队列是动态规划中常用的数据结构之一"
+      "source_sentence": ""
     }
   },
   {
@@ -3963,8 +3652,7 @@
     "target": "双向链表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "循环队列是双向链表的变体，空间利用更高效"
+      "source_sentence": ""
     }
   },
   {
@@ -3972,7 +3660,7 @@
     "target": "引用计数",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3980,7 +3668,7 @@
     "target": "插入",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -3988,8 +3676,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "循环队列常用于最短路径算法的队列实现"
+      "source_sentence": ""
     }
   },
   {
@@ -3997,8 +3684,7 @@
     "target": "栈",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "循环队列的变体之一是栈"
+      "source_sentence": ""
     }
   },
   {
@@ -4006,8 +3692,7 @@
     "target": "生成森林",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "循环队列的变体生成森林，适用于实时数据处理场景"
+      "source_sentence": ""
     }
   },
   {
@@ -4015,7 +3700,7 @@
     "target": "缩容",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4023,8 +3708,7 @@
     "target": "跳跃表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "循环队列是跳跃表的变体版本"
+      "source_sentence": ""
     }
   },
   {
@@ -4032,8 +3716,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "循环队列常用于迷宫求解"
+      "source_sentence": ""
     }
   },
   {
@@ -4041,7 +3724,7 @@
     "target": "遍历",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4049,8 +3732,7 @@
     "target": "平衡二叉树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "快速排序实现中常借助平衡二叉树优化"
+      "source_sentence": ""
     }
   },
   {
@@ -4058,7 +3740,7 @@
     "target": "AC自动机",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4066,7 +3748,7 @@
     "target": "B+树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4074,7 +3756,7 @@
     "target": "B树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4082,7 +3764,7 @@
     "target": "二叉树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4090,7 +3772,7 @@
     "target": "任务调度",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -4098,7 +3780,7 @@
     "target": "优先队列",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4106,7 +3788,7 @@
     "target": "可持久化数据结构",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4114,7 +3796,7 @@
     "target": "表达式求值",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -4122,7 +3804,7 @@
     "target": "迷宫求解",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -4130,8 +3812,7 @@
     "target": "栈",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "折半查找实现时使用栈来存储数据"
+      "source_sentence": ""
     }
   },
   {
@@ -4139,8 +3820,7 @@
     "target": "生成森林",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "折半查找算法实现时，生成森林是核心数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -4148,7 +3828,7 @@
     "target": "红黑树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -4156,8 +3836,7 @@
     "target": "聚合分析",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "折半查找的复杂度与聚合分析的复杂度特征相近。"
+      "source_sentence": ""
     }
   },
   {
@@ -4165,7 +3844,7 @@
     "target": "队列",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -4173,7 +3852,7 @@
     "target": "LFU缓存",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -4181,8 +3860,7 @@
     "target": "大根堆",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "拓扑排序借助大根堆实现排序功能"
+      "source_sentence": ""
     }
   },
   {
@@ -4190,8 +3868,7 @@
     "target": "循环链表",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "拓扑排序实现过程中会借助循环链表"
+      "source_sentence": ""
     }
   },
   {
@@ -4199,8 +3876,7 @@
     "target": "摊还分析",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "拓扑排序的复杂度分析常使用摊还分析"
+      "source_sentence": ""
     }
   },
   {
@@ -4208,7 +3884,7 @@
     "target": "合并",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -4216,7 +3892,7 @@
     "target": "任务调度",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -4224,7 +3900,7 @@
     "target": "前缀树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4232,7 +3908,7 @@
     "target": "双端队列",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4240,7 +3916,7 @@
     "target": "后缀树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4248,7 +3924,7 @@
     "target": "括号匹配",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -4256,7 +3932,7 @@
     "target": "红黑树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4264,7 +3940,7 @@
     "target": "迷宫求解",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -4272,7 +3948,7 @@
     "target": "B+树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -4280,8 +3956,7 @@
     "target": "二项堆",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "插值查找的实现依赖二项堆数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -4289,8 +3964,7 @@
     "target": "会计方法",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "插值查找算法的复杂度属性涉及会计方法"
+      "source_sentence": ""
     }
   },
   {
@@ -4298,8 +3972,7 @@
     "target": "布隆过滤器",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "插值查找利用布隆过滤器进行数据查找"
+      "source_sentence": ""
     }
   },
   {
@@ -4307,8 +3980,7 @@
     "target": "最坏情况",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "插值查找的最坏情况复杂度属性为其核心特征"
+      "source_sentence": ""
     }
   },
   {
@@ -4316,8 +3988,7 @@
     "target": "生成森林",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "插值查找借助生成森林实现高效搜索"
+      "source_sentence": ""
     }
   },
   {
@@ -4325,7 +3996,7 @@
     "target": "B+树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4333,7 +4004,7 @@
     "target": "任务调度",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -4341,7 +4012,7 @@
     "target": "字典树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4349,7 +4020,7 @@
     "target": "平衡二叉树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4357,7 +4028,7 @@
     "target": "最短路径",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -4365,8 +4036,7 @@
     "target": "Θ记号",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "插入排序的时间复杂度是Θ记号"
+      "source_sentence": ""
     }
   },
   {
@@ -4374,8 +4044,7 @@
     "target": "Ω记号",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "插入排序的时间复杂度为Ω记号"
+      "source_sentence": ""
     }
   },
   {
@@ -4383,8 +4052,7 @@
     "target": "二项堆",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "插入排序借助二项堆实现排序"
+      "source_sentence": ""
     }
   },
   {
@@ -4392,8 +4060,7 @@
     "target": "双端队列",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "插入排序实现中常使用双端队列来优化操作"
+      "source_sentence": ""
     }
   },
   {
@@ -4401,8 +4068,7 @@
     "target": "栈",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "插入排序在实现时会用到栈"
+      "source_sentence": ""
     }
   },
   {
@@ -4410,7 +4076,7 @@
     "target": "生成森林",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -4418,7 +4084,7 @@
     "target": "线段树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -4426,7 +4092,7 @@
     "target": "出栈",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4434,7 +4100,7 @@
     "target": "初始化",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4442,8 +4108,7 @@
     "target": "后缀树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "数组的变体后缀树，在特定数据场景中效率更高"
+      "source_sentence": ""
     }
   },
   {
@@ -4451,7 +4116,7 @@
     "target": "基数排序",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -4459,7 +4124,7 @@
     "target": "堆排序",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -4467,7 +4132,7 @@
     "target": "旋转",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4475,8 +4140,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "数组常用于存储最短路径算法中的距离矩阵"
+      "source_sentence": ""
     }
   },
   {
@@ -4484,7 +4148,7 @@
     "target": "移动",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4492,8 +4156,7 @@
     "target": "穷举法",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "数组是穷举法实现过程中的关键数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -4501,8 +4164,7 @@
     "target": "线段树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "数组是线段树的基础变体结构"
+      "source_sentence": ""
     }
   },
   {
@@ -4510,7 +4172,7 @@
     "target": "缩容",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4518,8 +4180,7 @@
     "target": "表达式求值",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "数组常用于表达式求值的实现"
+      "source_sentence": ""
     }
   },
   {
@@ -4527,8 +4188,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "数组常用于迷宫求解场景"
+      "source_sentence": ""
     }
   },
   {
@@ -4536,8 +4196,7 @@
     "target": "任务调度",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "斐波那契堆常用于高效任务调度场景"
+      "source_sentence": ""
     }
   },
   {
@@ -4545,7 +4204,7 @@
     "target": "克鲁斯卡尔算法",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -4553,7 +4212,7 @@
     "target": "入栈",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4561,8 +4220,7 @@
     "target": "冒泡排序",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "斐波那契堆被冒泡排序用作算法数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -4570,7 +4228,7 @@
     "target": "出队",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4578,8 +4236,7 @@
     "target": "图",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "斐波那契堆是图的变体之一"
+      "source_sentence": ""
     }
   },
   {
@@ -4587,8 +4244,7 @@
     "target": "字典树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "斐波那契堆是字典树的变体"
+      "source_sentence": ""
     }
   },
   {
@@ -4596,8 +4252,7 @@
     "target": "并查集",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "斐波那契堆是并查集的优化变体"
+      "source_sentence": ""
     }
   },
   {
@@ -4605,8 +4260,7 @@
     "target": "循环队列",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "斐波那契堆是循环队列的变体形式"
+      "source_sentence": ""
     }
   },
   {
@@ -4614,8 +4268,7 @@
     "target": "拓扑排序",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "斐波那契堆是拓扑排序中常用的数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -4623,8 +4276,7 @@
     "target": "括号匹配",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "斐波那契堆常用于括号匹配的算法实现"
+      "source_sentence": ""
     }
   },
   {
@@ -4632,8 +4284,7 @@
     "target": "数组",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "作为斐波那契堆的变体，数组在某些操作中更高效。"
+      "source_sentence": ""
     }
   },
   {
@@ -4641,8 +4292,7 @@
     "target": "普里姆算法",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "斐波那契堆是普里姆算法优化过程中常用的数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -4650,8 +4300,7 @@
     "target": "栈",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "斐波那契堆是栈的变体"
+      "source_sentence": ""
     }
   },
   {
@@ -4659,8 +4308,7 @@
     "target": "树状数组",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "斐波那契堆的变体树状数组在某些场景中适用"
+      "source_sentence": ""
     }
   },
   {
@@ -4668,7 +4316,7 @@
     "target": "直接插入排序",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -4676,7 +4324,7 @@
     "target": "缩容",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4684,8 +4332,7 @@
     "target": "表达式求值",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "斐波那契堆被应用于表达式求值的符号管理"
+      "source_sentence": ""
     }
   },
   {
@@ -4693,7 +4340,7 @@
     "target": "路径压缩",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4701,8 +4348,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "斐波那契堆适用于迷宫求解场景"
+      "source_sentence": ""
     }
   },
   {
@@ -4710,7 +4356,7 @@
     "target": "销毁",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4718,7 +4364,7 @@
     "target": "LFU缓存",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4726,7 +4372,7 @@
     "target": "二项堆",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4734,7 +4380,7 @@
     "target": "任务调度",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -4742,7 +4388,7 @@
     "target": "布隆过滤器",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4750,7 +4396,7 @@
     "target": "并查集",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4758,7 +4404,7 @@
     "target": "括号匹配",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -4766,7 +4412,7 @@
     "target": "迷宫求解",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -4774,8 +4420,7 @@
     "target": "动态规划",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "时间复杂度是动态规划的重要复杂度属性之一"
+      "source_sentence": ""
     }
   },
   {
@@ -4783,8 +4428,7 @@
     "target": "二叉树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "实现普里姆算法时，二叉树是常用数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -4792,8 +4436,7 @@
     "target": "会计方法",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "普里姆算法的时间复杂度与会计方法相关"
+      "source_sentence": ""
     }
   },
   {
@@ -4801,8 +4444,7 @@
     "target": "大O记号",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "普里姆算法的复杂度可以用大O记号来表示"
+      "source_sentence": ""
     }
   },
   {
@@ -4810,7 +4452,7 @@
     "target": "平衡二叉树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -4818,8 +4460,7 @@
     "target": "树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "普里姆算法依赖树结构来实现"
+      "source_sentence": ""
     }
   },
   {
@@ -4827,8 +4468,7 @@
     "target": "广度优先搜索",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "最坏情况下，广度优先搜索的复杂度属性可分析"
+      "source_sentence": ""
     }
   },
   {
@@ -4836,8 +4476,7 @@
     "target": "二路归并",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "最好情况下二路归并的复杂度是O(n log n)"
+      "source_sentence": ""
     }
   },
   {
@@ -4845,8 +4484,7 @@
     "target": "基数排序",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "最好情况下基数排序的复杂度属性已知"
+      "source_sentence": ""
     }
   },
   {
@@ -4854,8 +4492,7 @@
     "target": "弗洛伊德算法",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "在最好情况下，弗洛伊德算法的复杂度为最好情况"
+      "source_sentence": ""
     }
   },
   {
@@ -4863,8 +4500,7 @@
     "target": "贪心策略",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "最好情况下，贪心策略的复杂度表现优异。"
+      "source_sentence": ""
     }
   },
   {
@@ -4872,8 +4508,7 @@
     "target": "会计方法",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "最小生成树算法的时间复杂度与会计方法相关"
+      "source_sentence": ""
     }
   },
   {
@@ -4881,8 +4516,7 @@
     "target": "势能方法",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "最小生成树的复杂度可通过势能方法分析"
+      "source_sentence": ""
     }
   },
   {
@@ -4890,8 +4524,7 @@
     "target": "后缀树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "最小生成树算法借助后缀树数据结构实现"
+      "source_sentence": ""
     }
   },
   {
@@ -4899,8 +4532,7 @@
     "target": "字典树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "最小生成树算法中，字典树用于存储路径信息"
+      "source_sentence": ""
     }
   },
   {
@@ -4908,8 +4540,7 @@
     "target": "红黑树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "最小生成树算法在实现时采用红黑树作为数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -4917,7 +4548,7 @@
     "target": "查找",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -4925,7 +4556,7 @@
     "target": "生成森林",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4933,7 +4564,7 @@
     "target": "迷宫求解",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -4941,8 +4572,7 @@
     "target": "分支限界",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "栈是分支限界算法常用的数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -4950,8 +4580,7 @@
     "target": "布隆过滤器",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "栈的变体包含布隆过滤器"
+      "source_sentence": ""
     }
   },
   {
@@ -4959,8 +4588,7 @@
     "target": "括号匹配",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "利用栈的特性可以高效解决括号匹配问题"
+      "source_sentence": ""
     }
   },
   {
@@ -4968,8 +4596,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "栈常用于最短路径算法的路径回溯过程"
+      "source_sentence": ""
     }
   },
   {
@@ -4977,7 +4604,7 @@
     "target": "路径压缩",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -4985,8 +4612,7 @@
     "target": "跳跃表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "栈是跳跃表的一种变体结构"
+      "source_sentence": ""
     }
   },
   {
@@ -4994,8 +4620,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "栈常用于迷宫求解的路径回溯过程"
+      "source_sentence": ""
     }
   },
   {
@@ -5003,7 +4628,7 @@
     "target": "遍历",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -5011,7 +4636,7 @@
     "target": "出栈",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -5019,8 +4644,7 @@
     "target": "单链表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "从树发展而来的单链表结构更简洁"
+      "source_sentence": ""
     }
   },
   {
@@ -5028,7 +4652,7 @@
     "target": "引用计数",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -5036,8 +4660,7 @@
     "target": "二叉搜索树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "树状数组是二叉搜索树的变体形式。"
+      "source_sentence": ""
     }
   },
   {
@@ -5045,8 +4668,7 @@
     "target": "任务调度",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "树状数组适用于任务调度场景"
+      "source_sentence": ""
     }
   },
   {
@@ -5054,8 +4676,7 @@
     "target": "优先队列",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "树状数组是优先队列的优化版本"
+      "source_sentence": ""
     }
   },
   {
@@ -5063,8 +4684,7 @@
     "target": "可持久化数据结构",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "树状数组是可持久化数据结构的变体"
+      "source_sentence": ""
     }
   },
   {
@@ -5072,8 +4692,7 @@
     "target": "哈希表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "由树状数组发展而来的哈希表，具备高效查找特性"
+      "source_sentence": ""
     }
   },
   {
@@ -5081,7 +4700,7 @@
     "target": "引用计数",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -5089,7 +4708,7 @@
     "target": "拓扑排序",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5097,8 +4716,7 @@
     "target": "括号匹配",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "树状数组适用于括号匹配的区间查询场景"
+      "source_sentence": ""
     }
   },
   {
@@ -5106,8 +4724,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "树状数组常用于优化最短路径的计算过程"
+      "source_sentence": ""
     }
   },
   {
@@ -5115,8 +4732,7 @@
     "target": "生成森林",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "树状数组的变体生成森林，优化了数据存储效率"
+      "source_sentence": ""
     }
   },
   {
@@ -5124,7 +4740,7 @@
     "target": "路径压缩",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -5132,8 +4748,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "树状数组常用于迷宫求解场景"
+      "source_sentence": ""
     }
   },
   {
@@ -5141,8 +4756,7 @@
     "target": "链表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "树状数组衍生出链表变体"
+      "source_sentence": ""
     }
   },
   {
@@ -5150,7 +4764,7 @@
     "target": "随机访问",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -5158,7 +4772,7 @@
     "target": "顺序访问",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -5166,8 +4780,7 @@
     "target": "B树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "桶排序的实现需要B树作为数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -5175,8 +4788,7 @@
     "target": "O",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "桶排序的时间复杂度是O(n)"
+      "source_sentence": ""
     }
   },
   {
@@ -5184,7 +4796,7 @@
     "target": "不相交集合",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5192,8 +4804,7 @@
     "target": "堆",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "桶排序过程中，堆用来高效处理桶内元素排序"
+      "source_sentence": ""
     }
   },
   {
@@ -5201,8 +4812,7 @@
     "target": "平均查找长度",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "桶排序的复杂度属性包含平均查找长度"
+      "source_sentence": ""
     }
   },
   {
@@ -5210,8 +4820,7 @@
     "target": "红黑树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "桶排序使用红黑树作为数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -5219,7 +4828,7 @@
     "target": "线段树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5227,8 +4836,7 @@
     "target": "LFU缓存",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "深度优先搜索算法借助LFU缓存来实现高效操作"
+      "source_sentence": ""
     }
   },
   {
@@ -5236,8 +4844,7 @@
     "target": "大O记号",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "深度优先搜索的时间复杂度通常用大O记号表示"
+      "source_sentence": ""
     }
   },
   {
@@ -5245,8 +4852,7 @@
     "target": "并查集",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "深度优先搜索算法在实现过程中会使用并查集"
+      "source_sentence": ""
     }
   },
   {
@@ -5254,8 +4860,7 @@
     "target": "最好情况",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "深度优先搜索最好情况下的复杂度属性明确。"
+      "source_sentence": ""
     }
   },
   {
@@ -5263,8 +4868,7 @@
     "target": "堆排序",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "渐近复杂度属于堆排序的算法复杂度属性"
+      "source_sentence": ""
     }
   },
   {
@@ -5272,8 +4876,7 @@
     "target": "快速排序",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "渐近复杂度是快速排序的核心复杂度属性"
+      "source_sentence": ""
     }
   },
   {
@@ -5281,8 +4884,7 @@
     "target": "拓扑排序",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "渐近复杂度描述了拓扑排序的复杂度特性"
+      "source_sentence": ""
     }
   },
   {
@@ -5290,8 +4892,7 @@
     "target": "O",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "状态转移的时间复杂度为O(1)"
+      "source_sentence": ""
     }
   },
   {
@@ -5299,8 +4900,7 @@
     "target": "Θ记号",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "状态转移的复杂度用Θ记号表示"
+      "source_sentence": ""
     }
   },
   {
@@ -5308,8 +4908,7 @@
     "target": "树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "状态转移算法依赖树作为数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -5317,8 +4916,7 @@
     "target": "线段树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "在状态转移算法中，线段树被用作数据处理的工具"
+      "source_sentence": ""
     }
   },
   {
@@ -5326,8 +4924,7 @@
     "target": "队列",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "状态转移算法依赖队列这一数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -5335,8 +4932,7 @@
     "target": "单链表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "生成森林是单链表的一种变体"
+      "source_sentence": ""
     }
   },
   {
@@ -5344,7 +4940,7 @@
     "target": "复制",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -5352,8 +4948,7 @@
     "target": "红黑树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "生成森林衍生出红黑树这一变体"
+      "source_sentence": ""
     }
   },
   {
@@ -5361,7 +4956,7 @@
     "target": "随机访问",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -5369,8 +4964,7 @@
     "target": "O",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "直接插入排序的时间复杂度为O(n)"
+      "source_sentence": ""
     }
   },
   {
@@ -5378,8 +4972,7 @@
     "target": "二叉堆",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "直接插入排序在实现时依赖二叉堆作为数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -5387,7 +4980,7 @@
     "target": "字典树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5395,8 +4988,7 @@
     "target": "循环队列",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "直接插入排序过程中，会利用循环队列"
+      "source_sentence": ""
     }
   },
   {
@@ -5404,8 +4996,7 @@
     "target": "最好情况",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "直接插入排序最好情况的时间复杂度是O(n)"
+      "source_sentence": ""
     }
   },
   {
@@ -5413,8 +5004,7 @@
     "target": "树状数组",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "直接插入排序算法采用树状数组作为数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -5422,7 +5012,7 @@
     "target": "跳跃表",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5430,7 +5020,7 @@
     "target": "AC自动机",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -5438,7 +5028,7 @@
     "target": "二项堆",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -5446,7 +5036,7 @@
     "target": "循环队列",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -5454,7 +5044,7 @@
     "target": "括号匹配",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5462,7 +5052,7 @@
     "target": "最短路径",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5470,7 +5060,7 @@
     "target": "表达式求值",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5478,8 +5068,7 @@
     "target": "B+树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "在进行穷举法搜索时，B+树提供高效的数据结构支持"
+      "source_sentence": ""
     }
   },
   {
@@ -5487,8 +5076,7 @@
     "target": "二叉搜索树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "穷举法实现中，二叉搜索树是关键的数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -5496,8 +5084,7 @@
     "target": "会计方法",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "穷举法的时间复杂度高于会计方法"
+      "source_sentence": ""
     }
   },
   {
@@ -5505,7 +5092,7 @@
     "target": "并查集",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5513,8 +5100,7 @@
     "target": "摊还分析",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "穷举法的复杂度分析常借助摊还分析"
+      "source_sentence": ""
     }
   },
   {
@@ -5522,8 +5108,7 @@
     "target": "快速排序",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "空间复杂度是快速排序的一个重要算法属性。"
+      "source_sentence": ""
     }
   },
   {
@@ -5531,8 +5116,7 @@
     "target": "折半查找",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "空间复杂度是折半查找的重要属性。"
+      "source_sentence": ""
     }
   },
   {
@@ -5540,7 +5124,7 @@
     "target": "合并",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -5548,7 +5132,7 @@
     "target": "垃圾回收",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -5556,8 +5140,7 @@
     "target": "LFU缓存",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "线性查找算法以LFU缓存为数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -5565,8 +5148,7 @@
     "target": "O",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "线性查找的时间复杂度为O(log n)"
+      "source_sentence": ""
     }
   },
   {
@@ -5574,8 +5156,7 @@
     "target": "二叉堆",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "线性查找算法依赖二叉堆作为数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -5583,7 +5164,7 @@
     "target": "二项堆",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5591,8 +5172,7 @@
     "target": "摊还分析",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "线性查找的复杂度通过摊还分析确定"
+      "source_sentence": ""
     }
   },
   {
@@ -5600,8 +5180,7 @@
     "target": "B+树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "线性表是B+树衍生的变体结构"
+      "source_sentence": ""
     }
   },
   {
@@ -5609,8 +5188,7 @@
     "target": "二叉搜索树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "线性表衍生出二叉搜索树这一变种"
+      "source_sentence": ""
     }
   },
   {
@@ -5618,8 +5196,7 @@
     "target": "任务调度",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "线性表常用于任务调度场景"
+      "source_sentence": ""
     }
   },
   {
@@ -5627,7 +5204,7 @@
     "target": "冒泡排序",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5635,7 +5212,7 @@
     "target": "出栈",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -5643,8 +5220,7 @@
     "target": "前缀树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "线性表是前缀树衍生出的数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -5652,8 +5228,7 @@
     "target": "单源最短路径",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "线性表作为数据结构，支持单源最短路径算法"
+      "source_sentence": ""
     }
   },
   {
@@ -5661,8 +5236,7 @@
     "target": "基数排序",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "线性表被基数排序用作数据结构来处理数据"
+      "source_sentence": ""
     }
   },
   {
@@ -5670,8 +5244,7 @@
     "target": "多路归并",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "线性表是多路归并算法常用的数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -5679,8 +5252,7 @@
     "target": "并查集",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "线性表衍生出并查集这一变体"
+      "source_sentence": ""
     }
   },
   {
@@ -5688,8 +5260,7 @@
     "target": "快速排序",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "线性表是快速排序执行过程中常用的数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -5697,8 +5268,7 @@
     "target": "折半查找",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "线性表是折半查找执行时所需的关键数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -5706,7 +5276,7 @@
     "target": "插值查找",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5714,8 +5284,7 @@
     "target": "数组",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "线性表的变体数组常用于存储有序数据"
+      "source_sentence": ""
     }
   },
   {
@@ -5723,8 +5292,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "线性表可用于存储最短路径算法中的中间节点序列"
+      "source_sentence": ""
     }
   },
   {
@@ -5732,7 +5300,7 @@
     "target": "查找",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -5740,8 +5308,7 @@
     "target": "表达式求值",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "线性表是表达式求值中常用的数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -5749,8 +5316,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "线性表常用于迷宫求解"
+      "source_sentence": ""
     }
   },
   {
@@ -5758,7 +5324,7 @@
     "target": "随机访问",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -5766,7 +5332,7 @@
     "target": "顺序访问",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -5774,8 +5340,7 @@
     "target": "AC自动机",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "线段树的改进形式包含AC自动机"
+      "source_sentence": ""
     }
   },
   {
@@ -5783,8 +5348,7 @@
     "target": "任务调度",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "线段树常用于优化任务调度中的资源分配"
+      "source_sentence": ""
     }
   },
   {
@@ -5792,7 +5356,7 @@
     "target": "出栈",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -5800,8 +5364,7 @@
     "target": "单链表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "线段树是单链表的优化版本"
+      "source_sentence": ""
     }
   },
   {
@@ -5809,7 +5372,7 @@
     "target": "合并",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -5817,7 +5380,7 @@
     "target": "引用计数",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -5825,8 +5388,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "线段树常用于解决最短路径相关的优化问题"
+      "source_sentence": ""
     }
   },
   {
@@ -5834,8 +5396,7 @@
     "target": "树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "线段树属于树的特殊形式。"
+      "source_sentence": ""
     }
   },
   {
@@ -5843,8 +5404,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "线段树常用于迷宫求解中"
+      "source_sentence": ""
     }
   },
   {
@@ -5852,7 +5412,7 @@
     "target": "遍历",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -5860,7 +5420,7 @@
     "target": "二叉搜索树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -5868,7 +5428,7 @@
     "target": "括号匹配",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5876,7 +5436,7 @@
     "target": "最短路径",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5884,7 +5444,7 @@
     "target": "入栈",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5892,7 +5452,7 @@
     "target": "入队",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5900,7 +5460,7 @@
     "target": "内存分配",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5908,7 +5468,7 @@
     "target": "出队",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5916,7 +5476,7 @@
     "target": "删除",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5924,7 +5484,7 @@
     "target": "垃圾回收",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5932,7 +5492,7 @@
     "target": "插入",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5940,7 +5500,7 @@
     "target": "查找",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5948,7 +5508,7 @@
     "target": "缩容",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5956,7 +5516,7 @@
     "target": "路径压缩",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5964,7 +5524,7 @@
     "target": "遍历",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5972,7 +5532,7 @@
     "target": "随机访问",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5980,8 +5540,7 @@
     "target": "O",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "计数排序的时间复杂度为O(n)"
+      "source_sentence": ""
     }
   },
   {
@@ -5989,7 +5548,7 @@
     "target": "二叉堆",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -5997,7 +5556,7 @@
     "target": "二叉树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -6005,8 +5564,7 @@
     "target": "大根堆",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "计数排序过程中，会用到大根堆"
+      "source_sentence": ""
     }
   },
   {
@@ -6014,8 +5572,7 @@
     "target": "生成森林",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "计数排序算法以生成森林作为数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -6023,8 +5580,7 @@
     "target": "O",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "记忆化搜索的时间复杂度为O(n)"
+      "source_sentence": ""
     }
   },
   {
@@ -6032,7 +5588,7 @@
     "target": "可持久化数据结构",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -6040,8 +5596,7 @@
     "target": "红黑树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "记忆化搜索算法依赖红黑树优化数据存储"
+      "source_sentence": ""
     }
   },
   {
@@ -6049,8 +5604,7 @@
     "target": "线段树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "记忆化搜索借助线段树提升数据处理效率"
+      "source_sentence": ""
     }
   },
   {
@@ -6058,7 +5612,7 @@
     "target": "队列",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -6066,8 +5620,7 @@
     "target": "Ω记号",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "贪心策略的算法复杂度可用Ω记号描述"
+      "source_sentence": ""
     }
   },
   {
@@ -6075,8 +5628,7 @@
     "target": "优先队列",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "贪心策略依赖优先队列实现高效决策"
+      "source_sentence": ""
     }
   },
   {
@@ -6084,8 +5636,7 @@
     "target": "平衡二叉树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "贪心策略的算法实现中，平衡二叉树被用作数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -6093,8 +5644,7 @@
     "target": "树状数组",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "在应用贪心策略时，算法使用了树状数组"
+      "source_sentence": ""
     }
   },
   {
@@ -6102,7 +5652,7 @@
     "target": "LRU缓存",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6110,7 +5660,7 @@
     "target": "任务调度",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -6118,7 +5668,7 @@
     "target": "树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6126,7 +5676,7 @@
     "target": "红黑树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6134,7 +5684,7 @@
     "target": "迷宫求解",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -6142,8 +5692,7 @@
     "target": "LFU缓存",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "跳跃表属于LFU缓存的变体结构"
+      "source_sentence": ""
     }
   },
   {
@@ -6151,8 +5700,7 @@
     "target": "LRU缓存",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "作为跳跃表的变体，LRU缓存优化了数据访问速度"
+      "source_sentence": ""
     }
   },
   {
@@ -6160,7 +5708,7 @@
     "target": "内存分配",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6168,7 +5716,7 @@
     "target": "复制",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6176,7 +5724,7 @@
     "target": "按秩合并",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6184,8 +5732,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "跳跃表适用于最短路径计算场景"
+      "source_sentence": ""
     }
   },
   {
@@ -6193,8 +5740,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "跳跃表广泛应用于迷宫求解问题"
+      "source_sentence": ""
     }
   },
   {
@@ -6202,7 +5748,7 @@
     "target": "遍历",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6210,7 +5756,7 @@
     "target": "B+树",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -6218,7 +5764,7 @@
     "target": "LRU缓存",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -6226,8 +5772,7 @@
     "target": "O",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "迪杰斯特拉算法的时间复杂度为O(n log n)"
+      "source_sentence": ""
     }
   },
   {
@@ -6235,8 +5780,7 @@
     "target": "二叉堆",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "迪杰斯特拉算法借助二叉堆优化路径搜索"
+      "source_sentence": ""
     }
   },
   {
@@ -6244,8 +5788,7 @@
     "target": "优先队列",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "迪杰斯特拉算法采用优先队列来优化路径搜索"
+      "source_sentence": ""
     }
   },
   {
@@ -6253,7 +5796,7 @@
     "target": "双向链表",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -6261,7 +5804,7 @@
     "target": "双端队列",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -6269,8 +5812,7 @@
     "target": "循环链表",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "迪杰斯特拉算法在路径规划中依赖循环链表"
+      "source_sentence": ""
     }
   },
   {
@@ -6278,7 +5820,7 @@
     "target": "合并",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -6286,8 +5828,7 @@
     "target": "Ω记号",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "选择排序的时间复杂度可用Ω记号表示"
+      "source_sentence": ""
     }
   },
   {
@@ -6295,8 +5836,7 @@
     "target": "摊还分析",
     "relation": "hasComplexity",
     "properties": {
-      "weight": 0.6,
-      "source_sentence": "选择排序的复杂度分析采用摊还分析方法"
+      "source_sentence": ""
     }
   },
   {
@@ -6304,7 +5844,7 @@
     "target": "跳跃表",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -6312,8 +5852,7 @@
     "target": "链表",
     "relation": "uses",
     "properties": {
-      "weight": 0.8,
-      "source_sentence": "选择排序使用链表作为数据结构"
+      "source_sentence": ""
     }
   },
   {
@@ -6321,7 +5860,7 @@
     "target": "LRU缓存",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6329,7 +5868,7 @@
     "target": "平衡二叉树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6337,7 +5876,7 @@
     "target": "最短路径",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -6345,7 +5884,7 @@
     "target": "迷宫求解",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -6353,8 +5892,7 @@
     "target": "二叉堆",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "链表经优化后形成二叉堆变体"
+      "source_sentence": ""
     }
   },
   {
@@ -6362,8 +5900,7 @@
     "target": "二叉搜索树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "链表是二叉搜索树的变体形式"
+      "source_sentence": ""
     }
   },
   {
@@ -6371,8 +5908,7 @@
     "target": "优先队列",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "链表是优先队列的变种"
+      "source_sentence": ""
     }
   },
   {
@@ -6380,7 +5916,7 @@
     "target": "入栈",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6388,8 +5924,7 @@
     "target": "双端队列",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "链表的变体之一是双端队列"
+      "source_sentence": ""
     }
   },
   {
@@ -6397,8 +5932,7 @@
     "target": "哈希表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "链表经优化后形成哈希表"
+      "source_sentence": ""
     }
   },
   {
@@ -6406,7 +5940,7 @@
     "target": "垃圾回收",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6414,7 +5948,7 @@
     "target": "复制",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6422,8 +5956,7 @@
     "target": "字典树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "链表衍生出字典树这一变体结构"
+      "source_sentence": ""
     }
   },
   {
@@ -6431,7 +5964,7 @@
     "target": "广度优先搜索",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -6439,8 +5972,7 @@
     "target": "括号匹配",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "链表适用于括号匹配的场景"
+      "source_sentence": ""
     }
   },
   {
@@ -6448,8 +5980,7 @@
     "target": "数组",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "链表是数组的变体形式"
+      "source_sentence": ""
     }
   },
   {
@@ -6457,7 +5988,7 @@
     "target": "旋转",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6465,8 +5996,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "链表适用于最短路径的路径存储"
+      "source_sentence": ""
     }
   },
   {
@@ -6474,8 +6004,7 @@
     "target": "栈",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "链表衍生出栈这种特殊结构"
+      "source_sentence": ""
     }
   },
   {
@@ -6483,8 +6012,7 @@
     "target": "树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "链表是树的变体，结构更线性"
+      "source_sentence": ""
     }
   },
   {
@@ -6492,8 +6020,7 @@
     "target": "红黑树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "链表是红黑树的简化变体。"
+      "source_sentence": ""
     }
   },
   {
@@ -6501,7 +6028,7 @@
     "target": "线性查找",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -6509,8 +6036,7 @@
     "target": "表达式求值",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "链表常用于表达式求值的实现"
+      "source_sentence": ""
     }
   },
   {
@@ -6518,8 +6044,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "链表适用于迷宫求解中的路径回溯操作"
+      "source_sentence": ""
     }
   },
   {
@@ -6527,7 +6052,7 @@
     "target": "销毁",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6535,8 +6060,7 @@
     "target": "队列",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "链表是实现队列功能的变形结构"
+      "source_sentence": ""
     }
   },
   {
@@ -6544,7 +6068,7 @@
     "target": "B+树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6552,7 +6076,7 @@
     "target": "任务调度",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -6560,7 +6084,7 @@
     "target": "前缀树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6568,7 +6092,7 @@
     "target": "双向链表",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6576,7 +6100,7 @@
     "target": "堆",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6584,7 +6108,7 @@
     "target": "平衡二叉树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6592,7 +6116,7 @@
     "target": "并查集",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6600,7 +6124,7 @@
     "target": "括号匹配",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -6608,7 +6132,7 @@
     "target": "迷宫求解",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -6616,8 +6140,7 @@
     "target": "任务调度",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "队列常用于任务调度场景"
+      "source_sentence": ""
     }
   },
   {
@@ -6625,7 +6148,7 @@
     "target": "引用计数",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6633,8 +6156,7 @@
     "target": "最短路径",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "队列在最短路径算法中发挥重要作用"
+      "source_sentence": ""
     }
   },
   {
@@ -6642,8 +6164,7 @@
     "target": "线段树",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "队列的变体包含线段树"
+      "source_sentence": ""
     }
   },
   {
@@ -6651,8 +6172,7 @@
     "target": "跳跃表",
     "relation": "variantOf",
     "properties": {
-      "weight": 0.7,
-      "source_sentence": "队列是跳跃表的一种变体形式。"
+      "source_sentence": ""
     }
   },
   {
@@ -6660,8 +6180,7 @@
     "target": "迷宫求解",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9,
-      "source_sentence": "队列常用于迷宫求解的广度优先搜索算法中"
+      "source_sentence": ""
     }
   },
   {
@@ -6669,7 +6188,7 @@
     "target": "销毁",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6677,7 +6196,7 @@
     "target": "二叉树",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6685,7 +6204,7 @@
     "target": "二项堆",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6693,7 +6212,7 @@
     "target": "单链表",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6701,7 +6220,7 @@
     "target": "大根堆",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6709,7 +6228,7 @@
     "target": "循环链表",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6717,7 +6236,7 @@
     "target": "括号匹配",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -6725,7 +6244,7 @@
     "target": "最短路径",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -6733,7 +6252,7 @@
     "target": "哈希表",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6741,7 +6260,7 @@
     "target": "大根堆",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6749,7 +6268,7 @@
     "target": "括号匹配",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -6757,7 +6276,7 @@
     "target": "最短路径",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -6765,7 +6284,7 @@
     "target": "生成森林",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   },
   {
@@ -6773,7 +6292,7 @@
     "target": "迷宫求解",
     "relation": "uses",
     "properties": {
-      "weight": 0.8
+      "source_sentence": ""
     }
   },
   {
@@ -6781,7 +6300,7 @@
     "target": "队列",
     "relation": "appliesTo",
     "properties": {
-      "weight": 0.9
+      "source_sentence": ""
     }
   }
 ]

@@ -1,4 +1,83 @@
 #!/usr/bin/env python3
+"""
+将Neo4j知识图谱数据转换为Vue前端需要的格式
+"""
+import json
+import os
+
+def convert_neo4j_to_vue_format(neo4j_file_path, vue_file_path):
+    """
+    将Neo4j格式的数据转换为Vue格式
+    
+    Args:
+        neo4j_file_path: Neo4j数据文件路径
+        vue_file_path: Vue格式输出文件路径
+    """
+    try:
+        # 读取Neo4j格式数据
+        with open(neo4j_file_path, 'r', encoding='utf-8') as f:
+            neo4j_data = json.load(f)
+        
+        # 转换nodes格式
+        vue_nodes = []
+        for node in neo4j_data.get('nodes', []):
+            vue_node = {
+                "id": node['name'],
+                "name": node['name']
+            }
+            vue_nodes.append(vue_node)
+        
+        # 转换relationships为links格式
+        vue_links = []
+        for rel in neo4j_data.get('relationships', []):
+            vue_link = {
+                "source": rel['source'],
+                "target": rel['target'],
+                "relation": rel['relation']
+            }
+            vue_links.append(vue_link)
+        
+        # 构建Vue格式数据
+        vue_data = {
+            "nodes": vue_nodes,
+            "links": vue_links
+        }
+        
+        # 写入Vue格式文件
+        with open(vue_file_path, 'w', encoding='utf-8') as f:
+            json.dump(vue_data, f, ensure_ascii=False, indent=2)
+        
+        print(f"转换完成！")
+        print(f"节点数量: {len(vue_nodes)}")
+        print(f"关系数量: {len(vue_links)}")
+        print(f"输出文件: {vue_file_path}")
+        
+    except FileNotFoundError as e:
+        print(f"文件未找到: {e}")
+    except json.JSONDecodeError as e:
+        print(f"JSON解析错误: {e}")
+    except Exception as e:
+        print(f"转换过程中发生错误: {e}")
+
+def main():
+    """主函数"""
+    # 定义文件路径
+    neo4j_file = "/root/KG_inde/neo4j/data/full_graph_data.json"
+    vue_file = "/root/KG_inde/Vue/src/data/graph.json"
+    
+    # 检查源文件是否存在
+    if not os.path.exists(neo4j_file):
+        print(f"源文件不存在: {neo4j_file}")
+        return
+    
+    # 确保目标目录存在
+    os.makedirs(os.path.dirname(vue_file), exist_ok=True)
+    
+    # 执行转换
+    convert_neo4j_to_vue_format(neo4j_file, vue_file)
+
+if __name__ == "__main__":
+    main()
 # -*- coding: utf-8 -*-
 """
 导出优化后的知识图谱数据到data目录

@@ -1,0 +1,62 @@
+{
+  "export_time": "2025-10-03T21:38:44.144423",
+  "total_nodes": 122,
+  "total_relationships": 788,
+  "node_types": [
+    {
+      "labels": [
+        "Concept"
+      ],
+      "count": 44
+    },
+    {
+      "labels": [
+        "DataStructure"
+      ],
+      "count": 35
+    },
+    {
+      "labels": [
+        "Algorithm"
+      ],
+      "count": 31
+    },
+    {
+      "labels": [
+        "Operation"
+      ],
+      "count": 7
+    },
+    {
+      "labels": [
+        "Complexity"
+      ],
+      "count": 3
+    },
+    {
+      "labels": [
+        "ApplicationScenario"
+      ],
+      "count": 2
+    }
+  ],
+  "relationship_types": [
+    {
+      "type": "appliesTo",
+      "count": 298
+    },
+    {
+      "type": "uses",
+      "count": 262
+    },
+    {
+      "type": "variantOf",
+      "count": 154
+    },
+    {
+      "type": "hasComplexity",
+      "count": 74
+    }
+  ],
+  "weight_distribution": []
+}

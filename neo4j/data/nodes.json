@@ -2,11 +2,11 @@
   {
     "name": "AC自动机",
     "labels": [
-      "DataStructure"
+      "Concept"
     ],
     "properties": {
       "name": "AC自动机",
-      "type": "DataStructure"
+      "type": "Concept"
     }
   },
   {
@@ -62,61 +62,61 @@
   {
     "name": "LFU缓存",
     "labels": [
-      "DataStructure"
+      "Concept"
     ],
     "properties": {
       "name": "LFU缓存",
-      "type": "DataStructure"
+      "type": "Concept"
     }
   },
   {
     "name": "LRU缓存",
     "labels": [
-      "DataStructure"
+      "Concept"
     ],
     "properties": {
       "name": "LRU缓存",
-      "type": "DataStructure"
+      "type": "Concept"
     }
   },
   {
     "name": "O",
     "labels": [
-      "Complexity"
+      "Concept"
     ],
     "properties": {
       "name": "O",
-      "type": "Complexity"
+      "type": "Concept"
     }
   },
   {
     "name": "Θ记号",
     "labels": [
-      "Complexity"
+      "Concept"
     ],
     "properties": {
       "name": "Θ记号",
-      "type": "Complexity"
+      "type": "Concept"
     }
   },
   {
     "name": "Ω记号",
     "labels": [
-      "Complexity"
+      "Concept"
     ],
     "properties": {
       "name": "Ω记号",
-      "type": "Complexity"
+      "type": "Concept"
     }
   },
   {
     "name": "不相交集合",
     "labels": [
-      "DataStructure"
+      "Concept"
     ],
     "properties": {
       "name": "不相交集合",
-      "type": "DataStructure"
+      "type": "Concept"
     }
   },
   {
@@ -132,11 +132,11 @@
   {
     "name": "二叉搜索树",
     "labels": [
-      "DataStructure"
+      "Algorithm"
     ],
     "properties": {
       "name": "二叉搜索树",
-      "type": "DataStructure"
+      "type": "Algorithm"
     }
   },
   {
@@ -152,11 +152,11 @@
   {
     "name": "二路归并",
     "labels": [
-      "Algorithm"
+      "Concept"
     ],
     "properties": {
       "name": "二路归并",
-      "type": "Algorithm"
+      "type": "Concept"
     }
   },
   {
@@ -172,11 +172,11 @@
   {
     "name": "任务调度",
     "labels": [
-      "ApplicationScenario"
+      "Concept"
     ],
     "properties": {
       "name": "任务调度",
-      "type": "ApplicationScenario"
+      "type": "Concept"
     }
   },
   {
@@ -192,11 +192,11 @@
   {
     "name": "会计方法",
     "labels": [
-      "Complexity"
+      "Concept"
     ],
     "properties": {
       "name": "会计方法",
-      "type": "Complexity"
+      "type": "Concept"
     }
   },
   {
@@ -212,11 +212,11 @@
   {
     "name": "入栈",
     "labels": [
-      "Operation"
+      "DataStructure"
     ],
     "properties": {
       "name": "入栈",
-      "type": "Operation"
+      "type": "DataStructure"
     }
   },
   {
@@ -232,11 +232,11 @@
   {
     "name": "内存分配",
     "labels": [
-      "Operation"
+      "Concept"
     ],
     "properties": {
       "name": "内存分配",
-      "type": "Operation"
+      "type": "Concept"
     }
   },
   {
@@ -252,11 +252,11 @@
   {
     "name": "出栈",
     "labels": [
-      "Operation"
+      "DataStructure"
     ],
     "properties": {
       "name": "出栈",
-      "type": "Operation"
+      "type": "DataStructure"
     }
   },
   {
@@ -282,21 +282,21 @@
   {
     "name": "分支限界",
     "labels": [
-      "Algorithm"
+      "Concept"
     ],
     "properties": {
       "name": "分支限界",
-      "type": "Algorithm"
+      "type": "Concept"
     }
   },
   {
     "name": "分治",
     "labels": [
-      "Algorithm"
+      "Concept"
     ],
     "properties": {
       "name": "分治",
-      "type": "Algorithm"
+      "type": "Concept"
     }
   },
   {
@@ -332,31 +332,31 @@
   {
     "name": "动态规划",
     "labels": [
-      "Algorithm"
+      "Concept"
     ],
     "properties": {
       "name": "动态规划",
-      "type": "Algorithm"
+      "type": "Concept"
     }
   },
   {
     "name": "势能方法",
     "labels": [
-      "Complexity"
+      "Concept"
     ],
     "properties": {
       "name": "势能方法",
-      "type": "Complexity"
+      "type": "Concept"
     }
   },
   {
     "name": "单源最短路径",
     "labels": [
-      "Algorithm"
+      "Concept"
     ],
     "properties": {
       "name": "单源最短路径",
-      "type": "Algorithm"
+      "type": "Concept"
     }
   },
   {
@@ -392,21 +392,21 @@
   {
     "name": "可持久化数据结构",
     "labels": [
-      "DataStructure"
+      "Concept"
     ],
     "properties": {
       "name": "可持久化数据结构",
-      "type": "DataStructure"
+      "type": "Concept"
     }
   },
   {
     "name": "合并",
     "labels": [
-      "Operation"
+      "Concept"
     ],
     "properties": {
       "name": "合并",
-      "type": "Operation"
+      "type": "Concept"
     }
   },
   {
@@ -442,11 +442,11 @@
   {
     "name": "回溯法",
     "labels": [
-      "Algorithm"
+      "Concept"
     ],
     "properties": {
       "name": "回溯法",
-      "type": "Algorithm"
+      "type": "Concept"
     }
   },
   {
@@ -462,11 +462,11 @@
   {
     "name": "垃圾回收",
     "labels": [
-      "Operation"
+      "Concept"
     ],
     "properties": {
       "name": "垃圾回收",
-      "type": "Operation"
+      "type": "Concept"
     }
   },
   {
@@ -502,11 +502,11 @@
   {
     "name": "复制",
     "labels": [
-      "Operation"
+      "Concept"
     ],
     "properties": {
       "name": "复制",
-      "type": "Operation"
+      "type": "Concept"
     }
   },
   {
@@ -522,21 +522,21 @@
   {
     "name": "多路归并",
     "labels": [
-      "Algorithm"
+      "Concept"
     ],
     "properties": {
       "name": "多路归并",
-      "type": "Algorithm"
+      "type": "Concept"
     }
   },
   {
     "name": "大O记号",
     "labels": [
-      "Complexity"
+      "Concept"
     ],
     "properties": {
       "name": "大O记号",
-      "type": "Complexity"
+      "type": "Concept"
     }
   },
   {
@@ -572,11 +572,11 @@
   {
     "name": "布隆过滤器",
     "labels": [
-      "DataStructure"
+      "Concept"
     ],
     "properties": {
       "name": "布隆过滤器",
-      "type": "DataStructure"
+      "type": "Concept"
     }
   },
   {
@@ -592,21 +592,21 @@
   {
     "name": "平均情况",
     "labels": [
-      "Complexity"
+      "Concept"
     ],
     "properties": {
       "name": "平均情况",
-      "type": "Complexity"
+      "type": "Concept"
     }
   },
   {
     "name": "平均查找长度",
     "labels": [
-      "Complexity"
+      "Algorithm"
     ],
     "properties": {
       "name": "平均查找长度",
-      "type": "Complexity"
+      "type": "Algorithm"
     }
   },
   {
@@ -622,11 +622,11 @@
   {
     "name": "并查集",
     "labels": [
-      "DataStructure"
+      "Concept"
     ],
     "properties": {
       "name": "并查集",
-      "type": "DataStructure"
+      "type": "Concept"
     }
   },
   {
@@ -642,11 +642,11 @@
   {
     "name": "引用计数",
     "labels": [
-      "Operation"
+      "Concept"
     ],
     "properties": {
       "name": "引用计数",
-      "type": "Operation"
+      "type": "Concept"
     }
   },
   {
@@ -742,11 +742,11 @@
   {
     "name": "按秩合并",
     "labels": [
-      "Operation"
+      "Concept"
     ],
     "properties": {
       "name": "按秩合并",
-      "type": "Operation"
+      "type": "Concept"
     }
   },
   {
@@ -782,11 +782,11 @@
   {
     "name": "摊还分析",
     "labels": [
-      "Complexity"
+      "Concept"
     ],
     "properties": {
       "name": "摊还分析",
-      "type": "Complexity"
+      "type": "Concept"
     }
   },
   {
@@ -812,11 +812,11 @@
   {
     "name": "旋转",
     "labels": [
-      "Operation"
+      "Concept"
     ],
     "properties": {
       "name": "旋转",
-      "type": "Operation"
+      "type": "Concept"
     }
   },
   {
@@ -842,51 +842,51 @@
   {
     "name": "最坏情况",
     "labels": [
-      "Complexity"
+      "Concept"
     ],
     "properties": {
       "name": "最坏情况",
-      "type": "Complexity"
+      "type": "Concept"
     }
   },
   {
     "name": "最好情况",
     "labels": [
-      "Complexity"
+      "Concept"
     ],
     "properties": {
       "name": "最好情况",
-      "type": "Complexity"
+      "type": "Concept"
     }
   },
   {
     "name": "最小生成树",
     "labels": [
-      "Algorithm"
+      "DataStructure"
     ],
     "properties": {
       "name": "最小生成树",
-      "type": "Algorithm"
+      "type": "DataStructure"
     }
   },
   {
     "name": "最短路径",
     "labels": [
-      "ApplicationScenario"
+      "Concept"
     ],
     "properties": {
       "name": "最短路径",
-      "type": "ApplicationScenario"
+      "type": "Concept"
     }
   },
   {
     "name": "查找",
     "labels": [
-      "Operation"
+      "Algorithm"
     ],
     "properties": {
       "name": "查找",
-      "type": "Operation"
+      "type": "Algorithm"
     }
   },
   {
@@ -952,21 +952,21 @@
   {
     "name": "状态转移",
     "labels": [
-      "Algorithm"
+      "Concept"
     ],
     "properties": {
       "name": "状态转移",
-      "type": "Algorithm"
+      "type": "Concept"
     }
   },
   {
     "name": "生成森林",
     "labels": [
-      "DataStructure"
+      "Concept"
     ],
     "properties": {
       "name": "生成森林",
-      "type": "DataStructure"
+      "type": "Concept"
     }
   },
   {
@@ -982,21 +982,21 @@
   {
     "name": "移动",
     "labels": [
-      "Operation"
+      "Concept"
     ],
     "properties": {
       "name": "移动",
-      "type": "Operation"
+      "type": "Concept"
     }
   },
   {
     "name": "穷举法",
     "labels": [
-      "Algorithm"
+      "Concept"
     ],
     "properties": {
       "name": "穷举法",
-      "type": "Algorithm"
+      "type": "Concept"
     }
   },
   {
@@ -1052,31 +1052,31 @@
   {
     "name": "缩容",
     "labels": [
-      "Operation"
+      "Concept"
     ],
     "properties": {
       "name": "缩容",
-      "type": "Operation"
+      "type": "Concept"
     }
   },
   {
     "name": "聚合分析",
     "labels": [
-      "Complexity"
+      "Concept"
     ],
     "properties": {
       "name": "聚合分析",
-      "type": "Complexity"
+      "type": "Concept"
     }
   },
   {
     "name": "表达式求值",
     "labels": [
-      "ApplicationScenario"
+      "DataStructure"
     ],
     "properties": {
       "name": "表达式求值",
-      "type": "ApplicationScenario"
+      "type": "DataStructure"
     }
   },
   {
@@ -1102,21 +1102,21 @@
   {
     "name": "贪心策略",
     "labels": [
-      "Algorithm"
+      "Concept"
     ],
     "properties": {
       "name": "贪心策略",
-      "type": "Algorithm"
+      "type": "Concept"
     }
   },
   {
     "name": "路径压缩",
     "labels": [
-      "Operation"
+      "Concept"
     ],
     "properties": {
       "name": "路径压缩",
-      "type": "Operation"
+      "type": "Concept"
     }
   },
   {
@@ -1182,11 +1182,11 @@
   {
     "name": "销毁",
     "labels": [
-      "Operation"
+      "Concept"
     ],
     "properties": {
       "name": "销毁",
-      "type": "Operation"
+      "type": "Concept"
     }
   },
   {
@@ -1202,21 +1202,21 @@
   {
     "name": "随机访问",
     "labels": [
-      "Operation"
+      "Concept"
     ],
     "properties": {
       "name": "随机访问",
-      "type": "Operation"
+      "type": "Concept"
     }
   },
   {
     "name": "顺序访问",
     "labels": [
-      "Operation"
+      "Concept"
     ],
     "properties": {
       "name": "顺序访问",
-      "type": "Operation"
+      "type": "Concept"
     }
   }
 ]

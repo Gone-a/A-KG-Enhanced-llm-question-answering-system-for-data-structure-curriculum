@@ -65,33 +65,29 @@ class IntentRecognizer:
         Returns:
             str: 识别的意图类别
         """
-        # 首先尝试规则匹配
-        rule_based_intent = self._rule_based_intent_recognition(text)
-        if rule_based_intent != "unknown":
-            return rule_based_intent
-        
-        # 如果规则匹配失败，使用深度学习模型预测
-        if not self.model or not self.tokenizer:
-            logging.warning("模型未正确加载，仅使用规则匹配")
-            return "unknown"
-            
-        try:
-            # 1. 对输入文本进行编码
-            inputs = self.tokenizer(text, return_tensors="pt", truncation=True, padding=True)
-            
-            # 2. 模型预测（推理时不需要计算梯度）
-            with torch.no_grad():
-                logits = self.model(**inputs).logits
+        # 首先尝试BERT模型预测
+        if self.model and self.tokenizer:
+            try:
+                # 1. 对输入文本进行编码
+                inputs = self.tokenizer(text, return_tensors="pt", truncation=True, padding=True)
                 
-            # 3. 解码结果
-            predicted_class_id = logits.argmax().item()
-            intent = self.id2label.get(predicted_class_id, "unknown")
-            
-            return intent
-            
-        except Exception as e:
-            logging.error(f"意图识别失败: {e}")
-            return "unknown"
+                # 2. 模型预测（推理时不需要计算梯度）
+                with torch.no_grad():
+                    logits = self.model(**inputs).logits
+                    
+                # 3. 解码结果
+                predicted_class_id = logits.argmax().item()
+                intent = self.id2label.get(predicted_class_id, "unknown")
+                
+                if intent != "unknown":
+                    return intent
+                    
+            except Exception as e:
+                logging.error(f"BERT模型意图识别失败: {e}")
+        
+        # 如果BERT模型预测失败或结果为unknown，使用规则匹配
+        rule_based_intent = self._rule_based_intent_recognition(text)
+        return rule_based_intent
     
     def _rule_based_intent_recognition(self, text: str) -> str:
         """
