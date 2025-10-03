@@ -1,6 +1,8 @@
+# 文件路径：intent_recognition/train_data.py
+
 # -*- coding: utf-8 -*-
 
-# 严格按照三个意图模式生成的大量、多样化、并可直接使用的训练数据
+# 严格按照意图模式生成的大量、多样化、并可直接使用的训练数据（扩充版）
 train_data = [
     # ==============================================================================
     # 意图 1: find_relation_by_two_entities
@@ -41,6 +43,23 @@ train_data = [
     ("平衡因子和树的高度有关系吗", "find_relation_by_two_entities"),
     ("连通图和强连通图的定义差异", "find_relation_by_two_entities"),
     ("循环队列和普通队列的对比", "find_relation_by_two_entities"),
+    ("队列和栈在应用上有什么不同", "find_relation_by_two_entities"),
+    ("谈谈数组和链表的优缺点", "find_relation_by_two_entities"),
+    ("深度优先搜索和广度优先搜索的性能比较", "find_relation_by_two_entities"),
+    ("普里姆算法与克鲁斯卡尔算法的异同", "find_relation_by_two_entities"),
+    ("平衡二叉树和二叉搜索树的联系", "find_relation_by_two_entities"),
+    ("邻接矩阵和邻接表分别适合什么场景", "find_relation_by_two_entities"),
+    ("递归与分治策略的关系", "find_relation_by_two_entities"),
+    ("顺序查找和二分查找哪个快", "find_relation_by_two_entities"),
+    ("堆排序和快速排序的稳定性对比", "find_relation_by_two_entities"),
+    ("动态规划和分治法有啥区别", "find_relation_by_two_entities"),
+    ("聊聊邻接表和邻接矩阵的应用场景差异", "find_relation_by_two_entities"),
+    ("二叉搜索树和红黑树哪个更复杂", "find_relation_by_two_entities"),
+    ("哈希表与字典的联系", "find_relation_by_two_entities"),
+    ("BFS 与 DFS 在空间使用上的对比", "find_relation_by_two_entities"),
+    ("说说看Dijkstra算法和Floyd算法的共同点", "find_relation_by_two_entities"),
+    ("选择排序和冒泡排序的效率比较", "find_relation_by_two_entities"),
+    ("强连通图和弱连通图的定义有何不同", "find_relation_by_two_entities"),
 
     # ==============================================================================
     # 意图 2: find_entity_by_relation_and_entity
@@ -48,6 +67,12 @@ train_data = [
     # ==============================================================================
     ("树这种结构包含哪些类型的节点？", "find_entity_by_relation_and_entity"),
     ("排序算法都具有哪些属性？", "find_entity_by_relation_and_entity"),
+    ("图的遍历方法都有哪些", "find_entity_by_relation_and_entity"),
+    ("告诉我几种不同的排序算法", "find_entity_by_relation_and_entity"),
+    ("哈希表有哪些常用的冲突解决方法", "find_entity_by_relation_and_entity"),
+    ("一个树节点由什么构成", "find_entity_by_relation_and_entity"),
+    ("除了Dijkstra，还有哪些求最短路径的算法", "find_entity_by_relation_and_entity"),
+    ("非线性结构都有什么例子", "find_entity_by_relation_and_entity"),
     ("图的组成部分除了顶点还有什么？", "find_entity_by_relation_and_entity"),
     ("和最小生成树问题相关的算法有哪些？", "find_entity_by_relation_and_entity"),
     ("线性结构包含哪些具体的数据结构？", "find_entity_by_relation_and_entity"),
@@ -71,23 +96,64 @@ train_data = [
     ("链表的节点由什么组成？", "find_entity_by_relation_and_entity"),
     ("求最小生成树的经典算法有哪些", "find_entity_by_relation_and_entity"),
     ("二叉树有哪些特殊的形态", "find_entity_by_relation_and_entity"),
+    ("图的表示方法有哪些", "find_entity_by_relation_and_entity"),
+    ("线性数据结构的例子有哪些", "find_entity_by_relation_and_entity"),
+    ("二叉树的遍历方法除了前序还有哪些", "find_entity_by_relation_and_entity"),
+    ("除了插入排序，还有哪些是稳定排序算法", "find_entity_by_relation_and_entity"),
+    ("告诉我几种常见的哈希函数", "find_entity_by_relation_and_entity"),
+    ("一个队列都支持哪些基本操作", "find_entity_by_relation_and_entity"),
+    ("树的节点可以有哪些属性", "find_entity_by_relation_and_entity"),
+    ("最短路径算法的种类", "find_entity_by_relation_and_entity"),
+    ("除了用数组，还可以用什么实现栈", "find_entity_by_relation_and_entity"),
+    ("动态规划具备的几个要素", "find_entity_by_relation_and_entity"),
 
     # ==============================================================================
-    # 意图 3: other
-    # 模式: 不符合以上两种模式的所有其他问题（例如：单个实体的查询、闲聊等）
+    # 意图 3: find_entity_definition
+    # 模式: 询问 [实体] 的定义、原理或描述
     # ==============================================================================
-    ("什么是数组？", "other"),
-    ("介绍一下快速排序", "other"),
-    ("讲讲DFS的原理", "other"),
-    ("请解释一下哈希表", "other"),
-    ("什么是时间复杂度？", "other"),
-    ("介绍下Dijkstra算法", "other"),
-    ("我想了解下图", "other"),
-    ("什么是递归？", "other"),
-    ("讲一下动态规划的核心思想", "other"),
-    ("平衡二叉树是什么", "other"),
-    ("什么是并查集？", "other"),
-    ("能讲讲拓扑排序吗", "other"),
+    ("什么是数组？", "find_entity_definition"),
+    ("介绍一下快速排序", "find_entity_definition"),
+    ("讲讲DFS的原理", "find_entity_definition"),
+    ("请解释一下哈希表", "find_entity_definition"),
+    ("什么是时间复杂度？", "find_entity_definition"),
+    ("介绍下Dijkstra算法", "find_entity_definition"),
+    ("什么叫“树的深度”", "find_entity_definition"),
+    ("可以为我解释下“贪心算法”吗", "find_entity_definition"),
+    ("“并查集”是用来做什么的", "find_entity_definition"),
+    ("我想了解“快速排序”的实现细节", "find_entity_definition"),
+    ("查询实体：堆", "find_entity_definition"),
+    ("冒泡排序具体是怎么操作的", "find_entity_definition"),
+    ("“哈希函数”指的是什么", "find_entity_definition"),
+    ("我想了解下图", "find_entity_definition"),
+    ("什么是递归？", "find_entity_definition"),
+    ("讲一下动态规划的核心思想", "find_entity_definition"),
+    ("平衡二叉树是什么", "find_entity_definition"),
+    ("什么是并查集？", "find_entity_definition"),
+    ("能讲讲拓扑排序吗", "find_entity_definition"),
+    ("堆排序的原理是什么", "find_entity_definition"),
+    ("说明一下邻接表的概念", "find_entity_definition"),
+    ("解释下什么叫算法的稳定性", "find_entity_definition"),
+    ("堆是什么样的数据结构", "find_entity_definition"),
+    ("解释一下AOE网", "find_entity_definition"),
+    ("我想学习一下KMP算法", "find_entity_definition"),
+    ("什么是回溯法", "find_entity_definition"),
+    ("可以讲讲并查集吗", "find_entity_definition"),
+    ("查询“最小生成树”", "find_entity_definition"),
+    ("告诉我关于“图”的知识", "find_entity_definition"),
+    ("描述一下“队列”的特性", "find_entity_definition"),
+    ("“栈”是怎么工作的", "find_entity_definition"),
+    ("希尔排序的核心思想是什么", "find_entity_definition"),
+    ("介绍下归并排序", "find_entity_definition"),
+    ("能否说明白平衡因子是啥", "find_entity_definition"),
+    ("线性表是什么", "find_entity_definition"),
+    ("哈希表查询", "find_entity_definition"),
+    ("B树", "find_entity_definition"),
+
+
+    # ==============================================================================
+    # 意图 4: other
+    # 模式: 不符合以上模式的所有其他问题（例如：闲聊、主观问题等）
+    # ==============================================================================
     ("数据结构难吗？", "other"),
     ("如何学好算法？", "other"),
     ("排序算法哪个最常用？", "other"),
@@ -97,10 +163,36 @@ train_data = [
     ("你是谁？", "other"),
     ("谢谢", "other"),
     ("再见", "other"),
+    ("晚上好", "other"),
+    ("你累了吗", "other"),
+    ("学习这个有什么用", "other"),
+    ("我应该从哪里开始", "other"),
+    ("今天东京热吗", "other"),
+    ("给我讲个笑话", "other"),
+    ("有没有学习资料推荐", "other"),
+    ("这个项目是谁开发的", "other"),
+    ("不错", "other"),
+    ("继续说", "other"),
+    ("你还能做什么", "other"),
     ("你真厉害", "other"),
     ("有什么可以帮我的吗", "other"),
     ("今天是2025年8月22日吗？", "other"),
     ("这个知识库是谁做的", "other"),
+    ("你都会做什么", "other"),
+    ("哪个算法最好用", "other"),
+    ("早上好", "other"),
+    ("你叫什么名字", "other"),
+    ("北京今天多少度", "other"),
+    ("数据结构太难了", "other"),
+    ("推荐一本算法书", "other"),
+    ("代码写错了怎么办", "other"),
+    ("你觉得Python是最好的语言吗", "other"),
+    ("帮我做个计划", "other"),
+    ("明天会下雨吗", "other"),
+    ("我该如何开始学习", "other"),
+    ("不客气", "other"),
+    ("你是机器人吗", "other"),
+    ("排序", "other"),
 ]
 
 # 统计最终各类别的数量

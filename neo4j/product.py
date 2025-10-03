@@ -448,27 +448,58 @@ class Neo4jKnowledgeGraph:
                 data = json.load(f)
             
             print(f"📁 成功加载数据文件: {file_path}")
-            print(f"📊 原始数据条数: {len(data)}")
             
-            # 数据预处理
-            processed_data = []
-            for item in data:
-                if isinstance(item, dict):
-                    head = self.normalize_entity(item.get('head', ''))
-                    tail = self.normalize_entity(item.get('tail', ''))
-                    relation = item.get('relation', item.get('predicate', ''))
-                    
-                    if head and tail and relation and head != tail:
-                        processed_item = {
-                            'head': head,
-                            'tail': tail,
-                            'relation': relation,
-                            'sentence': item.get('sentence', item.get('text', ''))
-                        }
-                        processed_data.append(processed_item)
+            # 检查是否是导出的图数据格式
+            if isinstance(data, dict) and 'relationships' in data:
+                # 处理导出的图数据格式
+                relationships = data.get('relationships', [])
+                print(f"📊 原始关系数据条数: {len(relationships)}")
+                
+                processed_data = []
+                for rel in relationships:
+                    if isinstance(rel, dict):
+                        head = self.normalize_entity(rel.get('source', ''))
+                        tail = self.normalize_entity(rel.get('target', ''))
+                        relation = rel.get('relation', '')
+                        
+                        if head and tail and relation and head != tail:
+                            processed_item = {
+                                'head': head,
+                                'tail': tail,
+                                'relation': relation,
+                                'sentence': ''  # 导出数据中没有句子信息
+                            }
+                            processed_data.append(processed_item)
+                
+                print(f"✅ 有效数据条数: {len(processed_data)}")
+                return processed_data
             
-            print(f"✅ 有效数据条数: {len(processed_data)}")
-            return processed_data
+            # 处理普通的JSON数组格式
+            elif isinstance(data, list):
+                print(f"📊 原始数据条数: {len(data)}")
+                
+                processed_data = []
+                for item in data:
+                    if isinstance(item, dict):
+                        head = self.normalize_entity(item.get('head', ''))
+                        tail = self.normalize_entity(item.get('tail', ''))
+                        relation = item.get('relation', item.get('predicate', ''))
+                        
+                        if head and tail and relation and head != tail:
+                            processed_item = {
+                                'head': head,
+                                'tail': tail,
+                                'relation': relation,
+                                'sentence': item.get('sentence', item.get('text', ''))
+                            }
+                            processed_data.append(processed_item)
+                
+                print(f"✅ 有效数据条数: {len(processed_data)}")
+                return processed_data
+            
+            else:
+                print("❌ 不支持的JSON数据格式")
+                return []
             
         except Exception as e:
             print(f"❌ 加载JSON数据时出错: {e}")

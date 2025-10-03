@@ -26,11 +26,12 @@ class APIHandler:
         self.intent_recognizer = intent_recognizer
         self.llm_client = llm_client
         
-        # 意图到KG接口的映射（只保留三个核心接口）
+        # 意图到KG接口的映射
         self.intent_to_kg_method = {
             "find_entity_by_relation_and_entity": self._handle_find_entity_by_relation,
             "find_relation_by_two_entities": self._handle_find_relation_between_entities,
             "find_entity_relations": self._handle_find_entity_relations,
+            "find_single_entity": self._handle_find_single_entity,
             "other": self._handle_general_query
         }
         
@@ -253,6 +254,11 @@ class APIHandler:
                 "message": llm_response,
                 "graphData": {}
             }
+    
+    def _handle_find_single_entity(self, query: str) -> Dict[str, Any]:
+        """处理单实体查询（复用实体关系查询逻辑）"""
+        # 单实体查询本质上就是查找实体的所有关系，直接复用现有逻辑
+        return self._handle_find_entity_relations(query)
     
     def _handle_general_query(self, query: str) -> Dict[str, Any]:
         """处理通用查询"""

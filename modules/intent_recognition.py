@@ -120,6 +120,11 @@ class IntentRecognizer:
             "有哪些", "包含", "属于", "类型", "分类", "种类"
         ]
         
+        # 单实体查询模式
+        single_entity_patterns = [
+            "查询", "搜索", "找", "显示", "展示", "获取"
+        ]
+        
         # 检查各种模式
         if any(pattern in text_lower for pattern in entity_relation_patterns):
             return "find_entity_relations"
@@ -127,6 +132,8 @@ class IntentRecognizer:
             return "find_relation_by_two_entities"
         elif any(pattern in text_lower for pattern in find_by_relation_patterns):
             return "find_entity_by_relation_and_entity"
+        elif any(pattern in text_lower for pattern in single_entity_patterns):
+            return "find_single_entity"
         
         return "unknown"
     

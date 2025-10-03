@@ -95,9 +95,9 @@ class Handler:
         # 从NLU模块获取分析结果
         nlu_result = self.nlu.understand(user_input)
         
-        intent = nlu_result["intent"]
-        entities = nlu_result["entities"]
-        relations = nlu_result["relations"]
+        intent = nlu_result["intent"] 
+        entities = nlu_result["entities"] 
+        relations = nlu_result["relations"] 
         
         print(f"--- 分析中 ---")
         print(f"原始对话: '{user_input}'")
@@ -105,16 +105,31 @@ class Handler:
         print(f"--- 回应 ---")
 
         # 根据不同的意图，执行不同的动作
-        if intent == "find_relation_by_two_entities":
+        if intent == "find_relation_by_two_entities": 
             # 意图一的处理逻辑
             # 在这里你可以加入实际查询知识图谱的代码
-            response = f"意图识别: [通过两端点找线段]。\n找到的两个端点是: {entities[0]} 和 {entities[1]}。"
-            return response
+            if len(entities) >= 2:
+                response = f"意图识别: [通过两端点找线段]。\n找到的两个端点是: {entities[0]} 和 {entities[1]}。"
+                return response
+            else:
+                return "意图识别: [通过两端点找线段]，但实体数量不足两个。"
 
         elif intent == "find_entity_by_relation_and_entity":
             # 意图二的处理逻辑
-            response = f"意图识别: [通过线段和一端点找另一端点]。\n找到的线段是: {relations[0]}，端点是: {entities[0]}。"
-            return response
+            if entities and relations:
+                response = f"意图识别: [通过线段和一端点找另一端点]。\n找到的线段是: {relations[0]}，端点是: {entities[0]}。" 
+                return response
+            else:
+                return "意图识别: [通过线段和一端点找另一端点]，但缺少实体或关系。"
+        
+        # 新增的处理逻辑
+        elif intent == "find_entity_definition":
+            # 单实体查询意图的处理逻辑
+            if entities:
+                response = f"意图识别: [查询单个实体定义]。\n找到的实体是: {entities[0]}。"
+                return response
+            else:
+                return "意图识别: [查询单个实体定义]，但未找到明确的实体。"
             
         else: # intent == "other"
             # 其他意图的处理逻辑
