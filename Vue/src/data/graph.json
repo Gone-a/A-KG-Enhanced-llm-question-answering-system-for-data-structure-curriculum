@@ -957,11 +957,6 @@
     },
     {
       "source": "二路归并",
-      "target": "LFU缓存",
-      "relation": "uses"
-    },
-    {
-      "source": "二路归并",
       "target": "Ω记号",
       "relation": "hasComplexity"
     },
@@ -1287,11 +1282,6 @@
     },
     {
       "source": "分块查找",
-      "target": "双端队列",
-      "relation": "uses"
-    },
-    {
-      "source": "分块查找",
       "target": "堆",
       "relation": "uses"
     },
@@ -1316,19 +1306,9 @@
       "relation": "uses"
     },
     {
-      "source": "分块查找",
-      "target": "红黑树",
-      "relation": "uses"
-    },
-    {
       "source": "分支限界",
       "target": "O",
       "relation": "hasComplexity"
-    },
-    {
-      "source": "分支限界",
-      "target": "布隆过滤器",
-      "relation": "uses"
     },
     {
       "source": "分支限界",

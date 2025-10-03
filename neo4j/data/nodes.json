@@ -2,1221 +2,1221 @@
   {
     "name": "AC自动机",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "AC自动机",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "B+树",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "B+树",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "Bellman-Ford算法",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "Bellman-Ford算法",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "B树",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "B树",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "Dijkstra算法",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "Dijkstra算法",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "KMP算法",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "KMP算法",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "LFU缓存",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "LFU缓存",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "LRU缓存",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "LRU缓存",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "O",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "O",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "Θ记号",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "Θ记号",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "Ω记号",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "Ω记号",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "不相交集合",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "不相交集合",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "二叉堆",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "二叉堆",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "二叉搜索树",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "二叉搜索树",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "二叉树",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "二叉树",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "二路归并",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "二路归并",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "二项堆",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "二项堆",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "任务调度",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "任务调度",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "优先队列",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "优先队列",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "会计方法",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "会计方法",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "克鲁斯卡尔算法",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "克鲁斯卡尔算法",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "入栈",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "入栈",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "入队",
     "labels": [
-      "Operation"
+      "操作"
     ],
     "properties": {
       "name": "入队",
-      "type": "Operation"
+      "type": "操作"
     }
   },
   {
     "name": "内存分配",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "内存分配",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "冒泡排序",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "冒泡排序",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "出栈",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "出栈",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "出队",
     "labels": [
-      "Operation"
+      "操作"
     ],
     "properties": {
       "name": "出队",
-      "type": "Operation"
+      "type": "操作"
     }
   },
   {
     "name": "分块查找",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "分块查找",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "分支限界",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "分支限界",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "分治",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "分治",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "初始化",
     "labels": [
-      "Operation"
+      "操作"
     ],
     "properties": {
       "name": "初始化",
-      "type": "Operation"
+      "type": "操作"
     }
   },
   {
     "name": "删除",
     "labels": [
-      "Operation"
+      "操作"
     ],
     "properties": {
       "name": "删除",
-      "type": "Operation"
+      "type": "操作"
     }
   },
   {
     "name": "前缀树",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "前缀树",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "动态规划",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "动态规划",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "势能方法",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "势能方法",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "单源最短路径",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "单源最短路径",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "单链表",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "单链表",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "双向链表",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "双向链表",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "双端队列",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "双端队列",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "可持久化数据结构",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "可持久化数据结构",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "合并",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "合并",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "后缀树",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "后缀树",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "哈希查找",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "哈希查找",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "哈希表",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "哈希表",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "回溯法",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "回溯法",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "图",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "图",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "垃圾回收",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "垃圾回收",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "基数排序",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "基数排序",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "堆",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "堆",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "堆排序",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "堆排序",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "复制",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "复制",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "外部排序",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "外部排序",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "多路归并",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "多路归并",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "大O记号",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "大O记号",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "大根堆",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "大根堆",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "字典树",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "字典树",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "小根堆",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "小根堆",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "布隆过滤器",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "布隆过滤器",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "希尔排序",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "希尔排序",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "平均情况",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "平均情况",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "平均查找长度",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "平均查找长度",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "平衡二叉树",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "平衡二叉树",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "并查集",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "并查集",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "广度优先搜索",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "广度优先搜索",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "引用计数",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "引用计数",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "弗洛伊德算法",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "弗洛伊德算法",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "归并排序",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "归并排序",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "循环链表",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "循环链表",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "循环队列",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "循环队列",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "快速排序",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "快速排序",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "扩容",
     "labels": [
-      "Operation"
+      "操作"
     ],
     "properties": {
       "name": "扩容",
-      "type": "Operation"
+      "type": "操作"
     }
   },
   {
     "name": "折半查找",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "折半查找",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "拓扑排序",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "拓扑排序",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "括号匹配",
     "labels": [
-      "ApplicationScenario"
+      "应用场景"
     ],
     "properties": {
       "name": "括号匹配",
-      "type": "ApplicationScenario"
+      "type": "应用场景"
     }
   },
   {
     "name": "按秩合并",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "按秩合并",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "插值查找",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "插值查找",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "插入",
     "labels": [
-      "Operation"
+      "操作"
     ],
     "properties": {
       "name": "插入",
-      "type": "Operation"
+      "type": "操作"
     }
   },
   {
     "name": "插入排序",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "插入排序",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "摊还分析",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "摊还分析",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "数组",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "数组",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "斐波那契堆",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "斐波那契堆",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "旋转",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "旋转",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "时间复杂度",
     "labels": [
-      "Complexity"
+      "复杂度"
     ],
     "properties": {
       "name": "时间复杂度",
-      "type": "Complexity"
+      "type": "复杂度"
     }
   },
   {
     "name": "普里姆算法",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "普里姆算法",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "最坏情况",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "最坏情况",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "最好情况",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "最好情况",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "最小生成树",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "最小生成树",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "最短路径",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "最短路径",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "查找",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "查找",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "栈",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "栈",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "树",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "树",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "树状数组",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "树状数组",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "桶排序",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "桶排序",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "深度优先搜索",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "深度优先搜索",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "渐近复杂度",
     "labels": [
-      "Complexity"
+      "复杂度"
     ],
     "properties": {
       "name": "渐近复杂度",
-      "type": "Complexity"
+      "type": "复杂度"
     }
   },
   {
     "name": "状态转移",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "状态转移",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "生成森林",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "生成森林",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "直接插入排序",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "直接插入排序",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "移动",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "移动",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "穷举法",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "穷举法",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "空间复杂度",
     "labels": [
-      "Complexity"
+      "复杂度"
     ],
     "properties": {
       "name": "空间复杂度",
-      "type": "Complexity"
+      "type": "复杂度"
     }
   },
   {
     "name": "红黑树",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "红黑树",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "线性查找",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "线性查找",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "线性表",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "线性表",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "线段树",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "线段树",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "缩容",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "缩容",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "聚合分析",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "聚合分析",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "表达式求值",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "表达式求值",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "计数排序",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "计数排序",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "记忆化搜索",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "记忆化搜索",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "贪心策略",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "贪心策略",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "路径压缩",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "路径压缩",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "跳跃表",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "跳跃表",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "迪杰斯特拉算法",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "迪杰斯特拉算法",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "迷宫求解",
     "labels": [
-      "ApplicationScenario"
+      "应用场景"
     ],
     "properties": {
       "name": "迷宫求解",
-      "type": "ApplicationScenario"
+      "type": "应用场景"
     }
   },
   {
     "name": "选择排序",
     "labels": [
-      "Algorithm"
+      "算法"
     ],
     "properties": {
       "name": "选择排序",
-      "type": "Algorithm"
+      "type": "算法"
     }
   },
   {
     "name": "遍历",
     "labels": [
-      "Operation"
+      "操作"
     ],
     "properties": {
       "name": "遍历",
-      "type": "Operation"
+      "type": "操作"
     }
   },
   {
     "name": "链表",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "链表",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "销毁",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "销毁",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "队列",
     "labels": [
-      "DataStructure"
+      "数据结构"
     ],
     "properties": {
       "name": "队列",
-      "type": "DataStructure"
+      "type": "数据结构"
     }
   },
   {
     "name": "随机访问",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "随机访问",
-      "type": "Concept"
+      "type": "概念"
     }
   },
   {
     "name": "顺序访问",
     "labels": [
-      "Concept"
+      "概念"
     ],
     "properties": {
       "name": "顺序访问",
-      "type": "Concept"
+      "type": "概念"
     }
   }
 ]

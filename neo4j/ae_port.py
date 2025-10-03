@@ -324,7 +324,7 @@ if __name__ == "__main__":
     import argparse
     
     parser = argparse.ArgumentParser(description='导入实体属性到Neo4j知识图谱')
-    parser.add_argument('--data', type=str, default='/root/KG_inde/data_structure_kg_optimized.json',
+    parser.add_argument('--data', type=str, default='/root/KG_inde/neo4j/data/data_structure_kg_optimized.json',
                        help='实体属性数据文件路径')
     parser.add_argument('--stats', action='store_true', help='显示实体属性统计信息')
     

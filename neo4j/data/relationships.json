@@ -2,7 +2,7 @@
   {
     "source": "AC自动机",
     "target": "任务调度",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -10,7 +10,7 @@
   {
     "source": "AC自动机",
     "target": "入队",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -18,7 +18,7 @@
   {
     "source": "AC自动机",
     "target": "基数排序",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -26,7 +26,7 @@
   {
     "source": "AC自动机",
     "target": "布隆过滤器",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -34,7 +34,7 @@
   {
     "source": "AC自动机",
     "target": "循环链表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -42,7 +42,7 @@
   {
     "source": "AC自动机",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -50,7 +50,7 @@
   {
     "source": "AC自动机",
     "target": "跳跃表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -58,7 +58,7 @@
   {
     "source": "AC自动机",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -66,7 +66,7 @@
   {
     "source": "AC自动机",
     "target": "随机访问",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -74,7 +74,7 @@
   {
     "source": "B+树",
     "target": "内存分配",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -82,7 +82,7 @@
   {
     "source": "B+树",
     "target": "单链表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -90,7 +90,7 @@
   {
     "source": "B+树",
     "target": "布隆过滤器",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -98,7 +98,7 @@
   {
     "source": "B+树",
     "target": "循环链表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -106,7 +106,7 @@
   {
     "source": "B+树",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -114,7 +114,7 @@
   {
     "source": "B+树",
     "target": "跳跃表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -122,7 +122,7 @@
   {
     "source": "Bellman-Ford算法",
     "target": "LRU缓存",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -130,7 +130,7 @@
   {
     "source": "Bellman-Ford算法",
     "target": "二项堆",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -138,7 +138,7 @@
   {
     "source": "Bellman-Ford算法",
     "target": "平均情况",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -146,7 +146,7 @@
   {
     "source": "Bellman-Ford算法",
     "target": "摊还分析",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -154,7 +154,7 @@
   {
     "source": "Bellman-Ford算法",
     "target": "队列",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -162,7 +162,7 @@
   {
     "source": "B树",
     "target": "AC自动机",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -170,7 +170,7 @@
   {
     "source": "B树",
     "target": "Bellman-Ford算法",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -178,7 +178,7 @@
   {
     "source": "B树",
     "target": "LFU缓存",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -186,7 +186,7 @@
   {
     "source": "B树",
     "target": "二叉搜索树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -194,7 +194,7 @@
   {
     "source": "B树",
     "target": "二叉树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -202,7 +202,7 @@
   {
     "source": "B树",
     "target": "任务调度",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -210,7 +210,7 @@
   {
     "source": "B树",
     "target": "克鲁斯卡尔算法",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -218,7 +218,7 @@
   {
     "source": "B树",
     "target": "入队",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -226,7 +226,7 @@
   {
     "source": "B树",
     "target": "大根堆",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -234,7 +234,7 @@
   {
     "source": "B树",
     "target": "字典树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -242,7 +242,7 @@
   {
     "source": "B树",
     "target": "广度优先搜索",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -250,7 +250,7 @@
   {
     "source": "B树",
     "target": "括号匹配",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -258,7 +258,7 @@
   {
     "source": "B树",
     "target": "插入",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -266,7 +266,7 @@
   {
     "source": "B树",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -274,7 +274,7 @@
   {
     "source": "B树",
     "target": "查找",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -282,7 +282,7 @@
   {
     "source": "B树",
     "target": "线性表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -290,7 +290,7 @@
   {
     "source": "B树",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -298,7 +298,7 @@
   {
     "source": "B树",
     "target": "选择排序",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -306,7 +306,7 @@
   {
     "source": "B树",
     "target": "随机访问",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -314,7 +314,7 @@
   {
     "source": "Dijkstra算法",
     "target": "O",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -322,7 +322,7 @@
   {
     "source": "Dijkstra算法",
     "target": "摊还分析",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -330,7 +330,7 @@
   {
     "source": "KMP算法",
     "target": "B树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -338,7 +338,7 @@
   {
     "source": "KMP算法",
     "target": "O",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -346,7 +346,7 @@
   {
     "source": "KMP算法",
     "target": "会计方法",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -354,7 +354,7 @@
   {
     "source": "KMP算法",
     "target": "前缀树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -362,7 +362,7 @@
   {
     "source": "LFU缓存",
     "target": "字典树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -370,7 +370,7 @@
   {
     "source": "LFU缓存",
     "target": "插入",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -378,7 +378,7 @@
   {
     "source": "LFU缓存",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -386,7 +386,7 @@
   {
     "source": "LFU缓存",
     "target": "树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -394,7 +394,7 @@
   {
     "source": "LFU缓存",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -402,7 +402,7 @@
   {
     "source": "LRU缓存",
     "target": "单链表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -410,7 +410,7 @@
   {
     "source": "LRU缓存",
     "target": "垃圾回收",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -418,7 +418,7 @@
   {
     "source": "LRU缓存",
     "target": "字典树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -426,7 +426,7 @@
   {
     "source": "LRU缓存",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -434,7 +434,7 @@
   {
     "source": "LRU缓存",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -442,7 +442,7 @@
   {
     "source": "LRU缓存",
     "target": "随机访问",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -450,7 +450,7 @@
   {
     "source": "不相交集合",
     "target": "B+树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -458,7 +458,7 @@
   {
     "source": "不相交集合",
     "target": "二叉树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -466,7 +466,7 @@
   {
     "source": "不相交集合",
     "target": "入栈",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -474,7 +474,7 @@
   {
     "source": "不相交集合",
     "target": "入队",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -482,7 +482,7 @@
   {
     "source": "不相交集合",
     "target": "前缀树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -490,7 +490,7 @@
   {
     "source": "不相交集合",
     "target": "双向链表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -498,7 +498,7 @@
   {
     "source": "不相交集合",
     "target": "哈希查找",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -506,7 +506,7 @@
   {
     "source": "不相交集合",
     "target": "大根堆",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -514,7 +514,7 @@
   {
     "source": "不相交集合",
     "target": "归并排序",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -522,7 +522,7 @@
   {
     "source": "不相交集合",
     "target": "括号匹配",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -530,7 +530,7 @@
   {
     "source": "不相交集合",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -538,7 +538,7 @@
   {
     "source": "不相交集合",
     "target": "查找",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -546,7 +546,7 @@
   {
     "source": "不相交集合",
     "target": "红黑树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -554,7 +554,7 @@
   {
     "source": "不相交集合",
     "target": "线段树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -562,7 +562,7 @@
   {
     "source": "不相交集合",
     "target": "表达式求值",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -570,7 +570,7 @@
   {
     "source": "不相交集合",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -578,7 +578,7 @@
   {
     "source": "不相交集合",
     "target": "选择排序",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -586,7 +586,7 @@
   {
     "source": "不相交集合",
     "target": "遍历",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -594,7 +594,7 @@
   {
     "source": "二叉堆",
     "target": "插入",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -602,7 +602,7 @@
   {
     "source": "二叉堆",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -610,7 +610,7 @@
   {
     "source": "二叉堆",
     "target": "生成森林",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -618,7 +618,7 @@
   {
     "source": "二叉搜索树",
     "target": "LRU缓存",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -626,7 +626,7 @@
   {
     "source": "二叉搜索树",
     "target": "二项堆",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -634,7 +634,7 @@
   {
     "source": "二叉搜索树",
     "target": "任务调度",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -642,7 +642,7 @@
   {
     "source": "二叉搜索树",
     "target": "平衡二叉树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -650,7 +650,7 @@
   {
     "source": "二叉搜索树",
     "target": "广度优先搜索",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -658,7 +658,7 @@
   {
     "source": "二叉搜索树",
     "target": "括号匹配",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -666,7 +666,7 @@
   {
     "source": "二叉搜索树",
     "target": "红黑树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -674,7 +674,7 @@
   {
     "source": "二叉搜索树",
     "target": "贪心策略",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -682,7 +682,7 @@
   {
     "source": "二叉搜索树",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -690,7 +690,7 @@
   {
     "source": "二叉树",
     "target": "入栈",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -698,7 +698,7 @@
   {
     "source": "二叉树",
     "target": "字典树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -706,7 +706,7 @@
   {
     "source": "二叉树",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -714,7 +714,7 @@
   {
     "source": "二叉树",
     "target": "路径压缩",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -722,7 +722,7 @@
   {
     "source": "二叉树",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -730,7 +730,7 @@
   {
     "source": "二叉树",
     "target": "遍历",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -738,7 +738,7 @@
   {
     "source": "二路归并",
     "target": "LFU缓存",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -746,7 +746,7 @@
   {
     "source": "二路归并",
     "target": "Ω记号",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -754,7 +754,7 @@
   {
     "source": "二路归并",
     "target": "大根堆",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -762,7 +762,7 @@
   {
     "source": "二项堆",
     "target": "平衡二叉树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -770,7 +770,7 @@
   {
     "source": "二项堆",
     "target": "弗洛伊德算法",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -778,7 +778,7 @@
   {
     "source": "二项堆",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -786,7 +786,7 @@
   {
     "source": "二项堆",
     "target": "顺序访问",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -794,7 +794,7 @@
   {
     "source": "任务调度",
     "target": "合并",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -802,7 +802,7 @@
   {
     "source": "优先队列",
     "target": "KMP算法",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -810,7 +810,7 @@
   {
     "source": "优先队列",
     "target": "任务调度",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -818,7 +818,7 @@
   {
     "source": "优先队列",
     "target": "内存分配",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -826,7 +826,7 @@
   {
     "source": "优先队列",
     "target": "分治",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -834,7 +834,7 @@
   {
     "source": "优先队列",
     "target": "单源最短路径",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -842,7 +842,7 @@
   {
     "source": "优先队列",
     "target": "并查集",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -850,7 +850,7 @@
   {
     "source": "优先队列",
     "target": "引用计数",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -858,7 +858,7 @@
   {
     "source": "优先队列",
     "target": "弗洛伊德算法",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -866,7 +866,7 @@
   {
     "source": "优先队列",
     "target": "括号匹配",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -874,7 +874,7 @@
   {
     "source": "优先队列",
     "target": "线性查找",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -882,7 +882,7 @@
   {
     "source": "优先队列",
     "target": "线段树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -890,7 +890,7 @@
   {
     "source": "优先队列",
     "target": "表达式求值",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -898,7 +898,7 @@
   {
     "source": "优先队列",
     "target": "跳跃表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -906,7 +906,7 @@
   {
     "source": "优先队列",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -914,7 +914,7 @@
   {
     "source": "克鲁斯卡尔算法",
     "target": "大O记号",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -922,7 +922,7 @@
   {
     "source": "克鲁斯卡尔算法",
     "target": "大根堆",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -930,7 +930,7 @@
   {
     "source": "克鲁斯卡尔算法",
     "target": "布隆过滤器",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -938,7 +938,7 @@
   {
     "source": "克鲁斯卡尔算法",
     "target": "最坏情况",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -946,7 +946,7 @@
   {
     "source": "克鲁斯卡尔算法",
     "target": "树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -954,7 +954,7 @@
   {
     "source": "入栈",
     "target": "括号匹配",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -962,7 +962,7 @@
   {
     "source": "入栈",
     "target": "最短路径",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -970,7 +970,7 @@
   {
     "source": "入队",
     "target": "二叉堆",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -978,7 +978,7 @@
   {
     "source": "入队",
     "target": "二叉搜索树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -986,7 +986,7 @@
   {
     "source": "入队",
     "target": "任务调度",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -994,7 +994,7 @@
   {
     "source": "入队",
     "target": "布隆过滤器",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1002,7 +1002,7 @@
   {
     "source": "入队",
     "target": "平衡二叉树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1010,7 +1010,7 @@
   {
     "source": "入队",
     "target": "跳跃表",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1018,7 +1018,7 @@
   {
     "source": "入队",
     "target": "迷宫求解",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1026,7 +1026,7 @@
   {
     "source": "内存分配",
     "target": "二叉搜索树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1034,7 +1034,7 @@
   {
     "source": "内存分配",
     "target": "二项堆",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1042,7 +1042,7 @@
   {
     "source": "内存分配",
     "target": "任务调度",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1050,7 +1050,7 @@
   {
     "source": "内存分配",
     "target": "前缀树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1058,7 +1058,7 @@
   {
     "source": "内存分配",
     "target": "单链表",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1066,7 +1066,7 @@
   {
     "source": "内存分配",
     "target": "大根堆",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1074,7 +1074,7 @@
   {
     "source": "内存分配",
     "target": "最短路径",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1082,7 +1082,7 @@
   {
     "source": "冒泡排序",
     "target": "单链表",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1090,7 +1090,7 @@
   {
     "source": "冒泡排序",
     "target": "后缀树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1098,7 +1098,7 @@
   {
     "source": "冒泡排序",
     "target": "字典树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1106,7 +1106,7 @@
   {
     "source": "冒泡排序",
     "target": "平均情况",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -1114,7 +1114,7 @@
   {
     "source": "冒泡排序",
     "target": "平均查找长度",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -1122,7 +1122,7 @@
   {
     "source": "冒泡排序",
     "target": "栈",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1130,7 +1130,7 @@
   {
     "source": "出栈",
     "target": "LFU缓存",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1138,7 +1138,7 @@
   {
     "source": "出栈",
     "target": "不相交集合",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1146,7 +1146,7 @@
   {
     "source": "出栈",
     "target": "二叉堆",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1154,7 +1154,7 @@
   {
     "source": "出栈",
     "target": "任务调度",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1162,7 +1162,7 @@
   {
     "source": "出栈",
     "target": "优先队列",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1170,7 +1170,7 @@
   {
     "source": "出栈",
     "target": "布隆过滤器",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1178,7 +1178,7 @@
   {
     "source": "出栈",
     "target": "括号匹配",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1186,7 +1186,7 @@
   {
     "source": "出栈",
     "target": "迷宫求解",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1194,7 +1194,7 @@
   {
     "source": "出栈",
     "target": "队列",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1202,7 +1202,7 @@
   {
     "source": "出队",
     "target": "LFU缓存",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1210,7 +1210,7 @@
   {
     "source": "出队",
     "target": "二叉堆",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1218,7 +1218,7 @@
   {
     "source": "出队",
     "target": "任务调度",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1226,7 +1226,7 @@
   {
     "source": "出队",
     "target": "最短路径",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1234,7 +1234,7 @@
   {
     "source": "出队",
     "target": "树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1242,7 +1242,7 @@
   {
     "source": "分块查找",
     "target": "O",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -1250,7 +1250,7 @@
   {
     "source": "分块查找",
     "target": "Ω记号",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -1258,7 +1258,7 @@
   {
     "source": "分块查找",
     "target": "双端队列",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1266,7 +1266,7 @@
   {
     "source": "分块查找",
     "target": "堆",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1274,7 +1274,7 @@
   {
     "source": "分块查找",
     "target": "平衡二叉树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1282,7 +1282,7 @@
   {
     "source": "分块查找",
     "target": "栈",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1290,7 +1290,7 @@
   {
     "source": "分块查找",
     "target": "树状数组",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1298,7 +1298,7 @@
   {
     "source": "分块查找",
     "target": "红黑树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1306,7 +1306,7 @@
   {
     "source": "分支限界",
     "target": "O",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -1314,7 +1314,7 @@
   {
     "source": "分支限界",
     "target": "布隆过滤器",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1322,7 +1322,7 @@
   {
     "source": "分治",
     "target": "O",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -1330,7 +1330,7 @@
   {
     "source": "分治",
     "target": "Ω记号",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -1338,7 +1338,7 @@
   {
     "source": "分治",
     "target": "单链表",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1346,7 +1346,7 @@
   {
     "source": "分治",
     "target": "字典树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1354,7 +1354,7 @@
   {
     "source": "分治",
     "target": "平衡二叉树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1362,7 +1362,7 @@
   {
     "source": "分治",
     "target": "栈",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1370,7 +1370,7 @@
   {
     "source": "初始化",
     "target": "B+树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1378,7 +1378,7 @@
   {
     "source": "初始化",
     "target": "LFU缓存",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1386,7 +1386,7 @@
   {
     "source": "初始化",
     "target": "二叉搜索树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1394,7 +1394,7 @@
   {
     "source": "初始化",
     "target": "任务调度",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1402,7 +1402,7 @@
   {
     "source": "初始化",
     "target": "优先队列",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1410,7 +1410,7 @@
   {
     "source": "初始化",
     "target": "后缀树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1418,7 +1418,7 @@
   {
     "source": "初始化",
     "target": "布隆过滤器",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1426,7 +1426,7 @@
   {
     "source": "初始化",
     "target": "树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1434,7 +1434,7 @@
   {
     "source": "初始化",
     "target": "线性表",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1442,7 +1442,7 @@
   {
     "source": "初始化",
     "target": "表达式求值",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1450,7 +1450,7 @@
   {
     "source": "初始化",
     "target": "迷宫求解",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1458,7 +1458,7 @@
   {
     "source": "删除",
     "target": "括号匹配",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1466,7 +1466,7 @@
   {
     "source": "删除",
     "target": "最短路径",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1474,7 +1474,7 @@
   {
     "source": "前缀树",
     "target": "二路归并",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1482,7 +1482,7 @@
   {
     "source": "前缀树",
     "target": "任务调度",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1490,7 +1490,7 @@
   {
     "source": "前缀树",
     "target": "出队",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1498,7 +1498,7 @@
   {
     "source": "前缀树",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1506,7 +1506,7 @@
   {
     "source": "前缀树",
     "target": "缩容",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1514,7 +1514,7 @@
   {
     "source": "前缀树",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1522,7 +1522,7 @@
   {
     "source": "前缀树",
     "target": "队列",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -1530,7 +1530,7 @@
   {
     "source": "动态规划",
     "target": "O",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -1538,7 +1538,7 @@
   {
     "source": "动态规划",
     "target": "二叉堆",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1546,7 +1546,7 @@
   {
     "source": "动态规划",
     "target": "单链表",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1554,7 +1554,7 @@
   {
     "source": "动态规划",
     "target": "跳跃表",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1562,7 +1562,7 @@
   {
     "source": "单源最短路径",
     "target": "AC自动机",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1570,7 +1570,7 @@
   {
     "source": "单源最短路径",
     "target": "LFU缓存",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1578,7 +1578,7 @@
   {
     "source": "单源最短路径",
     "target": "O",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -1586,7 +1586,7 @@
   {
     "source": "单源最短路径",
     "target": "二叉树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1594,7 +1594,7 @@
   {
     "source": "单源最短路径",
     "target": "时间复杂度",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -1602,7 +1602,7 @@
   {
     "source": "单链表",
     "target": "入队",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1610,7 +1610,7 @@
   {
     "source": "单链表",
     "target": "删除",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1618,7 +1618,7 @@
   {
     "source": "单链表",
     "target": "引用计数",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1626,7 +1626,7 @@
   {
     "source": "单链表",
     "target": "红黑树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -1634,7 +1634,7 @@
   {
     "source": "双向链表",
     "target": "B树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -1642,7 +1642,7 @@
   {
     "source": "双向链表",
     "target": "前缀树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -1650,7 +1650,7 @@
   {
     "source": "双向链表",
     "target": "动态规划",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1658,7 +1658,7 @@
   {
     "source": "双向链表",
     "target": "垃圾回收",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1666,7 +1666,7 @@
   {
     "source": "双向链表",
     "target": "布隆过滤器",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -1674,7 +1674,7 @@
   {
     "source": "双向链表",
     "target": "扩容",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1682,7 +1682,7 @@
   {
     "source": "双向链表",
     "target": "括号匹配",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1690,7 +1690,7 @@
   {
     "source": "双向链表",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1698,7 +1698,7 @@
   {
     "source": "双向链表",
     "target": "红黑树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -1706,7 +1706,7 @@
   {
     "source": "双向链表",
     "target": "跳跃表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -1714,7 +1714,7 @@
   {
     "source": "双向链表",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1722,7 +1722,7 @@
   {
     "source": "双向链表",
     "target": "遍历",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1730,7 +1730,7 @@
   {
     "source": "双端队列",
     "target": "B+树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -1738,7 +1738,7 @@
   {
     "source": "双端队列",
     "target": "KMP算法",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1746,7 +1746,7 @@
   {
     "source": "双端队列",
     "target": "二叉搜索树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -1754,7 +1754,7 @@
   {
     "source": "双端队列",
     "target": "任务调度",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1762,7 +1762,7 @@
   {
     "source": "双端队列",
     "target": "优先队列",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -1770,7 +1770,7 @@
   {
     "source": "双端队列",
     "target": "分支限界",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1778,7 +1778,7 @@
   {
     "source": "双端队列",
     "target": "大根堆",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -1786,7 +1786,7 @@
   {
     "source": "双端队列",
     "target": "引用计数",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1794,7 +1794,7 @@
   {
     "source": "双端队列",
     "target": "归并排序",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1802,7 +1802,7 @@
   {
     "source": "双端队列",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1810,7 +1810,7 @@
   {
     "source": "双端队列",
     "target": "查找",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1818,7 +1818,7 @@
   {
     "source": "双端队列",
     "target": "表达式求值",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1826,7 +1826,7 @@
   {
     "source": "双端队列",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1834,7 +1834,7 @@
   {
     "source": "双端队列",
     "target": "遍历",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1842,7 +1842,7 @@
   {
     "source": "双端队列",
     "target": "随机访问",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1850,7 +1850,7 @@
   {
     "source": "可持久化数据结构",
     "target": "任务调度",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1858,7 +1858,7 @@
   {
     "source": "可持久化数据结构",
     "target": "合并",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1866,7 +1866,7 @@
   {
     "source": "可持久化数据结构",
     "target": "大根堆",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -1874,7 +1874,7 @@
   {
     "source": "可持久化数据结构",
     "target": "弗洛伊德算法",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1882,7 +1882,7 @@
   {
     "source": "可持久化数据结构",
     "target": "归并排序",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1890,7 +1890,7 @@
   {
     "source": "可持久化数据结构",
     "target": "循环链表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -1898,7 +1898,7 @@
   {
     "source": "可持久化数据结构",
     "target": "快速排序",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1906,7 +1906,7 @@
   {
     "source": "可持久化数据结构",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1914,7 +1914,7 @@
   {
     "source": "可持久化数据结构",
     "target": "深度优先搜索",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1922,7 +1922,7 @@
   {
     "source": "可持久化数据结构",
     "target": "生成森林",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -1930,7 +1930,7 @@
   {
     "source": "可持久化数据结构",
     "target": "移动",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1938,7 +1938,7 @@
   {
     "source": "可持久化数据结构",
     "target": "表达式求值",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1946,7 +1946,7 @@
   {
     "source": "可持久化数据结构",
     "target": "跳跃表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -1954,7 +1954,7 @@
   {
     "source": "可持久化数据结构",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1962,7 +1962,7 @@
   {
     "source": "可持久化数据结构",
     "target": "遍历",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1970,7 +1970,7 @@
   {
     "source": "可持久化数据结构",
     "target": "随机访问",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -1978,7 +1978,7 @@
   {
     "source": "后缀树",
     "target": "Dijkstra算法",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -1986,7 +1986,7 @@
   {
     "source": "后缀树",
     "target": "二叉堆",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -1994,7 +1994,7 @@
   {
     "source": "后缀树",
     "target": "二项堆",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2002,7 +2002,7 @@
   {
     "source": "后缀树",
     "target": "任务调度",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2010,7 +2010,7 @@
   {
     "source": "后缀树",
     "target": "多路归并",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2018,7 +2018,7 @@
   {
     "source": "后缀树",
     "target": "字典树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2026,7 +2026,7 @@
   {
     "source": "后缀树",
     "target": "布隆过滤器",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2034,7 +2034,7 @@
   {
     "source": "后缀树",
     "target": "循环链表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2042,7 +2042,7 @@
   {
     "source": "后缀树",
     "target": "括号匹配",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2050,7 +2050,7 @@
   {
     "source": "后缀树",
     "target": "查找",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2058,7 +2058,7 @@
   {
     "source": "后缀树",
     "target": "深度优先搜索",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2066,7 +2066,7 @@
   {
     "source": "后缀树",
     "target": "线段树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2074,7 +2074,7 @@
   {
     "source": "后缀树",
     "target": "贪心策略",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2082,7 +2082,7 @@
   {
     "source": "后缀树",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2090,7 +2090,7 @@
   {
     "source": "后缀树",
     "target": "随机访问",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2098,7 +2098,7 @@
   {
     "source": "哈希查找",
     "target": "B树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2106,7 +2106,7 @@
   {
     "source": "哈希查找",
     "target": "O",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -2114,7 +2114,7 @@
   {
     "source": "哈希查找",
     "target": "二叉堆",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2122,7 +2122,7 @@
   {
     "source": "哈希查找",
     "target": "势能方法",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -2130,7 +2130,7 @@
   {
     "source": "哈希查找",
     "target": "平衡二叉树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2138,7 +2138,7 @@
   {
     "source": "哈希查找",
     "target": "循环队列",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2146,7 +2146,7 @@
   {
     "source": "哈希表",
     "target": "Dijkstra算法",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2154,7 +2154,7 @@
   {
     "source": "哈希表",
     "target": "LRU缓存",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2162,7 +2162,7 @@
   {
     "source": "哈希表",
     "target": "二叉堆",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2170,7 +2170,7 @@
   {
     "source": "哈希表",
     "target": "二叉搜索树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2178,7 +2178,7 @@
   {
     "source": "哈希表",
     "target": "任务调度",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2186,7 +2186,7 @@
   {
     "source": "哈希表",
     "target": "优先队列",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2194,7 +2194,7 @@
   {
     "source": "哈希表",
     "target": "内存分配",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2202,7 +2202,7 @@
   {
     "source": "哈希表",
     "target": "单链表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2210,7 +2210,7 @@
   {
     "source": "哈希表",
     "target": "双向链表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2218,7 +2218,7 @@
   {
     "source": "哈希表",
     "target": "双端队列",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2226,7 +2226,7 @@
   {
     "source": "哈希表",
     "target": "可持久化数据结构",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2234,7 +2234,7 @@
   {
     "source": "哈希表",
     "target": "字典树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2242,7 +2242,7 @@
   {
     "source": "哈希表",
     "target": "并查集",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2250,7 +2250,7 @@
   {
     "source": "哈希表",
     "target": "归并排序",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2258,7 +2258,7 @@
   {
     "source": "哈希表",
     "target": "循环队列",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2266,7 +2266,7 @@
   {
     "source": "哈希表",
     "target": "快速排序",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2274,7 +2274,7 @@
   {
     "source": "哈希表",
     "target": "括号匹配",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2282,7 +2282,7 @@
   {
     "source": "哈希表",
     "target": "插入",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2290,7 +2290,7 @@
   {
     "source": "哈希表",
     "target": "旋转",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2298,7 +2298,7 @@
   {
     "source": "哈希表",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2306,7 +2306,7 @@
   {
     "source": "哈希表",
     "target": "查找",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2314,7 +2314,7 @@
   {
     "source": "哈希表",
     "target": "树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2322,7 +2322,7 @@
   {
     "source": "哈希表",
     "target": "表达式求值",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2330,7 +2330,7 @@
   {
     "source": "哈希表",
     "target": "队列",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2338,7 +2338,7 @@
   {
     "source": "回溯法",
     "target": "O",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -2346,7 +2346,7 @@
   {
     "source": "回溯法",
     "target": "不相交集合",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2354,7 +2354,7 @@
   {
     "source": "回溯法",
     "target": "单链表",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2362,7 +2362,7 @@
   {
     "source": "回溯法",
     "target": "字典树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2370,7 +2370,7 @@
   {
     "source": "图",
     "target": "LRU缓存",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2378,7 +2378,7 @@
   {
     "source": "图",
     "target": "任务调度",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2386,7 +2386,7 @@
   {
     "source": "图",
     "target": "入栈",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2394,7 +2394,7 @@
   {
     "source": "图",
     "target": "入队",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2402,7 +2402,7 @@
   {
     "source": "图",
     "target": "后缀树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2410,7 +2410,7 @@
   {
     "source": "图",
     "target": "外部排序",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2418,7 +2418,7 @@
   {
     "source": "图",
     "target": "并查集",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2426,7 +2426,7 @@
   {
     "source": "图",
     "target": "括号匹配",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2434,7 +2434,7 @@
   {
     "source": "图",
     "target": "插入",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2442,7 +2442,7 @@
   {
     "source": "图",
     "target": "数组",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2450,7 +2450,7 @@
   {
     "source": "图",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2458,7 +2458,7 @@
   {
     "source": "图",
     "target": "跳跃表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2466,7 +2466,7 @@
   {
     "source": "图",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2474,7 +2474,7 @@
   {
     "source": "图",
     "target": "选择排序",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2482,7 +2482,7 @@
   {
     "source": "图",
     "target": "链表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2490,7 +2490,7 @@
   {
     "source": "图",
     "target": "销毁",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2498,7 +2498,7 @@
   {
     "source": "图",
     "target": "随机访问",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2506,7 +2506,7 @@
   {
     "source": "垃圾回收",
     "target": "二叉堆",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2514,7 +2514,7 @@
   {
     "source": "垃圾回收",
     "target": "任务调度",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2522,7 +2522,7 @@
   {
     "source": "垃圾回收",
     "target": "生成森林",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2530,7 +2530,7 @@
   {
     "source": "垃圾回收",
     "target": "迷宫求解",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2538,7 +2538,7 @@
   {
     "source": "基数排序",
     "target": "O",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -2546,7 +2546,7 @@
   {
     "source": "基数排序",
     "target": "数组",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2554,7 +2554,7 @@
   {
     "source": "基数排序",
     "target": "树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2562,7 +2562,7 @@
   {
     "source": "堆",
     "target": "AC自动机",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2570,7 +2570,7 @@
   {
     "source": "堆",
     "target": "B树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2578,7 +2578,7 @@
   {
     "source": "堆",
     "target": "二叉树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2586,7 +2586,7 @@
   {
     "source": "堆",
     "target": "二路归并",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2594,7 +2594,7 @@
   {
     "source": "堆",
     "target": "二项堆",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2602,7 +2602,7 @@
   {
     "source": "堆",
     "target": "任务调度",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2610,7 +2610,7 @@
   {
     "source": "堆",
     "target": "优先队列",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2618,7 +2618,7 @@
   {
     "source": "堆",
     "target": "克鲁斯卡尔算法",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2626,7 +2626,7 @@
   {
     "source": "堆",
     "target": "布隆过滤器",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2634,7 +2634,7 @@
   {
     "source": "堆",
     "target": "广度优先搜索",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2642,7 +2642,7 @@
   {
     "source": "堆",
     "target": "引用计数",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2650,7 +2650,7 @@
   {
     "source": "堆",
     "target": "括号匹配",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2658,7 +2658,7 @@
   {
     "source": "堆",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2666,7 +2666,7 @@
   {
     "source": "堆",
     "target": "深度优先搜索",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2674,7 +2674,7 @@
   {
     "source": "堆",
     "target": "移动",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2682,7 +2682,7 @@
   {
     "source": "堆",
     "target": "缩容",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2690,7 +2690,7 @@
   {
     "source": "堆",
     "target": "计数排序",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2698,7 +2698,7 @@
   {
     "source": "堆",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2706,7 +2706,7 @@
   {
     "source": "堆排序",
     "target": "二叉搜索树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2714,7 +2714,7 @@
   {
     "source": "堆排序",
     "target": "前缀树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2722,7 +2722,7 @@
   {
     "source": "堆排序",
     "target": "平均情况",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -2730,7 +2730,7 @@
   {
     "source": "堆排序",
     "target": "并查集",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2738,7 +2738,7 @@
   {
     "source": "复制",
     "target": "双向链表",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2746,7 +2746,7 @@
   {
     "source": "复制",
     "target": "括号匹配",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2754,7 +2754,7 @@
   {
     "source": "复制",
     "target": "最短路径",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2762,7 +2762,7 @@
   {
     "source": "复制",
     "target": "栈",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2770,7 +2770,7 @@
   {
     "source": "复制",
     "target": "红黑树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2778,7 +2778,7 @@
   {
     "source": "复制",
     "target": "线段树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2786,7 +2786,7 @@
   {
     "source": "复制",
     "target": "迷宫求解",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2794,7 +2794,7 @@
   {
     "source": "外部排序",
     "target": "O",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -2802,7 +2802,7 @@
   {
     "source": "外部排序",
     "target": "字典树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2810,7 +2810,7 @@
   {
     "source": "外部排序",
     "target": "平均查找长度",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -2818,7 +2818,7 @@
   {
     "source": "外部排序",
     "target": "生成森林",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2826,7 +2826,7 @@
   {
     "source": "外部排序",
     "target": "线段树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2834,7 +2834,7 @@
   {
     "source": "多路归并",
     "target": "O",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -2842,7 +2842,7 @@
   {
     "source": "多路归并",
     "target": "二叉树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2850,7 +2850,7 @@
   {
     "source": "多路归并",
     "target": "会计方法",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -2858,7 +2858,7 @@
   {
     "source": "大O记号",
     "target": "分支限界",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -2866,7 +2866,7 @@
   {
     "source": "大O记号",
     "target": "弗洛伊德算法",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -2874,7 +2874,7 @@
   {
     "source": "大根堆",
     "target": "Dijkstra算法",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2882,7 +2882,7 @@
   {
     "source": "大根堆",
     "target": "任务调度",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2890,7 +2890,7 @@
   {
     "source": "大根堆",
     "target": "单链表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2898,7 +2898,7 @@
   {
     "source": "大根堆",
     "target": "合并",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2906,7 +2906,7 @@
   {
     "source": "大根堆",
     "target": "堆",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2914,7 +2914,7 @@
   {
     "source": "大根堆",
     "target": "弗洛伊德算法",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2922,7 +2922,7 @@
   {
     "source": "大根堆",
     "target": "括号匹配",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2930,7 +2930,7 @@
   {
     "source": "大根堆",
     "target": "缩容",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2938,7 +2938,7 @@
   {
     "source": "大根堆",
     "target": "跳跃表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2946,7 +2946,7 @@
   {
     "source": "大根堆",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2954,7 +2954,7 @@
   {
     "source": "大根堆",
     "target": "选择排序",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -2962,7 +2962,7 @@
   {
     "source": "字典树",
     "target": "出栈",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2970,7 +2970,7 @@
   {
     "source": "字典树",
     "target": "单链表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -2978,7 +2978,7 @@
   {
     "source": "字典树",
     "target": "复制",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2986,7 +2986,7 @@
   {
     "source": "字典树",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -2994,7 +2994,7 @@
   {
     "source": "字典树",
     "target": "查找",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3002,7 +3002,7 @@
   {
     "source": "字典树",
     "target": "树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -3010,7 +3010,7 @@
   {
     "source": "字典树",
     "target": "生成森林",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -3018,7 +3018,7 @@
   {
     "source": "字典树",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3026,7 +3026,7 @@
   {
     "source": "小根堆",
     "target": "B+树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -3034,7 +3034,7 @@
   {
     "source": "小根堆",
     "target": "Dijkstra算法",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3042,7 +3042,7 @@
   {
     "source": "小根堆",
     "target": "不相交集合",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -3050,7 +3050,7 @@
   {
     "source": "小根堆",
     "target": "任务调度",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3058,7 +3058,7 @@
   {
     "source": "小根堆",
     "target": "内存分配",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3066,7 +3066,7 @@
   {
     "source": "小根堆",
     "target": "出栈",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3074,7 +3074,7 @@
   {
     "source": "小根堆",
     "target": "初始化",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3082,7 +3082,7 @@
   {
     "source": "小根堆",
     "target": "动态规划",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3090,7 +3090,7 @@
   {
     "source": "小根堆",
     "target": "单源最短路径",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3098,7 +3098,7 @@
   {
     "source": "小根堆",
     "target": "双端队列",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -3106,7 +3106,7 @@
   {
     "source": "小根堆",
     "target": "外部排序",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3114,7 +3114,7 @@
   {
     "source": "小根堆",
     "target": "广度优先搜索",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3122,7 +3122,7 @@
   {
     "source": "小根堆",
     "target": "循环链表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -3130,7 +3130,7 @@
   {
     "source": "小根堆",
     "target": "循环队列",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -3138,7 +3138,7 @@
   {
     "source": "小根堆",
     "target": "括号匹配",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3146,7 +3146,7 @@
   {
     "source": "小根堆",
     "target": "插入",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3154,7 +3154,7 @@
   {
     "source": "小根堆",
     "target": "树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -3162,7 +3162,7 @@
   {
     "source": "小根堆",
     "target": "缩容",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3170,7 +3170,7 @@
   {
     "source": "小根堆",
     "target": "表达式求值",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3178,7 +3178,7 @@
   {
     "source": "小根堆",
     "target": "记忆化搜索",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3186,7 +3186,7 @@
   {
     "source": "小根堆",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3194,7 +3194,7 @@
   {
     "source": "小根堆",
     "target": "队列",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -3202,7 +3202,7 @@
   {
     "source": "布隆过滤器",
     "target": "合并",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3210,7 +3210,7 @@
   {
     "source": "布隆过滤器",
     "target": "平衡二叉树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -3218,7 +3218,7 @@
   {
     "source": "布隆过滤器",
     "target": "广度优先搜索",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3226,7 +3226,7 @@
   {
     "source": "布隆过滤器",
     "target": "循环链表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -3234,7 +3234,7 @@
   {
     "source": "布隆过滤器",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3242,7 +3242,7 @@
   {
     "source": "布隆过滤器",
     "target": "树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -3250,7 +3250,7 @@
   {
     "source": "布隆过滤器",
     "target": "跳跃表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -3258,7 +3258,7 @@
   {
     "source": "布隆过滤器",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3266,7 +3266,7 @@
   {
     "source": "希尔排序",
     "target": "AC自动机",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3274,7 +3274,7 @@
   {
     "source": "希尔排序",
     "target": "O",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -3282,7 +3282,7 @@
   {
     "source": "希尔排序",
     "target": "双向链表",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3290,7 +3290,7 @@
   {
     "source": "希尔排序",
     "target": "哈希表",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3298,7 +3298,7 @@
   {
     "source": "希尔排序",
     "target": "摊还分析",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -3306,7 +3306,7 @@
   {
     "source": "希尔排序",
     "target": "线性表",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3314,7 +3314,7 @@
   {
     "source": "平衡二叉树",
     "target": "引用计数",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3322,7 +3322,7 @@
   {
     "source": "平衡二叉树",
     "target": "树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -3330,7 +3330,7 @@
   {
     "source": "平衡二叉树",
     "target": "生成森林",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -3338,7 +3338,7 @@
   {
     "source": "并查集",
     "target": "B+树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -3346,7 +3346,7 @@
   {
     "source": "并查集",
     "target": "Dijkstra算法",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3354,7 +3354,7 @@
   {
     "source": "并查集",
     "target": "LFU缓存",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -3362,7 +3362,7 @@
   {
     "source": "并查集",
     "target": "入栈",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3370,7 +3370,7 @@
   {
     "source": "并查集",
     "target": "入队",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3378,7 +3378,7 @@
   {
     "source": "并查集",
     "target": "单链表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -3386,7 +3386,7 @@
   {
     "source": "并查集",
     "target": "大根堆",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -3394,7 +3394,7 @@
   {
     "source": "并查集",
     "target": "括号匹配",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3402,7 +3402,7 @@
   {
     "source": "并查集",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3410,7 +3410,7 @@
   {
     "source": "并查集",
     "target": "移动",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3418,7 +3418,7 @@
   {
     "source": "并查集",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3426,7 +3426,7 @@
   {
     "source": "并查集",
     "target": "队列",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -3434,7 +3434,7 @@
   {
     "source": "广度优先搜索",
     "target": "大根堆",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3442,7 +3442,7 @@
   {
     "source": "广度优先搜索",
     "target": "摊还分析",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -3450,7 +3450,7 @@
   {
     "source": "广度优先搜索",
     "target": "斐波那契堆",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3458,7 +3458,7 @@
   {
     "source": "引用计数",
     "target": "AC自动机",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3466,7 +3466,7 @@
   {
     "source": "引用计数",
     "target": "LRU缓存",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3474,7 +3474,7 @@
   {
     "source": "引用计数",
     "target": "字典树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3482,7 +3482,7 @@
   {
     "source": "引用计数",
     "target": "括号匹配",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3490,7 +3490,7 @@
   {
     "source": "引用计数",
     "target": "最短路径",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3498,7 +3498,7 @@
   {
     "source": "引用计数",
     "target": "栈",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3506,7 +3506,7 @@
   {
     "source": "引用计数",
     "target": "迷宫求解",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3514,7 +3514,7 @@
   {
     "source": "弗洛伊德算法",
     "target": "单链表",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3522,7 +3522,7 @@
   {
     "source": "弗洛伊德算法",
     "target": "链表",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3530,7 +3530,7 @@
   {
     "source": "归并排序",
     "target": "最好情况",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -3538,7 +3538,7 @@
   {
     "source": "归并排序",
     "target": "空间复杂度",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -3546,7 +3546,7 @@
   {
     "source": "归并排序",
     "target": "跳跃表",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3554,7 +3554,7 @@
   {
     "source": "循环链表",
     "target": "Dijkstra算法",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3562,7 +3562,7 @@
   {
     "source": "循环链表",
     "target": "二项堆",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -3570,7 +3570,7 @@
   {
     "source": "循环链表",
     "target": "广度优先搜索",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3578,7 +3578,7 @@
   {
     "source": "循环链表",
     "target": "引用计数",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3586,7 +3586,7 @@
   {
     "source": "循环链表",
     "target": "查找",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3594,7 +3594,7 @@
   {
     "source": "循环链表",
     "target": "移动",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3602,7 +3602,7 @@
   {
     "source": "循环链表",
     "target": "缩容",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3610,7 +3610,7 @@
   {
     "source": "循环链表",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3618,7 +3618,7 @@
   {
     "source": "循环队列",
     "target": "Dijkstra算法",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3626,7 +3626,7 @@
   {
     "source": "循环队列",
     "target": "二叉堆",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -3634,7 +3634,7 @@
   {
     "source": "循环队列",
     "target": "任务调度",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3642,7 +3642,7 @@
   {
     "source": "循环队列",
     "target": "动态规划",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3650,7 +3650,7 @@
   {
     "source": "循环队列",
     "target": "双向链表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -3658,7 +3658,7 @@
   {
     "source": "循环队列",
     "target": "引用计数",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3666,7 +3666,7 @@
   {
     "source": "循环队列",
     "target": "插入",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3674,7 +3674,7 @@
   {
     "source": "循环队列",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3682,7 +3682,7 @@
   {
     "source": "循环队列",
     "target": "栈",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -3690,7 +3690,7 @@
   {
     "source": "循环队列",
     "target": "生成森林",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -3698,7 +3698,7 @@
   {
     "source": "循环队列",
     "target": "缩容",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3706,7 +3706,7 @@
   {
     "source": "循环队列",
     "target": "跳跃表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -3714,7 +3714,7 @@
   {
     "source": "循环队列",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3722,7 +3722,7 @@
   {
     "source": "循环队列",
     "target": "遍历",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3730,7 +3730,7 @@
   {
     "source": "快速排序",
     "target": "平衡二叉树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3738,7 +3738,7 @@
   {
     "source": "扩容",
     "target": "AC自动机",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3746,7 +3746,7 @@
   {
     "source": "扩容",
     "target": "B+树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3754,7 +3754,7 @@
   {
     "source": "扩容",
     "target": "B树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3762,7 +3762,7 @@
   {
     "source": "扩容",
     "target": "二叉树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3770,7 +3770,7 @@
   {
     "source": "扩容",
     "target": "任务调度",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3778,7 +3778,7 @@
   {
     "source": "扩容",
     "target": "优先队列",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3786,7 +3786,7 @@
   {
     "source": "扩容",
     "target": "可持久化数据结构",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3794,7 +3794,7 @@
   {
     "source": "扩容",
     "target": "表达式求值",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3802,7 +3802,7 @@
   {
     "source": "扩容",
     "target": "迷宫求解",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3810,7 +3810,7 @@
   {
     "source": "折半查找",
     "target": "栈",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3818,7 +3818,7 @@
   {
     "source": "折半查找",
     "target": "生成森林",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3826,7 +3826,7 @@
   {
     "source": "折半查找",
     "target": "红黑树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3834,7 +3834,7 @@
   {
     "source": "折半查找",
     "target": "聚合分析",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -3842,7 +3842,7 @@
   {
     "source": "折半查找",
     "target": "队列",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3850,7 +3850,7 @@
   {
     "source": "拓扑排序",
     "target": "LFU缓存",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3858,7 +3858,7 @@
   {
     "source": "拓扑排序",
     "target": "大根堆",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3866,7 +3866,7 @@
   {
     "source": "拓扑排序",
     "target": "循环链表",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3874,7 +3874,7 @@
   {
     "source": "拓扑排序",
     "target": "摊还分析",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -3882,7 +3882,7 @@
   {
     "source": "括号匹配",
     "target": "合并",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3890,7 +3890,7 @@
   {
     "source": "按秩合并",
     "target": "任务调度",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3898,7 +3898,7 @@
   {
     "source": "按秩合并",
     "target": "前缀树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3906,7 +3906,7 @@
   {
     "source": "按秩合并",
     "target": "双端队列",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3914,7 +3914,7 @@
   {
     "source": "按秩合并",
     "target": "后缀树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3922,7 +3922,7 @@
   {
     "source": "按秩合并",
     "target": "括号匹配",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3930,7 +3930,7 @@
   {
     "source": "按秩合并",
     "target": "红黑树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -3938,7 +3938,7 @@
   {
     "source": "按秩合并",
     "target": "迷宫求解",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3946,7 +3946,7 @@
   {
     "source": "插值查找",
     "target": "B+树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3954,7 +3954,7 @@
   {
     "source": "插值查找",
     "target": "二项堆",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3962,7 +3962,7 @@
   {
     "source": "插值查找",
     "target": "会计方法",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -3970,7 +3970,7 @@
   {
     "source": "插值查找",
     "target": "布隆过滤器",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3978,7 +3978,7 @@
   {
     "source": "插值查找",
     "target": "最坏情况",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -3986,7 +3986,7 @@
   {
     "source": "插值查找",
     "target": "生成森林",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -3994,7 +3994,7 @@
   {
     "source": "插入",
     "target": "B+树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4002,7 +4002,7 @@
   {
     "source": "插入",
     "target": "任务调度",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4010,7 +4010,7 @@
   {
     "source": "插入",
     "target": "字典树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4018,7 +4018,7 @@
   {
     "source": "插入",
     "target": "平衡二叉树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4026,7 +4026,7 @@
   {
     "source": "插入",
     "target": "最短路径",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4034,7 +4034,7 @@
   {
     "source": "插入排序",
     "target": "Θ记号",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -4042,7 +4042,7 @@
   {
     "source": "插入排序",
     "target": "Ω记号",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -4050,7 +4050,7 @@
   {
     "source": "插入排序",
     "target": "二项堆",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4058,7 +4058,7 @@
   {
     "source": "插入排序",
     "target": "双端队列",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4066,7 +4066,7 @@
   {
     "source": "插入排序",
     "target": "栈",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4074,7 +4074,7 @@
   {
     "source": "插入排序",
     "target": "生成森林",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4082,7 +4082,7 @@
   {
     "source": "插入排序",
     "target": "线段树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4090,7 +4090,7 @@
   {
     "source": "数组",
     "target": "出栈",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4098,7 +4098,7 @@
   {
     "source": "数组",
     "target": "初始化",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4106,7 +4106,7 @@
   {
     "source": "数组",
     "target": "后缀树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -4114,7 +4114,7 @@
   {
     "source": "数组",
     "target": "基数排序",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4122,7 +4122,7 @@
   {
     "source": "数组",
     "target": "堆排序",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4130,7 +4130,7 @@
   {
     "source": "数组",
     "target": "旋转",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4138,7 +4138,7 @@
   {
     "source": "数组",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4146,7 +4146,7 @@
   {
     "source": "数组",
     "target": "移动",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4154,7 +4154,7 @@
   {
     "source": "数组",
     "target": "穷举法",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4162,7 +4162,7 @@
   {
     "source": "数组",
     "target": "线段树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -4170,7 +4170,7 @@
   {
     "source": "数组",
     "target": "缩容",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4178,7 +4178,7 @@
   {
     "source": "数组",
     "target": "表达式求值",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4186,7 +4186,7 @@
   {
     "source": "数组",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4194,7 +4194,7 @@
   {
     "source": "斐波那契堆",
     "target": "任务调度",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4202,7 +4202,7 @@
   {
     "source": "斐波那契堆",
     "target": "克鲁斯卡尔算法",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4210,7 +4210,7 @@
   {
     "source": "斐波那契堆",
     "target": "入栈",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4218,7 +4218,7 @@
   {
     "source": "斐波那契堆",
     "target": "冒泡排序",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4226,7 +4226,7 @@
   {
     "source": "斐波那契堆",
     "target": "出队",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4234,7 +4234,7 @@
   {
     "source": "斐波那契堆",
     "target": "图",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -4242,7 +4242,7 @@
   {
     "source": "斐波那契堆",
     "target": "字典树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -4250,7 +4250,7 @@
   {
     "source": "斐波那契堆",
     "target": "并查集",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -4258,7 +4258,7 @@
   {
     "source": "斐波那契堆",
     "target": "循环队列",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -4266,7 +4266,7 @@
   {
     "source": "斐波那契堆",
     "target": "拓扑排序",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4274,7 +4274,7 @@
   {
     "source": "斐波那契堆",
     "target": "括号匹配",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4282,7 +4282,7 @@
   {
     "source": "斐波那契堆",
     "target": "数组",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -4290,7 +4290,7 @@
   {
     "source": "斐波那契堆",
     "target": "普里姆算法",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4298,7 +4298,7 @@
   {
     "source": "斐波那契堆",
     "target": "栈",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -4306,7 +4306,7 @@
   {
     "source": "斐波那契堆",
     "target": "树状数组",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -4314,7 +4314,7 @@
   {
     "source": "斐波那契堆",
     "target": "直接插入排序",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4322,7 +4322,7 @@
   {
     "source": "斐波那契堆",
     "target": "缩容",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4330,7 +4330,7 @@
   {
     "source": "斐波那契堆",
     "target": "表达式求值",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4338,7 +4338,7 @@
   {
     "source": "斐波那契堆",
     "target": "路径压缩",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4346,7 +4346,7 @@
   {
     "source": "斐波那契堆",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4354,7 +4354,7 @@
   {
     "source": "斐波那契堆",
     "target": "销毁",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4362,7 +4362,7 @@
   {
     "source": "旋转",
     "target": "LFU缓存",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4370,7 +4370,7 @@
   {
     "source": "旋转",
     "target": "二项堆",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4378,7 +4378,7 @@
   {
     "source": "旋转",
     "target": "任务调度",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4386,7 +4386,7 @@
   {
     "source": "旋转",
     "target": "布隆过滤器",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4394,7 +4394,7 @@
   {
     "source": "旋转",
     "target": "并查集",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4402,7 +4402,7 @@
   {
     "source": "旋转",
     "target": "括号匹配",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4410,7 +4410,7 @@
   {
     "source": "旋转",
     "target": "迷宫求解",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4418,7 +4418,7 @@
   {
     "source": "时间复杂度",
     "target": "动态规划",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -4426,7 +4426,7 @@
   {
     "source": "普里姆算法",
     "target": "二叉树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4434,7 +4434,7 @@
   {
     "source": "普里姆算法",
     "target": "会计方法",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -4442,7 +4442,7 @@
   {
     "source": "普里姆算法",
     "target": "大O记号",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -4450,7 +4450,7 @@
   {
     "source": "普里姆算法",
     "target": "平衡二叉树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4458,7 +4458,7 @@
   {
     "source": "普里姆算法",
     "target": "树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4466,7 +4466,7 @@
   {
     "source": "最坏情况",
     "target": "广度优先搜索",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -4474,7 +4474,7 @@
   {
     "source": "最好情况",
     "target": "二路归并",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -4482,7 +4482,7 @@
   {
     "source": "最好情况",
     "target": "基数排序",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -4490,7 +4490,7 @@
   {
     "source": "最好情况",
     "target": "弗洛伊德算法",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -4498,7 +4498,7 @@
   {
     "source": "最好情况",
     "target": "贪心策略",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -4506,7 +4506,7 @@
   {
     "source": "最小生成树",
     "target": "会计方法",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -4514,7 +4514,7 @@
   {
     "source": "最小生成树",
     "target": "势能方法",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -4522,7 +4522,7 @@
   {
     "source": "最小生成树",
     "target": "后缀树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4530,7 +4530,7 @@
   {
     "source": "最小生成树",
     "target": "字典树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4538,7 +4538,7 @@
   {
     "source": "最小生成树",
     "target": "红黑树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4546,7 +4546,7 @@
   {
     "source": "最短路径",
     "target": "查找",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4554,7 +4554,7 @@
   {
     "source": "查找",
     "target": "生成森林",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4562,7 +4562,7 @@
   {
     "source": "查找",
     "target": "迷宫求解",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4570,7 +4570,7 @@
   {
     "source": "栈",
     "target": "分支限界",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4578,7 +4578,7 @@
   {
     "source": "栈",
     "target": "布隆过滤器",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -4586,7 +4586,7 @@
   {
     "source": "栈",
     "target": "括号匹配",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4594,7 +4594,7 @@
   {
     "source": "栈",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4602,7 +4602,7 @@
   {
     "source": "栈",
     "target": "路径压缩",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4610,7 +4610,7 @@
   {
     "source": "栈",
     "target": "跳跃表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -4618,7 +4618,7 @@
   {
     "source": "栈",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4626,7 +4626,7 @@
   {
     "source": "栈",
     "target": "遍历",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4634,7 +4634,7 @@
   {
     "source": "树",
     "target": "出栈",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4642,7 +4642,7 @@
   {
     "source": "树",
     "target": "单链表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -4650,7 +4650,7 @@
   {
     "source": "树",
     "target": "引用计数",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4658,7 +4658,7 @@
   {
     "source": "树状数组",
     "target": "二叉搜索树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -4666,7 +4666,7 @@
   {
     "source": "树状数组",
     "target": "任务调度",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4674,7 +4674,7 @@
   {
     "source": "树状数组",
     "target": "优先队列",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -4682,7 +4682,7 @@
   {
     "source": "树状数组",
     "target": "可持久化数据结构",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -4690,7 +4690,7 @@
   {
     "source": "树状数组",
     "target": "哈希表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -4698,7 +4698,7 @@
   {
     "source": "树状数组",
     "target": "引用计数",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4706,7 +4706,7 @@
   {
     "source": "树状数组",
     "target": "拓扑排序",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4714,7 +4714,7 @@
   {
     "source": "树状数组",
     "target": "括号匹配",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4722,7 +4722,7 @@
   {
     "source": "树状数组",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4730,7 +4730,7 @@
   {
     "source": "树状数组",
     "target": "生成森林",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -4738,7 +4738,7 @@
   {
     "source": "树状数组",
     "target": "路径压缩",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4746,7 +4746,7 @@
   {
     "source": "树状数组",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4754,7 +4754,7 @@
   {
     "source": "树状数组",
     "target": "链表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -4762,7 +4762,7 @@
   {
     "source": "树状数组",
     "target": "随机访问",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4770,7 +4770,7 @@
   {
     "source": "树状数组",
     "target": "顺序访问",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4778,7 +4778,7 @@
   {
     "source": "桶排序",
     "target": "B树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4786,7 +4786,7 @@
   {
     "source": "桶排序",
     "target": "O",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -4794,7 +4794,7 @@
   {
     "source": "桶排序",
     "target": "不相交集合",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4802,7 +4802,7 @@
   {
     "source": "桶排序",
     "target": "堆",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4810,7 +4810,7 @@
   {
     "source": "桶排序",
     "target": "平均查找长度",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -4818,7 +4818,7 @@
   {
     "source": "桶排序",
     "target": "红黑树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4826,7 +4826,7 @@
   {
     "source": "桶排序",
     "target": "线段树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4834,7 +4834,7 @@
   {
     "source": "深度优先搜索",
     "target": "LFU缓存",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4842,7 +4842,7 @@
   {
     "source": "深度优先搜索",
     "target": "大O记号",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -4850,7 +4850,7 @@
   {
     "source": "深度优先搜索",
     "target": "并查集",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4858,7 +4858,7 @@
   {
     "source": "深度优先搜索",
     "target": "最好情况",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -4866,7 +4866,7 @@
   {
     "source": "渐近复杂度",
     "target": "堆排序",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -4874,7 +4874,7 @@
   {
     "source": "渐近复杂度",
     "target": "快速排序",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -4882,7 +4882,7 @@
   {
     "source": "渐近复杂度",
     "target": "拓扑排序",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -4890,7 +4890,7 @@
   {
     "source": "状态转移",
     "target": "O",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -4898,7 +4898,7 @@
   {
     "source": "状态转移",
     "target": "Θ记号",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -4906,7 +4906,7 @@
   {
     "source": "状态转移",
     "target": "树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4914,7 +4914,7 @@
   {
     "source": "状态转移",
     "target": "线段树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4922,7 +4922,7 @@
   {
     "source": "状态转移",
     "target": "队列",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4930,7 +4930,7 @@
   {
     "source": "生成森林",
     "target": "单链表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -4938,7 +4938,7 @@
   {
     "source": "生成森林",
     "target": "复制",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4946,7 +4946,7 @@
   {
     "source": "生成森林",
     "target": "红黑树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -4954,7 +4954,7 @@
   {
     "source": "生成森林",
     "target": "随机访问",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -4962,7 +4962,7 @@
   {
     "source": "直接插入排序",
     "target": "O",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -4970,7 +4970,7 @@
   {
     "source": "直接插入排序",
     "target": "二叉堆",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4978,7 +4978,7 @@
   {
     "source": "直接插入排序",
     "target": "字典树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4986,7 +4986,7 @@
   {
     "source": "直接插入排序",
     "target": "循环队列",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -4994,7 +4994,7 @@
   {
     "source": "直接插入排序",
     "target": "最好情况",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -5002,7 +5002,7 @@
   {
     "source": "直接插入排序",
     "target": "树状数组",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5010,7 +5010,7 @@
   {
     "source": "直接插入排序",
     "target": "跳跃表",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5018,7 +5018,7 @@
   {
     "source": "移动",
     "target": "AC自动机",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5026,7 +5026,7 @@
   {
     "source": "移动",
     "target": "二项堆",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5034,7 +5034,7 @@
   {
     "source": "移动",
     "target": "循环队列",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5042,7 +5042,7 @@
   {
     "source": "移动",
     "target": "括号匹配",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5050,7 +5050,7 @@
   {
     "source": "移动",
     "target": "最短路径",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5058,7 +5058,7 @@
   {
     "source": "移动",
     "target": "表达式求值",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5066,7 +5066,7 @@
   {
     "source": "穷举法",
     "target": "B+树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5074,7 +5074,7 @@
   {
     "source": "穷举法",
     "target": "二叉搜索树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5082,7 +5082,7 @@
   {
     "source": "穷举法",
     "target": "会计方法",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -5090,7 +5090,7 @@
   {
     "source": "穷举法",
     "target": "并查集",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5098,7 +5098,7 @@
   {
     "source": "穷举法",
     "target": "摊还分析",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -5106,7 +5106,7 @@
   {
     "source": "空间复杂度",
     "target": "快速排序",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -5114,7 +5114,7 @@
   {
     "source": "空间复杂度",
     "target": "折半查找",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -5122,7 +5122,7 @@
   {
     "source": "红黑树",
     "target": "合并",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5130,7 +5130,7 @@
   {
     "source": "红黑树",
     "target": "垃圾回收",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5138,7 +5138,7 @@
   {
     "source": "线性查找",
     "target": "LFU缓存",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5146,7 +5146,7 @@
   {
     "source": "线性查找",
     "target": "O",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -5154,7 +5154,7 @@
   {
     "source": "线性查找",
     "target": "二叉堆",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5162,7 +5162,7 @@
   {
     "source": "线性查找",
     "target": "二项堆",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5170,7 +5170,7 @@
   {
     "source": "线性查找",
     "target": "摊还分析",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -5178,7 +5178,7 @@
   {
     "source": "线性表",
     "target": "B+树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -5186,7 +5186,7 @@
   {
     "source": "线性表",
     "target": "二叉搜索树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -5194,7 +5194,7 @@
   {
     "source": "线性表",
     "target": "任务调度",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5202,7 +5202,7 @@
   {
     "source": "线性表",
     "target": "冒泡排序",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5210,7 +5210,7 @@
   {
     "source": "线性表",
     "target": "出栈",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5218,7 +5218,7 @@
   {
     "source": "线性表",
     "target": "前缀树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -5226,7 +5226,7 @@
   {
     "source": "线性表",
     "target": "单源最短路径",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5234,7 +5234,7 @@
   {
     "source": "线性表",
     "target": "基数排序",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5242,7 +5242,7 @@
   {
     "source": "线性表",
     "target": "多路归并",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5250,7 +5250,7 @@
   {
     "source": "线性表",
     "target": "并查集",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -5258,7 +5258,7 @@
   {
     "source": "线性表",
     "target": "快速排序",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5266,7 +5266,7 @@
   {
     "source": "线性表",
     "target": "折半查找",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5274,7 +5274,7 @@
   {
     "source": "线性表",
     "target": "插值查找",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5282,7 +5282,7 @@
   {
     "source": "线性表",
     "target": "数组",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -5290,7 +5290,7 @@
   {
     "source": "线性表",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5298,7 +5298,7 @@
   {
     "source": "线性表",
     "target": "查找",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5306,7 +5306,7 @@
   {
     "source": "线性表",
     "target": "表达式求值",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5314,7 +5314,7 @@
   {
     "source": "线性表",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5322,7 +5322,7 @@
   {
     "source": "线性表",
     "target": "随机访问",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5330,7 +5330,7 @@
   {
     "source": "线性表",
     "target": "顺序访问",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5338,7 +5338,7 @@
   {
     "source": "线段树",
     "target": "AC自动机",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -5346,7 +5346,7 @@
   {
     "source": "线段树",
     "target": "任务调度",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5354,7 +5354,7 @@
   {
     "source": "线段树",
     "target": "出栈",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5362,7 +5362,7 @@
   {
     "source": "线段树",
     "target": "单链表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -5370,7 +5370,7 @@
   {
     "source": "线段树",
     "target": "合并",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5378,7 +5378,7 @@
   {
     "source": "线段树",
     "target": "引用计数",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5386,7 +5386,7 @@
   {
     "source": "线段树",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5394,7 +5394,7 @@
   {
     "source": "线段树",
     "target": "树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -5402,7 +5402,7 @@
   {
     "source": "线段树",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5410,7 +5410,7 @@
   {
     "source": "线段树",
     "target": "遍历",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5418,7 +5418,7 @@
   {
     "source": "缩容",
     "target": "二叉搜索树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5426,7 +5426,7 @@
   {
     "source": "缩容",
     "target": "括号匹配",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5434,7 +5434,7 @@
   {
     "source": "缩容",
     "target": "最短路径",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5442,7 +5442,7 @@
   {
     "source": "表达式求值",
     "target": "入栈",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5450,7 +5450,7 @@
   {
     "source": "表达式求值",
     "target": "入队",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5458,7 +5458,7 @@
   {
     "source": "表达式求值",
     "target": "内存分配",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5466,7 +5466,7 @@
   {
     "source": "表达式求值",
     "target": "出队",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5474,7 +5474,7 @@
   {
     "source": "表达式求值",
     "target": "删除",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5482,7 +5482,7 @@
   {
     "source": "表达式求值",
     "target": "垃圾回收",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5490,7 +5490,7 @@
   {
     "source": "表达式求值",
     "target": "插入",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5498,7 +5498,7 @@
   {
     "source": "表达式求值",
     "target": "查找",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5506,7 +5506,7 @@
   {
     "source": "表达式求值",
     "target": "缩容",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5514,7 +5514,7 @@
   {
     "source": "表达式求值",
     "target": "路径压缩",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5522,7 +5522,7 @@
   {
     "source": "表达式求值",
     "target": "遍历",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5530,7 +5530,7 @@
   {
     "source": "表达式求值",
     "target": "随机访问",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5538,7 +5538,7 @@
   {
     "source": "计数排序",
     "target": "O",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -5546,7 +5546,7 @@
   {
     "source": "计数排序",
     "target": "二叉堆",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5554,7 +5554,7 @@
   {
     "source": "计数排序",
     "target": "二叉树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5562,7 +5562,7 @@
   {
     "source": "计数排序",
     "target": "大根堆",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5570,7 +5570,7 @@
   {
     "source": "计数排序",
     "target": "生成森林",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5578,7 +5578,7 @@
   {
     "source": "记忆化搜索",
     "target": "O",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -5586,7 +5586,7 @@
   {
     "source": "记忆化搜索",
     "target": "可持久化数据结构",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5594,7 +5594,7 @@
   {
     "source": "记忆化搜索",
     "target": "红黑树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5602,7 +5602,7 @@
   {
     "source": "记忆化搜索",
     "target": "线段树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5610,7 +5610,7 @@
   {
     "source": "记忆化搜索",
     "target": "队列",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5618,7 +5618,7 @@
   {
     "source": "贪心策略",
     "target": "Ω记号",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -5626,7 +5626,7 @@
   {
     "source": "贪心策略",
     "target": "优先队列",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5634,7 +5634,7 @@
   {
     "source": "贪心策略",
     "target": "平衡二叉树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5642,7 +5642,7 @@
   {
     "source": "贪心策略",
     "target": "树状数组",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5650,7 +5650,7 @@
   {
     "source": "路径压缩",
     "target": "LRU缓存",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5658,7 +5658,7 @@
   {
     "source": "路径压缩",
     "target": "任务调度",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5666,7 +5666,7 @@
   {
     "source": "路径压缩",
     "target": "树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5674,7 +5674,7 @@
   {
     "source": "路径压缩",
     "target": "红黑树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5682,7 +5682,7 @@
   {
     "source": "路径压缩",
     "target": "迷宫求解",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5690,7 +5690,7 @@
   {
     "source": "跳跃表",
     "target": "LFU缓存",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -5698,7 +5698,7 @@
   {
     "source": "跳跃表",
     "target": "LRU缓存",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -5706,7 +5706,7 @@
   {
     "source": "跳跃表",
     "target": "内存分配",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5714,7 +5714,7 @@
   {
     "source": "跳跃表",
     "target": "复制",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5722,7 +5722,7 @@
   {
     "source": "跳跃表",
     "target": "按秩合并",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5730,7 +5730,7 @@
   {
     "source": "跳跃表",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5738,7 +5738,7 @@
   {
     "source": "跳跃表",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5746,7 +5746,7 @@
   {
     "source": "跳跃表",
     "target": "遍历",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5754,7 +5754,7 @@
   {
     "source": "迪杰斯特拉算法",
     "target": "B+树",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5762,7 +5762,7 @@
   {
     "source": "迪杰斯特拉算法",
     "target": "LRU缓存",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5770,7 +5770,7 @@
   {
     "source": "迪杰斯特拉算法",
     "target": "O",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -5778,7 +5778,7 @@
   {
     "source": "迪杰斯特拉算法",
     "target": "二叉堆",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5786,7 +5786,7 @@
   {
     "source": "迪杰斯特拉算法",
     "target": "优先队列",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5794,7 +5794,7 @@
   {
     "source": "迪杰斯特拉算法",
     "target": "双向链表",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5802,7 +5802,7 @@
   {
     "source": "迪杰斯特拉算法",
     "target": "双端队列",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5810,7 +5810,7 @@
   {
     "source": "迪杰斯特拉算法",
     "target": "循环链表",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5818,7 +5818,7 @@
   {
     "source": "迷宫求解",
     "target": "合并",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5826,7 +5826,7 @@
   {
     "source": "选择排序",
     "target": "Ω记号",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -5834,7 +5834,7 @@
   {
     "source": "选择排序",
     "target": "摊还分析",
-    "relation": "hasComplexity",
+    "relation": "具有复杂度",
     "properties": {
       "source_sentence": ""
     }
@@ -5842,7 +5842,7 @@
   {
     "source": "选择排序",
     "target": "跳跃表",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5850,7 +5850,7 @@
   {
     "source": "选择排序",
     "target": "链表",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5858,7 +5858,7 @@
   {
     "source": "遍历",
     "target": "LRU缓存",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5866,7 +5866,7 @@
   {
     "source": "遍历",
     "target": "平衡二叉树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5874,7 +5874,7 @@
   {
     "source": "遍历",
     "target": "最短路径",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5882,7 +5882,7 @@
   {
     "source": "遍历",
     "target": "迷宫求解",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5890,7 +5890,7 @@
   {
     "source": "链表",
     "target": "二叉堆",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -5898,7 +5898,7 @@
   {
     "source": "链表",
     "target": "二叉搜索树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -5906,7 +5906,7 @@
   {
     "source": "链表",
     "target": "优先队列",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -5914,7 +5914,7 @@
   {
     "source": "链表",
     "target": "入栈",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5922,7 +5922,7 @@
   {
     "source": "链表",
     "target": "双端队列",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -5930,7 +5930,7 @@
   {
     "source": "链表",
     "target": "哈希表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -5938,7 +5938,7 @@
   {
     "source": "链表",
     "target": "垃圾回收",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5946,7 +5946,7 @@
   {
     "source": "链表",
     "target": "复制",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5954,7 +5954,7 @@
   {
     "source": "链表",
     "target": "字典树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -5962,7 +5962,7 @@
   {
     "source": "链表",
     "target": "广度优先搜索",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -5970,7 +5970,7 @@
   {
     "source": "链表",
     "target": "括号匹配",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5978,7 +5978,7 @@
   {
     "source": "链表",
     "target": "数组",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -5986,7 +5986,7 @@
   {
     "source": "链表",
     "target": "旋转",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -5994,7 +5994,7 @@
   {
     "source": "链表",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -6002,7 +6002,7 @@
   {
     "source": "链表",
     "target": "栈",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -6010,7 +6010,7 @@
   {
     "source": "链表",
     "target": "树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -6018,7 +6018,7 @@
   {
     "source": "链表",
     "target": "红黑树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -6026,7 +6026,7 @@
   {
     "source": "链表",
     "target": "线性查找",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -6034,7 +6034,7 @@
   {
     "source": "链表",
     "target": "表达式求值",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -6042,7 +6042,7 @@
   {
     "source": "链表",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -6050,7 +6050,7 @@
   {
     "source": "链表",
     "target": "销毁",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -6058,7 +6058,7 @@
   {
     "source": "链表",
     "target": "队列",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -6066,7 +6066,7 @@
   {
     "source": "销毁",
     "target": "B+树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -6074,7 +6074,7 @@
   {
     "source": "销毁",
     "target": "任务调度",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -6082,7 +6082,7 @@
   {
     "source": "销毁",
     "target": "前缀树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -6090,7 +6090,7 @@
   {
     "source": "销毁",
     "target": "双向链表",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -6098,7 +6098,7 @@
   {
     "source": "销毁",
     "target": "堆",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -6106,7 +6106,7 @@
   {
     "source": "销毁",
     "target": "平衡二叉树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -6114,7 +6114,7 @@
   {
     "source": "销毁",
     "target": "并查集",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -6122,7 +6122,7 @@
   {
     "source": "销毁",
     "target": "括号匹配",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -6130,7 +6130,7 @@
   {
     "source": "销毁",
     "target": "迷宫求解",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -6138,7 +6138,7 @@
   {
     "source": "队列",
     "target": "任务调度",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -6146,7 +6146,7 @@
   {
     "source": "队列",
     "target": "引用计数",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -6154,7 +6154,7 @@
   {
     "source": "队列",
     "target": "最短路径",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -6162,7 +6162,7 @@
   {
     "source": "队列",
     "target": "线段树",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -6170,7 +6170,7 @@
   {
     "source": "队列",
     "target": "跳跃表",
-    "relation": "variantOf",
+    "relation": "是变体",
     "properties": {
       "source_sentence": ""
     }
@@ -6178,7 +6178,7 @@
   {
     "source": "队列",
     "target": "迷宫求解",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -6186,7 +6186,7 @@
   {
     "source": "队列",
     "target": "销毁",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -6194,7 +6194,7 @@
   {
     "source": "随机访问",
     "target": "二叉树",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -6202,7 +6202,7 @@
   {
     "source": "随机访问",
     "target": "二项堆",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -6210,7 +6210,7 @@
   {
     "source": "随机访问",
     "target": "单链表",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -6218,7 +6218,7 @@
   {
     "source": "随机访问",
     "target": "大根堆",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -6226,7 +6226,7 @@
   {
     "source": "随机访问",
     "target": "循环链表",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -6234,7 +6234,7 @@
   {
     "source": "随机访问",
     "target": "括号匹配",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -6242,7 +6242,7 @@
   {
     "source": "随机访问",
     "target": "最短路径",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -6250,7 +6250,7 @@
   {
     "source": "顺序访问",
     "target": "哈希表",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -6258,7 +6258,7 @@
   {
     "source": "顺序访问",
     "target": "大根堆",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -6266,7 +6266,7 @@
   {
     "source": "顺序访问",
     "target": "括号匹配",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -6274,7 +6274,7 @@
   {
     "source": "顺序访问",
     "target": "最短路径",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -6282,7 +6282,7 @@
   {
     "source": "顺序访问",
     "target": "生成森林",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }
@@ -6290,7 +6290,7 @@
   {
     "source": "顺序访问",
     "target": "迷宫求解",
-    "relation": "uses",
+    "relation": "使用",
     "properties": {
       "source_sentence": ""
     }
@@ -6298,7 +6298,7 @@
   {
     "source": "顺序访问",
     "target": "队列",
-    "relation": "appliesTo",
+    "relation": "适用于",
     "properties": {
       "source_sentence": ""
     }

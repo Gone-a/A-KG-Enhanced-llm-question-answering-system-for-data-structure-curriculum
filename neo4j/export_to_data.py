@@ -9,7 +9,7 @@ def convert_neo4j_to_vue_format(neo4j_file_path, vue_file_path):
     """
     将Neo4j格式的数据转换为Vue格式
     
-    Args:
+    参数:
         neo4j_file_path: Neo4j数据文件路径
         vue_file_path: Vue格式输出文件路径
     """
@@ -102,8 +102,43 @@ class GraphDataExporter:
         
         # 确保data目录存在
         os.makedirs(self.data_dir, exist_ok=True)
+        
+        # 添加英文到中文的翻译字典（参考product.py）
+        self.fallback_entity_type_dict = {
+            "ApplicationScenario": "应用场景",
+            "DataStructure": "数据结构", 
+            "Algorithm": "算法",
+            "Operation": "操作",
+            "Complexity": "复杂度",
+            "PrincipleOrProperty": "原理或属性",
+            "Concept": "概念",
+            "Entity": "实体"
+        }
+        
+        self.fallback_relation_dict = {
+            "hasComplexity": "具有复杂度",
+            "uses": "使用",
+            "variantOf": "是变体",
+            "appliesTo": "适用于",
+            "provides": "提供",
+            "implementedAs": "实现为",
+            "usedIn": "用于"
+        }
+    
+    def translate_entity_type(self, entity_type):
+        """将英文实体类型翻译为中文"""
+        if entity_type in self.fallback_entity_type_dict:
+            return self.fallback_entity_type_dict[entity_type]
+        return entity_type
+    
+    def translate_relation_type(self, relation_type):
+        """将英文关系类型翻译为中文"""
+        if relation_type in self.fallback_relation_dict:
+            return self.fallback_relation_dict[relation_type]
+        return relation_type
     
     def close(self):
+        """关闭数据库连接"""
         self.driver.close()
     
     def export_nodes(self):
@@ -117,9 +152,13 @@ class GraphDataExporter:
             
             nodes = []
             for record in result:
+                # 翻译节点标签
+                original_labels = record["labels"]
+                translated_labels = [self.translate_entity_type(label) for label in original_labels]
+                
                 node_data = {
                     "name": record["name"],
-                    "labels": record["labels"],
+                    "labels": translated_labels,
                     "properties": dict(record["properties"])
                 }
                 nodes.append(node_data)
@@ -139,10 +178,14 @@ class GraphDataExporter:
             
             relationships = []
             for record in result:
+                # 翻译关系类型
+                original_relation = record["relation"]
+                translated_relation = self.translate_relation_type(original_relation)
+                
                 rel_data = {
                     "source": record["source"],
                     "target": record["target"],
-                    "relation": record["relation"],
+                    "relation": translated_relation,
                     "properties": dict(record["properties"])
                 }
                 relationships.append(rel_data)
@@ -166,12 +209,32 @@ class GraphDataExporter:
                 ORDER BY count DESC
             """).data()
             
+            # 翻译节点类型统计
+            translated_node_types = []
+            for item in node_types:
+                original_labels = item["labels"]
+                translated_labels = [self.translate_entity_type(label) for label in original_labels]
+                translated_node_types.append({
+                    "labels": translated_labels,
+                    "count": item["count"]
+                })
+            
             # 关系类型统计
             rel_types = session.run("""
                 MATCH ()-[r]->()
                 RETURN type(r) as type, count(*) as count
                 ORDER BY count DESC
             """).data()
+            
+            # 翻译关系类型统计
+            translated_rel_types = []
+            for item in rel_types:
+                original_type = item["type"]
+                translated_type = self.translate_relation_type(original_type)
+                translated_rel_types.append({
+                    "type": translated_type,
+                    "count": item["count"]
+                })
             
             # 权重分布统计
             weight_stats = session.run("""
@@ -185,8 +248,8 @@ class GraphDataExporter:
                 "export_time": datetime.now().isoformat(),
                 "total_nodes": node_count,
                 "total_relationships": rel_count,
-                "node_types": node_types,
-                "relationship_types": rel_types,
+                "node_types": translated_node_types,
+                "relationship_types": translated_rel_types,
                 "weight_distribution": weight_stats
             }
             
@@ -248,6 +311,7 @@ class GraphDataExporter:
             raise
 
 def main():
+    """主函数"""
     exporter = GraphDataExporter()
     try:
         logger.info("开始导出知识图谱数据...")

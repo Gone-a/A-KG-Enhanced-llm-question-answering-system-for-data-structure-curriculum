@@ -37,7 +37,7 @@ class Neo4jKnowledgeGraph:
         # 从CSV文件加载关系类型映射
         self.relation_dict = self.load_relations_from_csv()
         
-        # 备用的实体类型映射（用于未在CSV中定义的实体）
+        
         self.fallback_entity_type_dict = {
             "ApplicationScenario": "应用场景",
             "DataStructure": "数据结构", 
@@ -47,7 +47,7 @@ class Neo4jKnowledgeGraph:
             "PrincipleOrProperty": "原理或属性"
         }
         
-        # 备用的关系类型映射
+        
         self.fallback_relation_dict = {
             "hasComplexity": "具有复杂度",
             "uses": "使用",
@@ -272,9 +272,9 @@ class Neo4jKnowledgeGraph:
 
     def get_entity_type_from_data(self, entity_name, data_type=None):
         """根据实体名称和数据中的类型信息获取实体类型"""
-        # 优先使用数据中提供的类型
+        # 优先使用数据中提供的类型，如果是英文类型则转换为中文
         if data_type and data_type in self.fallback_entity_type_dict:
-            return data_type
+            return self.fallback_entity_type_dict[data_type]
         
         # 从CSV加载的实体类型映射中查找
         if entity_name in self.entity_type_dict:
@@ -285,30 +285,30 @@ class Neo4jKnowledgeGraph:
         
         # 算法相关
         if any(keyword in entity_lower for keyword in ['排序', '搜索', '查找', '算法', 'sort', 'search', 'algorithm']):
-            return 'Algorithm'
+            return '算法'
         
         # 数据结构相关
         if any(keyword in entity_lower for keyword in ['栈', '队列', '链表', '树', '图', '数组', '堆', '表', 'stack', 'queue', 'list', 'tree', 'graph', 'array', 'heap']):
-            return 'DataStructure'
+            return '数据结构'
         
         # 应用场景相关
         if any(keyword in entity_lower for keyword in ['应用', '场景', '求解', '匹配', 'application', 'scenario']):
-            return 'ApplicationScenario'
+            return '应用场景'
         
         # 操作相关
         if any(keyword in entity_lower for keyword in ['插入', '删除', '查找', '遍历', '初始化', '扩容', '入栈', '出栈', '入队', '出队']):
-            return 'Operation'
+            return '操作'
         
         # 复杂度相关
         if any(keyword in entity_lower for keyword in ['o(', '复杂度', 'complexity', '时间', '空间']):
-            return 'Complexity'
+            return '复杂度'
         
         # 原理或属性相关
         if any(keyword in entity_lower for keyword in ['lifo', 'fifo', '稳定性', '原地', '有穷性', '确定性', '最优']):
-            return 'PrincipleOrProperty'
+            return '原理或属性'
         
         # 默认返回概念类型
-        return 'Concept'
+        return '概念'
 
     def create_nodes_with_types(self, data):
         """创建所有实体节点，使用数据中的类型信息"""
@@ -356,6 +356,11 @@ class Neo4jKnowledgeGraph:
             head_type = self.get_entity_type_from_data(head, item.get('head_type'))
             tail_type = self.get_entity_type_from_data(tail, item.get('tail_type'))
             
+            # 将英文关系类型转换为中文
+            chinese_relation = relation
+            if relation in self.fallback_relation_dict:
+                chinese_relation = self.fallback_relation_dict[relation]
+            
             # 验证关系类型约束（如果有定义的话）
             if relation in self.relation_dict:
                 relation_info = self.relation_dict[relation]
@@ -373,15 +378,15 @@ class Neo4jKnowledgeGraph:
             tail_node = self.graph.nodes.match(tail_type, name=tail).first()
             
             if head_node and tail_node:
-                # 创建关系，只保留语句信息
+                # 创建关系，使用中文关系类型，只保留语句信息
                 rel_props = {
                     'source_sentence': item.get('sentence', ''),
                 }
                 
-                relationship = Relationship(head_node, relation, tail_node, **rel_props)
+                relationship = Relationship(head_node, chinese_relation, tail_node, **rel_props)
                 self.graph.create(relationship)
                 created_count += 1
-                relation_types.add(relation)
+                relation_types.add(chinese_relation)
         
         print(f"✅ 创建了 {created_count} 个关系")
         print(f"📊 关系类型统计: {dict.fromkeys(relation_types, '✓')}")
@@ -393,10 +398,21 @@ class Neo4jKnowledgeGraph:
             # 为实体名称创建唯一约束
             self.graph.run("CREATE CONSTRAINT entity_name_unique IF NOT EXISTS FOR (n:Entity) REQUIRE n.name IS UNIQUE")
             
-            # 为不同实体类型创建索引
-            entity_types = ['DataStructure', 'Algorithm', 'Operation', 'Complexity', 'ApplicationScenario', 'PrincipleOrProperty', 'Concept']
+            # 为不同实体类型创建索引（使用中文标签）
+            entity_types = ['数据结构', '算法', '操作', '复杂度', '应用场景', '原理或属性', '概念']
             for entity_type in entity_types:
-                self.graph.run(f"CREATE INDEX {entity_type.lower()}_name_index IF NOT EXISTS FOR (n:{entity_type}) ON (n.name)")
+                # 使用中文标签名创建索引，索引名使用拼音或英文
+                index_name_map = {
+                    '数据结构': 'datastructure_name_index',
+                    '算法': 'algorithm_name_index', 
+                    '操作': 'operation_name_index',
+                    '复杂度': 'complexity_name_index',
+                    '应用场景': 'applicationscenario_name_index',
+                    '原理或属性': 'principleorproperty_name_index',
+                    '概念': 'concept_name_index'
+                }
+                index_name = index_name_map.get(entity_type, f"{entity_type}_name_index")
+                self.graph.run(f"CREATE INDEX {index_name} IF NOT EXISTS FOR (n:`{entity_type}`) ON (n.name)")
             
             print("✅ 索引创建完成")
         except Exception as e:

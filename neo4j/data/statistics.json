@@ -1,60 +1,60 @@
 {
-  "export_time": "2025-10-03T21:38:44.144423",
+  "export_time": "2025-10-03T22:24:56.051156",
   "total_nodes": 122,
   "total_relationships": 788,
   "node_types": [
     {
       "labels": [
-        "Concept"
+        "概念"
       ],
       "count": 44
     },
     {
       "labels": [
-        "DataStructure"
+        "数据结构"
       ],
       "count": 35
     },
     {
       "labels": [
-        "Algorithm"
+        "算法"
       ],
       "count": 31
     },
     {
       "labels": [
-        "Operation"
+        "操作"
       ],
       "count": 7
     },
     {
       "labels": [
-        "Complexity"
+        "复杂度"
       ],
       "count": 3
     },
     {
       "labels": [
-        "ApplicationScenario"
+        "应用场景"
       ],
       "count": 2
     }
   ],
   "relationship_types": [
     {
-      "type": "appliesTo",
+      "type": "适用于",
       "count": 298
     },
     {
-      "type": "uses",
+      "type": "使用",
       "count": 262
     },
     {
-      "type": "variantOf",
+      "type": "是变体",
       "count": 154
     },
     {
-      "type": "hasComplexity",
+      "type": "具有复杂度",
       "count": 74
     }
   ],
