@@ -1,6 +1,6 @@
 {
-  "export_time": "2025-10-03T22:24:56.051156",
-  "total_nodes": 122,
+  "export_time": "2025-10-03T22:34:03.488784",
+  "total_nodes": 140,
   "total_relationships": 788,
   "node_types": [
     {
@@ -20,6 +20,12 @@
         "算法"
       ],
       "count": 31
+    },
+    {
+      "labels": [
+        "原理或属性"
+      ],
+      "count": 18
     },
     {
       "labels": [

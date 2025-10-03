@@ -137,7 +137,23 @@ const drawGraph = (data) => {
   // 添加节点圆圈
   node.append("circle")
     .attr("r", 25)
-    .attr("fill", d => `hsl(${d.id * 40 % 360}, 70%, 60%)`)
+    .attr("fill", d => {
+      // 字符串转哈希值的工具函数
+      function stringToHash(str) {
+        let hash = 0;
+        if (str.length === 0) return hash;
+        for (let i = 0; i < str.length; i++) {
+          const char = str.charCodeAt(i);
+          hash = ((hash << 5) - hash) + char; // 位运算生成哈希
+          hash = hash & hash; // 转换为32位整数（确保为非负数基础）
+        }
+        return hash;
+      }
+      // 用哈希值生成色相（0-359范围）
+      const hash = stringToHash(d.id);
+      const hue = Math.abs(hash) % 360;
+      return `hsl(${hue}, 70%, 60%)`;
+    })
     .attr("stroke", "#fff")
     .attr("stroke-width", 2);
   

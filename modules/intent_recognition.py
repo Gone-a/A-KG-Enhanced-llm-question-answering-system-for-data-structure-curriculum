@@ -114,7 +114,8 @@ class IntentRecognizer:
         # 单实体查询模式（包含原来的实体关系查询模式）
         single_entity_patterns = [
             "查询", "搜索", "找", "显示", "展示", "获取",
-            "什么是", "介绍", "详细信息", "属性", "特点", "定义"
+            "什么是", "介绍", "详细信息", "属性", "特点", "定义",
+            "有什么", "的", "复杂度", "算法", "数据结构", "排序"
         ]
         
         # 检查各种模式
@@ -125,7 +126,7 @@ class IntentRecognizer:
         elif any(pattern in text_lower for pattern in single_entity_patterns):
             return "find_single_entity"
         
-        return "unknown"
+        return "other"
     
     def _extract_elements(self, text: str) -> tuple:
         """

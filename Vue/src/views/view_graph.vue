@@ -386,51 +386,57 @@ onUnmounted(() => {
 .control-panel {
   position: absolute;
   top: 20px;
-  left: 20px;
-  background: white;
-  padding: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 15px;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 15px rgba(0,0,0,0.15);
   z-index: 1000;
-  min-width: 300px;
+  min-width: 280px;
+  max-width: 320px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .control-group {
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .control-group label {
   display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+  margin-bottom: 4px;
+  font-weight: 600;
   color: #333;
+  font-size: 13px;
 }
 
 .slider {
-  width: 150px;
-  margin-right: 10px;
+  width: 120px;
+  margin-right: 8px;
 }
 
 .number-input {
-  width: 60px;
-  padding: 2px 5px;
+  width: 50px;
+  padding: 2px 4px;
   border: 1px solid #ddd;
   border-radius: 3px;
-  margin-right: 10px;
+  margin-right: 8px;
+  font-size: 12px;
 }
 
 .count-display {
-  font-size: 12px;
+  font-size: 11px;
   color: #666;
 }
 
 .reset-btn, .show-all-btn {
-  padding: 8px 15px;
-  margin-right: 10px;
+  padding: 6px 12px;
+  margin-right: 8px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 11px;
+  font-weight: 500;
 }
 
 .reset-btn {
@@ -453,15 +459,15 @@ onUnmounted(() => {
 
 .stats {
   border-top: 1px solid #eee;
-  padding-top: 15px;
-  margin-top: 15px;
+  padding-top: 12px;
+  margin-top: 12px;
 }
 
 .stat-item {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 8px;
-  font-size: 13px;
+  margin-bottom: 6px;
+  font-size: 11px;
 }
 
 .stat-label {
@@ -471,7 +477,7 @@ onUnmounted(() => {
 
 .stat-value {
   color: #333;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .d3-graph {

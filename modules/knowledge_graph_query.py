@@ -99,6 +99,51 @@ class KnowledgeGraphQuery:
             for key in expired_keys:
                 del self.query_cache[key]
 
+    def _format_entity_attributes(self, record: Dict[str, Any], entity_prefix: str) -> Dict[str, Any]:
+        """
+        格式化实体属性信息
+        
+        Args:
+            record: 查询记录
+            entity_prefix: 实体前缀（entity1或entity2）
+            
+        Returns:
+            Dict[str, Any]: 格式化后的属性字典
+        """
+        attributes = {}
+        
+        # 基本属性
+        type_key = f"{entity_prefix}_type"
+        if record.get(type_key):
+            attributes['type'] = record[type_key]
+        
+        # 描述信息
+        desc_key = f"{entity_prefix}_description"
+        if record.get(desc_key):
+            attributes['description'] = record[desc_key]
+        
+        # 属性信息
+        props_key = f"{entity_prefix}_properties"
+        if record.get(props_key):
+            attributes['properties'] = record[props_key]
+        
+        # 时间复杂度
+        time_complexity_key = f"{entity_prefix}_time_complexity"
+        if record.get(time_complexity_key):
+            attributes['time_complexity'] = record[time_complexity_key]
+        
+        # 空间复杂度
+        space_complexity_key = f"{entity_prefix}_space_complexity"
+        if record.get(space_complexity_key):
+            attributes['space_complexity'] = record[space_complexity_key]
+        
+        # 常见操作
+        operations_key = f"{entity_prefix}_common_operations"
+        if record.get(operations_key):
+            attributes['common_operations'] = record[operations_key]
+        
+        return attributes
+
     def _sanitize_entity_name(self, entity_name: str) -> str:
         """清理实体名称，防止注入攻击"""
         if not entity_name:
@@ -156,7 +201,7 @@ class KnowledgeGraphQuery:
             confidence_threshold: 置信度阈值
             
         Returns:
-            List[Dict[str, Any]]: 查询结果
+            List[Dict[str, Any]]: 查询结果，包含实体属性信息
         """
         if confidence_threshold is None:
             confidence_threshold = self.DEFAULT_CONFIDENCE_THRESHOLD
@@ -172,28 +217,45 @@ class KnowledgeGraphQuery:
         cache_key = self._get_cache_key("find_entities_by_relation", 
                                       tuple(validated_entities), sanitized_relation, confidence_threshold)
         
-        # 构建查询
+        # 构建查询，包含实体属性
         entity_conditions = " OR ".join([f"n.name CONTAINS '{entity}'" for entity in validated_entities])
         
         query = f"""
         MATCH (n)-[r]->(m)
         WHERE ({entity_conditions}) AND type(r) CONTAINS '{sanitized_relation}'
-        RETURN n.name as entity1, type(r) as relation, m.name as entity2
+        RETURN n.name as entity1, 
+               n.type as entity1_type,
+               n.description as entity1_description,
+               n.properties as entity1_properties,
+               n.time_complexity as entity1_time_complexity,
+               n.space_complexity as entity1_space_complexity,
+               n.common_operations as entity1_common_operations,
+               type(r) as relation, 
+               m.name as entity2,
+               m.type as entity2_type,
+               m.description as entity2_description,
+               m.properties as entity2_properties,
+               m.time_complexity as entity2_time_complexity,
+               m.space_complexity as entity2_space_complexity,
+               m.common_operations as entity2_common_operations
         LIMIT {self.QUERY_RESULT_LIMIT}
         """
         
         try:
             result = self._execute_query_with_cache(query, cache_key)
             
-            # 格式化结果
+            # 格式化结果，包含属性信息
             formatted_result = []
             for record in result:
                 if record.get('entity1') and record.get('entity2'):
-                    formatted_result.append({
+                    result_item = {
                         'entity1': record['entity1'],
+                        'entity1_attributes': self._format_entity_attributes(record, 'entity1'),
                         'entity2': record['entity2'],
+                        'entity2_attributes': self._format_entity_attributes(record, 'entity2'),
                         'relation': record.get('relation', sanitized_relation)
-                    })
+                    }
+                    formatted_result.append(result_item)
             
             return formatted_result
             
@@ -215,7 +277,7 @@ class KnowledgeGraphQuery:
             include_indirect: 是否包含间接关系
             
         Returns:
-            List[Dict[str, Any]]: 关系列表
+            List[Dict[str, Any]]: 关系列表，包含实体属性信息
         """
         if confidence_threshold is None:
             confidence_threshold = self.DEFAULT_CONFIDENCE_THRESHOLD
@@ -229,35 +291,66 @@ class KnowledgeGraphQuery:
         cache_key = self._get_cache_key("find_relation_by_entities", 
                                       entity1, entity2, confidence_threshold, bidirectional)
         
-        # 构建查询
+        # 构建查询，包含实体属性
         if bidirectional:
             query = f"""
             MATCH (n1)-[r]-(n2)
             WHERE (n1.name CONTAINS '{entity1}' AND n2.name CONTAINS '{entity2}') OR
                   (n1.name CONTAINS '{entity2}' AND n2.name CONTAINS '{entity1}')
-            RETURN n1.name as entity1, type(r) as relation, n2.name as entity2
+            RETURN n1.name as entity1,
+                   n1.type as entity1_type,
+                   n1.description as entity1_description,
+                   n1.properties as entity1_properties,
+                   n1.time_complexity as entity1_time_complexity,
+                   n1.space_complexity as entity1_space_complexity,
+                   n1.common_operations as entity1_common_operations,
+                   type(r) as relation,
+                   n2.name as entity2,
+                   n2.type as entity2_type,
+                   n2.description as entity2_description,
+                   n2.properties as entity2_properties,
+                   n2.time_complexity as entity2_time_complexity,
+                   n2.space_complexity as entity2_space_complexity,
+                   n2.common_operations as entity2_common_operations
             LIMIT {self.QUERY_RESULT_LIMIT}
             """
         else:
             query = f"""
             MATCH (n1)-[r]->(n2)
             WHERE n1.name CONTAINS '{entity1}' AND n2.name CONTAINS '{entity2}'
-            RETURN n1.name as entity1, type(r) as relation, n2.name as entity2
+            RETURN n1.name as entity1,
+                   n1.type as entity1_type,
+                   n1.description as entity1_description,
+                   n1.properties as entity1_properties,
+                   n1.time_complexity as entity1_time_complexity,
+                   n1.space_complexity as entity1_space_complexity,
+                   n1.common_operations as entity1_common_operations,
+                   type(r) as relation,
+                   n2.name as entity2,
+                   n2.type as entity2_type,
+                   n2.description as entity2_description,
+                   n2.properties as entity2_properties,
+                   n2.time_complexity as entity2_time_complexity,
+                   n2.space_complexity as entity2_space_complexity,
+                   n2.common_operations as entity2_common_operations
             LIMIT {self.QUERY_RESULT_LIMIT}
             """
         
         try:
             result = self._execute_query_with_cache(query, cache_key)
             
-            # 格式化结果
+            # 格式化结果，包含属性信息
             formatted_result = []
             for record in result:
                 if record.get('entity1') and record.get('entity2'):
-                    formatted_result.append({
+                    result_item = {
                         'entity1': record['entity1'],
+                        'entity1_attributes': self._format_entity_attributes(record, 'entity1'),
                         'entity2': record['entity2'],
+                        'entity2_attributes': self._format_entity_attributes(record, 'entity2'),
                         'relation': record.get('relation', '未知关系')
-                    })
+                    }
+                    formatted_result.append(result_item)
             
             return formatted_result
             
@@ -274,7 +367,7 @@ class KnowledgeGraphQuery:
             limit: 结果限制数量
             
         Returns:
-            List[Dict[str, Any]]: 关系列表
+            List[Dict[str, Any]]: 关系列表，包含实体属性信息
         """
         sanitized_entity = self._sanitize_entity_name(entity_name)
         if not sanitized_entity:
@@ -285,22 +378,39 @@ class KnowledgeGraphQuery:
         query = f"""
         MATCH (n)-[r]-(m)
         WHERE n.name CONTAINS '{sanitized_entity}'
-        RETURN n.name as entity1, type(r) as relation, m.name as entity2
+        RETURN n.name as entity1,
+               n.type as entity1_type,
+               n.description as entity1_description,
+               n.properties as entity1_properties,
+               n.time_complexity as entity1_time_complexity,
+               n.space_complexity as entity1_space_complexity,
+               n.common_operations as entity1_common_operations,
+               type(r) as relation,
+               m.name as entity2,
+               m.type as entity2_type,
+               m.description as entity2_description,
+               m.properties as entity2_properties,
+               m.time_complexity as entity2_time_complexity,
+               m.space_complexity as entity2_space_complexity,
+               m.common_operations as entity2_common_operations
         LIMIT {min(limit, self.QUERY_RESULT_LIMIT)}
         """
         
         try:
             result = self._execute_query_with_cache(query, cache_key)
             
-            # 格式化结果
+            # 格式化结果，包含属性信息
             formatted_result = []
             for record in result:
                 if record.get('entity1') and record.get('entity2'):
-                    formatted_result.append({
+                    result_item = {
                         'entity1': record['entity1'],
+                        'entity1_attributes': self._format_entity_attributes(record, 'entity1'),
                         'entity2': record['entity2'],
+                        'entity2_attributes': self._format_entity_attributes(record, 'entity2'),
                         'relation': record.get('relation', '未知关系')
-                    })
+                    }
+                    formatted_result.append(result_item)
             
             return formatted_result
             

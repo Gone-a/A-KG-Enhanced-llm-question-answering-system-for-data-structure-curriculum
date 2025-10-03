@@ -108,8 +108,59 @@ class APIHandler:
                 for i, item in enumerate(kg_result[:5], 1):  # 限制上下文长度
                     if isinstance(item, dict):
                         if 'entity1' in item and 'entity2' in item:
+                            entity1 = item['entity1']
+                            entity2 = item['entity2']
                             relation = item.get('relation', '相关')
-                            context_info.append(f"{i}. {item['entity1']} {relation} {item['entity2']}")
+                            
+                            # 构建基本关系信息
+                            relation_info = f"{i}. {entity1} {relation} {entity2}"
+                            
+                            # 添加实体属性信息
+                            entity1_attrs = item.get('entity1_attributes', {})
+                            entity2_attrs = item.get('entity2_attributes', {})
+                            
+                            if entity1_attrs or entity2_attrs:
+                                relation_info += "\n   详细信息："
+                                
+                                # 添加entity1的属性信息
+                                if entity1_attrs:
+                                    attrs_info = []
+                                    if entity1_attrs.get('type'):
+                                        attrs_info.append(f"类型: {entity1_attrs['type']}")
+                                    if entity1_attrs.get('description'):
+                                        attrs_info.append(f"描述: {entity1_attrs['description']}")
+                                    if entity1_attrs.get('time_complexity'):
+                                        attrs_info.append(f"时间复杂度: {entity1_attrs['time_complexity']}")
+                                    if entity1_attrs.get('space_complexity'):
+                                        attrs_info.append(f"空间复杂度: {entity1_attrs['space_complexity']}")
+                                    if entity1_attrs.get('properties'):
+                                        attrs_info.append(f"特性: {entity1_attrs['properties']}")
+                                    if entity1_attrs.get('common_operations'):
+                                        attrs_info.append(f"常见操作: {entity1_attrs['common_operations']}")
+                                    
+                                    if attrs_info:
+                                        relation_info += f"\n   - {entity1}: " + "; ".join(attrs_info)
+                                
+                                # 添加entity2的属性信息
+                                if entity2_attrs:
+                                    attrs_info = []
+                                    if entity2_attrs.get('type'):
+                                        attrs_info.append(f"类型: {entity2_attrs['type']}")
+                                    if entity2_attrs.get('description'):
+                                        attrs_info.append(f"描述: {entity2_attrs['description']}")
+                                    if entity2_attrs.get('time_complexity'):
+                                        attrs_info.append(f"时间复杂度: {entity2_attrs['time_complexity']}")
+                                    if entity2_attrs.get('space_complexity'):
+                                        attrs_info.append(f"空间复杂度: {entity2_attrs['space_complexity']}")
+                                    if entity2_attrs.get('properties'):
+                                        attrs_info.append(f"特性: {entity2_attrs['properties']}")
+                                    if entity2_attrs.get('common_operations'):
+                                        attrs_info.append(f"常见操作: {entity2_attrs['common_operations']}")
+                                    
+                                    if attrs_info:
+                                        relation_info += f"\n   - {entity2}: " + "; ".join(attrs_info)
+                            
+                            context_info.append(relation_info)
                         elif 'entity' in item:
                             context_info.append(f"{i}. 实体: {item['entity']}")
             
@@ -121,7 +172,7 @@ class APIHandler:
 知识图谱查询结果：
 {context_str}
 
-请基于以上知识图谱信息，用专业且易懂的语言回答用户的问题。如果知识图谱中没有相关信息，请诚实说明并提供一般性的解答。"""
+请基于以上知识图谱信息，用专业且易懂的语言回答用户的问题。如果知识图谱中没有相关信息，请诚实说明并提供一般性的解答。请特别关注实体的详细属性信息（如类型、描述、复杂度、特性等），并在回答中合理利用这些信息。"""
             
             # 调用LLM生成回复
             response = self.llm_client.generate_response(prompt)
@@ -143,8 +194,8 @@ class APIHandler:
                 if any(keyword in query for keyword in ["有哪些", "包含", "属于", "类型", "分类", "种类"]):
                     relations = ["包含"]  # 使用默认的包含关系
                 else:
-                    # 如果没有关系词，转为实体关系查询
-                    return self._handle_find_entity_relations(query)
+                    # 如果没有关系词，转为通用查询
+                    return self._handle_general_query(query)
             
             if entities and relations:
                 # 使用知识图谱查询
@@ -293,19 +344,55 @@ class APIHandler:
         
         for item in result:
             if isinstance(item, dict):
-                # 处理简单格式的结果
+                # 处理包含实体属性的新格式结果
                 if 'entity1' in item and 'entity2' in item and isinstance(item['entity1'], str):
                     entity1 = item['entity1']
                     entity2 = item['entity2']
                     relation = item.get('relation', '关系')
                     
-                    # 添加节点
+                    # 获取实体属性
+                    entity1_attrs = item.get('entity1_attributes', {})
+                    entity2_attrs = item.get('entity2_attributes', {})
+                    
+                    # 添加节点（包含属性信息）
                     if entity1 not in node_ids:
-                        nodes.append({"id": entity1, "name": entity1, "group": 1})
+                        node1 = {
+                            "id": entity1, 
+                            "name": entity1, 
+                            "group": self._get_entity_group(entity1_attrs.get('type', '未知')),
+                            "attributes": entity1_attrs
+                        }
+                        # 添加详细属性到节点
+                        if entity1_attrs:
+                            node1.update({
+                                "type": entity1_attrs.get('type', '未知'),
+                                "description": entity1_attrs.get('description', ''),
+                                "properties": entity1_attrs.get('properties', ''),
+                                "time_complexity": entity1_attrs.get('time_complexity', ''),
+                                "space_complexity": entity1_attrs.get('space_complexity', ''),
+                                "common_operations": entity1_attrs.get('common_operations', '')
+                            })
+                        nodes.append(node1)
                         node_ids.add(entity1)
                     
                     if entity2 not in node_ids:
-                        nodes.append({"id": entity2, "name": entity2, "group": 1})
+                        node2 = {
+                            "id": entity2, 
+                            "name": entity2, 
+                            "group": self._get_entity_group(entity2_attrs.get('type', '未知')),
+                            "attributes": entity2_attrs
+                        }
+                        # 添加详细属性到节点
+                        if entity2_attrs:
+                            node2.update({
+                                "type": entity2_attrs.get('type', '未知'),
+                                "description": entity2_attrs.get('description', ''),
+                                "properties": entity2_attrs.get('properties', ''),
+                                "time_complexity": entity2_attrs.get('time_complexity', ''),
+                                "space_complexity": entity2_attrs.get('space_complexity', ''),
+                                "common_operations": entity2_attrs.get('common_operations', '')
+                            })
+                        nodes.append(node2)
                         node_ids.add(entity2)
                     
                     # 检查边是否已存在（双向检查）
@@ -321,7 +408,7 @@ class APIHandler:
                         })
                         link_keys.add(link_key1)
                 
-                # 处理增强格式的结果
+                # 处理增强格式的结果（保持向后兼容）
                 elif 'entity1' in item and isinstance(item['entity1'], dict):
                     entity1_name = item['entity1'].get('name', '未知')
                     entity2_name = item['entity2'].get('name', '未知') if isinstance(item.get('entity2'), dict) else str(item.get('entity2', '未知'))
@@ -353,6 +440,25 @@ class APIHandler:
             "nodes": nodes[:20],  # 限制节点数量
             "links": links[:30]   # 限制边数量
         }
+    
+    def _get_entity_group(self, entity_type: str) -> int:
+        """
+        根据实体类型确定节点分组
+        
+        Args:
+            entity_type: 实体类型
+            
+        Returns:
+            int: 分组编号
+        """
+        type_groups = {
+            '算法': 1,
+            '数据结构': 2,
+            '策略': 3,
+            '模式': 4,
+            '概念': 5
+        }
+        return type_groups.get(entity_type, 6)  # 默认分组为6
     
     def get_status(self) -> Dict[str, Any]:
         """
