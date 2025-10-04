@@ -27,6 +27,7 @@ class ConfigManager:
                 'ark_api_key': os.getenv('69687985-d651-4f6e-ba19-39678e221d60', '69687985-d651-4f6e-ba19-39678e221d60'),
                 # 'ark_api_key': os.getenv('ARK_API_KEY', '69687985-d651-4f6e-ba19-39678e221d60'),  # now项目的默认密钥
                 'doubao_model_id': os.getenv('DOUBAO_MODEL_ID', 'doubao-seed-1-6-flash-250828'),  # now项目的豆包Model ID
+                'base_url': os.getenv('ARK_API_BASE_URL', 'https://ark.cn-beijing.volces.com/api/v3'),
             },
             
             # 模型配置

@@ -30,7 +30,7 @@ class APIHandler:
         self.intent_to_kg_method = {
             "find_entity_by_relation_and_entity": self._handle_find_entity_by_relation,
             "find_relation_by_two_entities": self._handle_find_relation_between_entities,
-            "find_single_entity": self._handle_find_single_entity,
+            "find_entity_definition": self._handle_find_entity_definition,
             "other": self._handle_general_query
         }
         
@@ -266,8 +266,8 @@ class APIHandler:
                 "graphData": {}
             }
     
-    def _handle_find_single_entity(self, query: str) -> Dict[str, Any]:
-        """处理单实体查询（查找实体的所有关系）"""
+    def _handle_find_entity_definition(self, query: str) -> Dict[str, Any]:
+        """处理实体定义查询（查找实体的所有关系）"""
         try:
             entities = self.intent_recognizer.extract_entities(query)
             
@@ -601,47 +601,6 @@ def create_flask_app(api_handler=None) -> Flask:
         api_handler.llm_client.history_messages=converted
         return data
 
-    # 单实体完整信息查询接口
-    @app.route("/entity/complete_info", methods=["POST"])
-    def get_entity_complete_info():
-        """获取单个实体的完整信息接口"""
-        try:
-            data = request.get_json()
-            if not data or 'entity_name' not in data:
-                return jsonify({
-                    "success": False,
-                    "error": "缺少entity_name参数"
-                }), 400
-            
-            entity_name = data['entity_name'].strip()
-            if not entity_name:
-                return jsonify({
-                    "success": False,
-                    "error": "实体名称不能为空"
-                }), 400
-            
-            # 获取可选参数
-            limit = data.get('limit', 100)
-            
-            # 检查知识图谱查询器是否可用
-            if not api_handler.kg_query:
-                return jsonify({
-                    "success": False,
-                    "error": "知识图谱查询器未初始化"
-                }), 500
-            
-            # 调用新的完整信息查询方法
-            result = api_handler.kg_query.get_entity_complete_info(entity_name, limit)
-            
-            return jsonify(result)
-            
-        except Exception as e:
-            logging.error(f"获取实体完整信息失败: {e}")
-            return jsonify({
-                "success": False,
-                "error": f"服务器内部错误: {str(e)}"
-            }), 500
-    
     # 健康检查接口
     @app.route("/health", methods=["GET"])
     def health_check():

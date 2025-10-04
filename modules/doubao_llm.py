@@ -18,7 +18,7 @@ class LLMResponse:
 
     """豆包（火山方舟）LLM客户端"""
 class DoubaoLLM:
-    def __init__(self, user_api_key: Optional[str] = None, user_model_id: Optional[str] = None):
+    def __init__(self, user_api_key: Optional[str] = None, user_model_id: Optional[str] = None, base_url: Optional[str] = None):
         """
         初始化豆包客户端（支持用户自定义API Key和模型ID）
         :param user_api_key: 用户传入的火山方舟API Key
@@ -30,6 +30,7 @@ class DoubaoLLM:
         # 1. 优先级：用户传入 > 系统配置
         self.ark_api_key = user_api_key.strip() if (user_api_key and user_api_key.strip()) else self.config.get('ark_api_key')
         self.doubao_model_id = user_model_id.strip() if (user_model_id and user_model_id.strip()) else self.config.get('doubao_model_id')
+        self.base_url = base_url.strip() if (base_url and base_url.strip()) else self.config.get('base_url')
         
         # 检查API Key是否为空
         if not self.ark_api_key:

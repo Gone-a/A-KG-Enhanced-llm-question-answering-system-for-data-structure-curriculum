@@ -67,7 +67,8 @@ class KnowledgeGraphApp:
             llm_config = self.config.get_llm_config()
             llm_client = DoubaoLLM(
                 user_api_key=api_config.get('ark_api_key'),
-                user_model_id=api_config.get('doubao_model_id')
+                user_model_id=api_config.get('doubao_model_id'),
+                base_url=api_config.get('base_url')
             )
             llm_client.set_parameters(
                 max_tokens=llm_config['max_tokens'],
@@ -76,7 +77,7 @@ class KnowledgeGraphApp:
         except ValueError as e:
             print(f"警告：LLM初始化失败 - {e}")
             print("将使用默认的空LLM客户端")
-            llm_client = None
+            llm_client = None   
         
         
         # 初始化API处理器

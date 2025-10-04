@@ -124,7 +124,7 @@ class IntentRecognizer:
         elif any(pattern in text_lower for pattern in find_by_relation_patterns):
             return "find_entity_by_relation_and_entity"
         elif any(pattern in text_lower for pattern in single_entity_patterns):
-            return "find_single_entity"
+            return "find_entity_definition"
         
         return "other"
     
