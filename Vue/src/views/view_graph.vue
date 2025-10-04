@@ -278,13 +278,16 @@ const drawGraph = () => {
     .attr("d", "M0,-5L10,0L0,5")
     .attr("fill", "#999");
   
-  // 创建力导向图模拟
+  // 创建力导向图模拟 - 调整中心位置避开右侧控制面板
+  const graphCenterX = width * 0.4; // 将图谱中心向左偏移到40%位置
+  const graphCenterY = height / 2;
+  
   simulation = d3.forceSimulation(dataCopy.nodes)
     .force("link", d3.forceLink(dataCopy.links).id(d => d.id).distance(100)) // 边更短 → 拉力使节点更近
     .force("charge", d3.forceManyBody().strength(-150))
-    .force("center", d3.forceCenter(width / 2, height / 2)) // 保持中心引力
-    .force("x", d3.forceX(width / 2).strength(0.05)) // 新增：向中心X轴聚集（温和拉力）
-    .force("y", d3.forceY(height / 2).strength(0.05)) // 新增：向中心Y轴聚集（温和拉力）
+    .force("center", d3.forceCenter(graphCenterX, graphCenterY)) // 调整中心位置避开控制面板
+    .force("x", d3.forceX(graphCenterX).strength(0.05)) // 向左偏移的中心X轴聚集
+    .force("y", d3.forceY(graphCenterY).strength(0.05)) // 保持Y轴中心聚集
     .force("collision", d3.forceCollide().radius(50)); // 碰撞半径减小 → 节点可更靠近
 
   // 绘制连接线
@@ -355,9 +358,12 @@ const drawGraph = () => {
   
   // 更新力导向图布局
   simulation.on("tick", () => {
-    // 限制节点在视图范围内
+    // 限制节点在视图范围内，但避开右侧控制面板区域
+    const rightPanelWidth = 400; // 控制面板宽度加边距
+    const availableWidth = width - rightPanelWidth;
+    
     dataCopy.nodes.forEach(d => {
-      d.x = Math.max(30, Math.min(width - 30, d.x));
+      d.x = Math.max(30, Math.min(availableWidth - 30, d.x));
       d.y = Math.max(30, Math.min(height - 30, d.y));
     });
     

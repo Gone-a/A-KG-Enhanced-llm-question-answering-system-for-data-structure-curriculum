@@ -167,74 +167,39 @@ const drawGraph = (data) => {
 
   // 创建力导向图模拟
   simulation = d3.forceSimulation(dataCopy.nodes)
-    .force("link", d3.forceLink(dataCopy.links).id(d => d.id).distance(() => 80 + Math.random() * 80)) // 随机链接距离
-    .force("charge", d3.forceManyBody().strength(() => -300 - Math.random() * 200)) // 随机排斥力
+    .force("link", d3.forceLink(dataCopy.links).id(d => d.id).distance(() => 80 + Math.random() * 40)) // 减少链接距离随机性
+    .force("charge", d3.forceManyBody().strength(() => -300 - Math.random() * 100)) // 减少排斥力随机性
     .force("center", d3.forceCenter(width / 2, height / 2))
     .force("collision", d3.forceCollide().radius(35))
-    // 添加随机扰动力，增加布局的随机性
+    // 添加温和的随机扰动力
     .force("random", () => {
       dataCopy.nodes.forEach(node => {
-        // 添加更强的随机扰动
-        node.vx += (Math.random() - 0.5) * 1.2;
-        node.vy += (Math.random() - 0.5) * 1.2;
-        
-        // 为特定节点添加额外的随机力
-        if (node.name && (node.name.includes('迷宫') || node.name.includes('求解'))) {
-          node.vx += (Math.random() - 0.5) * 2.0;
-          node.vy += (Math.random() - 0.5) * 2.0;
-        }
+        // 添加轻微的随机扰动，保持自然感
+        node.vx += (Math.random() - 0.5) * 0.2;
+        node.vy += (Math.random() - 0.5) * 0.2;
       });
-    })
-    // 添加额外的随机重定位力
-    .force("randomReposition", () => {
-      if (Math.random() < 0.05) { // 5%的概率触发
-        dataCopy.nodes.forEach(node => {
-          if (node.name && (node.name.includes('迷宫') || node.name.includes('求解'))) {
-            // 给特定节点一个随机的强推力
-            const angle = Math.random() * 2 * Math.PI;
-            const force = Math.random() * 30 + 20;
-            node.vx += Math.cos(angle) * force;
-            node.vy += Math.sin(angle) * force;
-          }
-        });
-      }
     });
   
   // 为每个节点设置随机初始位置，避免固定模式
   dataCopy.nodes.forEach((node) => {
-    // 使用完全随机的初始位置，避免任何固定模式
+    // 使用适度随机的初始位置
     const randomAngle = Math.random() * 2 * Math.PI;
-    const randomRadius = Math.random() * Math.min(width, height) * 0.3 + 50;
+    const randomRadius = Math.random() * Math.min(width, height) * 0.25 + 50;
     
-    // 添加更大的随机偏移，确保每次都不同
-    const centerX = width / 2 + (Math.random() - 0.5) * width * 0.4;
-    const centerY = height / 2 + (Math.random() - 0.5) * height * 0.4;
+    // 适度的随机偏移
+    const centerX = width / 2 + (Math.random() - 0.5) * width * 0.2;
+    const centerY = height / 2 + (Math.random() - 0.5) * height * 0.2;
     
     node.x = centerX + Math.cos(randomAngle) * randomRadius;
     node.y = centerY + Math.sin(randomAngle) * randomRadius;
     
-    // 确保节点在视图范围内，但允许更大的变化范围
+    // 确保节点在视图范围内
     node.x = Math.max(30, Math.min(width - 30, node.x));
     node.y = Math.max(30, Math.min(height - 30, node.y));
     
-    // 添加更强的随机初始速度
-    node.vx = (Math.random() - 0.5) * 8;
-    node.vy = (Math.random() - 0.5) * 8;
-    
-    // 为特定节点（如"迷宫求解"）添加额外的随机化
-    if (node.name && (node.name.includes('迷宫') || node.name.includes('求解'))) {
-      // 给这些节点额外的随机推力
-      const extraAngle = Math.random() * 2 * Math.PI;
-      const extraForce = Math.random() * 100 + 50;
-      node.vx += Math.cos(extraAngle) * extraForce;
-      node.vy += Math.sin(extraAngle) * extraForce;
-      
-      // 随机重新定位这些节点
-      const newAngle = Math.random() * 2 * Math.PI;
-      const newRadius = Math.random() * Math.min(width, height) * 0.4 + 80;
-      node.x = width / 2 + Math.cos(newAngle) * newRadius;
-      node.y = height / 2 + Math.sin(newAngle) * newRadius;
-    }
+    // 添加温和的随机初始速度
+    node.vx = (Math.random() - 0.5) * 2;
+    node.vy = (Math.random() - 0.5) * 2;
   });
   
   // 添加防重叠机制
@@ -433,7 +398,7 @@ const drawGraph = (data) => {
     node.attr("transform", d => `translate(${d.x},${d.y})`);
   });
   
-  // 添加定期重新布局功能，增加随机性
+  // 添加温和的定期重新布局功能
   let layoutTimer = null;
   const startPeriodicLayout = () => {
     // 清除之前的定时器
@@ -441,57 +406,27 @@ const drawGraph = (data) => {
       clearInterval(layoutTimer);
     }
     
-    // 每5秒重新启动布局，增加随机性（缩短间隔以增加变化频率）
+    // 每15秒进行一次温和的布局调整
     layoutTimer = setInterval(() => {
       if (simulation) {
-        // 为所有节点添加更强的随机扰动
+        // 为所有节点添加轻微的随机扰动
         dataCopy.nodes.forEach(node => {
-          // 添加更大的随机扰动
-          node.vx += (Math.random() - 0.5) * 6;
-          node.vy += (Math.random() - 0.5) * 6;
-          
-          // 为特定节点（如"迷宫求解"）添加额外的强制重定位
-          if (node.name && (node.name.includes('迷宫') || node.name.includes('求解'))) {
-            // 完全随机重新定位这些节点
-            const newAngle = Math.random() * 2 * Math.PI;
-            const newRadius = Math.random() * Math.min(width, height) * 0.4 + 100;
-            const newCenterX = width / 2 + (Math.random() - 0.5) * width * 0.3;
-            const newCenterY = height / 2 + (Math.random() - 0.5) * height * 0.3;
-            
-            node.x = newCenterX + Math.cos(newAngle) * newRadius;
-            node.y = newCenterY + Math.sin(newAngle) * newRadius;
-            
-            // 确保在边界内
-            node.x = Math.max(30, Math.min(width - 30, node.x));
-            node.y = Math.max(30, Math.min(height - 30, node.y));
-            
-            // 给予强烈的随机速度
-            const pushAngle = Math.random() * 2 * Math.PI;
-            const pushForce = Math.random() * 80 + 40;
-            node.vx = Math.cos(pushAngle) * pushForce;
-            node.vy = Math.sin(pushAngle) * pushForce;
-          } else {
-            // 给其他节点一个更大的推力，打破稳定状态
-            if (Math.random() < 0.2) {
-              const pushAngle = Math.random() * 2 * Math.PI;
-              const pushForce = Math.random() * 60 + 30;
-              node.vx += Math.cos(pushAngle) * pushForce;
-              node.vy += Math.sin(pushAngle) * pushForce;
-            }
-          }
+          // 添加温和的随机扰动
+          node.vx += (Math.random() - 0.5) * 1.0;
+          node.vy += (Math.random() - 0.5) * 1.0;
         });
         
-        // 重新启动模拟，增加alpha值使布局更活跃
-        simulation.alpha(0.8).alphaTarget(0.2).restart();
+        // 温和地重新启动模拟
+        simulation.alpha(0.3).alphaTarget(0.1).restart();
         
-        // 3秒后降低alpha目标值
+        // 2秒后降低alpha目标值
         setTimeout(() => {
           if (simulation) {
             simulation.alphaTarget(0);
           }
-        }, 3000);
+        }, 2000);
       }
-    }, 5000); // 缩短到5秒间隔
+    }, 15000); // 延长到15秒间隔
   };
   
   // 模拟完成后更新状态并启动定期布局
