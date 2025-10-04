@@ -55,127 +55,251 @@
 .nav-container {
   width: 100%;
   min-height: 100vh;
-  background-color: #f8fafc; /* 淡蓝色背景，与导航栏呼应 */
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  position: relative;
 }
 
-/* 导航栏样式：渐变蓝色背景 + 阴影 */
+.nav-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(6, 182, 212, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* 导航栏样式：现代化玻璃态设计 */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 2rem;
-  height: 60px;
-  background: linear-gradient(135deg, #1e40af, #3b82f6); /* 蓝色渐变 */
-  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.15); /* 淡蓝色阴影 */
-  color: white;
+  padding: 0 2.5rem;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(226, 232, 240, 0.6);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  color: #1e293b;
   position: sticky;
   top: 0;
-  z-index: 100; /* 确保导航栏在最上层 */
+  z-index: 100;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* 导航标题样式 */
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(99, 102, 241, 0.2) 20%, 
+    rgba(99, 102, 241, 0.4) 50%, 
+    rgba(99, 102, 241, 0.2) 80%, 
+    transparent 100%);
+}
+
+.navbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(99, 102, 241, 0.15) 50%, 
+    transparent 100%);
+}
+
+/* 导航标题样式 - 更加精致 */
 .nav-title {
-  font-size: 1.25rem;
-  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.4rem;
+  font-weight: 700;
   letter-spacing: 0.5px;
+  position: relative;
 }
 
 .title-text {
-  background: linear-gradient(120deg, #bfdbfe, #f0f9ff);
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  text-shadow: 0 2px 4px rgba(99, 102, 241, 0.1);
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.title-text::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border-radius: 1px;
+  opacity: 0.6;
 }
 
 /* 导航链接容器 */
 .nav-links {
   display: flex;
-  gap: 2rem; /* 链接之间的间距 */
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 6px 8px;
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(226, 232, 240, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-/* 导航链接基础样式 */
+/* 导航链接基础样式 - 现代化胶囊设计 */
 .nav-link {
   display: flex;
   align-items: center;
-  gap: 0.5rem; /* 图标与文字间距 */
-  padding: 0.5rem 0;
-  color: #e0e7ff; /* 淡蓝色文字（未活跃） */
-  font-size: 0.95rem;
+  gap: 0.5rem;
+  padding: 10px 16px;
+  color: #64748b;
+  font-size: 0.9rem;
   font-weight: 500;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  border-radius: 25px;
+  background: transparent;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 /* 导航链接hover效果 */
 .nav-link:hover {
-  color: white;
-  transform: translateY(-2px); /* 轻微上移，增加交互感 */
+  color: #6366f1;
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 
+    0 2px 8px rgba(99, 102, 241, 0.12),
+    0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-/* 活跃链接样式（下划线 + 文字变白） */
+.nav-link:hover::before {
+  opacity: 1;
+}
+
+/* 活跃链接样式 */
 .nav-link.active {
   color: white;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  box-shadow: 
+    0 2px 8px rgba(99, 102, 241, 0.3),
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.nav-link.active::before {
+  opacity: 0;
 }
 
 .nav-link.active::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #bfdbfe; /* 淡蓝色下划线 */
-  border-radius: 1px;
+  display: none;
 }
 
-/* 图标样式（使用CSS模拟简单图标，也可替换为Font Awesome） */
-.icon-home::before {
-  content: "🏠";
-  font-size: 1.1rem;
-}
-
-.icon-graph::before {
-  content: "📊";
-  font-size: 1.1rem;
-}
-
+/* 图标样式优化 */
+.icon-home::before,
+.icon-graph::before,
 .icon-api::before {
-  content: "ℹ️";
   font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover .icon-home::before,
+.nav-link:hover .icon-graph::before,
+.nav-link:hover .icon-api::before {
+  transform: scale(1.05);
 }
 
 /* 内容区域样式 */
 .content-container {
   width: 100%;
   max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  position: relative;
 }
 
-/* 页面切换过渡动画 */
+/* 页面切换过渡动画优化 */
 .page-fade-enter-from,
 .page-fade-leave-to {
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateY(15px) scale(0.98);
 }
 
 .page-fade-enter-active,
 .page-fade-leave-active {
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* 响应式适配：小屏幕下导航链接居中 */
+/* 响应式适配优化 */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
     height: auto;
-    padding: 1rem;
+    padding: 1.2rem 1rem;
+    backdrop-filter: blur(15px);
   }
 
   .nav-links {
     margin-top: 1rem;
-    gap: 1.5rem;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 4px 6px;
+  }
+
+  .nav-link {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  .content-container {
+    padding: 1rem;
+  }
+  
+  .nav-title {
+    font-size: 1.3rem;
   }
 }
 </style>

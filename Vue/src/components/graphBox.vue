@@ -21,6 +21,8 @@ const props = defineProps({
 const graphContainer = ref(null);
 const graphStatus = ref("初始化中...");
 let simulation = null;
+let layoutTimer = null;
+let dataCopy = null; // 添加全局dataCopy变量
 
 // 清除当前图形
 const clearGraph = () => {
@@ -31,12 +33,30 @@ const clearGraph = () => {
     simulation.stop();
     simulation = null;
   }
+  // 清理定时器
+  if (layoutTimer) {
+    clearInterval(layoutTimer);
+    layoutTimer = null;
+  }
+  
+  // 清理节点位置缓存，确保下次重绘时完全随机
+  if (dataCopy && dataCopy.nodes) {
+    dataCopy.nodes.forEach(node => {
+      delete node.x;
+      delete node.y;
+      delete node.vx;
+      delete node.vy;
+      delete node.fx;
+      delete node.fy;
+      delete node.index;
+    });
+  }
 };
 
 // 绘制图形 - 确保此函数被正确调用
 const drawGraph = (data) => {
   // 深拷贝数据，避免修改原始响应式数据
-  const dataCopy = JSON.parse(JSON.stringify(data)); 
+  dataCopy = JSON.parse(JSON.stringify(data)); 
   // 清空现有图形
   clearGraph();
   
@@ -73,54 +93,208 @@ const drawGraph = (data) => {
   // 创建SVG元素
   const svg = d3.select(container)
     .append("svg")
-    .attr("width", "100%")    // SVG宽度占满容器
-    .attr("height", "100%")   // SVG高度占满容器
-    .attr("viewBox", `0 0 ${width} ${height}`) // 定义可视区域（与容器宽高同步）
-    .attr("preserveAspectRatio", "xMidYMid meet"); // 让图形在viewBox中居中
+    .attr("width", "100%")
+    .attr("height", "100%")
+    .attr("viewBox", `0 0 ${width} ${height}`)
+    .attr("preserveAspectRatio", "xMidYMid meet");
   
+  // 创建渐变和滤镜定义
+  const defs = svg.append("defs");
+  
+  // 创建链接渐变
+  const linkGradient = defs.append("linearGradient")
+    .attr("id", "linkGradient")
+    .attr("gradientUnits", "userSpaceOnUse");
+  
+  linkGradient.append("stop")
+    .attr("offset", "0%")
+    .attr("stop-color", "#6366f1")
+    .attr("stop-opacity", 0.8);
+    
+  linkGradient.append("stop")
+    .attr("offset", "100%")
+    .attr("stop-color", "#8b5cf6")
+    .attr("stop-opacity", 0.6);
+
+  // 创建节点发光效果滤镜
+  const glowFilter = defs.append("filter")
+    .attr("id", "glow")
+    .attr("x", "-50%")
+    .attr("y", "-50%")
+    .attr("width", "200%")
+    .attr("height", "200%");
+    
+  glowFilter.append("feGaussianBlur")
+    .attr("stdDeviation", "3")
+    .attr("result", "coloredBlur");
+    
+  const feMerge = glowFilter.append("feMerge");
+  feMerge.append("feMergeNode").attr("in", "coloredBlur");
+  feMerge.append("feMergeNode").attr("in", "SourceGraphic");
+
   // 创建箭头标记
-  svg.append("defs").selectAll("marker")
+  defs.selectAll("marker")
     .data(["end"])
     .enter().append("marker")
     .attr("id", d => d)
     .attr("viewBox", "0 -5 10 10")
-    .attr("refX", 25)
+    .attr("refX", 20)
     .attr("refY", 0)
     .attr("markerWidth", 6)
     .attr("markerHeight", 6)
     .attr("orient", "auto")
     .append("path")
     .attr("d", "M0,-5L10,0L0,5")
-    .attr("fill", "#999");
+    .attr("fill", "#6366f1")
+    .attr("opacity", 0.8);
   
+  // 颜色调色板
+  const colorPalette = [
+    "#6366f1", "#8b5cf6", "#06b6d4", "#10b981", 
+    "#f59e0b", "#ef4444", "#ec4899", "#8b5cf6"
+  ];
+
+  // 字符串哈希函数
+  function stringToHash(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      const char = str.charCodeAt(i);
+      hash = ((hash << 5) - hash) + char;
+      hash = hash & hash;
+    }
+    return Math.abs(hash);
+  }
+
   // 创建力导向图模拟
   simulation = d3.forceSimulation(dataCopy.nodes)
-    .force("link", d3.forceLink(dataCopy.links).id(d => d.id).distance(150))
-    .force("charge", d3.forceManyBody().strength(-300))
-    .force("center", d3.forceCenter(width / 2, height / 2)) // 中心力指向容器中心
-    .force("collision", d3.forceCollide().radius(60));
+    .force("link", d3.forceLink(dataCopy.links).id(d => d.id).distance(() => 80 + Math.random() * 80)) // 随机链接距离
+    .force("charge", d3.forceManyBody().strength(() => -300 - Math.random() * 200)) // 随机排斥力
+    .force("center", d3.forceCenter(width / 2, height / 2))
+    .force("collision", d3.forceCollide().radius(35))
+    // 添加随机扰动力，增加布局的随机性
+    .force("random", () => {
+      dataCopy.nodes.forEach(node => {
+        // 添加更强的随机扰动
+        node.vx += (Math.random() - 0.5) * 1.2;
+        node.vy += (Math.random() - 0.5) * 1.2;
+        
+        // 为特定节点添加额外的随机力
+        if (node.name && (node.name.includes('迷宫') || node.name.includes('求解'))) {
+          node.vx += (Math.random() - 0.5) * 2.0;
+          node.vy += (Math.random() - 0.5) * 2.0;
+        }
+      });
+    })
+    // 添加额外的随机重定位力
+    .force("randomReposition", () => {
+      if (Math.random() < 0.05) { // 5%的概率触发
+        dataCopy.nodes.forEach(node => {
+          if (node.name && (node.name.includes('迷宫') || node.name.includes('求解'))) {
+            // 给特定节点一个随机的强推力
+            const angle = Math.random() * 2 * Math.PI;
+            const force = Math.random() * 30 + 20;
+            node.vx += Math.cos(angle) * force;
+            node.vy += Math.sin(angle) * force;
+          }
+        });
+      }
+    });
   
-  // 绘制连接线
+  // 为每个节点设置随机初始位置，避免固定模式
+  dataCopy.nodes.forEach((node) => {
+    // 使用完全随机的初始位置，避免任何固定模式
+    const randomAngle = Math.random() * 2 * Math.PI;
+    const randomRadius = Math.random() * Math.min(width, height) * 0.3 + 50;
+    
+    // 添加更大的随机偏移，确保每次都不同
+    const centerX = width / 2 + (Math.random() - 0.5) * width * 0.4;
+    const centerY = height / 2 + (Math.random() - 0.5) * height * 0.4;
+    
+    node.x = centerX + Math.cos(randomAngle) * randomRadius;
+    node.y = centerY + Math.sin(randomAngle) * randomRadius;
+    
+    // 确保节点在视图范围内，但允许更大的变化范围
+    node.x = Math.max(30, Math.min(width - 30, node.x));
+    node.y = Math.max(30, Math.min(height - 30, node.y));
+    
+    // 添加更强的随机初始速度
+    node.vx = (Math.random() - 0.5) * 8;
+    node.vy = (Math.random() - 0.5) * 8;
+    
+    // 为特定节点（如"迷宫求解"）添加额外的随机化
+    if (node.name && (node.name.includes('迷宫') || node.name.includes('求解'))) {
+      // 给这些节点额外的随机推力
+      const extraAngle = Math.random() * 2 * Math.PI;
+      const extraForce = Math.random() * 100 + 50;
+      node.vx += Math.cos(extraAngle) * extraForce;
+      node.vy += Math.sin(extraAngle) * extraForce;
+      
+      // 随机重新定位这些节点
+      const newAngle = Math.random() * 2 * Math.PI;
+      const newRadius = Math.random() * Math.min(width, height) * 0.4 + 80;
+      node.x = width / 2 + Math.cos(newAngle) * newRadius;
+      node.y = height / 2 + Math.sin(newAngle) * newRadius;
+    }
+  });
+  
+  // 添加防重叠机制
+  const avoidOverlap = () => {
+    for (let i = 0; i < dataCopy.nodes.length; i++) {
+      for (let j = i + 1; j < dataCopy.nodes.length; j++) {
+        const nodeA = dataCopy.nodes[i];
+        const nodeB = dataCopy.nodes[j];
+        
+        const dx = nodeB.x - nodeA.x;
+        const dy = nodeB.y - nodeA.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        const minDistance = 80; // 最小距离
+        
+        if (distance < minDistance && distance > 0) {
+          const pushForce = (minDistance - distance) / distance * 0.5;
+          const pushX = dx * pushForce;
+          const pushY = dy * pushForce;
+          
+          nodeA.x -= pushX;
+          nodeA.y -= pushY;
+          nodeB.x += pushX;
+          nodeB.y += pushY;
+        }
+      }
+    }
+  };
+  
+  // 执行防重叠
+  avoidOverlap();
+
+  // 创建链接
   const link = svg.append("g")
     .attr("class", "links")
     .selectAll("line")
     .data(dataCopy.links)
     .enter().append("line")
-    .attr("stroke", "#999")
-    .attr("stroke-opacity", 0.6)
-    .attr("stroke-width", 1.5)
-    .attr("marker-end", "url(#end)");
+    .attr("stroke", "url(#linkGradient)")
+    .attr("stroke-width", 2.5)
+    .attr("stroke-opacity", 0.8)
+    .attr("marker-end", "url(#end)")
+    .style("filter", "drop-shadow(0 2px 4px rgba(99, 102, 241, 0.2))")
+    .attr("class", "link-line")
+    .style("stroke-linecap", "round");
 
   const linkLabels = svg.append("g")
-  .attr("class", "link-labels")
-  .selectAll("text")
-  .data(dataCopy.links)
-  .enter().append("text")
-  .text(d => d.relation)
-  .attr("font-size", 12)
-  .attr("fill", "#333")
-  .attr("text-anchor", "middle")
-  .attr("pointer-events", "none");
+    .attr("class", "link-labels")
+    .selectAll("text")
+    .data(dataCopy.links)
+    .enter().append("text")
+    .text(d => d.relation)
+    .attr("font-size", 11)
+    .attr("fill", "#475569")
+    .attr("text-anchor", "middle")
+    .attr("pointer-events", "none")
+    .attr("font-weight", "600")
+    .attr("font-family", "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif")
+    .style("text-shadow", "0 1px 3px rgba(255,255,255,0.9)")
+    .style("opacity", 0.9)
+    .attr("dy", "-5px");
   
   // 创建节点组
   const node = svg.append("g")
@@ -129,43 +303,112 @@ const drawGraph = (data) => {
     .data(dataCopy.nodes)
     .enter().append("g")
     .attr("class", "node")
+    .style("cursor", "grab")
     .call(d3.drag()
       .on("start", dragStarted)
       .on("drag", dragged)
       .on("end", dragEnded));
   
-  // 添加节点圆圈
+  // 增强的节点设计
   node.append("circle")
-    .attr("r", 25)
+    .attr("r", 26)
     .attr("fill", d => {
-      // 字符串转哈希值的工具函数
-      function stringToHash(str) {
-        let hash = 0;
-        if (str.length === 0) return hash;
-        for (let i = 0; i < str.length; i++) {
-          const char = str.charCodeAt(i);
-          hash = ((hash << 5) - hash) + char; // 位运算生成哈希
-          hash = hash & hash; // 转换为32位整数（确保为非负数基础）
-        }
-        return hash;
-      }
-      // 用哈希值生成色相（0-359范围）
       const hash = stringToHash(d.id);
-      const hue = Math.abs(hash) % 360;
-      return `hsl(${hue}, 70%, 60%)`;
+      const colorIndex = Math.abs(hash) % colorPalette.length;
+      return colorPalette[colorIndex];
     })
-    .attr("stroke", "#fff")
-    .attr("stroke-width", 2);
+    .attr("stroke", "#ffffff")
+    .attr("stroke-width", 3)
+    .style("filter", "drop-shadow(0 4px 12px rgba(0,0,0,0.15))")
+    .attr("class", "node-circle")
+    .style("opacity", 0.95)
+    .style("transition", "all 0.3s ease");
   
-  // 添加节点文本标签
+  // 节点文本标签
   node.append("text")
     .attr("dy", ".35em")
     .attr("text-anchor", "middle")
-    .text(d => d.name)
-    .attr("font-size", "12px")
-    .attr("fill", "#fff")
-    .attr("pointer-events", "none");
-  
+    .text(d => {
+      if (d.name.length <= 4) return d.name;
+      if (d.name.length <= 6) return d.name;
+      return d.name.substring(0, 4) + '...';
+    })
+    .attr("font-size", "11px")
+    .attr("fill", "#ffffff")
+    .attr("font-weight", "700")
+    .attr("pointer-events", "none")
+    .attr("font-family", "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif")
+    .style("text-shadow", "0 1px 3px rgba(0,0,0,0.4)")
+    .attr("class", "node-text");
+
+  // 添加节点悬停效果
+  node
+    .on("mouseenter", function(event, d) {
+      // 高亮当前节点
+      d3.select(this).select(".node-circle")
+        .transition()
+        .duration(200)
+        .attr("r", 30)
+        .style("filter", "url(#glow) drop-shadow(0 6px 16px rgba(99, 102, 241, 0.4))");
+      
+      d3.select(this).select(".node-text")
+        .transition()
+        .duration(200)
+        .attr("font-size", "13px")
+        .style("font-weight", "700");
+        
+      // 高亮相关链接和标签
+      link.style("stroke-opacity", l => 
+        (l.source === d || l.target === d) ? 1 : 0.2
+      ).style("stroke-width", l => 
+        (l.source === d || l.target === d) ? 3.5 : 2.5
+      );
+      
+      linkLabels.style("opacity", l => 
+        (l.source === d || l.target === d) ? 1 : 0.2
+      ).style("font-weight", l => 
+        (l.source === d || l.target === d) ? "700" : "600"
+      );
+      
+      // 高亮相关节点
+      node.selectAll(".node-circle").style("opacity", n => 
+        n === d || dataCopy.links.some(l => 
+          (l.source === d && l.target === n) || (l.target === d && l.source === n)
+        ) ? 1 : 0.3
+      );
+      
+      node.selectAll(".node-text").style("opacity", n => 
+        n === d || dataCopy.links.some(l => 
+          (l.source === d && l.target === n) || (l.target === d && l.source === n)
+        ) ? 1 : 0.3
+      );
+    })
+    .on("mouseleave", function() {
+      // 恢复所有节点
+      node.selectAll(".node-circle")
+        .transition()
+        .duration(200)
+        .attr("r", 26)
+        .style("filter", "url(#glow)")
+        .style("opacity", 1);
+      
+      node.selectAll(".node-text")
+        .transition()
+        .duration(200)
+        .attr("font-size", "11px")
+        .style("font-weight", "600")
+        .style("opacity", 1);
+        
+      // 恢复所有链接
+      link.style("stroke-opacity", 0.8)
+          .style("stroke-width", 2.5);
+      
+      linkLabels.style("opacity", 0.9)
+                .style("font-weight", "600");
+    });
+
+
+
   // 更新力导向图布局
   simulation.on("tick", () => {
     // 限制节点在视图范围内
@@ -190,9 +433,71 @@ const drawGraph = (data) => {
     node.attr("transform", d => `translate(${d.x},${d.y})`);
   });
   
-  // 模拟完成后更新状态
+  // 添加定期重新布局功能，增加随机性
+  let layoutTimer = null;
+  const startPeriodicLayout = () => {
+    // 清除之前的定时器
+    if (layoutTimer) {
+      clearInterval(layoutTimer);
+    }
+    
+    // 每5秒重新启动布局，增加随机性（缩短间隔以增加变化频率）
+    layoutTimer = setInterval(() => {
+      if (simulation) {
+        // 为所有节点添加更强的随机扰动
+        dataCopy.nodes.forEach(node => {
+          // 添加更大的随机扰动
+          node.vx += (Math.random() - 0.5) * 6;
+          node.vy += (Math.random() - 0.5) * 6;
+          
+          // 为特定节点（如"迷宫求解"）添加额外的强制重定位
+          if (node.name && (node.name.includes('迷宫') || node.name.includes('求解'))) {
+            // 完全随机重新定位这些节点
+            const newAngle = Math.random() * 2 * Math.PI;
+            const newRadius = Math.random() * Math.min(width, height) * 0.4 + 100;
+            const newCenterX = width / 2 + (Math.random() - 0.5) * width * 0.3;
+            const newCenterY = height / 2 + (Math.random() - 0.5) * height * 0.3;
+            
+            node.x = newCenterX + Math.cos(newAngle) * newRadius;
+            node.y = newCenterY + Math.sin(newAngle) * newRadius;
+            
+            // 确保在边界内
+            node.x = Math.max(30, Math.min(width - 30, node.x));
+            node.y = Math.max(30, Math.min(height - 30, node.y));
+            
+            // 给予强烈的随机速度
+            const pushAngle = Math.random() * 2 * Math.PI;
+            const pushForce = Math.random() * 80 + 40;
+            node.vx = Math.cos(pushAngle) * pushForce;
+            node.vy = Math.sin(pushAngle) * pushForce;
+          } else {
+            // 给其他节点一个更大的推力，打破稳定状态
+            if (Math.random() < 0.2) {
+              const pushAngle = Math.random() * 2 * Math.PI;
+              const pushForce = Math.random() * 60 + 30;
+              node.vx += Math.cos(pushAngle) * pushForce;
+              node.vy += Math.sin(pushAngle) * pushForce;
+            }
+          }
+        });
+        
+        // 重新启动模拟，增加alpha值使布局更活跃
+        simulation.alpha(0.8).alphaTarget(0.2).restart();
+        
+        // 3秒后降低alpha目标值
+        setTimeout(() => {
+          if (simulation) {
+            simulation.alphaTarget(0);
+          }
+        }, 3000);
+      }
+    }, 5000); // 缩短到5秒间隔
+  };
+  
+  // 模拟完成后更新状态并启动定期布局
   simulation.on("end", () => {
     graphStatus.value = `图形绘制完成 (节点: ${dataCopy.nodes.length}, 边: ${dataCopy.links.length})`;
+    startPeriodicLayout();
   });
   
   // 拖拽事件处理函数
@@ -235,6 +540,11 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('resize', handleResize);
   clearGraph();
+  // 确保清理所有定时器
+  if (layoutTimer) {
+    clearInterval(layoutTimer);
+    layoutTimer = null;
+  }
 });
 
 // 处理窗口大小变化
@@ -248,81 +558,254 @@ const handleResize = () => {
 watch([() => props.graphData], () => {
   nextTick(() => {
     console.log("数据变化，重绘图形");
-    const currentData = props.graphData;
-    drawGraph(currentData);
+    
+    // 在重绘前强制清理所有缓存数据，确保完全随机
+    if (dataCopy && dataCopy.nodes) {
+      dataCopy.nodes.forEach(node => {
+        delete node.x;
+        delete node.y;
+        delete node.vx;
+        delete node.vy;
+        delete node.fx;
+        delete node.fy;
+        delete node.index;
+      });
+    }
+    
+    // 添加随机延迟，进一步打破任何可能的模式
+    const randomDelay = Math.random() * 100;
+    setTimeout(() => {
+      const currentData = props.graphData;
+      drawGraph(currentData);
+    }, randomDelay);
   });
 },{ flush: 'post' });
 </script>
 
 <style scoped>
+/* 图形容器样式 - 现代化设计 */
 .graph-container {
   width: 100%;
   height: 100%;
-  min-height: 600px; /* 确保有足够的高度 */
   position: relative;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 16px;
   padding: 20px;
-  box-sizing: border-box;
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
 }
 
-.controls {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  z-index: 10;
-  display: flex;
-  gap: 15px;
-  align-items: center;
-}
-
-.btn {
-  background-color: #42b983;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s;
-}
-
-.btn:hover {
-  background-color: #359e75;
-}
-
-.status-info {
-  font-size: 14px;
-  color: #666;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 4px 8px;
-  border-radius: 4px;
-}
-
-/* 关键修改：确保图形容器有明确的尺寸 */
 .graph-view {
   width: 100%;
   height: 100%;
-  min-height: 500px;
-  border: 1px solid #e0e0e0;
-  border-radius: 6px;
+  border-radius: 12px;
+  background: radial-gradient(circle at 30% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
+              linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(248, 250, 252, 0.9) 100%);
+  position: relative;
   overflow: hidden;
-  background-color: #f9f9f9;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
 }
 
-.nodes circle {
-  transition: all 0.3s ease;
+/* 控制按钮样式 */
+.controls {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-.nodes circle:hover {
-  stroke: #333;
-  stroke-width: 3;
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  box-shadow: 0 2px 4px rgba(99, 102, 241, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(99, 102, 241, 0.3);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.8);
+  color: #64748b;
+  border: 1px solid rgba(203, 213, 225, 0.5);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.95);
+  color: #475569;
+  transform: translateY(-1px);
+}
+
+/* 状态信息样式 */
+.status-info {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748b;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* SVG 样式增强 */
+.graph-view svg {
+  border-radius: 12px;
+}
+
+/* 节点和链接的全局样式 */
+.nodes .node {
+  cursor: grab;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nodes .node:active {
+  cursor: grabbing;
 }
 
 .links line {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link-labels text {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .graph-container {
+    padding: 15px;
+    border-radius: 12px;
+  }
+  
+  .controls {
+    top: 15px;
+    right: 15px;
+    padding: 8px 12px;
+    gap: 8px;
+  }
+  
+  .btn {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+  
+  .status-info {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+}
+
+/* 精致的动画效果 */
+@keyframes nodeAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.3) rotate(-180deg);
+  }
+  to {
+    opacity: 0.95;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes linkAppear {
+  from {
+    opacity: 0;
+    stroke-dasharray: 5, 5;
+    stroke-dashoffset: 10;
+  }
+  to {
+    opacity: 0.7;
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes labelFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 0.8;
+    transform: translateY(0);
+  }
+}
+
+.nodes .node {
+  animation: nodeAppear 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.links line {
+  animation: linkAppear 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.link-labels text {
+  animation: labelFadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+/* 连线动画效果 */
+.link-line {
+  stroke-dasharray: 5, 5;
+  animation: linkFlow 2s linear infinite;
   transition: all 0.3s ease;
 }
 
-.nodes text {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-weight: 500;
+.link-line:hover {
+  stroke-width: 3.5 !important;
+  stroke-opacity: 1 !important;
+  filter: drop-shadow(0 3px 6px rgba(99, 102, 241, 0.4)) !important;
+}
+
+@keyframes linkFlow {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 10;
+  }
+}
+
+/* 连线标签动画 */
+.link-labels text {
+  transition: all 0.3s ease;
+}
+
+.link-labels text:hover {
+  font-size: 12px !important;
+  fill: #6366f1 !important;
+  font-weight: 700 !important;
 }
 </style>

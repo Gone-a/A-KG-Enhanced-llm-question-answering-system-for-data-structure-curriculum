@@ -86,13 +86,21 @@ const totalLinks = ref(graphData.links.length);
 const maxNodes = ref(Math.min(50, totalNodes.value)); // 默认显示50个节点
 const maxLinks = ref(Math.min(100, totalLinks.value)); // 默认显示100条边
 
+// 添加随机种子，确保每次滑块变化时都产生不同的节点组合
+const randomSeed = ref(Date.now());
+
 // 计算过滤后的数据
 const filteredData = computed(() => {
-  return filterGraphData(graphData, maxNodes.value, maxLinks.value);
+  return filterGraphData(graphData, maxNodes.value, maxLinks.value, randomSeed.value);
 });
 
-// 数据过滤函数 - 优化版本，保持图谱连通性
-const filterGraphData = (data, nodeLimit, linkLimit) => {
+// 监听滑块变化，更新随机种子
+watch([maxNodes, maxLinks], () => {
+  randomSeed.value = Date.now() + Math.random() * 1000;
+});
+
+// 数据过滤函数 - 随机选择版本，每次都显示不同的节点
+const filterGraphData = (data, nodeLimit, linkLimit, seed = Date.now()) => {
   // 计算每个节点的连接数
   const nodeConnections = {};
   data.links.forEach(link => {
@@ -100,20 +108,12 @@ const filterGraphData = (data, nodeLimit, linkLimit) => {
     nodeConnections[link.target] = (nodeConnections[link.target] || 0) + 1;
   });
   
-  // 使用广度优先搜索选择连通的节点子集
-  const selectConnectedNodes = (nodes, links, limit) => {
+  // 随机选择节点，同时保持一定的连通性
+  const selectRandomConnectedNodes = (nodes, links, limit) => {
     if (nodes.length <= limit) return nodes;
     
-    // 找到连接数最多的节点作为起始点
-    const startNode = nodes.reduce((max, node) => 
-      (nodeConnections[node.id] || 0) > (nodeConnections[max.id] || 0) ? node : max
-    );
-    
-    const selected = new Set([startNode.id]);
-    const queue = [startNode.id];
+    // 创建节点映射和邻接表
     const nodeMap = new Map(nodes.map(n => [n.id, n]));
-    
-    // 构建邻接表
     const adjacency = {};
     links.forEach(link => {
       if (!adjacency[link.source]) adjacency[link.source] = [];
@@ -122,20 +122,65 @@ const filterGraphData = (data, nodeLimit, linkLimit) => {
       adjacency[link.target].push(link.source);
     });
     
-    // 广度优先搜索，优先选择连接数多的邻居
-    while (queue.length > 0 && selected.size < limit) {
-      const current = queue.shift();
-      const neighbors = adjacency[current] || [];
+    // 使用传入的种子作为随机种子，确保每次调用都不同
+    const randomSeed = seed + Math.random();
+    const seededRandom = () => {
+      const x = Math.sin(randomSeed * Math.random()) * 10000;
+      return x - Math.floor(x);
+    };
+    
+    // 随机打乱节点数组
+    const shuffledNodes = [...nodes].sort(() => seededRandom() - 0.5);
+    
+    // 分层选择策略：70%随机选择，30%基于连通性选择
+    const randomCount = Math.floor(limit * 0.7);
+    // const connectedCount = limit - randomCount; // 保留注释，说明设计思路
+    
+    const selected = new Set();
+    
+    // 第一阶段：完全随机选择70%的节点
+    for (let i = 0; i < Math.min(randomCount, shuffledNodes.length); i++) {
+      selected.add(shuffledNodes[i].id);
+    }
+    
+    // 第二阶段：基于连通性选择剩余30%的节点，确保图的连通性
+    if (selected.size < limit) {
+      const remaining = shuffledNodes.filter(node => !selected.has(node.id));
+      const queue = [];
       
-      // 按连接数排序邻居节点
-      const sortedNeighbors = neighbors
-        .filter(id => !selected.has(id) && nodeMap.has(id))
-        .sort((a, b) => (nodeConnections[b] || 0) - (nodeConnections[a] || 0));
+      // 从已选择的节点中随机选择一个作为起点
+      const selectedArray = Array.from(selected);
+      const startNodeId = selectedArray[Math.floor(seededRandom() * selectedArray.length)];
+      queue.push(startNodeId);
       
-      for (const neighborId of sortedNeighbors) {
-        if (selected.size >= limit) break;
-        selected.add(neighborId);
-        queue.push(neighborId);
+      while (queue.length > 0 && selected.size < limit) {
+        const current = queue.shift();
+        const neighbors = adjacency[current] || [];
+        
+        // 随机打乱邻居节点
+        const shuffledNeighbors = neighbors
+          .filter(id => !selected.has(id) && nodeMap.has(id))
+          .sort(() => seededRandom() - 0.5);
+        
+        for (const neighborId of shuffledNeighbors) {
+          if (selected.size >= limit) break;
+          selected.add(neighborId);
+          queue.push(neighborId);
+          
+          // 随机决定是否继续添加这个节点的邻居到队列
+          if (seededRandom() > 0.5) {
+            break;
+          }
+        }
+      }
+      
+      // 如果还没达到限制，随机添加剩余节点
+      while (selected.size < limit && remaining.length > 0) {
+        const randomIndex = Math.floor(seededRandom() * remaining.length);
+        const randomNode = remaining.splice(randomIndex, 1)[0];
+        if (randomNode) {
+          selected.add(randomNode.id);
+        }
       }
     }
     
@@ -143,7 +188,7 @@ const filterGraphData = (data, nodeLimit, linkLimit) => {
   };
   
   // 选择连通的节点子集
-  const selectedNodes = selectConnectedNodes(data.nodes, data.links, nodeLimit);
+  const selectedNodes = selectRandomConnectedNodes(data.nodes, data.links, nodeLimit);
   const selectedNodeIds = new Set(selectedNodes.map(node => node.id));
   
   // 只保留连接选中节点的边

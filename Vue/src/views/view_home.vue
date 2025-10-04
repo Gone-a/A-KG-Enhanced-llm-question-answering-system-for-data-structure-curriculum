@@ -156,7 +156,7 @@ const chatStore = useChatStore();
   min-width: 1600px;
   height: 85svh;
   overflow: hidden;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   position: relative;
 }
 
@@ -168,9 +168,9 @@ const chatStore = useChatStore();
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.1) 0%, transparent 50%);
+    radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(6, 182, 212, 0.06) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -180,12 +180,12 @@ const chatStore = useChatStore();
   height: 100%;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(226, 232, 240, 0.6);
   display: flex;
   flex-direction: column;
   box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    0 4px 20px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
   z-index: 10;
   margin: 0;
   padding: 0;
@@ -196,77 +196,32 @@ const chatStore = useChatStore();
 .new-chat-btn {
   margin: 20px 16px 16px 16px;
   padding: 14px 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
   color: white;
   border: none;
   border-radius: 12px;
   font-size: 14px;
   font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
   box-shadow: 
-    0 4px 15px rgba(102, 126, 234, 0.4),
-    0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative;
-  overflow: hidden;
-}
-
-.new-chat-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
-}
-
-.new-chat-btn::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.3s ease, height 0.3s ease;
+    0 2px 8px rgba(99, 102, 241, 0.2),
+    0 1px 3px rgba(0, 0, 0, 0.1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .new-chat-btn:hover {
   transform: translateY(-2px);
   box-shadow: 
-    0 8px 25px rgba(102, 126, 234, 0.5),
-    0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.new-chat-btn:hover::before {
-  left: 100%;
+    0 4px 16px rgba(99, 102, 241, 0.3),
+    0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .new-chat-btn:active {
-  transform: translateY(-1px) scale(0.98);
-  transition: all 0.1s;
-}
-
-.new-chat-btn:active::after {
-  width: 120px;
-  height: 120px;
-}
-
-.new-chat-btn i {
-  font-size: 16px;
-  transition: transform 0.3s;
-}
-
-.new-chat-btn:hover i {
-  transform: rotate(90deg);
+  transform: translateY(0);
 }
 
 /* 对话列表容器 */
@@ -276,38 +231,17 @@ const chatStore = useChatStore();
   padding: 0 8px 16px 8px;
 }
 
-.chat-list::-webkit-scrollbar {
-  width: 6px;
-}
-
-.chat-list::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 3px;
-}
-
-.chat-list::-webkit-scrollbar-thumb {
-  background: rgba(102, 126, 234, 0.3);
-  border-radius: 3px;
-  transition: background 0.3s;
-}
-
-.chat-list::-webkit-scrollbar-thumb:hover {
-  background: rgba(102, 126, 234, 0.5);
-}
-
-/* 单个对话项样式 - 现代化卡片设计 */
+/* 对话项样式 */
 .chat-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 16px 12px;
-  margin: 4px 0;
+  padding: 12px 16px;
+  margin: 4px 8px;
+  border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border-left: 3px solid transparent;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
+  background: rgba(248, 250, 252, 0.6);
+  border: 1px solid rgba(226, 232, 240, 0.4);
   position: relative;
   overflow: hidden;
 }
@@ -319,17 +253,16 @@ const chatStore = useChatStore();
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s ease;
 }
 
 .chat-item:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(99, 102, 241, 0.2);
   transform: translateX(4px);
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: 
-    0 4px 20px rgba(0, 0, 0, 0.1),
-    0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .chat-item:hover::before {
@@ -337,81 +270,54 @@ const chatStore = useChatStore();
 }
 
 .chat-item.active {
-  background: rgba(102, 126, 234, 0.15);
-  border-left-color: #667eea;
-  transform: translateX(6px);
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.2);
   box-shadow: 
-    0 6px 25px rgba(102, 126, 234, 0.2),
-    0 3px 6px rgba(0, 0, 0, 0.1);
+    0 2px 8px rgba(99, 102, 241, 0.3),
+    0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .chat-item.active::before {
-  opacity: 1;
+  opacity: 0;
 }
 
-/* 对话项内容 */
 .chat-item-content {
   flex: 1;
-  overflow: hidden;
-  position: relative;
-  z-index: 1;
+  min-width: 0;
 }
 
 .chat-title {
   font-size: 14px;
   font-weight: 600;
-  color: #2d3748;
   margin-bottom: 4px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  transition: color 0.3s;
-}
-
-.chat-item.active .chat-title {
-  color: #667eea;
+  color: inherit;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .chat-preview {
   font-size: 12px;
-  color: #718096;
+  color: #64748b;
+  opacity: 0.8;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 1.4;
 }
 
-/* 删除按钮 - 现代化设计 */
+.chat-item.active .chat-preview {
+  color: rgba(255, 255, 255, 0.8);
+}
+
 .delete-btn {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: rgba(239, 68, 68, 0.1);
+  background: none;
   border: none;
-  color: #ef4444;
+  color: #94a3b8;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 6px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
   opacity: 0;
   transform: scale(0.8);
-  position: relative;
-  z-index: 2;
-  overflow: hidden;
-}
-
-.delete-btn::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.3s ease, height 0.3s ease;
 }
 
 .chat-item:hover .delete-btn {
@@ -420,110 +326,39 @@ const chatStore = useChatStore();
 }
 
 .delete-btn:hover {
-  background: rgba(239, 68, 68, 0.2);
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
 }
 
-.delete-btn:active {
-  transform: scale(0.95);
+.chat-item.active .delete-btn {
+  color: rgba(255, 255, 255, 0.7);
 }
 
-.delete-btn:active::before {
-  width: 40px;
-  height: 40px;
+.chat-item.active .delete-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
 }
 
-/* 中间可视化区域样式 - 现代化玻璃态 */
+/* 中间图谱容器 */
 .graph-container {
   flex: 1;
   height: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(226, 232, 240, 0.6);
+  position: relative;
+  overflow: hidden;
+  min-width: 0; /* 确保flex容器能够正确收缩 */
+}
+
+/* 右侧聊天容器 - 调整为占至少五分之二的面积 */
+.chat-main {
+  width: 42%; /* 设置为42%，确保至少占五分之二（40%）的面积 */
+  min-width: 480px; /* 设置最小宽度，确保在小屏幕上仍有良好体验 */
+  max-width: 50%; /* 设置最大宽度，避免占用过多空间 */
+  height: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
   position: relative;
 }
-
-.graph-container::before {
-  content: '';
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  pointer-events: none;
-}
-
-/* 右侧聊天区域 - 现代化设计 */
-.chat-main {
-  width: 800px;
-  max-width: calc(100% - 240px);
-  margin-left: auto;
-  height: 100%;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 
-    -8px 0 32px rgba(0, 0, 0, 0.1),
-    inset 1px 0 0 rgba(255, 255, 255, 0.2);
-}
-
-/* 响应式适配调整 */
-@media (max-width: 768px) {
-  .home-page {
-    flex-direction: column;
-    background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
-  }
-  
-  .chat-sidebar {
-    width: 100%;
-    height: 40%;
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  }
-  
-  .chat-main {
-    width: 100%;
-    max-width: 100%;
-    height: 60%;
-    border-left: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-  }
-  
-  .graph-container {
-    display: none;
-  }
-}
-
-/* 添加一些微妙的动画效果 */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.chat-item {
-  animation: fadeInUp 0.3s ease-out;
-}
-
-.chat-item:nth-child(1) { animation-delay: 0.1s; }
-.chat-item:nth-child(2) { animation-delay: 0.2s; }
-.chat-item:nth-child(3) { animation-delay: 0.3s; }
-.chat-item:nth-child(4) { animation-delay: 0.4s; }
-.chat-item:nth-child(5) { animation-delay: 0.5s; }
 </style>

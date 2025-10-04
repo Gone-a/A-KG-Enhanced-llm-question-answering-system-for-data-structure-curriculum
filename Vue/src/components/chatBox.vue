@@ -1,71 +1,68 @@
 <template>
-  <div class="chat-page-wrapper">
-    <!-- 聊天容器：居中显示 -->
-    <div class="ai-chat-container">
-      <!-- 页面标题区域 -->
-      <header class="chat-header">
-        <div class="logo">
+  <div class="chat-container">
+    <!-- 页面标题区域 -->
+    <header class="chat-header">
+      <div class="logo">
+        <i class="fas fa-robot"></i>
+      </div>
+      <h1 class="chat-title">Chat-kg</h1>
+    </header>
+
+    <!-- 消息列表（使用 props 传入的 messages） -->
+    <main class="message-list">
+      <div v-if="messages.length === 0" class="welcome-message">
+        <p>👋 你好！有什么可以帮助你的吗？</p>
+      </div>
+      <div 
+        v-for="(message, index) in messages" 
+        :key="index" 
+        :class="['message', message.sender]"
+      >
+        <div :class="['avatar', message.sender]">
+          <i v-if="message.sender === 'ai'" class="fas fa-robot"></i>
+          <i v-if="message.sender === 'user'" class="fas fa-user"></i>
+        </div>
+        <div class="message-content">
+          <!-- 替换原来的pre标签为div，并使用v-html渲染解析后的HTML -->
+          <div class="markdown-content" v-html="parseMarkdown(message.text)"></div>
+          <span class="timestamp">{{ message.timestamp }}</span>
+        </div>
+      </div>
+
+      <!-- 加载状态指示器 -->
+      <div v-if="isLoading" class="typing-indicator">
+        <div class="avatar ai">
           <i class="fas fa-robot"></i>
-          <h1>Chat-kg</h1>
         </div>
-      </header>
+        <div class="typing-dots">
+          <span class="typing-dot"></span>
+          <span class="typing-dot"></span>
+          <span class="typing-dot"></span>
+        </div>
+      </div>
+    </main>
 
-      <!-- 消息列表（使用 props 传入的 messages） -->
-      <main class="chat-messages">
-        <div v-if="messages.length === 0" class="welcome-message">
-          <p>👋 你好！有什么可以帮助你的吗？</p>
-        </div>
-        <div 
-          v-for="(message, index) in messages" 
-          :key="index" 
-          :class="['message', message.sender]"
+    <!-- 输入区域 -->
+    <footer class="chat-input">
+      <form @submit.prevent="sendMessage" class="input-form">
+        <textarea
+          v-model="userInput"
+          placeholder="输入你的消息..."
+          class="message-input"
+          @keydown.enter.exact.prevent="sendMessage"
+          @keydown.enter.shift="handleShiftEnter"
+          :disabled="isLoading"
+        ></textarea>
+        <button 
+          type="submit" 
+          class="send-button"
+          :disabled="!userInput.trim() || isLoading"
         >
-          <div class="message-avatar">
-            <i v-if="message.sender === 'ai'" class="fas fa-robot"></i>
-            <i v-if="message.sender === 'user'" class="fas fa-user"></i>
-          </div>
-          <div class="message-content">
-            <!-- 替换原来的pre标签为div，并使用v-html渲染解析后的HTML -->
-            <div class="markdown-content" v-html="parseMarkdown(message.text)"></div>
-            <span class="message-time">{{ message.timestamp }}</span>
-          </div>
-        </div>
-
-        <!-- 加载状态指示器 -->
-        <div v-if="isLoading" class="message ai">
-          <div class="message-avatar">
-            <i class="fas fa-robot"></i>
-          </div>
-          <div class="message-content typing-indicator">
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-          </div>
-        </div>
-      </main>
-
-      <!-- 输入区域 -->
-      <footer class="chat-input-area">
-        <form @submit.prevent="sendMessage" class="input-form">
-          <textarea
-            v-model="userInput"
-            placeholder="输入你的消息..."
-            class="message-input"
-            @keydown.enter.exact.prevent="sendMessage"
-            @keydown.enter.shift="handleShiftEnter"
-            :disabled="isLoading"
-          ></textarea>
-          <button 
-            type="submit" 
-            class="send-btn"
-            :disabled="!userInput.trim() || isLoading"
-          >
-            <i class="fas fa-paper-plane"></i>
-          </button>
-        </form>
-        <p class="input-hint">按 Enter 发送消息，Shift+Enter 换行</p>
-      </footer>
-    </div>
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+      <p class="input-hint">按 Enter 发送消息，Shift+Enter 换行</p>
+    </footer>
   </div>
 </template>
 
@@ -178,76 +175,75 @@ const scrollToBottom = () => {
 </script>
 
 <style scoped>
-.chat-page-wrapper {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  background-color: #f8fafc;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.ai-chat-container {
-  width: 100%;
-  max-width: 800px;
-  height: 100%;
+.chat-container {
   display: flex;
   flex-direction: column;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 16px;
   overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(226, 232, 240, 0.8);
 }
 
-/* 头部样式 */
 .chat-header {
-  padding: 16px 24px;
-  border-bottom: 1px solid #1248f9;
-  background-color: #498ef0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .logo {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border-radius: 8px;
   display: flex;
   align-items: center;
-  gap: 10px;
-}
-
-.logo i {
-  color: #f7f8f9;
-  font-size: 20px;
-}
-
-.logo h1 {
-  margin: 0;
-  font-size: 18px;
+  justify-content: center;
+  color: white;
   font-weight: 600;
-  color: #f9f9f9;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.2);
 }
 
-/* 消息列表样式 */
-.chat-messages {
+.chat-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.message-list {
   flex: 1;
-  padding: 24px;
   overflow-y: auto;
+  padding: 20px;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
 .welcome-message {
-  margin: auto;
   text-align: center;
   color: #64748b;
-  font-size: 16px;
-  padding: 20px;
+  font-size: 14px;
+  padding: 40px 20px;
+  background: rgba(248, 250, 252, 0.8);
+  border-radius: 12px;
+  border: 1px solid rgba(226, 232, 240, 0.6);
+  margin: 20px 0;
 }
 
-/* 消息项样式 */
 .message {
   display: flex;
   gap: 12px;
-  max-width: 80%;
+  max-width: 85%;
+  animation: messageSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .message.user {
@@ -259,256 +255,334 @@ const scrollToBottom = () => {
   align-self: flex-start;
 }
 
-.message-avatar {
+.avatar {
   width: 36px;
   height: 36px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
   flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.message.ai .message-avatar {
-  background-color: #eff6ff;
-  color: #3b82f6;
+.avatar::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.message.user .message-avatar {
-  background-color: #f1f5f9;
-  color: #64748b;
+.avatar:hover::before {
+  opacity: 1;
+}
+
+.avatar.user {
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  color: white;
+  box-shadow: 0 4px 16px rgba(6, 182, 212, 0.3);
+}
+
+.avatar.user:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+}
+
+.avatar.ai {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
+}
+
+.avatar.ai:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
 }
 
 .message-content {
+  background: #ffffff;
   padding: 12px 16px;
-  border-radius: 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(226, 232, 240, 0.6);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   position: relative;
-}
-
-.message.ai .message-content {
-  background-color: #f1f5f9;
-  color: #1e293b;
-  border-top-left-radius: 4px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #334155;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .message.user .message-content {
-  background-color: #3b82f6;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
   color: white;
-  border-top-right-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.message-content pre {
-  margin: 0;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  font-family: inherit;
-  font-size: 14px;
-  line-height: 1.5;
+.message.ai .message-content {
+  background: rgba(248, 250, 252, 0.8);
+  border: 1px solid rgba(226, 232, 240, 0.6);
 }
 
-.message-time {
-  display: block;
-  margin-top: 4px;
+.timestamp {
   font-size: 11px;
-  opacity: 0.7;
+  color: #94a3b8;
+  margin-top: 4px;
   text-align: right;
+  font-weight: 400;
 }
 
-/* 加载状态指示器 */
+.message.ai .timestamp {
+  text-align: left;
+}
+
 .typing-indicator {
   display: flex;
-  gap: 6px;
-  padding: 10px 16px;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: rgba(248, 250, 252, 0.8);
+  border-top: 1px solid rgba(226, 232, 240, 0.6);
 }
 
-.dot {
-  width: 8px;
-  height: 8px;
+.typing-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  background: #6366f1;
   border-radius: 50%;
-  background-color: #94a3b8;
-  animation: typing 1.4s infinite ease-in-out both;
+  animation: typingBounce 1.4s infinite ease-in-out;
 }
 
-.dot:nth-child(1) {
-  animation-delay: -0.32s;
-}
+.typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dot:nth-child(2) { animation-delay: -0.16s; }
 
-.dot:nth-child(2) {
-  animation-delay: -0.16s;
-}
-
-@keyframes typing {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0);
-  }
-}
-
-/* 输入区域样式 */
-.chat-input-area {
-  padding: 16px 24px;
-  border-top: 1px solid #e2e8f0;
-  background-color: #f8fafc;
+.chat-input {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(226, 232, 240, 0.6);
+  padding: 16px 20px;
 }
 
 .input-form {
   display: flex;
   gap: 12px;
+  align-items: flex-end;
 }
 
 .message-input {
   flex: 1;
-  min-height: 60px;
-  max-height: 180px;
-  padding: 12px 16px;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  resize: vertical;
+  min-height: 40px;
+  max-height: 120px;
+  padding: 10px 14px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 10px;
+  resize: none;
   font-size: 14px;
-  line-height: 1.5;
-  outline: none;
-  transition: border-color 0.2s;
+  line-height: 1.4;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #ffffff;
+  color: #334155;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .message-input:focus {
-  border-color: #3b82f6;
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
 
-.send-btn {
-  width: 48px;
-  height: 48px;
-  border-radius: 8px;
-  background-color: #3b82f6;
+.message-input::placeholder {
+  color: #94a3b8;
+}
+
+.send-button {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
   color: white;
   border: none;
+  border-radius: 10px;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  flex-shrink: 0;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.2);
   position: relative;
   overflow: hidden;
 }
 
-.send-btn:hover {
-  background-color: #2563eb;
+.send-button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
 }
 
-.send-btn:active {
+.send-button:active {
   transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 1px 4px rgba(99, 102, 241, 0.2);
 }
 
-.send-btn::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.3s ease, height 0.3s ease;
-}
-
-.send-btn:active::before {
-  width: 100px;
-  height: 100px;
-}
-
-.send-btn:disabled {
-  background-color: #94a3b8;
+.send-button:disabled {
+  background: #e2e8f0;
+  color: #94a3b8;
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
 }
 
-.send-btn:disabled::before {
-  display: none;
-}
-
 .input-hint {
-  margin: 8px 0 0 0;
-  font-size: 12px;
+  font-size: 11px;
   color: #94a3b8;
-  text-align: left;
+  margin-top: 8px;
+  text-align: center;
 }
 
-/* 响应式调整 */
-@media (max-width: 768px) {
-  .chat-page-wrapper {
-    padding: 10px;
-  }
-
-  .ai-chat-container {
-    border-radius: 8px;
-  }
-
-  .chat-messages {
-    padding: 16px;
-  }
-
-  .message {
-    max-width: 90%;
-  }
-
-  .chat-input-area {
-    padding: 12px 16px;
-  }
+/* Markdown 样式 */
+.message-content h1,
+.message-content h2,
+.message-content h3,
+.message-content h4,
+.message-content h5,
+.message-content h6 {
+  margin: 12px 0 8px 0;
+  font-weight: 600;
+  color: inherit;
 }
 
-@import "github-markdown-css/github-markdown.css";
+.message-content p {
+  margin: 8px 0;
+  line-height: 1.6;
+}
 
-/* 调整Markdown内容的样式 */
-.markdown-content {
-  margin: 0;
-  font-size: 14px;
+.message-content ul,
+.message-content ol {
+  margin: 8px 0;
+  padding-left: 20px;
+}
+
+.message-content li {
+  margin: 4px 0;
   line-height: 1.5;
 }
 
-/* 针对AI和用户消息的Markdown内容分别设置样式 */
-.message.ai .markdown-content {
-  color: #1e293b;
+.message-content code {
+  background: rgba(0, 0, 0, 0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
 }
 
-.message.user .markdown-content {
-  color: white;
+.message.user .message-content code {
+  background: rgba(255, 255, 255, 0.2);
 }
 
-/* 优化代码块显示 */
-.markdown-content pre {
-  padding: 1em;
-  border-radius: 6px;
+.message-content pre {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 12px;
+  border-radius: 8px;
   overflow-x: auto;
-  margin: 1em 0;
+  margin: 12px 0;
+  border: 1px solid rgba(226, 232, 240, 0.6);
 }
 
-.markdown-content code {
-  font-family: 'Consolas', 'Monaco', monospace;
+.message.user .message-content pre {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.message-content pre code {
+  background: none;
+  padding: 0;
   font-size: 13px;
 }
 
-/* 优化列表显示 */
-.markdown-content ul, .markdown-content ol {
-  padding-left: 1.5em;
-  margin: 0.5em 0;
+/* 动画效果 */
+@keyframes messageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* 优化标题显示 */
-.markdown-content h1,
-.markdown-content h2,
-.markdown-content h3 {
-  margin: 1em 0 0.5em;
-  line-height: 1.2;
+@keyframes typingBounce {
+  0%, 80%, 100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .chat-container {
+    border-radius: 12px;
+  }
+  
+  .chat-header {
+    padding: 12px 16px;
+  }
+  
+  .message-list {
+    padding: 16px;
+    gap: 12px;
+  }
+  
+  .message {
+    max-width: 90%;
+    gap: 8px;
+  }
+  
+  .avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+  
+  .message-content {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  
+  .chat-input {
+    padding: 12px 16px;
+  }
+  
+  .input-form {
+    gap: 8px;
+  }
+  
+  .message-input {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  
+  .send-button {
+    width: 36px;
+    height: 36px;
+  }
+}
 </style>
