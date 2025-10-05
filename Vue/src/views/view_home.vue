@@ -3,8 +3,11 @@
     <!-- 对话列表侧边栏（左侧） -->
     <div class="chat-sidebar">
       <!-- 新建对话按钮 -->
-      <button class="new-chat-btn" @click="chatStore.createNewChat">
-        <i class="fas fa-plus"></i> 新建对话
+      <button class="new-chat-btn" @click="addNewChat">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="currentColor"/>
+        </svg>
+        <span>新建对话</span>
       </button>
       
       <!-- 对话列表 -->
@@ -16,6 +19,11 @@
           :class="{ active: index === chatStore.currentChatIndex }"
           @click="chatStore.switchChat(index)"
         >
+          <div class="chat-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" fill="currentColor"/>
+            </svg>
+          </div>
           <div class="chat-item-content">
             <div class="chat-title">{{ chat.title }}</div>
             <div class="chat-preview">
@@ -27,7 +35,9 @@
             </div>
           </div>
           <button class="delete-btn" @click.stop="chatStore.deleteChat(index)">
-            <i class="fas fa-trash"></i>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" fill="currentColor"/>
+            </svg>
           </button>
         </div>
       </div>
@@ -244,6 +254,37 @@ const chatStore = useChatStore();
   border: 1px solid rgba(226, 232, 240, 0.4);
   position: relative;
   overflow: hidden;
+  gap: 12px;
+}
+
+.chat-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(99, 102, 241, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6366f1;
+  font-size: 14px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.chat-icon svg {
+  width: 16px;
+  height: 16px;
+  color: #6b7280;
+  transition: color 0.2s ease;
+}
+
+.chat-item.active .chat-icon {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.chat-item.active .chat-icon svg {
+  color: #6366f1;
 }
 
 .chat-item::before {
