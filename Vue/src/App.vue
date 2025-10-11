@@ -16,7 +16,7 @@
           :class="{ 'active': $route.path === '/' }"
           exact
         >
-          <i class="icon-home"></i>
+          <!-- <i class="icon-home"></i> -->
           <span class="link-text">首页</span>
         </router-link>
 
@@ -27,7 +27,7 @@
           :class="{ 'active': $route.path === '/graph' }"
           exact
         >
-          <i class="icon-graph"></i>
+          <!-- <i class="icon-graph"></i> -->
           <span class="link-text">图</span>
         </router-link>
 
@@ -37,7 +37,7 @@
           :class="{ 'active': $route.path === '/api' }"
           exact
         >
-          <i class="icon-api"></i>
+          <!-- <i class="icon-api"></i> -->
           <span class="link-text">设置</span>
         </router-link>
       </div>

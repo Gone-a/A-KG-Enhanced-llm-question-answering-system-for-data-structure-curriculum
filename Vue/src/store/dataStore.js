@@ -4,25 +4,10 @@ import axios from 'axios'
 // 初始化默认的图形数据（对应你view_home.vue中的myGraphData）
 const defaultGraphData = {
   nodes: [
-    { id: 1, name: "产品部" },
-    { id: 2, name: "技术部" },
-    { id: 3, name: "设计部" },
-    { id: 4, name: "市场部" },
-    { id: 5, name: "财务部" },
-    { id: 6, name: "人力资源部" },
-    { id: 7, name: "客服部" }
+
   ],
   links: [
-    { source: 1, target: 2, relation: "关系1"},
-    { source: 1, target: 3, relation: "关系2"},
-    { source: 2, target: 3, relation: "关系3"},
-    { source: 1, target: 4, relation: "关系4"},
-    { source: 4, target: 7, relation: "关系5"},
-    { source: 2, target: 5, relation: "关系6"},
-    { source: 3, target: 5, relation: "关系7"},
-    { source: 5, target: 6, relation: "关系8"},
-    { source: 6, target: 2, relation: "关系9"},
-    { source: 6, target: 3, relation: "关系10"}
+    
   ]
 }
 

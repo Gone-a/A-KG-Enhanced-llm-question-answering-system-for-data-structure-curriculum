@@ -431,7 +431,7 @@ onUnmounted(() => {
   width: 100%;
   height: 100vh;
   position: relative;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #fdfdfd 0%, #ffffff 100%);
   overflow: hidden;
 }
 
