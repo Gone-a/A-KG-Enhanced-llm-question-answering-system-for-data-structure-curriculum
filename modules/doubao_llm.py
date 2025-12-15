@@ -52,11 +52,11 @@ class DoubaoLLM:
         """复用now项目的SYSTEM_PROMPT，确保回答逻辑一致"""
         return """
 # 1. 你的身份 (Your Identity)
-你是一个世界级的数据结构与算法专家，你的名字叫“代码导师”(Code Mentor)。...（完整复制now项目api_calls.py的SYSTEM_PROMPT）
+你是一个世界级的数据结构与算法专家。
         """.strip()
 
     def _build_messages(self, user_input: str, context: Optional[Dict[str, Any]] = None) -> List[Dict[str, str]]:
-        """构建豆包API所需的消息格式（参考now项目的call_deepseek_api）"""
+        """构建豆包API所需的消息格式"""
         # 1. 系统提示
         messages = [{"role": "system", "content": self._get_default_system_prompt()}]
         # 2. 拼接用户问题+知识图谱上下文（复用913原逻辑）

@@ -24,6 +24,7 @@ class Neo4jEntityAttributeImporter:
         except Exception as e:
             print(f"❌ Neo4j连接失败: {e}")
             raise e
+        self.default_data_dir = "/root/KG_inde/neo4j/data"
 
     def normalize_entity_name(self, name):
         """标准化实体名称，与product.py保持一致"""
@@ -242,6 +243,102 @@ class Neo4jEntityAttributeImporter:
         
         return False
 
+    def clean_database(self):
+        try:
+            self.graph.run("MATCH (n) DETACH DELETE n")
+            print("🧹 已清空所有节点与关系")
+        except Exception as e:
+            print(f"❌ 清库失败: {e}")
+
+    def create_nodes_from_export(self, nodes):
+        created = 0
+        for item in tqdm(nodes, desc="导入节点"):
+            name = item.get("name")
+            labels = item.get("labels") or ["实体"]
+            props = item.get("properties") or {}
+            if not name:
+                continue
+            props["name"] = name
+            try:
+                node = Node(*labels, **props)
+                self.graph.create(node)
+                created += 1
+            except Exception as e:
+                print(f"⚠️ 节点导入失败: {name} - {e}")
+        print(f"✅ 导入节点数量: {created}")
+        return created
+
+    def create_relationships_from_export(self, relationships):
+        created = 0
+        for rel in tqdm(relationships, desc="导入关系"):
+            source = rel.get("source")
+            target = rel.get("target")
+            rel_type = rel.get("relation")
+            props = rel.get("properties") or {}
+            if not source or not target or not rel_type:
+                continue
+            try:
+                a = self.graph.nodes.match(name=source).first()
+                b = self.graph.nodes.match(name=target).first()
+                if not a or not b:
+                    continue
+                relationship = Relationship(a, rel_type, b, **props)
+                self.graph.create(relationship)
+                created += 1
+            except Exception as e:
+                print(f"⚠️ 关系导入失败: {source}-{rel_type}->{target} - {e}")
+        print(f"✅ 导入关系数量: {created}")
+        return created
+
+    def import_full_graph(self, full_file_path=None, clean=True):
+        if full_file_path is None:
+            full_file_path = os.path.join(self.default_data_dir, "full_graph_data.json")
+        try:
+            with open(full_file_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        except Exception as e:
+            print(f"❌ 读取完整图谱数据失败: {e}")
+            return
+        if clean:
+            self.clean_database()
+        nodes = data.get("nodes") or []
+        relationships = data.get("relationships") or []
+        print(f"📁 数据文件: {full_file_path}")
+        print(f"📊 待导入节点: {len(nodes)}，关系: {len(relationships)}")
+        n = self.create_nodes_from_export(nodes)
+        r = self.create_relationships_from_export(relationships)
+        print("🎉 重新导入完成")
+        print(f"   - 节点: {n}")
+        print(f"   - 关系: {r}")
+
+    def import_nodes_file(self, nodes_file_path=None, clean=False):
+        if nodes_file_path is None:
+            nodes_file_path = os.path.join(self.default_data_dir, "nodes.json")
+        try:
+            with open(nodes_file_path, "r", encoding="utf-8") as f:
+                nodes = json.load(f)
+        except Exception as e:
+            print(f"❌ 读取节点文件失败: {e}")
+            return
+        if clean:
+            self.clean_database()
+        print(f"📁 节点文件: {nodes_file_path}")
+        print(f"📊 待导入节点: {len(nodes)}")
+        self.create_nodes_from_export(nodes)
+
+    def import_relationships_file(self, rels_file_path=None):
+        if rels_file_path is None:
+            rels_file_path = os.path.join(self.default_data_dir, "relationships.json")
+        try:
+            with open(rels_file_path, "r", encoding="utf-8") as f:
+                rels = json.load(f)
+        except Exception as e:
+            print(f"❌ 读取关系文件失败: {e}")
+            return
+        print(f"📁 关系文件: {rels_file_path}")
+        print(f"📊 待导入关系: {len(rels)}")
+        self.create_relationships_from_export(rels)
+
     def import_entity_attributes(self, data_file_path):
         """导入实体属性到Neo4j图数据库"""
         print("🚀 开始导入实体属性...")
@@ -327,6 +424,10 @@ if __name__ == "__main__":
     parser.add_argument('--data', type=str, default='/root/KG_inde/neo4j/data/data_structure_kg_optimized.json',
                        help='实体属性数据文件路径')
     parser.add_argument('--stats', action='store_true', help='显示实体属性统计信息')
+    parser.add_argument('--full', type=str, nargs='?', const='default', help='从full_graph_data.json重新导入节点和关系')
+    parser.add_argument('--nodes-file', type=str, help='仅导入节点文件（nodes.json）')
+    parser.add_argument('--rels-file', type=str, help='仅导入关系统文件（relationships.json）')
+    parser.add_argument('--clean', action='store_true', help='导入前清空数据库')
     
     args = parser.parse_args()
     
@@ -336,6 +437,15 @@ if __name__ == "__main__":
     if args.stats:
         # 显示统计信息
         importer.get_entity_stats()
+    elif args.full is not None:
+        if args.full == 'default':
+            importer.import_full_graph(clean=args.clean)
+        else:
+            importer.import_full_graph(args.full, clean=args.clean)
+    elif args.nodes_file:
+        importer.import_nodes_file(args.nodes_file, clean=args.clean)
+    elif args.rels_file:
+        importer.import_relationships_file(args.rels_file)
     else:
         # 导入实体属性
         print(f"🔄 使用数据文件: {args.data}")

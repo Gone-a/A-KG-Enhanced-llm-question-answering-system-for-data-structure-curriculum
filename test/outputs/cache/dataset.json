@@ -1,0 +1,1212 @@
+[
+  {
+    "topic": "弗洛伊德算法",
+    "attributes": {
+      "type": "算法",
+      "description": "未定义",
+      "properties": "",
+      "time_complexity": "未定义",
+      "space_complexity": "未定义",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "Θ记号",
+    "attributes": {
+      "type": "概念",
+      "description": "渐近紧确界记号，表示存在正常数c₁、c₂和n₀，使得对于所有n ≥ n₀，有0 ≤ c₁g(n) ≤ f(n) ≤ c₂g(n)，其中f(n)为算法的运行时间函数，g(n)为基准函数（如n、n²、n log n等），用于刻画f(n)的渐近行为。",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "B+树",
+    "attributes": {
+      "type": "数据结构",
+      "description": "B+树是一种平衡的多路搜索树，专为外部存储（如磁盘）设计的高效索引结构。其核心特征包括：内部节点仅存储键（作为子树分隔符）和子节点指针，不存数据；所有叶子节点位于同一层，存储全部键及对应数据指针/记录；叶子节点通过双向链表连接以支持顺序访问；每个节点的子节点数（分支度）在[ceil(m/2), m]区间内（m为阶数），保证树的平衡性。",
+      "properties": "平衡树结构（所有叶子节点深度一致）; 内部节点仅作索引（无数据存储）; 叶子节点存储全量键与数据且有序链接; 多路分支（阶数m决定节点最大子节点数）; 范围查询与顺序访问效率显著优于B树; 插入/删除通过节点分裂/合并保持平衡",
+      "time_complexity": "查找（精确） (best_case: O(log_m n), average_case: O(log_m n), worst_case: O(log_m n)); 查找（范围） (best_case: O(log_m n + k), average_case: O(log_m n + k), worst_case: O(log_m n + k)); 插入 (best_case: O(log_m n), average_case: O(log_m n), worst_case: O(log_m n)); 删除 (best_case: O(log_m n), average_case: O(log_m n), worst_case: O(log_m n)); 顺序遍历 (best_case: O(n), average_case: O(n), worst_case: O(n))",
+      "space_complexity": "best_case: O(n); average_case: O(n); worst_case: O(n)",
+      "common_operations": "精确查找: 根据唯一键定位对应的数据记录 (用途: 数据库点查询（如SELECT * FROM users WHERE id=123）); 范围查找: 查找键在指定区间内的所有数据记录 (用途: 数据库范围查询（如SELECT * FROM orders WHERE amount BETWEEN 100 AND 500）); 插入: 添加新键值对，节点满时分裂以保持平衡 (用途: 数据库插入操作（如INSERT INTO products VALUES ('MacBook', 14999)）); 删除: 移除指定键的记录，节点不足时合并以保持平衡 (用途: 数据库删除操作（如DELETE FROM logs WHERE time < '2024-01-01'）); 顺序遍历: 按键序遍历所有数据记录 (用途: 数据库排序查询（如SELECT * FROM employees ORDER BY salary ASC）)"
+    }
+  },
+  {
+    "topic": "大根堆",
+    "attributes": {
+      "type": "数据结构",
+      "description": "大根堆（Max-Heap）是满足大根堆性质的完全二叉树数据结构，每个节点的值大于等于其左右子节点的值（若存在），根节点为堆中最大值；通常采用数组存储，利用完全二叉树的索引特性（父节点i的左子为2i+1、右子为2i+2，子节点j的父为(j-1)//2）实现高效的父/子节点访问。",
+      "properties": "结构特性：完全二叉树，除最后一层外均填满，最后一层节点靠左排列；; 堆序性质：每个节点的值≥其左右子节点的值；; 根节点特性：根节点是堆中的最大值；; 索引关系：数组存储时，父节点i的左子为2i+1、右子为2i+2，子节点j的父为(j-1)//2；; 高度特性：含n个元素的大根堆高度为⌊log₂n⌋（根到叶子的最长路径边数）",
+      "time_complexity": "建堆（Build Max-Heap） (best_case: O(n), average_case: O(n), worst_case: O(n)); 插入（Insert） (best_case: O(log n), average_case: O(log n), worst_case: O(log n)); 删除最大值（Extract Max） (best_case: O(log n), average_case: O(log n), worst_case: O(log n)); 堆化（Max-Heapify） (best_case: O(log n), average_case: O(log n), worst_case: O(log n)); 获取最大值（Get Max） (best_case: O(1), average_case: O(1), worst_case: O(1))",
+      "space_complexity": "总空间复杂度为O(n)（n为元素数量）；若采用迭代堆化，额外空间复杂度O(1)；若采用递归堆化，额外空间复杂度O(log n)（递归栈深度）。",
+      "common_operations": "建堆（Build Max-Heap）: 将无序数组转换为满足大根堆性质的完全二叉树，通过从最后一个非叶子节点开始逐次堆化实现。 (用途: 初始化堆结构，为堆排序或最大优先队列提供初始数据；); 插入（Insert）: 将新元素添加至堆末尾，通过向上调整（Sift Up）操作（与父节点比较并交换，直到满足堆序性质）恢复大根堆。 (用途: 动态向最大优先队列添加元素，如任务调度系统中加入新的高优先级任务；); 删除最大值（Extract Max）: 移除堆顶最大值，将堆最后一个元素移至堆顶，通过向下调整（Sift Down）操作（与子节点比较并交换，直到满足堆序性质）恢复大根堆。 (用途: 从最大优先队列中取出最高优先级元素，如任务调度中执行最紧急的任务；); 堆化（Max-Heapify）: 针对违反大根堆性质的节点（值小于子节点），递归/迭代地与最大子节点交换并调整，使该节点及其子树满足堆序性质。 (用途: 建堆过程中修复局部堆结构，或删除元素后恢复整体堆性质；); 获取最大值（Get Max）: 直接返回堆顶元素（数组第一个元素），不修改堆结构。 (用途: 快速查询堆中最大元素，如监控系统实时查看最高负载值或最高温度。)"
+    }
+  },
+  {
+    "topic": "选择排序",
+    "attributes": {
+      "type": "算法",
+      "description": "选择排序是一种简单的比较排序算法，其核心思想是通过反复从**未排序部分**中选取最小（或最大）元素，并将其放置在**已排序部分**的末尾，逐步构建有序序列",
+      "properties": "",
+      "time_complexity": "best_case: O(n²); average_case: O(n²); worst_case: O(n²)",
+      "space_complexity": "O(1)",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "二路归并",
+    "attributes": {
+      "type": "概念",
+      "description": "二路归并是一种将两个已排序的数组（或子数组）合并为一个更大的已排序数组的算法，是归并排序的核心操作，主要用于合并分治策略中分解得到的有序子问题解。",
+      "properties": "",
+      "time_complexity": "best_case: O(n); average_case: O(n); worst_case: O(n)",
+      "space_complexity": "O(n)",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "平均查找长度",
+    "attributes": {
+      "type": "算法",
+      "description": "查找算法在查找过程中对关键字进行比较的次数的期望值，是衡量查找算法时间效率的核心指标之一",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "按秩合并",
+    "attributes": {
+      "type": "概念",
+      "description": "并查集（DSU）中的合并优化操作，合并两个集合时将秩较小的树的根节点连接到秩较大的树的根节点上，通过控制树的高度增长来提升后续查找操作的效率，其中秩通常定义为树的高度（或近似高度）或节点数量",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "最坏情况",
+    "attributes": {
+      "type": "概念",
+      "description": "算法在输入规模为n时，所有可能输入中执行时间的最大值，即运行时间的紧确上界（对于任意输入，运行时间不超过f(n)的常数倍）",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "分支限界",
+    "attributes": {
+      "type": "概念",
+      "description": "一种基于优先级队列（或队列）的系统搜索算法，用于求解组合优化问题（如旅行商问题、0-1背包问题）。其核心思想是将解空间组织为树结构，通过限界函数估计节点的最优潜力，剪去无法产生更优解的分支，优先扩展最有希望的节点以快速找到全局最优解",
+      "properties": "",
+      "time_complexity": "best_case: O(b^d)（b为解空间树的分支因子，d为最优解所在的深度，限界函数高效剪枝时，快速找到最优解并停止搜索）; average_case: 未定义（高度依赖限界函数的有效性、问题规模及解空间特性，无通用平均情况复杂度）; worst_case: O(b^n)（n为问题规模，如旅行商问题的城市数，限界函数无效时遍历整个解空间）",
+      "space_complexity": "best_case: O(b^d)（优先队列仅存储最优解路径附近的少量节点，空间占用小）; average_case: 未定义（依赖限界函数和问题特性，无通用平均情况复杂度）; worst_case: O(b^n)（存储解空间树的所有节点，空间占用与暴力搜索相当）",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "记忆化搜索",
+    "attributes": {
+      "type": "算法",
+      "description": "记忆化搜索是一种结合递归搜索与动态规划思想的优化技术，通过存储已计算子问题的结果来避免重复计算，常用于解决具有重叠子问题和最优子结构特征的问题",
+      "properties": "",
+      "time_complexity": "best_case: O(S*T); average_case: O(S*T); worst_case: O(S*T)",
+      "space_complexity": "best_case: O(S + D); average_case: O(S + D); worst_case: O(S + D)",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "插入排序",
+    "attributes": {
+      "type": "算法",
+      "description": "插入排序是一种简单直观的比较排序算法，通过逐步构建有序序列，对每个未排序元素在已排序序列中从后向前扫描以找到正确插入位置，最终完成整个数组的排序",
+      "properties": "",
+      "time_complexity": "best_case: O(n); average_case: O(n²); worst_case: O(n²)",
+      "space_complexity": "O(1)",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "势能方法",
+    "attributes": {
+      "type": "概念",
+      "description": "势能方法是一种均摊（amortized）分析技术，通过为数据结构的每个状态定义非负势能函数，将操作的瞬时成本分摊到后续操作中，从而计算操作序列的均摊成本。其核心是利用势能变化平衡不同操作的成本，避免最坏情况的集中出现。",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "单链表",
+    "attributes": {
+      "type": "数据结构",
+      "description": "单链表（Singly Linked List）是一种线性数据结构，由若干节点（Node）组成，每个节点包含两个部分：存储数据的数据域（Data Field）和指向后继节点的指针域（Pointer Field）。链表的起点为头节点（Head Node，可选，用于简化边界操作）或头指针（Head Pointer），尾节点的指针域指向空值（Null），形成链状结构。逻辑上元素连续，但物理存储不连续。",
+      "properties": "线性结构，逻辑顺序由节点指针维护，物理存储不连续; 仅支持顺序访问（Sequential Access）：必须从头节点开始遍历才能访问指定位置元素; 插入/删除操作无需移动元素，仅需修改相邻节点的指针，操作效率高于数组（除非需先查找位置）; 长度动态可变，无需预先分配固定内存空间; 存在头节点（可选）：可避免处理空链表的边界问题；尾节点指针必指向空; 不支持随机访问（Random Access），访问第k个元素需O(k)时间",
+      "time_complexity": "访问元素 (best_case: O(1), average_case: O(n), worst_case: O(n)); 插入节点 (best_case: O(1), average_case: O(n), worst_case: O(n)); 删除节点 (best_case: O(1), average_case: O(n), worst_case: O(n)); 查找元素（按值） (best_case: O(1), average_case: O(n), worst_case: O(n)); 获取链表长度 (best_case: O(1), average_case: O(n), worst_case: O(n))",
+      "space_complexity": "best_case: O(n); average_case: O(n); worst_case: O(n)",
+      "common_operations": "初始化链表: 创建空链表（头指针指向空）或带空头节点的链表（头节点数据域无意义，指针域指向空） (用途: 准备存储动态变化的数据集合，如实现队列、栈等抽象数据类型的初始状态); 头插法插入节点: 在链表头部插入新节点：新节点的指针域指向原头节点，更新头指针/头节点指向新节点 (用途: 实现后进先出（LIFO）的栈结构，或需要快速在头部添加元素的场景（如记录最近操作）); 尾插法插入节点: 在链表尾部插入新节点：遍历至尾节点，将尾节点的指针域指向新节点，新节点指针域指向空 (用途: 实现先进先出（FIFO）的队列结构，或按顺序存储数据的场景（如日志记录）); 中间插入节点: 在指定位置（如第k个节点后）插入新节点：遍历至目标位置的前驱节点，修改前驱节点和新节点的指针域 (用途: 在有序链表中保持顺序插入元素（如排序链表的维护），或在特定位置插入数据（如文本编辑器的插入操作）); 删除节点（按位置）: 删除指定位置的节点：遍历至目标节点的前驱节点，修改前驱节点的指针域跳过目标节点，释放目标节点内存（若需手动管理） (用途: 移除链表中无效或过期的数据（如缓存淘汰中的LRU算法移除尾部节点）); 删除节点（按值）: 删除第一个值等于目标值的节点：遍历链表找到目标节点的前驱节点，修改指针域跳过目标节点 (用途: 移除特定数据（如从用户列表中删除某个用户）); 遍历链表: 从头节点开始，依次访问每个节点的数据域，直到遇到空指针 (用途: 打印链表所有元素、统计元素个数、计算元素总和等需要访问所有元素的场景); 查找节点（按值）: 从头节点开始遍历，比较每个节点的数据域与目标值，返回第一个匹配的节点或位置 (用途: 查询数据是否存在（如检查用户是否在列表中）); 获取链表长度: 遍历链表统计节点总数（若未缓存长度），或直接返回缓存的长度值（若维护了长度变量） (用途: 判断链表是否为空（长度为0）、限制操作范围（如不允许插入超过最大长度的元素）)"
+    }
+  },
+  {
+    "topic": "循环链表",
+    "attributes": {
+      "type": "数据结构",
+      "description": "循环链表（Circular Linked List）是链表的一种变体，其最后一个节点的指针（next）指向链表的头节点（单向循环链表），或双向循环链表中头节点的前驱指针（prev）指向尾节点、尾节点的后继指针（next）指向头节点，形成闭合环形结构。与普通链表不同，循环链表无NULL终止指针，可从任意节点出发遍历整个链表",
+      "properties": "1. 闭合环形：尾节点与头节点相连，无NULL指针；2. 遍历灵活性：可从任意节点开始遍历全链表；3. 操作效率：维护尾指针时，单向循环链表的头尾插入/删除可优化至O(1)，双向循环链表头尾操作均为O(1)；4. 动态空间：节点动态分配，无需预分配固定大小；5. 适合循环场景：如约瑟夫环、轮询调度等需要环形遍历的问题",
+      "time_complexity": "初始化 (best_case: O(1), average_case: O(1), worst_case: O(1)); 头部插入（维护尾指针） (best_case: O(1), average_case: O(1), worst_case: O(1)); 尾部插入（维护尾指针） (best_case: O(1), average_case: O(1), worst_case: O(1)); 中间插入 (best_case: O(n), average_case: O(n), worst_case: O(n)); 头部删除（维护尾指针） (best_case: O(1), average_case: O(1), worst_case: O(1)); 尾部删除（单向循环无尾指针） (best_case: O(n), average_case: O(n), worst_case: O(n)); 尾部删除（双向循环） (best_case: O(1), average_case: O(1), worst_case: O(1)); 查找（按值） (best_case: O(1), average_case: O(n), worst_case: O(n)); 遍历 (best_case: O(n), average_case: O(n), worst_case: O(n)); space_complexity (best_case: O(n), average_case: O(n), worst_case: O(n))",
+      "space_complexity": "未定义",
+      "common_operations": "初始化 (用途: 创建空循环链表或带初始节点的循环链表，作为后续操作的基础); 头部插入（维护尾指针） (用途: 循环队列的队首添加元素，利用尾指针优化至O(1)操作); 尾部插入（维护尾指针） (用途: 循环队列的队尾添加元素，如生产者-消费者模型中的入队操作); 中间插入 (用途: 按位置顺序插入元素，如在环形任务列表的指定位置插入新任务); 头部删除（维护尾指针） (用途: 循环队列的队首移除元素，如消费者从队列中取出最前元素); 尾部删除（双向循环） (用途: 双向循环链表中快速移除尾节点，如撤销操作中的最后一步回退); 查找（按值） (用途: 在约瑟夫环问题中查找待删除的节点，或轮询中定位目标节点); 遍历 (用途: 轮询所有进程进行调度（如操作系统的Round-Robin调度），或从任意节点开始处理全链表元素)"
+    }
+  },
+  {
+    "topic": "并查集",
+    "attributes": {
+      "type": "概念",
+      "description": "并查集（Disjoint Set Union, DSU）是一种用于高效处理动态连通性问题的树型数据结构，通过维护元素之间的父子关系表示集合，支持快速的集合合并与元素所属集合查询操作，核心优化策略为路径压缩和按秩/大小合并。",
+      "properties": "1. 动态连通性：支持动态合并集合与查询元素连通性；2. 路径压缩：查找操作时扁平化树结构，将路径上的节点直接指向根，降低后续查询成本；3. 按秩/大小合并：合并时将较浅/较小的树合并到较深/较大的树中，保持树的高度趋近于常数；4. 根节点唯一性：每个集合由唯一的根节点代表，根节点的父节点是自身。",
+      "time_complexity": "查找（Find） (best_case: O(1), average_case: α(n), worst_case: α(n)); 合并（Union） (best_case: O(1), average_case: α(n), worst_case: α(n)); 初始化（Initialize） (best_case: O(n), average_case: O(n), worst_case: O(n))",
+      "space_complexity": "O(n)，其中n为元素总数，需存储父数组和秩/大小数组（各占O(n)空间）。",
+      "common_operations": "初始化（Initialize）: 为每个元素创建独立集合，父数组中每个元素的父节点设为自身，秩/大小数组初始化为1。 (用途: 算法开始前初始化并查集，为后续的合并、查询操作准备数据结构。); 查找（Find）: 递归或迭代查找元素的根节点，过程中对路径上的所有节点执行路径压缩（直接指向根），优化后续查找效率。 (用途: 判断两个元素是否连通（比较根节点是否相同）、获取元素所属集合的标识。); 合并（Union）: 找到两个元素的根节点，若根不同则按秩/大小合并（将较浅/较小的树合并到较深/较大的树的根下），更新秩/大小数组。 (用途: 合并两个不连通的集合（如Kruskal算法中添加边时合并两个顶点的集合）、扩展连通区域。); 查询连通性（IsConnected）: 通过两次查找操作比较两个元素的根节点是否相同，判断是否属于同一集合。 (用途: Kruskal算法中判断边是否形成环（两点已连通则跳过）、图论中判断两点可达性。)"
+    }
+  },
+  {
+    "topic": "归并排序",
+    "attributes": {
+      "type": "算法",
+      "description": "归并排序（Merge Sort）是一种基于分治策略的稳定排序算法，通过递归地将数组划分为子数组、排序子数组并合并结果来实现整体有序",
+      "properties": "",
+      "time_complexity": "best_case: O(n log n); average_case: O(n log n); worst_case: O(n log n)",
+      "space_complexity": "best_case: O(n); average_case: O(n); worst_case: O(n)",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "桶排序",
+    "attributes": {
+      "type": "算法",
+      "description": "桶排序是一种基于分布的排序算法，通过将待排序元素映射到多个桶中，对每个桶内元素单独排序后合并所有桶内容以得到有序序列",
+      "properties": "",
+      "time_complexity": "best_case: O(n); average_case: O(n); worst_case: O(n²)",
+      "space_complexity": "O(n + k)（k为桶数量）",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "平均情况",
+    "attributes": {
+      "type": "概念",
+      "description": "算法在所有可能的输入实例上的期望运行时间，其中输入实例服从预先定义的概率分布，用于量化算法在典型或随机输入下的平均性能表现",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "小根堆",
+    "attributes": {
+      "type": "数据结构",
+      "description": "小根堆（Min-Heap）是一种满足堆性质的完全二叉树数据结构，其中每个节点的值都小于或等于其左右子节点的值（堆序性质），因此根节点是堆中的最小值",
+      "properties": "1. 结构性质：完全二叉树，除最后一层外所有层均满，最后一层节点靠左排列；2. 堆序性质：每个节点的值≤其左右子节点的值；3. 最小值特性：根节点是堆中的最小元素；4. 高度特性：包含n个元素的小根堆高度为⌊log₂n⌋",
+      "time_complexity": "插入 (best_case: O(1), average_case: O(log n), worst_case: O(log n)); 删除最小元素 (best_case: O(log n), average_case: O(log n), worst_case: O(log n)); 获取最小元素 (best_case: O(1), average_case: O(1), worst_case: O(1)); 构建堆 (best_case: O(n), average_case: O(n), worst_case: O(n)); 堆化（单个节点） (best_case: O(log n), average_case: O(log n), worst_case: O(log n))",
+      "space_complexity": "O(n)，其中n为堆中元素的数量，数组存储需连续n个存储空间，额外空间为常数级",
+      "common_operations": "插入: 将元素添加到堆中并保持堆性质，步骤为：将元素追加到数组末尾，从该位置向上比较并交换（若当前节点值小于父节点值），直到满足堆序或到达根节点 (用途: 向优先队列中添加新的低优先级任务（如任务调度中添加新的紧急任务）); 删除最小元素: 移除堆中的最小元素（根节点）并保持堆性质，步骤为：保存根节点值，将数组最后一个元素移动到根位置，从根节点向下比较并交换（选择左右子节点中的较小值交换），直到满足堆序或到达叶节点 (用途: 优先队列中取出优先级最高的任务（如任务调度中执行最紧急的任务）); 获取最小元素: 返回堆中的最小元素（根节点）且不修改堆结构，步骤为：直接访问数组的第一个元素（索引从0开始）或第二个元素（索引从1开始） (用途: 快速查询优先队列中的最高优先级任务（如查询当前最紧急的任务）); 构建堆: 从无序数组构造小根堆，步骤为：从最后一个非叶节点（索引⌊n/2⌋-1，索引从0开始）开始，依次对每个节点执行堆化（向下调整）操作 (用途: 将无序数据初始化为优先队列（如初始化任务调度的任务列表）); 堆化: 调整单个节点及其子树以满足堆性质，步骤为：比较当前节点与左右子节点的值，若存在子节点值更小则交换，递归调整交换后的子节点 (用途: 构建堆或删除元素后恢复堆性质)"
+    }
+  },
+  {
+    "topic": "大O记号",
+    "attributes": {
+      "type": "概念",
+      "description": "大O记号（Big O Notation）是用于描述算法时间复杂度或空间复杂度随输入规模n增长的渐近上界的数学符号，它忽略低阶项和常数因子，仅关注主导复杂度增长的核心项，用于分析算法在极限情况下的性能上限。",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "外部排序",
+    "attributes": {
+      "type": "算法",
+      "description": "外部排序是一种用于处理数据量远超过内存容量的排序算法，通过分治策略将外存数据划分为可装入内存的块，逐块排序生成初始归并段，再通过多路归并将多个有序归并段合并为最终有序结果，核心是利用外存作为中间存储并优化读写次数",
+      "properties": "",
+      "time_complexity": "整体 (best_case: O(n log n), average_case: O(n log n), worst_case: O(n log n)); 初始归并段生成 (best_case: O(n log m), average_case: O(n log m), worst_case: O(n log m)); 多路归并 (best_case: O(n log_k r), average_case: O(n log_k r), worst_case: O(n log_k r))",
+      "space_complexity": "内存额外空间: O((k+1)B); 外存额外空间: O(n)",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "深度优先搜索",
+    "attributes": {
+      "type": "算法",
+      "description": "深度优先搜索（Depth-First Search, DFS）是一种用于遍历或搜索树、图等数据结构的算法，核心策略为“深度优先”——优先沿当前路径尽可能深入探索未访问节点，直至无法继续（到达叶子节点或邻接节点均已访问），再回溯至上一节点探索其他分支。",
+      "properties": "",
+      "time_complexity": "邻接表 (best_case: O(V+E), average_case: O(V+E), worst_case: O(V+E)); 邻接矩阵 (best_case: O(V²), average_case: O(V²), worst_case: O(V²))",
+      "space_complexity": "best_case: O(V); average_case: O(V); worst_case: O(V)",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "树",
+    "attributes": {
+      "type": "数据结构",
+      "description": "树是一种非线性数据结构，由n（n≥0）个节点构成的有限集合；当n=0时为空树，n>0时存在唯一的根节点，其余节点可划分为若干互不相交的有限子集，每个子集本身也是树（称为根的子树）",
+      "properties": "1. 根节点无父节点，其余每个节点有且仅有一个父节点；2. 节点的子树互不相交；3. 树的高度（Height）是根节点到最远叶子节点的边数，节点的深度（Depth）是该节点到根节点的边数；4. 节点的度（Degree）是其子节点的数量，树的度是所有节点度的最大值；5. 叶子节点是度为0的节点",
+      "time_complexity": "查找（二叉搜索树） (best_case: O(1), average_case: O(logn), worst_case: O(n)); 插入（二叉搜索树） (best_case: O(1), average_case: O(logn), worst_case: O(n)); 删除（二叉搜索树） (best_case: O(1), average_case: O(logn), worst_case: O(n)); 前序/中序/后序遍历 (best_case: O(n), average_case: O(n), worst_case: O(n)); 层序遍历（BFS） (best_case: O(n), average_case: O(n), worst_case: O(n)); 求树的高度 (best_case: O(n), average_case: O(n), worst_case: O(n))",
+      "space_complexity": "顺序存储 (best_case: O(n), average_case: O(n), worst_case: O(n)); 链式存储 (best_case: O(n), average_case: O(n), worst_case: O(n)); 递归遍历（栈空间） (best_case: O(logn), average_case: O(logn), worst_case: O(n)); 层序遍历（队列空间） (best_case: O(1), average_case: O(n), worst_case: O(n))",
+      "common_operations": "遍历（前序/中序/后序/层序） (用途: 访问树中所有节点，用于打印节点内容、计算节点总和、查找特定元素等场景); 插入节点 (用途: 向树中添加新元素，如二叉搜索树中插入键值对以维持有序性); 删除节点 (用途: 移除树中指定元素，如从二叉搜索树中删除键并调整结构保持性质); 查找节点 (用途: 根据值或键定位节点，如判断二叉搜索树中是否存在目标键); 求树的高度 (用途: 计算树的深度，用于判断二叉树是否平衡（如AVL树平衡因子计算）); 求节点的度 (用途: 统计节点的子节点数量，用于多叉树构建或节点结构分析)"
+    }
+  },
+  {
+    "topic": "最小生成树",
+    "attributes": {
+      "type": "数据结构",
+      "description": "最小生成树（Minimum Spanning Tree, MST）算法用于在连通无向加权图中找到一棵包含所有顶点的生成树，使得树中所有边的权重之和最小。生成树是图的极小连通子图，包含所有顶点且无环，边数为顶点数减一",
+      "properties": "",
+      "time_complexity": "Kruskal（并查集优化）: O(E log E); Prim（邻接矩阵+线性查找）: O(V²); Prim（邻接表+斐波那契堆）: O(E + V log V)",
+      "space_complexity": "Kruskal: O(E + V); Prim（邻接表存储）: O(V + E); Prim（邻接矩阵存储）: O(V²)",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "查找",
+    "attributes": {
+      "type": "算法",
+      "description": "计算机科学中，在数据结构（如数组、树、哈希表等）中根据给定键或条件，确定目标元素的存在性、位置或关联值的基本操作，核心是获取目标元素信息而默认不修改数据结构状态。",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "内存分配",
+    "attributes": {
+      "type": "概念",
+      "description": "从系统或进程的内存池中预留指定大小的内存块（通常为连续虚拟地址空间），返回指向该块起始地址的指针，供程序存储动态生成数据的操作，是动态内存管理的核心步骤",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "O",
+    "attributes": {
+      "type": "概念",
+      "description": "大O符号定义的时间复杂度类别，用于描述算法运行时间随输入规模n增长的速率为二次方级别，即运行时间与输入规模的平方成正比",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "入栈",
+    "attributes": {
+      "type": "数据结构",
+      "description": "栈的基本操作之一，将一个元素添加至栈的顶端位置，该元素成为新的栈顶，栈的大小增加1",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "后缀树",
+    "attributes": {
+      "type": "数据结构",
+      "description": "后缀树（Suffix Tree）是一种用于高效表示字符串所有后缀的压缩树形数据结构，其每条边对应字符或字符区间，每个叶子节点对应原字符串的一个后缀，内部节点对应多个后缀的公共前缀；通过路径压缩和后缀链接（Suffix Link）优化空间与构建效率，支持快速解决子串查询、重复模式挖掘等问题",
+      "properties": "压缩性：通过边的字符区间压缩重复路径，减少冗余后缀存储; 后缀覆盖：所有叶子节点的路径对应原字符串的全部后缀; 公共前缀性：内部节点的路径对应多个后缀的最长公共前缀; 后缀链接：内部节点的后缀链接指向其路径去掉首字符后的对应节点，加速构建与查询; 线性空间：优化构建算法（如Ukkonen）可将空间复杂度降至O(n)（n为原字符串长度）",
+      "time_complexity": "构建 (best_case: O(n), average_case: O(n), worst_case: O(n)); 查询子串存在 (best_case: O(m), average_case: O(m), worst_case: O(m)); 查询子串出现次数 (best_case: O(m), average_case: O(m + k), worst_case: O(m + k)); 查询最长重复子串 (best_case: O(n), average_case: O(n), worst_case: O(n)); 查询最长公共子串（两字符串） (best_case: O(n1 + n2), average_case: O(n1 + n2), worst_case: O(n1 + n2))",
+      "space_complexity": "best_case: O(n); average_case: O(n); worst_case: O(n)",
+      "common_operations": "构建后缀树: 根据输入字符串生成对应的后缀树结构，通常采用线性时间算法（如Ukkonen）实现 (用途: 预处理文本以支持后续高效查询（如搜索引擎的文本索引、生物信息学中的基因序列分析）); 查询子串是否存在: 检查目标子串是否为原字符串的子串，通过沿后缀树路径匹配字符实现 (用途: 文本搜索（如查找文档中是否包含某个关键词）、拼写检查中的前缀匹配); 查询子串出现次数: 统计目标子串在原字符串中的出现次数，通过找到对应内部节点并计算其子树叶子节点数量实现 (用途: 词频统计（如统计文本中某个词的出现次数）、生物序列中的motif频率分析); 查询最长重复子串: 找到原字符串中最长的重复出现的子串，通过遍历后缀树内部节点并计算路径长度最大值实现 (用途: 重复内容检测（如论文查重中的长重复片段识别）、数据压缩中的重复模式挖掘); 查询最长公共子串: 找到两个或多个字符串的最长公共子串，通过构建合并后的后缀树（如添加特殊字符连接字符串）并查找最深公共内部节点实现 (用途: 文本相似度比较（如文档去重、plagiarism检测）、生物信息学中的同源序列分析（如基因序列的相似区域查找）)"
+    }
+  },
+  {
+    "topic": "拓扑排序",
+    "attributes": {
+      "type": "算法",
+      "description": "对有向无环图（DAG）的顶点进行线性排序，使得对于图中每一条有向边(u, v)，顶点u在排序序列中始终位于顶点v之前。拓扑排序主要用于解决存在依赖关系的调度问题（如课程选修顺序、任务执行顺序等）。",
+      "properties": "",
+      "time_complexity": "Kahn算法: O(V+E); DFS逆后序算法: O(V+E)",
+      "space_complexity": "Kahn算法: O(V); DFS逆后序算法: O(V)",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "双向链表",
+    "attributes": {
+      "type": "数据结构",
+      "description": "双向链表是一种线性数据结构，每个节点包含数据域和两个指针域（前驱指针prev与后继指针next），分别指向其前一个和后一个节点，支持从头部或尾部双向遍历及操作",
+      "properties": "1. 节点含prev和next双指针，支持双向遍历；2. 插入/删除无需移动元素仅调整指针；3. 动态扩展无需预分配固定内存；4. 额外前驱指针增加空间开销；5. 通常维护头（head）尾（tail）指针以支持首尾快速操作",
+      "time_complexity": "初始化 (best_case: O(1), average_case: O(1), worst_case: O(1)); 头部插入 (best_case: O(1), average_case: O(1), worst_case: O(1)); 尾部插入 (best_case: O(1), average_case: O(1), worst_case: O(1)); 中间插入 (best_case: O(n), average_case: O(n), worst_case: O(n)); 头部删除 (best_case: O(1), average_case: O(1), worst_case: O(1)); 尾部删除 (best_case: O(1), average_case: O(1), worst_case: O(1)); 中间删除 (best_case: O(n), average_case: O(n), worst_case: O(n)); 按值查找 (best_case: O(1), average_case: O(n), worst_case: O(n)); 按位置查找 (best_case: O(1), average_case: O(n), worst_case: O(n)); 遍历 (best_case: O(n), average_case: O(n), worst_case: O(n))",
+      "space_complexity": "best_case: O(n); average_case: O(n); worst_case: O(n)",
+      "common_operations": "初始化 (用途: 创建空双向链表，初始化头指针和尾指针); 头部插入 (用途: 栈的push操作等需快速在开头添加元素的场景); 尾部插入 (用途: 队列的enqueue操作等需快速在末尾添加元素的场景); 中间插入 (用途: 有序链表中插入元素以保持有序的场景); 头部删除 (用途: 栈的pop操作或队列的dequeue操作等需快速删除开头元素的场景); 尾部删除 (用途: 双端队列的尾部弹出操作等需快速删除末尾元素的场景); 中间删除 (用途: LRU缓存中删除最久未使用元素等需删除指定位置元素的场景); 按值查找 (用途: 检查元素是否存在于链表中的场景); 按位置查找 (用途: 访问链表第k个元素的场景); 遍历 (用途: 打印所有元素或统计元素个数等需依次访问所有元素的场景)"
+    }
+  },
+  {
+    "topic": "Ω记号",
+    "attributes": {
+      "type": "概念",
+      "description": "算法时间或空间复杂度的渐近下界记号，表示存在正常数c和n₀，当输入规模n≥n₀时，0 ≤ c·g(n) ≤ f(n)（其中f(n)为算法的复杂度函数，g(n)为其渐近下界函数），用于刻画算法资源消耗的最低渐近下限",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "折半查找",
+    "attributes": {
+      "type": "算法",
+      "description": "折半查找（Binary Search）是一种针对有序数组的高效查找算法，通过不断将查找区间减半来定位目标元素，适用于静态数据且需频繁查找的场景",
+      "properties": "",
+      "time_complexity": "best_case: O(1); average_case: O(log n); worst_case: O(log n)",
+      "space_complexity": "迭代实现: O(1); 递归实现: O(log n)",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "最短路径",
+    "attributes": {
+      "type": "概念",
+      "description": "最短路径应用场景是指在带权图（有向或无向）中，针对起点到终点（或多源点、单源多终点）的路径问题，寻找总权重最小的路径的一类实际或理论应用场景集合，权重可代表距离、时间、成本等实际意义，核心是将现实中的优化需求抽象为图的最短路径问题",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "跳跃表",
+    "attributes": {
+      "type": "数据结构",
+      "description": "未定义",
+      "properties": "未定义",
+      "time_complexity": "未定义",
+      "space_complexity": "未定义",
+      "common_operations": "未定义"
+    }
+  },
+  {
+    "topic": "旋转",
+    "attributes": {
+      "type": "概念",
+      "description": "在树形数据结构（如平衡二叉搜索树）中，通过调整节点的父-子指针关系改变子树结构的操作，分为左旋（将节点右子节点提升为父节点）和右旋（将节点左子节点提升为父节点）两类，用于维持树的平衡性质。",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "LFU缓存",
+    "attributes": {
+      "type": "概念",
+      "description": "LFU（Least Frequently Used）缓存是一种基于访问频率的缓存替换策略，核心思想是当缓存容量不足时淘汰访问频率最低的条目；若存在多个条目频率相同，则进一步淘汰其中最近最少使用（LRU）的条目，通过维护键的访问频率和顺序实现高效管理",
+      "properties": "1. 基于访问频率的替换策略，优先淘汰低频条目；2. 同频率条目采用LRU策略处理；3. 支持O(1)时间复杂度的读写操作；4. 需维护每个键的访问频率和节点顺序",
+      "time_complexity": "get (best_case: O(1), average_case: O(1), worst_case: O(1)); put (best_case: O(1), average_case: O(1), worst_case: O(1))",
+      "space_complexity": "best_case: O(n); average_case: O(n); worst_case: O(n)",
+      "common_operations": "get: 根据键获取缓存值，若键存在则更新该键的访问频率 (用途: 缓存读操作，如数据库查询结果、API响应的缓存读取); put: 插入或更新键值对，键存在则更新值并增频；缓存满时淘汰最不经常使用（同频时最近最少使用）的条目 (用途: 缓存写操作，如将计算结果、静态资源存入缓存); evict: 内部操作，淘汰访问频率最低（同频时最近最少使用）的条目 (用途: 缓存容量已满时自动触发，维持缓存大小在容量内)"
+    }
+  },
+  {
+    "topic": "图",
+    "attributes": {
+      "type": "数据结构",
+      "description": "图是一种非线性数据结构，由顶点集合V和边集合E组成，其中边是顶点之间的二元关系。边可以是有向的（表示顶点间的单向关系）或无向的（表示双向关系），边还可带有权值（称为加权图或网）。图用于建模实体间的复杂关系，如社交网络、路由网络等。",
+      "properties": "图的核心性质包括：1. 顶点度数：无向图中顶点的边数称为度数，有向图中分为入度（指向该顶点的边数）和出度（从该顶点出发的边数）；2. 路径与环：顶点序列v1,v2,...,vk中若相邻顶点间有边，则称为路径；起点等于终点且边数≥1的路径称为环；3. 连通性：无向图中任意两顶点可达则为连通图，否则为非连通图；有向图中任意两顶点互相可达则为强连通图；4. 稀疏与稠密：若边数E远小于顶点数平方V²（通常E≤VlogV）则为稀疏图，否则为稠密图；5. 权重：边可携带权值，用于表示顶点间的距离、成本等信息，带权图称为网。",
+      "time_complexity": "添加顶点 (邻接矩阵: {'best_case': 'O(n²)', 'average_case': 'O(n²)', 'worst_case': 'O(n²)'}, 邻接表: {'best_case': 'O(1)', 'average_case': 'O(1)', 'worst_case': 'O(1)'}); 删除顶点 (邻接矩阵: {'best_case': 'O(n²)', 'average_case': 'O(n²)', 'worst_case': 'O(n²)'}, 邻接表: {'best_case': 'O(1)', 'average_case': 'O(V + E)', 'worst_case': 'O(V + E)'}); 添加边 (邻接矩阵: {'best_case': 'O(1)', 'average_case': 'O(1)', 'worst_case': 'O(1)'}, 邻接表: {'best_case': 'O(1)', 'average_case': 'O(1)', 'worst_case': 'O(1)'}); 删除边 (邻接矩阵: {'best_case': 'O(1)', 'average_case': 'O(1)', 'worst_case': 'O(1)'}, 邻接表: {'best_case': 'O(1)', 'average_case': 'O(d)', 'worst_case': 'O(d)'}); 查找边 (邻接矩阵: {'best_case': 'O(1)', 'average_case': 'O(1)', 'worst_case': 'O(1)'}, 邻接表: {'best_case': 'O(1)', 'average_case': 'O(d)', 'worst_case': 'O(d)'}); 遍历邻接边 (邻接矩阵: {'best_case': 'O(V)', 'average_case': 'O(V)', 'worst_case': 'O(V)'}, 邻接表: {'best_case': 'O(d)', 'average_case': 'O(d)', 'worst_case': 'O(d)'})",
+      "space_complexity": "邻接矩阵: O(V²); 邻接表: O(V + E); 邻接多重表: O(V + E); 十字链表: O(V + E)",
+      "common_operations": "添加顶点: 向图中新增一个顶点 (用途: 动态扩展图结构，如社交网络中添加新用户、地图系统中添加新地点); 删除顶点: 从图中移除一个顶点及所有与该顶点相关的边 (用途: 移除图中不再需要的节点，如社交网络中删除用户、推荐系统中移除失效物品); 添加边: 在两个顶点之间建立一条边（可指定方向和权重） (用途: 建立顶点间的关系，如社交网络中添加好友关系、交通系统中新增道路连接); 删除边: 移除两个顶点之间的边 (用途: 解除顶点间的关系，如社交网络中解除好友关系、交通系统中关闭某条道路); 查找边: 判断两个顶点之间是否存在边（或获取边的权重） (用途: 验证顶点间的关系，如查询社交网络中两人是否是好友、物流系统中检查两地是否有直达路线); 遍历邻接顶点: 访问某顶点的所有相邻顶点 (用途: 基于邻居的推荐系统（如推荐用户的好友）、网络爬虫中遍历网页的链接); 广度优先搜索（BFS）: 从起始顶点出发，按层级顺序遍历所有可达顶点 (用途: 寻找无权图中的最短路径（如社交网络中两人的最短好友链）、层级式数据处理（如组织架构的层级遍历）); 深度优先搜索（DFS）: 从起始顶点出发，沿路径一直深入到无法继续，再回溯遍历其他路径 (用途: 检测图中的环（如编译器中的循环依赖检测）、拓扑排序（如项目任务的依赖顺序安排）、深度挖掘数据（如文件系统的递归遍历）)"
+    }
+  },
+  {
+    "topic": "顺序访问",
+    "attributes": {
+      "type": "概念",
+      "description": "按数据结构中元素的逻辑顺序依次访问每个元素的操作，即从第一个元素开始逐个访问直至最后一个元素，不跳过任何中间元素",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "引用计数",
+    "attributes": {
+      "type": "概念",
+      "description": "一种垃圾收集机制，通过维护对象的引用次数计数器，当对象被引用时增加计数器，引用失效时减少计数器，计数器为0时自动回收对象内存",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "随机访问",
+    "attributes": {
+      "type": "概念",
+      "description": "直接通过元素的索引或存储地址访问数据结构中任意位置元素的操作，无需顺序遍历其前驱元素，是支持直接寻址的数据结构的核心操作之一",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "垃圾回收",
+    "attributes": {
+      "type": "概念",
+      "description": "自动识别程序中不再被任何活跃引用指向的内存对象（垃圾），并释放其占用的内存资源，以实现内存的自动管理，避免手动内存管理带来的内存泄漏、悬垂指针等错误",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "广度优先搜索",
+    "attributes": {
+      "type": "算法",
+      "description": "广度优先搜索（Breadth-First Search, BFS）是一种用于遍历或搜索树、图等数据结构的分层算法，从起始节点出发，优先访问当前节点的所有邻接节点（同一层节点），再依次处理邻接节点的下一层节点，核心特征是按节点到起始点的距离（边数）递增顺序访问，常用于求解无权图的最短路径问题",
+      "properties": "",
+      "time_complexity": "best_case: O(V + E); average_case: O(V + E); worst_case: O(V + E)",
+      "space_complexity": "best_case: O(V); average_case: O(V); worst_case: O(V)",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "线性表",
+    "attributes": {
+      "type": "数据结构",
+      "description": "未定义",
+      "properties": "未定义",
+      "time_complexity": "未定义",
+      "space_complexity": "未定义",
+      "common_operations": "未定义"
+    }
+  },
+  {
+    "topic": "直接插入排序",
+    "attributes": {
+      "type": "算法",
+      "description": "直接插入排序（Insertion Sort）是一种简单直观的比较排序算法，核心思想是将待排序序列逐步构建为已排序序列，每次将未排序部分的第一个元素插入到已排序部分的正确位置，使已排序部分不断扩展直至整个序列有序",
+      "properties": "",
+      "time_complexity": "best_case: O(n); average_case: O(n²); worst_case: O(n²)",
+      "space_complexity": "O(1)",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "快速排序",
+    "attributes": {
+      "type": "算法",
+      "description": "快速排序（Quicksort）是一种基于分治策略的高效排序算法，通过选择基准元素将数组分割为两个子数组，递归地对其子数组进行排序，最终实现整个数组的有序排列，通常为原地排序（in-place）。",
+      "properties": "",
+      "time_complexity": "best_case: O(n log n); average_case: O(n log n); worst_case: O(n²)",
+      "space_complexity": "best_case: O(log n); average_case: O(log n); worst_case: O(n)",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "合并",
+    "attributes": {
+      "type": "概念",
+      "description": "在计算机数据结构中，合并操作指将两个或多个独立的数据结构（如数组、链表、堆、集合等）整合为一个新的或经过修改的结构，通常需保持原结构的关键特性（如有序性、堆性质、连通性等），是归并排序、并查集、优先级队列等算法与数据结构的核心操作",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "冒泡排序",
+    "attributes": {
+      "type": "算法",
+      "description": "一种简单的交换排序算法，通过重复遍历待排序序列，比较并交换相邻逆序元素，使较大元素逐步“浮”到序列末端，直至整体有序",
+      "properties": "",
+      "time_complexity": "best_case: O(n); average_case: O(n²); worst_case: O(n²)",
+      "space_complexity": "O(1)",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "哈希表",
+    "attributes": {
+      "type": "数据结构",
+      "description": "哈希表（Hash Table），又称散列表，是一种通过哈希函数将键（Key）映射到对应存储位置，从而实现快速键值对访问的数据结构。其核心思想是利用哈希函数将键转换为数组索引，以支持平均情况下常数时间的插入、查找和删除操作，是高效处理动态集合操作的常用结构。",
+      "properties": "键唯一性：每个键对应唯一的值（若允许重复键则为多值哈希表）; 哈希函数依赖性：性能高度依赖哈希函数的质量（需保证键的均匀分布以减少冲突）; 冲突必然性：由于键空间通常远大于数组容量，哈希冲突无法完全避免，需通过冲突处理策略解决; 平均高效性：在哈希函数均匀分布且冲突处理得当的情况下，插入、查找、删除操作的平均时间复杂度为O(1)",
+      "time_complexity": "插入 (best_case: O(1), average_case: O(1), worst_case: O(n)); 查找 (best_case: O(1), average_case: O(1), worst_case: O(n)); 删除 (best_case: O(1), average_case: O(1), worst_case: O(n))",
+      "space_complexity": "best_case: O(n); average_case: O(n); worst_case: O(n)",
+      "common_operations": "插入: 将指定的键值对存入哈希表：首先通过哈希函数计算键的索引，若该位置无冲突则直接存入；若有冲突则根据冲突处理策略（如链地址法添加至链表，开放寻址法寻找下一个可用位置）完成存储。 (用途: 用户注册时将用户名作为键、用户信息作为值存入哈希表，以便后续快速查询。); 查找: 根据给定的键获取对应的值：通过哈希函数计算索引，若该位置存在目标键则返回对应值；若有冲突则遍历冲突结构（如链表、探测序列）查找目标键。 (用途: 根据用户输入的用户名，快速查询哈希表中存储的用户详情（如密码、邮箱）。); 删除: 移除哈希表中指定键的键值对：计算键的索引，找到目标键对应的位置后，根据冲突处理策略移除该元素（如链地址法删除链表节点，开放寻址法标记删除或重新整理探测序列）。 (用途: 用户注销账号时，从哈希表中删除该用户的用户名及对应信息。); 哈希函数计算: 将输入的键（可为任意类型）转换为哈希表底层数组的索引：需满足确定性（同一键始终生成同一索引）和均匀性（键分布尽量均匀以减少冲突）。 (用途: 插入、查找、删除操作前的必经步骤，例如将字符串类型的用户名转换为整数索引。); 冲突处理: 当多个键通过哈希函数映射到同一数组索引时，采用预定策略解决冲突：如链地址法将冲突元素链接成链表或树，开放寻址法寻找下一个可用位置。 (用途: 当两个不同用户名哈希到同一索引时，使用链地址法将第二个用户信息添加至该索引对应的链表尾部。)"
+    }
+  },
+  {
+    "topic": "回溯法",
+    "attributes": {
+      "type": "概念",
+      "description": "回溯法（Backtracking）是一种系统地搜索问题解空间的算法，通过尝试分步构建解的方式，当发现当前分步选择违反约束条件或无法达到目标时，回溯（撤销上一步选择）并尝试其他可能，直到找到所有可行解或确定无解。其核心是利用剪枝策略减少无效搜索，避免穷举所有可能。",
+      "properties": "",
+      "time_complexity": "best_case: O(k)（k为找到第一个可行解所需的搜索步数，若提前终止搜索）; average_case: 依赖于约束/限界函数的剪枝效果，通常介于O(k)与最坏情况之间; worst_case: O(b^d)（b为解空间树的平均分支因子，d为树的深度，即穷举所有可能的解空间）",
+      "space_complexity": "best_case: O(d)（d为解空间树的深度，即当前部分解的长度或递归栈深度）; average_case: O(d); worst_case: O(d)",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "优先队列",
+    "attributes": {
+      "type": "数据结构",
+      "description": "优先队列（Priority Queue）是一种抽象数据类型（ADT），其元素关联优先级，核心语义是按优先级顺序访问元素——优先移除当前优先级最高（或最低）的元素，不遵循FIFO或LIFO顺序，仅定义操作接口而不绑定具体实现。",
+      "properties": "抽象数据类型：仅定义操作契约，具体实现由底层结构决定; 优先级导向：元素逻辑上按优先级有序（非物理完全排序）; 动态操作支持：允许插入新元素、调整已有元素优先级; 极值访问高效：快速获取当前优先级最高（或最低）的元素",
+      "time_complexity": "插入元素 (best_case: O(1), average_case: O(log n), worst_case: O(log n)); 提取最大/小元素 (best_case: O(log n), average_case: O(log n), worst_case: O(log n)); 查看最大/小元素 (best_case: O(1), average_case: O(1), worst_case: O(1)); 调整元素优先级 (best_case: O(log n), average_case: O(log n), worst_case: O(log n)); 删除元素 (best_case: O(log n), average_case: O(log n), worst_case: O(log n))",
+      "space_complexity": "O(n)（线性空间，存储所有n个元素，与具体实现无关）",
+      "common_operations": "插入元素（Insert） (用途: 向优先队列中添加带优先级的新元素，如任务调度系统中新增待处理任务); 提取最大/小元素（Extract-Max/Extract-Min） (用途: 移除并返回当前优先级最高（或最低）的元素，如操作系统调度最高优先级进程执行); 查看最大/小元素（Peek-Max/Peek-Min） (用途: 获取当前优先级最高（或最低）的元素但不移除，如查看待处理任务中的紧急任务); 调整元素优先级（Increase-Key/Decrease-Key） (用途: 修改已有元素的优先级，如任务调度中提升紧急任务的优先级); 删除元素（Delete） (用途: 移除指定元素，如任务调度中取消已添加的无效任务)"
+    }
+  },
+  {
+    "topic": "数组",
+    "attributes": {
+      "type": "数据结构",
+      "description": "数组是一种线性数据结构，使用连续的内存空间存储相同数据类型的元素，通过非负整数索引（通常从0开始）实现随机访问，索引与元素的内存地址直接映射（基地址+索引×元素大小）",
+      "properties": "1. 数据同质性：所有元素必须属于同一数据类型；2. 随机访问：通过索引可在常数时间内访问任意元素；3. 静态与动态特性：静态数组容量固定（初始化时确定），动态数组可自动扩容（如双倍扩容）；4. 插入删除成本：插入/删除中间或开头元素需移动后续元素，时间复杂度较高；5. 缓存友好：内存连续性带来良好的缓存局部性，访问速度快",
+      "time_complexity": "访问元素 (best_case: O(1), average_case: O(1), worst_case: O(1)); 线性搜索 (best_case: O(1), average_case: O(n), worst_case: O(n)); 二分搜索（有序数组） (best_case: O(1), average_case: O(log n), worst_case: O(log n)); 插入元素 (best_case: O(1)（动态数组末尾插入且无需扩容）, average_case: O(n)（需移动平均n/2个后续元素）, worst_case: O(n)（开头插入或静态数组扩容）); 删除元素 (best_case: O(1)（末尾删除）, average_case: O(n)（需移动平均n/2个后续元素）, worst_case: O(n)（开头删除）); 遍历 (best_case: O(n), average_case: O(n), worst_case: O(n))",
+      "space_complexity": "静态数组为O(k)（k为初始容量，固定）；动态数组为O(n)（n为实际存储元素数量， amortized空间复杂度）",
+      "common_operations": "访问元素 (用途: 通过索引快速获取目标元素，例如根据用户ID（索引）查找用户信息、获取数组中的第k个元素); 线性搜索 (用途: 在未排序数组中查找特定值的位置，例如检查元素是否存在、查找目标数值的首次出现位置); 二分搜索 (用途: 在有序数组中高效查找元素，例如字典单词查找、有序成绩数组中查找特定分数的位置); 插入元素 (用途: 在指定位置添加新元素，例如向有序数组插入新成绩以保持有序、向动态数组末尾添加用户输入数据); 删除元素 (用途: 移除指定位置或值的元素，例如删除数组中的无效数据、移除有序数组中的重复元素); 遍历元素 (用途: 依次访问所有元素执行批量操作，例如计算数组总和、查找最大值/最小值、打印所有元素); 动态扩容 (用途: 动态数组容量不足时扩展内存，例如向已满的动态数组添加新元素时自动扩容以避免溢出)"
+    }
+  },
+  {
+    "topic": "KMP算法",
+    "attributes": {
+      "type": "算法",
+      "description": "KMP算法是一种高效的单模式串字符串匹配算法，用于在文本串（长度为n）中快速查找模式串（长度为m）的出现位置，核心是通过预处理模式串构建部分匹配表（LPS数组，最长前缀后缀数组）来避免文本串指针的回溯，从而减少不必要的字符比较",
+      "properties": "",
+      "time_complexity": "best_case: O(m + n); average_case: O(m + n); worst_case: O(m + n)",
+      "space_complexity": "O(m)",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "出栈",
+    "attributes": {
+      "type": "数据结构",
+      "description": "栈数据结构中的基本操作，用于移除并返回栈的顶部元素（栈顶元素是最后一个入栈的元素，遵循后进先出LIFO原则）",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "LRU缓存",
+    "attributes": {
+      "type": "概念",
+      "description": "LRU（Least Recently Used，最近最少使用）缓存是一种基于\"最近最少使用\"策略的缓存淘汰机制，当缓存容量达到上限时，优先移除最近一段时间内未被访问的元素。其核心目标是通过保留近期高频访问的数据来提高系统性能，广泛应用于数据库缓存、浏览器资源缓存、分布式缓存（如Redis的LRU策略）等场景。",
+      "properties": "淘汰策略：基于\"最近最少使用\"原则，未被访问时间最久的元素优先被淘汰; 时间效率：get（获取）和put（插入/更新）操作的时间复杂度均为O(1)（依赖哈希表的快速查找和双向链表的O(1)插入/删除）; 顺序维护：通过将访问或更新的元素移动到链表头部，将淘汰的元素从链表尾部移除，动态维护访问顺序; 空间开销：需额外存储双向链表的指针和哈希表的映射关系，空间复杂度与缓存容量线性相关; 容量限制：必须预先指定固定容量，当元素数量超过容量时自动触发淘汰逻辑",
+      "time_complexity": "get（获取元素） (best_case: O(1), average_case: O(1), worst_case: O(1)); put（插入/更新元素） (best_case: O(1), average_case: O(1), worst_case: O(1)); evict（淘汰最少使用元素） (best_case: O(1), average_case: O(1), worst_case: O(1)); move_to_head（标记为最近使用） (best_case: O(1), average_case: O(1), worst_case: O(1))",
+      "space_complexity": "best_case: O(n); average_case: O(n); worst_case: O(n)",
+      "common_operations": "get: 根据键获取缓存中的值，若键存在则将对应的链表节点移动到头部（标记为最近使用），若不存在则返回空或默认值 (用途: 浏览器缓存中查询之前访问过的图片、CSS样式表等静态资源，数据库缓存中获取近期查询的用户信息结果集); put: 根据键插入或更新缓存中的值：若键已存在，更新对应节点的值并移动到链表头部；若键不存在，创建新节点插入链表头部，若缓存已满则删除链表尾部节点（淘汰最少使用元素） (用途: 将新访问的网页HTML内容加入浏览器缓存，将数据库查询的商品信息结果存入缓存以避免重复查询); evict: 当缓存容量达到上限时，删除双向链表尾部的节点（最少使用的元素），并从哈希表中移除对应的键值对 (用途: 图片服务器缓存满时删除最久未访问的图片资源，分布式缓存（如Redis）容量不足时清理 oldest 的键值对); move_to_head: 将指定的双向链表节点从原位置移除并插入到链表头部，以标记该元素为最近使用 (用途: 执行get或put操作时触发，确保最近访问的元素不会被优先淘汰，例如用户再次访问某网页时将其缓存节点移到头部)"
+    }
+  },
+  {
+    "topic": "双端队列",
+    "attributes": {
+      "type": "数据结构",
+      "description": "双端队列（Double-Ended Queue，简称Deque）是一种线性数据结构，允许在队列的两端（队首和队尾）进行插入（入队）和删除（出队）操作，结合了栈（仅一端操作）和队列（先进先出）的特性，可灵活作为栈或队列使用",
+      "properties": "双向操作性：队首和队尾均可执行插入、删除操作; 顺序性：元素保持插入时的相对顺序; 可变性：链表实现支持动态调整大小，数组实现为固定大小; 访问特性：数组与链表实现均支持O(1)时间访问首尾元素，中间元素访问需O(n)时间; 无优先级：元素按插入顺序处理，无内置优先级机制",
+      "time_complexity": "push_front (best_case: O(1), average_case: O(1), worst_case: O(1)); push_back (best_case: O(1), average_case: O(1), worst_case: O(1)); pop_front (best_case: O(1), average_case: O(1), worst_case: O(1)); pop_back (best_case: O(1), average_case: O(1), worst_case: O(1)); front (best_case: O(1), average_case: O(1), worst_case: O(1)); back (best_case: O(1), average_case: O(1), worst_case: O(1)); isEmpty (best_case: O(1), average_case: O(1), worst_case: O(1)); size (best_case: O(1), average_case: O(1), worst_case: O(1)); traverse (best_case: O(n), average_case: O(n), worst_case: O(n))",
+      "space_complexity": "best_case: O(n); average_case: O(n); worst_case: O(n)",
+      "common_operations": "push_front: 在队首插入一个元素 (用途: 需要在序列头部快速添加元素的场景，如实现栈的压栈操作或构建反转序列); push_back: 在队尾插入一个元素 (用途: 需要在序列尾部添加元素的常规场景，如实现普通队列的入队操作); pop_front: 删除并返回队首元素 (用途: 需要移除序列头部元素的场景，如实现队列的出队操作或处理前置优先级元素); pop_back: 删除并返回队尾元素 (用途: 需要移除序列尾部元素的场景，如实现栈的弹栈操作或撤销最后添加的元素); front: 获取队首元素（不删除） (用途: 需要查看头部元素而不修改结构的场景，如检查队列下一个处理对象); back: 获取队尾元素（不删除） (用途: 需要查看尾部元素而不修改结构的场景，如检查最后添加的元素状态); isEmpty: 判断队列是否为空 (用途: 操作前检查状态，避免空操作或越界错误（如删除空队列元素）); size: 获取队列元素数量 (用途: 需要统计元素总数的场景，如限制队列大小或监控资源使用情况); traverse: 遍历队列所有元素 (用途: 需要访问所有元素的场景，如打印队列内容或批量数据处理)"
+    }
+  },
+  {
+    "topic": "移动",
+    "attributes": {
+      "type": "概念",
+      "description": "在数据结构中，移动操作指将元素从一个存储位置转移至另一个位置的操作，保持元素本身的值不变，仅改变其在数据结构中的相对或绝对位置",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "复制",
+    "attributes": {
+      "type": "概念",
+      "description": "复制操作是计算机科学中创建数据副本的基本操作，通过复制原数据的内容生成一个或多个新实例，根据拷贝深度可分为浅拷贝（仅复制顶层结构或引用，嵌套结构共享）和深拷贝（复制所有层级的结构，副本与原数据完全独立）",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "Bellman-Ford算法",
+    "attributes": {
+      "type": "算法",
+      "description": "Bellman-Ford算法是一种用于求解单源最短路径问题的算法，能够处理存在负权边的图，并且可以检测图中是否存在从源点可达的负权回路（即总权重为负的环）。",
+      "properties": "",
+      "time_complexity": "best_case: O(V*E); average_case: O(V*E); worst_case: O(V*E)",
+      "space_complexity": "O(V)，主要用于存储源点到各顶点的最短距离数组（distance array）和前驱顶点数组（predecessor array），空间复杂度由顶点数决定。",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "字典树",
+    "attributes": {
+      "type": "数据结构",
+      "description": "字典树（Trie，又称前缀树）是一种用于高效存储和检索字符串数据集中键的树形数据结构，其核心特点是利用字符串的共同前缀减少存储空间与查询时间。根节点代表空字符串，每个节点对应一个字符，从根到某节点的路径唯一对应一个字符串（前缀或完整字符串），节点通常包含子节点映射及是否为单词结尾的布尔标记。",
+      "properties": "前缀共享性：所有相同前缀的字符串共享树中的前缀路径; 路径唯一性：根到任意节点的路径唯一对应一个字符串（前缀或完整字符串）; 节点标记性：节点通过布尔值标记是否为完整字符串的结尾; 字符集依赖性：子节点数量取决于字符集大小（如ASCII字符集对应128或256个子节点）; 无冲突性：不同字符串的路径仅在共享前缀时交叉",
+      "time_complexity": "插入 (best_case: O(L), average_case: O(L), worst_case: O(L)); 查找 (best_case: O(L), average_case: O(L), worst_case: O(L)); 删除 (best_case: O(L), average_case: O(L), worst_case: O(L)); 前缀查询 (best_case: O(L + K), average_case: O(L + K), worst_case: O(L + K))",
+      "space_complexity": "best_case: O(L_max + N); average_case: O(N*L_avg); worst_case: O(N*L_max)",
+      "common_operations": "插入（Insert）: 将字符串添加到字典树中，遍历字符串每个字符，依次创建或访问对应子节点，最后标记末尾节点的isEnd为true。 (用途: 构建单词库、添加新字符串到数据集（如字典、通讯录用户名存储）); 查找（Search）: 检查字符串是否存在于字典树中，遍历字符串每个字符，若中途无对应子节点则不存在；否则检查末尾节点的isEnd标记。 (用途: 拼写检查（验证单词是否在词库中）、用户名唯一性验证); 删除（Delete）: 从字典树中移除字符串，遍历找到末尾节点并清除其isEnd标记；若节点无其他子节点且不是其他单词的结尾，则递归删除父节点中的该子节点。 (用途: 维护动态单词库（移除过时词汇）、处理用户注销后的用户名删除); 前缀查询（Prefix Query）: 查找所有以给定前缀开头的字符串，先遍历前缀找到对应节点，再递归遍历该节点的所有子路径，收集完整字符串。 (用途: 搜索引擎自动补全（如输入“app”返回“apple”“apply”）、文件系统的前缀文件名搜索)"
+    }
+  },
+  {
+    "topic": "二项堆",
+    "attributes": {
+      "type": "数据结构",
+      "description": "二项堆是一种基于二项树（Binomial Tree）结构的优先级队列数据结构，由一组满足\"无两个二项树度数相同\"的堆有序二项树构成，支持高效的合并操作，是斐波那契堆的基础",
+      "properties": "堆有序性：每个二项树中的父节点键值不大于其子节点键值（最小堆，或反之最大堆）; 度数唯一性：二项堆中任意两个二项树的度数不同; 结构特性：度数为k的二项树B_k由两个度数为k-1的二项树B_{k-1}合并而成（根节点较小的树成为另一棵树的根节点的子树）; 节点数：度数为k的二项树有2^k个节点，高度为k",
+      "time_complexity": "插入 (best_case: O(1), average_case: O(log n), worst_case: O(log n)); 合并 (best_case: O(log n), average_case: O(log n), worst_case: O(log n)); 提取最小 (best_case: O(log n), average_case: O(log n), worst_case: O(log n)); 减少键值 (best_case: O(1), average_case: O(log n), worst_case: O(log n)); 删除 (best_case: O(log n), average_case: O(log n), worst_case: O(log n))",
+      "space_complexity": "O(n)",
+      "common_operations": "插入: 将一个新元素添加到二项堆中，通过创建度数为0的二项树（单节点）并与原堆合并实现 (用途: 向优先级队列中添加任务); 合并: 将两个二项堆合并为一个新的二项堆，通过合并根链表并处理相同度数的树来维持二项堆性质 (用途: 合并两个优先级队列（如任务池合并）); 提取最小: 找到并移除二项堆中的最小元素（最小堆），通过遍历根链表找到最小根，移除后将其子树合并回根链表 (用途: 优先级队列中获取最高优先级任务（如调度器取最紧急任务）); 减少键值: 降低指定元素的键值，并调整其在堆中的位置以维持堆有序性（沿父链向上交换直到父节点键值更小） (用途: 更新优先级队列中元素的优先级（如任务紧急程度提升）); 删除: 移除二项堆中的指定元素，通过先将其键值减少到负无穷（最小堆中最小值），再执行提取最小操作实现 (用途: 从优先级队列中删除特定任务)"
+    }
+  },
+  {
+    "topic": "哈希查找",
+    "attributes": {
+      "type": "算法",
+      "description": "一种基于哈希表结构的快速查找算法，通过哈希函数将关键字直接映射到哈希表中的对应位置，从而快速定位目标元素，核心是利用哈希函数实现直接寻址以降低查找时间复杂度",
+      "properties": "",
+      "time_complexity": "查找 (best_case: O(1), average_case: O(1), worst_case: O(n))",
+      "space_complexity": "space (best_case: O(n), average_case: O(n), worst_case: O(n))",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "堆",
+    "attributes": {
+      "type": "数据结构",
+      "description": "堆（Heap）是一种完全二叉树数据结构，满足堆序性质：对于最大堆（Max-Heap），每个父节点的值大于等于其子节点的值；对于最小堆（Min-Heap），每个父节点的值小于等于其子节点的值。堆通常通过数组实现，利用完全二叉树的索引特性快速定位父节点与子节点，避免额外指针开销",
+      "properties": "1. 结构特性：完全二叉树（除最后一层外每层填满，最后一层节点靠左排列）；2. 堆序性质：最大堆/最小堆的父节点与子节点值的大小约束；3. 索引映射：通过数组索引直接计算父子节点位置，无需额外指针；4. 动态调整：插入/删除元素时通过“上浮（Bubble Up）”或“下沉（Bubble Down）”保持堆性质",
+      "time_complexity": "构建堆（Build Heap） (best_case: O(n), average_case: O(n), worst_case: O(n)); 插入（Insert） (best_case: O(log n), average_case: O(log n), worst_case: O(log n)); 删除堆顶（Extract Max/Min） (best_case: O(log n), average_case: O(log n), worst_case: O(log n)); 堆化（Heapify） (best_case: O(log n), average_case: O(log n), worst_case: O(log n)); 获取堆顶（Get Top） (best_case: O(1), average_case: O(1), worst_case: O(1))",
+      "space_complexity": "O(n)，其中n为堆中元素数量。堆通过数组存储，无额外结构开销，空间复杂度与元素数量线性相关",
+      "common_operations": "构建堆（Build Heap）: 将无序数组转换为堆结构，从最后一个非叶节点开始，依次对每个节点执行堆化操作 (用途: 初始化堆以支持后续操作（如堆排序或优先队列初始化）); 插入（Insert）: 将新元素添加至数组末尾，通过“上浮”调整位置以保持堆性质 (用途: 向优先队列中添加新任务（如任务调度系统新增待处理任务）); 删除堆顶（Extract Max/Min）: 移除堆顶元素，将最后一个元素移至堆顶后执行“下沉”操作修复堆结构 (用途: 从优先队列中取出优先级最高的元素（如执行最紧急的任务）); 堆化（Heapify）: 调整指定节点及其子树：若节点值违反堆序，则与子节点交换并递归处理子节点，直至满足堆性质 (用途: 构建堆或删除堆顶后修复堆结构); 获取堆顶（Get Top）: 返回堆顶元素的值（最大/最小值），不修改堆结构 (用途: 查看优先队列中当前优先级最高的元素（如查看最紧急任务而不执行）)"
+    }
+  },
+  {
+    "topic": "堆排序",
+    "attributes": {
+      "type": "算法",
+      "description": "堆排序（Heap Sort）是一种基于堆（Heap）数据结构的比较类排序算法，通过构建最大堆（升序排序）或最小堆（降序排序）并利用堆的极值性质实现排序，属于原地排序算法。",
+      "properties": "",
+      "time_complexity": "整体 (best_case: O(n log n), average_case: O(n log n), worst_case: O(n log n))",
+      "space_complexity": "整体: O(1)",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "二叉堆",
+    "attributes": {
+      "type": "数据结构",
+      "description": "二叉堆（Binary Heap）是一种基于完全二叉树的数据结构，分为最大堆和最小堆两种类型。最大堆中每个父节点的值大于等于其子节点的值，根节点为最大值；最小堆中每个父节点的值小于等于其子节点的值，根节点为最小值。二叉堆常用于实现优先队列，支持高效的极值访问和更新操作。",
+      "properties": "1. 结构特性：完全二叉树，即除最后一层外每一层都被填满，最后一层的节点靠左排列；2. 堆序特性：最大堆（父节点值≥子节点值）或最小堆（父节点值≤子节点值）；3. 极值特性：根节点是堆中的最大值（最大堆）或最小值（最小堆）；4. 动态维护性：插入或删除元素后需通过堆化操作（上浮/下沉）恢复堆序。",
+      "time_complexity": "插入（Insert） (best_case: O(1), average_case: O(log n), worst_case: O(log n)); 删除极值（Extract Min/Max） (best_case: O(log n), average_case: O(log n), worst_case: O(log n)); 构建堆（Build Heap） (best_case: O(n), average_case: O(n), worst_case: O(n)); 获取极值（Get Min/Max） (best_case: O(1), average_case: O(1), worst_case: O(1)); 堆化（Heapify） (best_case: O(1), average_case: O(log n), worst_case: O(log n))",
+      "space_complexity": "best_case: O(n); average_case: O(n); worst_case: O(n)",
+      "common_operations": "插入（Insert）: 将新元素添加到堆的末尾，然后通过上浮操作（Sift Up）调整其位置，以维持堆序特性。 (用途: 向优先队列中添加新的任务或元素，如任务调度系统中新增待处理任务。); 删除极值（Extract Min/Max）: 移除并返回堆的根节点（极值），将堆的最后一个元素移动到根节点位置，然后通过下沉操作（Sift Down）调整其位置，维持堆序特性。 (用途: 从优先队列中取出优先级最高的元素，如任务调度系统中执行优先级最高的任务。); 构建堆（Build Heap）: 将无序数组转换为满足堆序特性的完全二叉树，通常从最后一个非叶节点开始依次进行下沉操作。 (用途: 初始化优先队列或堆排序算法的预处理步骤，将输入数组转换为堆结构。); 获取极值（Get Min/Max）: 直接返回堆的根节点元素，不修改堆结构。 (用途: 查看优先队列中优先级最高的元素而不取出，如查询系统中当前最紧急的任务。); 堆化（Heapify）: 分为上浮（Sift Up，处理插入操作后恢复堆序）和下沉（Sift Down，处理删除操作或构建堆时恢复堆序），调整节点位置以满足堆序特性。 (用途: 插入或删除元素后修复堆结构，或构建堆时调整数组元素顺序。)"
+    }
+  },
+  {
+    "topic": "多路归并",
+    "attributes": {
+      "type": "概念",
+      "description": "多路归并（Multi-way Merge）是一种将多个已排序的输入序列合并为一个有序输出序列的算法，是外部排序（处理大规模离线数据）和多源有序数据整合的核心技术，能高效解决多组有序数据的合并问题",
+      "properties": "",
+      "time_complexity": "堆初始化 (best_case: O(k), average_case: O(k), worst_case: O(k)); 单次提取-插入操作 (best_case: O(logk), average_case: O(logk), worst_case: O(logk)); 整体复杂度 (best_case: O(n logk), average_case: O(n logk), worst_case: O(n logk))",
+      "space_complexity": "额外堆空间 (best_case: O(k), average_case: O(k), worst_case: O(k)); 整体空间（含输入输出） (best_case: O(n + k), average_case: O(n + k), worst_case: O(n + k))",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "红黑树",
+    "attributes": {
+      "type": "数据结构",
+      "description": "红黑树（Red-Black Tree）是一种自平衡二叉搜索树（BST），通过为每个节点添加红色或黑色的颜色属性，并严格遵循5条平衡规则，保证树的高度始终为O(log n)，从而维持插入、删除和查找操作的高效性。",
+      "properties": "红黑树的核心性质：1. 节点非红即黑；2. 根节点必为黑色；3. NIL空节点是黑色；4. 红节点的子节点必为黑色（无连续红节点）；5. 任意节点到其后代NIL节点的路径上，黑色节点数相同（黑高一致）。",
+      "time_complexity": "查找 (best_case: O(log n), average_case: O(log n), worst_case: O(log n)); 插入 (best_case: O(log n), average_case: O(log n), worst_case: O(log n)); 删除 (best_case: O(log n), average_case: O(log n), worst_case: O(log n)); 左旋 (best_case: O(1), average_case: O(1), worst_case: O(1)); 右旋 (best_case: O(1), average_case: O(1), worst_case: O(1)); 获取最小值 (best_case: O(log n), average_case: O(log n), worst_case: O(log n)); 获取最大值 (best_case: O(log n), average_case: O(log n), worst_case: O(log n))",
+      "space_complexity": "best_case: O(n); average_case: O(n); worst_case: O(n)",
+      "common_operations": "查找 (typical_usage: 在有序数据集合中根据键快速定位值，如数据库索引、字典查询等); 插入 (typical_usage: 向动态有序集合添加元素并维持平衡，如实时统计系统的数据插入); 删除 (typical_usage: 从有序集合移除元素并保持平衡，如缓存系统的淘汰策略辅助结构); 左旋 (typical_usage: 调整右子树过深的结构，修复插入/删除后的不平衡); 右旋 (typical_usage: 调整左子树过深的结构，修复插入/删除后的不平衡); 获取最小值 (typical_usage: 快速获取有序集合的最小元素，如TOP-K问题的起点查询); 获取最大值 (typical_usage: 快速获取有序集合的最大元素，如排行榜最高得分查询)"
+    }
+  },
+  {
+    "topic": "贪心策略",
+    "attributes": {
+      "type": "概念",
+      "description": "贪心策略（Greedy Strategy）是一种启发式算法设计范式，核心思想是在每一步决策中选择当前状态下的局部最优解，逐步构建全局最优解。它不回溯调整之前的选择，依赖问题本身的贪心选择性质和最优子结构性质来保证局部最优能累积成全局最优。",
+      "properties": "",
+      "time_complexity": "典型问题时间复杂度 (活动选择: {'best_case': 'O(n log n)', 'average_case': 'O(n log n)', 'worst_case': 'O(n log n)'}, 哈夫曼编码: {'best_case': 'O(n log n)', 'average_case': 'O(n log n)', 'worst_case': 'O(n log n)'}, Prim算法（邻接矩阵）: {'best_case': 'O(V²)', 'average_case': 'O(V²)', 'worst_case': 'O(V²)'}, Kruskal算法: {'best_case': 'O(E log E)', 'average_case': 'O(E log E)', 'worst_case': 'O(E log E)'})",
+      "space_complexity": "一般情况 (best_case: O(n), average_case: O(n), worst_case: O(n))",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "斐波那契堆",
+    "attributes": {
+      "type": "数据结构",
+      "description": "未定义",
+      "properties": "未定义",
+      "time_complexity": "未定义",
+      "space_complexity": "未定义",
+      "common_operations": "未定义"
+    }
+  },
+  {
+    "topic": "穷举法",
+    "attributes": {
+      "type": "概念",
+      "description": "穷举法（又称暴力搜索法）是一种通过系统地遍历问题所有可能的候选解，逐一验证每个候选解是否满足问题条件，从而找到所有或最优解的算法策略。其不依赖启发式信息，直接穷尽所有可能性，是最基础的搜索策略之一",
+      "properties": "",
+      "time_complexity": "best_case: O(1); average_case: O(N); worst_case: O(N)",
+      "space_complexity": "best_case: O(1); average_case: O(1); worst_case: O(k)",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "会计方法",
+    "attributes": {
+      "type": "概念",
+      "description": "算法平摊分析的三大方法之一，通过为每个操作分配虚拟的平摊成本，将高于实际成本的部分以“信用”形式存储，用于抵消未来高成本操作的差额，最终保证总平摊成本不超过总实际成本，从而确定操作序列的平均时间复杂度上限",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "生成森林",
+    "attributes": {
+      "type": "概念",
+      "description": "生成森林是无向图的子图集合，由原图各连通分量的生成树组成，包含原图所有顶点，边集为原图边集的子集，且每个连通分量对应的子图是该分量的生成树（无环且连通），总边数为顶点数减去连通分量数。",
+      "properties": "1. 结构组成：由各连通分量的生成树构成；2. 顶点覆盖：包含原图所有顶点；3. 边数特征：总边数=顶点数V-连通分量数k（E'=V-k）；4. 无环性：不含任何环；5. 极小连通性：每个生成树是对应分量的极小连通子图（删任意边会导致分量不连通）；6. 分量对应：每棵树对应原图一个连通分量。",
+      "time_complexity": "Kruskal算法构建 (best_case: O(E log E), average_case: O(E log E), worst_case: O(E log E)); Prim算法构建（邻接表+二叉堆） (best_case: O(E log V), average_case: O(E log V), worst_case: O(E log V)); DFS构建 (best_case: O(V + E), average_case: O(V + E), worst_case: O(V + E)); BFS构建 (best_case: O(V + E), average_case: O(V + E), worst_case: O(V + E))",
+      "space_complexity": "邻接表存储 (best_case: O(V), average_case: O(V), worst_case: O(V)); 父指针数组存储 (best_case: O(V), average_case: O(V), worst_case: O(V)); Kruskal算法构建空间 (best_case: O(V + E), average_case: O(V + E), worst_case: O(V + E)); Prim算法构建空间（邻接表+二叉堆） (best_case: O(V + E), average_case: O(V + E), worst_case: O(V + E)); DFS构建空间 (best_case: O(V), average_case: O(V), worst_case: O(V)); BFS构建空间 (best_case: O(V), average_case: O(V), worst_case: O(V))",
+      "common_operations": "构建生成森林 (description: 用Kruskal、Prim、DFS或BFS等算法，根据无向图生成其生成森林, typical_usage: 网络设计中构建最小成本连通结构（最小生成森林）、图连通性分析、生成图的极小连通子图集合); 查询连通分量 (description: 通过父指针数组或邻接表，判断两顶点是否属同一连通分量, typical_usage: 社交网络判断用户是否在同一社交圈、网络故障排查判断两节点是否在同一连通区域); 添加边 (description: 向生成森林加边前验证两顶点是否属不同连通分量，是则加边合并分量，否则拒绝以避免环, typical_usage: 动态图新增边后维护生成森林结构，如社交网络新增好友后更新连通分量); 删除边 (description: 从生成森林删边，若边属某生成树则导致分量分裂，需重构分裂后的两分量生成树, typical_usage: 动态图删边后调整生成森林，如网络链路失效后重新规划连通结构); 获取连通分量数 (description: 统计生成森林中的树数量，即原图的连通分量数, typical_usage: 图拓扑分析统计独立连通区域数量，如城市道路网络统计独立街区数量)"
+    }
+  },
+  {
+    "topic": "基数排序",
+    "attributes": {
+      "type": "算法",
+      "description": "基数排序（Radix Sort）是一种非比较型整数排序算法，通过按数字的每一位（从最低有效位到最高有效位或反之）依次进行稳定排序来实现整体有序，核心是利用稳定的子排序算法（通常为计数排序）处理每一位，避免高位排序破坏低位已形成的顺序",
+      "properties": "",
+      "time_complexity": "best_case: O(d*(n+k)); average_case: O(d*(n+k)); worst_case: O(d*(n+k))",
+      "space_complexity": "O(n+k)",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "计数排序",
+    "attributes": {
+      "type": "算法",
+      "description": "计数排序是一种非比较型整数排序算法，通过统计待排序数组中每个元素的出现次数，再根据次数信息重建有序数组，具有稳定性。",
+      "properties": "",
+      "time_complexity": "best_case: O(n + k); average_case: O(n + k); worst_case: O(n + k)",
+      "space_complexity": "O(n + k)",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "克鲁斯卡尔算法",
+    "attributes": {
+      "type": "算法",
+      "description": "克鲁斯卡尔（Kruskal）算法是一种基于贪心策略的算法，用于求解加权无向图的最小生成树（Minimum Spanning Tree, MST）。该算法通过按边权值从小到大的顺序选择边，同时避免形成环，最终得到包含图中所有顶点且边权和最小的生成树",
+      "properties": "",
+      "time_complexity": "best_case: O(E log E); average_case: O(E log E); worst_case: O(E log E)",
+      "space_complexity": "O(V + E)，其中V为图的顶点数，E为图的边数（用于存储所有边及并查集结构）",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "AC自动机",
+    "attributes": {
+      "type": "概念",
+      "description": "AC自动机（Aho-Corasick Automaton）是一种高效的多模式串匹配数据结构，基于Trie树扩展而来，通过为每个节点添加失败指针（类似KMP算法的部分匹配表）和输出指针，实现一次线性扫描文本即可找出所有模式串的出现位置，适用于需要同时匹配多个模式的场景（如敏感词过滤、日志分析等）。",
+      "properties": "1. 多模式串支持：可同时处理任意数量的模式串；2. 预处理-在线匹配分离：预处理阶段构建Trie树和失败指针（时间复杂度O(m)，m为所有模式串长度之和），匹配阶段线性扫描文本（时间复杂度O(n + z)，n为文本长度，z为匹配结果总数）；3. 无回溯匹配：匹配时仅需按文本顺序遍历，通过失败指针避免回溯；4. 全局匹配收集：通过输出指针收集所有以当前节点为结尾的模式串，确保不遗漏匹配。",
+      "time_complexity": "构建（Trie+失败指针） (best_case: O(m), average_case: O(m), worst_case: O(m)); 多模式匹配 (best_case: O(n), average_case: O(n + z), worst_case: O(n + z))",
+      "space_complexity": "best_case: O(m); average_case: O(m * Σ); worst_case: O(m * Σ)",
+      "common_operations": "build_trie: 将所有模式串插入Trie树，构建前缀树结构：每个模式串的字符依次作为节点路径，结尾节点标记为模式串的终止点。 (用途: 预处理阶段将多个模式串组织成Trie树，为后续失败指针构建和匹配提供基础结构，例如将敏感词库导入Trie。); build_failure_links: 通过BFS遍历Trie树，为每个节点计算失败指针：根节点的失败指针为null，根的子节点失败指针指向根；其他节点的失败指针由父节点的失败指针推导（若父节点的失败指针有当前字符的子节点，则指向该子节点，否则递归查找失败指针的失败指针）。 (用途: 预处理阶段构建失败指针，解决匹配时的不匹配跳转问题，例如为敏感词Trie树添加失败指针以支持快速匹配。); multi_pattern_match: 线性扫描文本，从Trie树根节点开始，根据当前字符转移至子节点；若无法转移则通过失败指针跳转，直到根节点或找到可转移节点；每到达一个节点，通过输出指针收集所有匹配的模式串及其位置。 (用途: 在线匹配阶段处理输入文本，找出所有模式串的出现位置，例如在聊天记录中扫描所有敏感词并标记。)"
+    }
+  },
+  {
+    "topic": "链表",
+    "attributes": {
+      "type": "数据结构",
+      "description": "链表是一种线性数据结构，由一系列节点组成，每个节点包含数据域（存储元素值）和指针域（存储下一个节点的内存地址，双向链表还包含前一个节点的地址）；节点在内存中不连续存储，通过指针链接形成逻辑上的连续序列。",
+      "properties": "1. 线性结构：元素之间存在一对一的逻辑关系；2. 动态性：支持动态添加或删除节点，无需预先确定大小；3. 顺序访问：访问元素需从表头（或表尾，双向链表）开始依次遍历，无法随机访问；4. 指针依赖：节点通过指针链接，指针域的存在增加了空间开销，但实现了灵活的结构；5. 内存利用率：避免了数组的预分配浪费，但每个节点的指针域带来额外空间开销。",
+      "time_complexity": "插入节点 (best_case: O(1), average_case: O(n), worst_case: O(n)); 删除节点 (best_case: O(1), average_case: O(n), worst_case: O(n)); 查找（按值） (best_case: O(1), average_case: O(n), worst_case: O(n)); 访问（按位置） (best_case: O(1), average_case: O(n), worst_case: O(n)); 遍历链表 (best_case: O(n), average_case: O(n), worst_case: O(n)); 反转链表 (best_case: O(n), average_case: O(n), worst_case: O(n)); 合并两个有序链表 (best_case: O(min(m,n)), average_case: O(m+n), worst_case: O(m+n))",
+      "space_complexity": "best_case: O(n); average_case: O(n); worst_case: O(n)",
+      "common_operations": "插入节点 (用途: 动态添加元素，如日志系统中追加新日志（尾部插入）、链表实现的栈/队列的头部/尾部插入（如栈的push操作是头部插入，队列的enqueue是尾部插入）); 删除节点 (用途: 移除指定元素，如缓存系统中淘汰过期缓存项（删除指定节点）、任务调度系统中移除已完成的任务节点); 查找节点 (用途: 根据值或位置获取元素，如查询链表中的特定用户信息（按值查找）、获取链表中第k个元素（按位置查找）); 遍历链表 (用途: 遍历所有元素进行批量处理，如打印链表中的所有元素、统计链表中元素的个数、计算元素的总和); 反转链表 (用途: 需要逆序访问元素的场景，如逆序输出链表内容、解决回文链表问题（反转后半部分与前半部分比较）、实现逆序迭代器); 合并链表 (用途: 合并两个有序链表以保持有序性，如归并排序中的合并步骤（将两个有序子链表合并为一个有序链表）、合并两个有序的任务列表); 检测链表环 (用途: 判断链表是否存在循环引用，如检测内存泄漏中的循环引用、验证数据结构的正确性（如避免链表尾节点指针错误指向前面节点）)"
+    }
+  },
+  {
+    "topic": "缩容",
+    "attributes": {
+      "type": "概念",
+      "description": "动态数据结构（如动态数组、哈希表）在元素数量降至设定阈值（如容量的1/4）时，通过减小底层存储容量以释放闲置内存的操作，需将现有元素复制到新的更小容器中",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "平衡二叉树",
+    "attributes": {
+      "type": "数据结构",
+      "description": "平衡二叉树是一类基于二叉搜索树的数据结构，通过维持节点间的高度平衡条件（如AVL树要求任意节点左右子树高度差不超过1，红黑树通过颜色规则保证树高为O(log n)），确保树的高度始终保持在O(log n)级别，避免普通二叉搜索树退化为链表的情况，从而保证动态操作的高效性",
+      "properties": "1. 满足二叉搜索树的核心性质：左子树所有节点值小于父节点，右子树所有节点值大于父节点；2. 具有明确的平衡条件（如AVL树的左右子树高度差≤1，红黑树的红黑规则）；3. 树的高度严格为O(log n)（n为节点数）；4. 插入、删除操作后需通过调整（如旋转、颜色翻转）恢复平衡状态",
+      "time_complexity": "查找 (best_case: O(1), average_case: O(log n), worst_case: O(log n)); 插入 (best_case: O(1), average_case: O(log n), worst_case: O(log n)); 删除 (best_case: O(1), average_case: O(log n), worst_case: O(log n)); 旋转 (best_case: O(1), average_case: O(1), worst_case: O(1))",
+      "space_complexity": "best_case: O(n); average_case: O(n); worst_case: O(n)",
+      "common_operations": "查找 (description: 在平衡二叉树中查找指定键值对应的节点, typical_usage: 数据库索引查询、字典数据结构中的键值查找); 插入 (description: 向平衡二叉树中添加新节点，并通过平衡调整机制恢复树的平衡状态, typical_usage: 动态数据集的元素添加（如缓存系统插入新数据、订单系统新增记录）); 删除 (description: 从平衡二叉树中移除指定节点，并通过平衡调整机制恢复树的平衡状态, typical_usage: 动态数据集的元素删除（如缓存淘汰旧数据、用户注销时删除账户信息）, 旋转操作: {'description': '通过左旋、右旋等节点位置调整操作修复树的失衡状态', 'typical_usage': 'AVL树插入/删除后左右子树高度差超过1时的平衡恢复、红黑树插入/删除后的颜色规则修复'}, 获取平衡信息: {'description': '获取节点的平衡因子（AVL树）或颜色标记（红黑树）等平衡相关信息', 'typical_usage': '平衡维护过程中的条件判断（如AVL树计算高度差、红黑树检查颜色规则）'})"
+    }
+  },
+  {
+    "topic": "迪杰斯特拉算法",
+    "attributes": {
+      "type": "算法",
+      "description": "迪杰斯特拉算法（Dijkstra's Algorithm）是一种单源最短路径算法，用于计算图中从一个指定源节点到所有其他节点的最短路径长度，要求图中所有边的权重非负",
+      "properties": "",
+      "time_complexity": "best_case: O(M + N log N)（斐波那契堆实现）; average_case: O(M log N)（二叉堆实现）; worst_case: O(M log N)（二叉堆实现）",
+      "space_complexity": "best_case: O(M + N); average_case: O(M + N); worst_case: O(M + N)",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "布隆过滤器",
+    "attributes": {
+      "type": "概念",
+      "description": "布隆过滤器（Bloom Filter）是一种空间效率极高的概率型数据结构，用于快速判断一个元素是否属于某个集合。它通过多个独立哈希函数将元素映射到位数组的多个位置并置1，查询时检查这些位置是否全为1；其特点是存在假阳性（误判元素存在）但无假阴性（不会漏判存在的元素），且不支持元素删除（除非使用变种如计数布隆过滤器）",
+      "properties": "概率准确性：存在假阳性错误（False Positive）但无假阴性错误（False Negative）; 空间高效：通过位数组存储大幅节省空间，远优于传统集合结构; 默认不可删除：标准实现不支持元素删除，因删除可能破坏其他元素的哈希位置; 哈希依赖性：哈希函数的独立性和分布均匀性直接影响假阳性率",
+      "time_complexity": "插入 (best_case: O(k), average_case: O(k), worst_case: O(k)); 查询 (best_case: O(k), average_case: O(k), worst_case: O(k))",
+      "space_complexity": "best_case: O(m); average_case: O(m); worst_case: O(m)",
+      "common_operations": "插入（add）: 将元素加入布隆过滤器：通过所有哈希函数计算元素对应的位索引，将这些位置的bit置为1 (用途: URL去重（如爬虫标记已爬取的URL）、缓存预热时记录已加载的键); 查询（contains）: 判断元素是否属于集合：通过所有哈希函数计算位索引，检查这些位置是否全为1；全1则可能存在（假阳性），有0则肯定不存在 (用途: 缓存穿透防护（如Redis缓存前检查不存在的键）、HBase中行键的存在性预检查)"
+    }
+  },
+  {
+    "topic": "表达式求值",
+    "attributes": {
+      "type": "数据结构",
+      "description": "表达式求值是计算机科学中处理算术或逻辑表达式的核心任务，目标是将由操作数（如整数、浮点数）、运算符（如+、-、*、/、^）和括号组成的中缀表达式转换为正确的数值结果，需严格遵循运算符优先级规则（如乘除高于加减）和括号嵌套逻辑（括号内表达式优先计算）",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "树状数组",
+    "attributes": {
+      "type": "数据结构",
+      "description": "树状数组（Fenwick Tree）是一种高效处理动态前缀和与单点更新的数据结构，由Peter Fenwick于1994年提出。它通过二进制分解将数组区间映射到树状结构的节点上，能够在对数时间内完成单点更新和前缀和查询，适用于需要频繁修改元素并查询区间和的场景",
+      "properties": "1. 基于二进制分解的区间表示：每个节点i的父节点为i - lowbit(i)，负责的区间是[i - lowbit(i) + 1, i]；2. 高效的动态操作：支持O(logn)时间的单点更新和前缀和查询；3. 空间高效：仅需与原数组大小相同的存储空间；4. 操作局限性：仅适用于满足结合律且可差分的二元操作（如加法、乘法，减法和除法需存在逆元）；5. 前缀和导向：核心功能是前缀和查询，区间查询需通过前缀和相减实现",
+      "time_complexity": "单点更新 (best_case: O(logn), average_case: O(logn), worst_case: O(logn)); 前缀和查询 (best_case: O(logn), average_case: O(logn), worst_case: O(logn)); 区间查询 (best_case: O(logn), average_case: O(logn), worst_case: O(logn)); 初始化 (best_case: O(n), average_case: O(n), worst_case: O(n))",
+      "space_complexity": "O(n)",
+      "common_operations": "单点更新: 修改原数组中指定位置的元素值，并更新树状数组中所有受影响的节点（即该位置所在的所有区间对应的节点） (用途: 动态维护数组元素的值，如统计系统中某个元素的出现次数（例如电商系统中商品库存的实时修改）); 前缀和查询: 计算原数组从起始位置（通常为1）到指定位置i的元素和 (用途: 查询前i个元素的累加和，如计算班级前k名学生的总分、统计截止到某时间点的总销售额); 区间查询: 通过两次前缀和查询的差值（prefix_sum(r) - prefix_sum(l-1)）计算原数组中从位置l到r的元素和 (用途: 查询数组某区间内的元素总和，如统计某个时间段内的订单总额、计算数组中某段区间的平均成绩); 初始化: 根据给定的原数组构建树状数组，将原数组的元素映射到树状数组的对应节点中 (用途: 在数据预处理阶段初始化树状数组，以支持后续的动态查询和更新操作，如加载初始销售数据以构建库存管理的树状数组)"
+    }
+  },
+  {
+    "topic": "分块查找",
+    "attributes": {
+      "type": "算法",
+      "description": "分块查找（Block Search），又称索引顺序查找，是一种结合顺序查找与二分查找优势的查找算法。其核心是将待查找数据集划分为若干块（子表），块内元素可无序，但块间必须满足严格有序性（即后一块所有元素的关键字均大于前一块所有元素的关键字）；同时为每个块构建索引项（包含块的最大关键字和起始地址），形成有序的索引表。查找时先通过索引表定位目标块，再在块内进行顺序查找。",
+      "properties": "",
+      "time_complexity": "索引二分查找 (best_case: O(1), average_case: O(√n), worst_case: O(√n)); 索引顺序查找 (best_case: O(1), average_case: O(√n), worst_case: O(√n))",
+      "space_complexity": "best_case: O(n); average_case: O(n); worst_case: O(n)",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "摊还分析",
+    "attributes": {
+      "type": "概念",
+      "description": "摊还分析是一种算法复杂度分析方法，用于分析**操作序列**的平均代价。它通过将高代价操作的成本分摊到低代价操作上，得到每个操作的**摊还代价**——即使单个操作可能具有较高的最坏情况复杂度，但整体序列的平均复杂度更紧且更符合实际运行情况。",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "线性查找",
+    "attributes": {
+      "type": "算法",
+      "description": "线性查找（又称顺序查找）是一种基础的查找算法，通过从数据结构的一端开始逐个遍历元素，与目标值比较直到找到匹配项或遍历结束",
+      "properties": "",
+      "time_complexity": "best_case: O(1); average_case: O(n); worst_case: O(n)",
+      "space_complexity": "O(1)",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "最好情况",
+    "attributes": {
+      "type": "概念",
+      "description": "算法在输入规模为n时，针对所有可能的输入中使算法执行步骤最少、资源消耗最低的最优输入情况所对应的运行时间或资源消耗的度量，是算法性能的一个重要指标，反映了算法的最优可能效率",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "循环队列",
+    "attributes": {
+      "type": "数据结构",
+      "description": "循环队列是一种基于数组或链表实现的线性队列结构，通过将队列首尾逻辑相连形成环形，解决普通顺序队列的\"假溢出\"问题（即队尾指针到达数组末尾但队首仍有空闲空间时无法插入的问题），核心遵循先进先出（FIFO）原则，常用于需要高效空间利用的缓冲区或任务调度场景。",
+      "properties": "逻辑上为环形结构，队首（front）和队尾（rear）指针通过模运算（%容量）循环移动; 解决普通顺序队列的假溢出问题，提高空间利用率; 需通过牺牲一个存储空间（(rear+1)%capacity == front）或维护计数器来区分队列空满状态; 保持队列先进先出（FIFO）的核心特性; 顺序实现时空间固定，链式实现时可动态扩展",
+      "time_complexity": "初始化（initialize） (best_case: O(1), average_case: O(1), worst_case: O(1)); 入队（enqueue） (best_case: O(1), average_case: O(1), worst_case: O(1)); 出队（dequeue） (best_case: O(1), average_case: O(1), worst_case: O(1)); 获取队首元素（get_front） (best_case: O(1), average_case: O(1), worst_case: O(1)); 判断队列空（is_empty） (best_case: O(1), average_case: O(1), worst_case: O(1)); 判断队列满（is_full） (best_case: O(1), average_case: O(1), worst_case: O(1))",
+      "space_complexity": "best_case: O(n); average_case: O(n); worst_case: O(n)",
+      "common_operations": "初始化（initialize）: 创建空循环队列，初始化队首指针front、队尾指针rear（通常为0）及队列最大容量，若为链式实现则初始化头节点和尾节点指针 (用途: 使用循环队列前的准备工作，如创建网络数据缓冲区、任务调度队列或BFS的待访问节点队列); 入队（enqueue）: 将元素插入队尾：顺序实现时若队列未满，执行rear = (rear + 1) % capacity并存储元素；链式实现时创建新节点并连接到尾节点后，更新尾节点指针 (用途: 生产者向缓冲区添加数据、任务系统接收新任务、BFS中添加待访问的邻接节点); 出队（dequeue）: 移除并返回队首元素：顺序实现时若队列未空，执行front = (front + 1) % capacity并返回原front位置元素；链式实现时移除头节点并更新头节点指针 (用途: 消费者从缓冲区取出数据、任务系统执行队首任务、BFS中取出当前节点进行邻接节点遍历); 获取队首元素（get_front）: 返回队首元素但不移除，顺序实现时直接访问front位置元素，链式实现时访问头节点数据 (用途: 查看缓冲区头部待处理数据、检查任务队列的首个任务内容、BFS中预览下一个待处理节点); 判断队列空（is_empty）: 判断队列是否为空：顺序实现通常通过front == rear（结合空满策略），链式实现通过头节点是否为null或front == rear (用途: 消费者检查缓冲区是否无数据需等待、任务系统判断是否无任务可执行、BFS判断是否遍历完成); 判断队列满（is_full）: 判断队列是否已满：顺序实现通过(rear + 1) % capacity == front（牺牲一个空间策略）或计数器等于容量；链式实现通常无需判断满（可动态扩展） (用途: 生产者检查缓冲区是否已满需停止添加、任务系统判断是否拒绝新任务、避免顺序队列溢出)"
+    }
+  },
+  {
+    "topic": "动态规划",
+    "attributes": {
+      "type": "概念",
+      "description": "动态规划（Dynamic Programming, DP）是一种通过将原问题分解为重叠子问题，求解每个子问题并存储其解以避免重复计算，从而高效解决具有最优子结构性质问题的算法设计范式。",
+      "properties": "",
+      "time_complexity": "子问题数量 × 每个子问题的处理时间: O(Θ)，其中Θ为子问题规模相关的复杂度（例如矩阵链乘法为O(n³)，斐波那契数列自底向上为O(n)，最长公共子序列为O(mn)，m、n为输入序列长度）",
+      "space_complexity": "存储子问题解的空间: O(Θ)（例如斐波那契数列自底向上用一维数组为O(n)，矩阵链乘法用二维数组为O(n²)；部分问题可通过空间优化降低复杂度，如0-1背包问题优化后为O(W)，W为背包容量）",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "分治",
+    "attributes": {
+      "type": "概念",
+      "description": "分治法（Divide and Conquer）是一种基于递归的算法设计范式，核心思想是将规模较大的复杂问题分解为多个规模较小、结构相同或相似的子问题，递归解决子问题后合并其解得到原问题的解",
+      "properties": "",
+      "time_complexity": "递归式: T(n) = aT(n/b) + f(n)（a≥1为子问题数，b>1为规模缩小比例，f(n)为分解与合并时间）; best_case: 取决于具体问题（如归并排序为O(n log n)）; average_case: 取决于具体问题（如归并排序为O(n log n)）; worst_case: 取决于具体问题（如快速排序为O(n²)、归并排序为O(n log n)）",
+      "space_complexity": "递归栈空间: O(log n)（子问题等分时光递归深度）; 额外空间: 取决于合并步骤（如归并排序需O(n)、快速排序无需额外）; best_case: O(log n)（如快速排序最好情况）; average_case: O(log n)（如快速排序平均情况）; worst_case: O(n)（如归并排序或快速排序最坏递归深度）",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "聚合分析",
+    "attributes": {
+      "type": "概念",
+      "description": "聚合分析（Aggregate Analysis）是摊还分析的基础方法之一，通过计算n个操作序列的总实际时间，将总时间除以操作次数n得到每个操作的平均摊还时间。其核心是忽略单个操作的最坏情况，通过整体总时间的上界保证平均意义下每个操作的高效性，是摊还分析中最直观的方法。",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "队列",
+    "attributes": {
+      "type": "数据结构",
+      "description": "队列（Queue）是一种遵循先进先出（First-In-First-Out, FIFO）原则的线性数据结构，元素只能从队尾（Rear）添加（入队），从队头（Front）移除（出队），核心特性是先进入的元素优先被处理",
+      "properties": "先进先出（FIFO）：最早入队元素最先出队; 操作受限：仅允许队尾入队、队头出队; 顺序队列需维护front和rear指针; 循环队列通过模运算连接数组首尾，解决顺序队列假溢出; 链式队列无固定容量限制（除非手动约束）",
+      "time_complexity": "enqueue (best_case: O(1), average_case: O(1), worst_case: O(1)); dequeue (best_case: O(1), average_case: O(1), worst_case: O(1)); peek (best_case: O(1), average_case: O(1), worst_case: O(1)); isEmpty (best_case: O(1), average_case: O(1), worst_case: O(1)); isFull (best_case: O(1), average_case: O(1), worst_case: O(1))",
+      "space_complexity": "best_case: O(n); average_case: O(n); worst_case: O(n)",
+      "common_operations": "enqueue: 将元素添加至队列的队尾 (用途: 生产者生成数据并加入队列，如日志系统将待写入的日志条目加入缓冲队列); dequeue: 移除并返回队列的队头元素 (用途: 消费者从队列取出数据处理，如任务调度系统取出待执行的任务); peek: 获取队头元素但不移除 (用途: 查看下一个待处理元素而不改变队列状态，如检查打印机队列的下一个打印任务); isEmpty: 检查队列是否无元素 (用途: 判断是否还有数据需处理，如消费者检查是否还有任务待执行); isFull: 检查顺序队列是否达到容量上限（链式队列无此操作） (用途: 顺序队列防止入队溢出，如固定容量缓冲队列判断是否可继续添加元素)"
+    }
+  },
+  {
+    "topic": "Dijkstra算法",
+    "attributes": {
+      "type": "算法",
+      "description": "Dijkstra算法是一种用于解决带权图中单源最短路径问题的贪心算法，能够计算从给定源顶点到图中所有其他顶点的最短路径长度，要求图中所有边的权重非负",
+      "properties": "",
+      "time_complexity": "数组实现 (best_case: O(V²), average_case: O(V²), worst_case: O(V²)); 二叉堆实现 (best_case: O((V+E)logV), average_case: O((V+E)logV), worst_case: O((V+E)logV)); 斐波那契堆实现 (best_case: O(E + VlogV), average_case: O(E + VlogV), worst_case: O(E + VlogV))",
+      "space_complexity": "邻接表存储 (best_case: O(V+E), average_case: O(V+E), worst_case: O(V+E)); 邻接矩阵存储 (best_case: O(V²), average_case: O(V²), worst_case: O(V²))",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "希尔排序",
+    "attributes": {
+      "type": "算法",
+      "description": "希尔排序（Shell Sort）是插入排序的优化变体，通过引入递减的“增量间隔”将数组划分为多个子数组，对每个子数组独立执行插入排序，逐步缩小间隔至1，最终以普通插入排序完成全局排序",
+      "properties": "",
+      "time_complexity": "best_case: O(n)（数组完全有序时，所有增量下的插入排序均只需线性比较）; average_case: 介于O(n log n)与O(n²)之间（依赖增量序列，常见如Sedgewick增量下约O(n^1.3)）; worst_case: 依赖增量序列：原始Shell增量（n/2, n/4,...1）为O(n²)；Hibbard增量（1,3,7,...,2^k-1）为O(n^(3/2))；Sedgewick增量为O(n^(4/3))",
+      "space_complexity": "O(1)（原地排序，仅需常数级额外空间存储增量和临时变量）",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "普里姆算法",
+    "attributes": {
+      "type": "算法",
+      "description": "普里姆（Prim）算法是一种用于求解加权无向连通图的最小生成树（Minimum Spanning Tree, MST）的贪心算法。该算法从任意起始顶点出发，通过逐步选择连接当前生成树与未包含顶点的最小权重边，最终构造出包含所有顶点且边权总和最小的无环连通子图。",
+      "properties": "",
+      "time_complexity": "邻接矩阵+线性查找: O(V²); 邻接表+二叉堆: O(E log V); 邻接表+斐波那契堆: O(E + V log V)",
+      "space_complexity": "邻接矩阵实现: O(V²); 邻接表实现: O(V + E)",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "不相交集合",
+    "attributes": {
+      "type": "概念",
+      "description": "不相交集合（Disjoint Set Union, DSU，又称并查集）是一种用于高效管理元素分组的数据结构，核心功能是维护动态连通性——支持查询元素所属集合（Find）和合并两个不相交集合（Union）操作，通过路径压缩和按秩合并优化，能在近常数时间内完成操作",
+      "properties": "动态连通性：支持动态维护元素间的连通关系; 不相交性：所有集合两两无交集; 路径压缩优化：Find操作时扁平化树结构，减少后续查询路径长度; 按秩/大小合并优化：Union操作时将较浅/较小的树合并到较深/较大的树，保持树高度较低; 根节点唯一性：每个集合有唯一根节点作为标识",
+      "time_complexity": "make_set (best_case: O(1), average_case: O(1), worst_case: O(1)); find (best_case: O(1), average_case: O(α(n)), worst_case: O(α(n))); union (best_case: O(1), average_case: O(α(n)), worst_case: O(α(n)))",
+      "space_complexity": "O(n)，n为元素总数，需存储父数组和辅助数组（秩或大小）",
+      "common_operations": "make_set: 初始化单个元素为独立集合（父指针指向自身，秩/大小设为初始值） (用途: Kruskal算法开始前初始化每个顶点为单独集合；图论中初始化所有节点为独立连通分量); find: 查询元素所属集合的根节点（通过父指针回溯，路径压缩时直接指向根） (用途: 判断两个元素是否属于同一集合（如Kruskal算法中判断边的两个顶点是否连通）；查找元素的连通分量标识); union: 合并两个元素所在的不相交集合（通过Find找到根后，按秩/大小合并根节点） (用途: Kruskal算法中添加有效边（连接不同连通分量）时合并集合；合并两个独立的连通分量)"
+    }
+  },
+  {
+    "topic": "插值查找",
+    "attributes": {
+      "type": "算法",
+      "description": "插值查找是二分查找的改进版查找算法，针对有序且数据分布均匀的数组，通过计算目标值在数组中的估计位置（而非固定取中间位置）来更高效地缩小查找范围，适用于数据分布均匀时的快速查找场景",
+      "properties": "",
+      "time_complexity": "best_case: O(1); average_case: O(log log n); worst_case: O(n)",
+      "space_complexity": "递归实现: O(log n); 非递归实现: O(1)",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "路径压缩",
+    "attributes": {
+      "type": "概念",
+      "description": "路径压缩是并查集（Disjoint Set Union, DSU）数据结构中针对查找（find）操作的启发式优化技术。在执行find操作获取某节点的根节点时，该技术会将查找路径上的所有节点直接指向根节点，从而扁平化树结构，大幅缩短后续查找操作的路径长度，提升整体效率。",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "状态转移",
+    "attributes": {
+      "type": "概念",
+      "description": "状态转移是计算机科学中广泛应用于动态规划、有限自动机、图遍历等领域的核心机制，指通过当前状态和输入、决策或规则转换到下一状态的过程，用于描述问题的演化过程并求解最优解或状态序列",
+      "properties": "",
+      "time_complexity": "动态规划（单变量状态链） (best_case: O(n), average_case: O(n), worst_case: O(n)); 动态规划（二维状态网格） (best_case: O(mn), average_case: O(mn), worst_case: O(mn)); 有限自动机（DFA/NFA） (best_case: O(k), average_case: O(k), worst_case: O(k)); 图的状态遍历（如BFS） (best_case: O(V+E), average_case: O(V+E), worst_case: O(V+E))",
+      "space_complexity": "动态规划（单变量状态链，未优化） (best_case: O(n), average_case: O(n), worst_case: O(n)); 动态规划（二维状态网格） (best_case: O(mn), average_case: O(mn), worst_case: O(mn)); 动态规划（单变量状态链，空间优化） (best_case: O(1), average_case: O(1), worst_case: O(1)); 有限自动机（DFA/NFA） (best_case: O(1), average_case: O(1), worst_case: O(1)); 图的状态遍历 (best_case: O(V), average_case: O(V), worst_case: O(V))",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "二叉搜索树",
+    "attributes": {
+      "type": "算法",
+      "description": "二叉搜索树（Binary Search Tree, BST）是一种二叉树数据结构，满足以下性质：对于树中的每个节点，其左子树中的所有节点的值均小于该节点的值，右子树中的所有节点的值均大于该节点的值；左、右子树本身也必须是二叉搜索树",
+      "properties": "1. 左小右大性质：任意节点的左子树所有节点值小于该节点，右子树所有节点值大于该节点；2. 中序遍历序列：中序遍历二叉搜索树得到的是严格递增的有序序列；3. 唯一性（通常）：若不允许重复值，则每个值唯一对应一个节点；4. 高度敏感性：树的高度h决定操作效率，理想情况为平衡树（h=log₂n），最坏情况退化为链表（h=n）",
+      "time_complexity": "查找 (best_case: O(1), average_case: O(logn), worst_case: O(n)); 插入 (best_case: O(1), average_case: O(logn), worst_case: O(n)); 删除 (best_case: O(1), average_case: O(logn), worst_case: O(n)); 求最小值 (best_case: O(1), average_case: O(logn), worst_case: O(n)); 求最大值 (best_case: O(1), average_case: O(logn), worst_case: O(n)); 求前驱 (best_case: O(1), average_case: O(logn), worst_case: O(n)); 求后继 (best_case: O(1), average_case: O(logn), worst_case: O(n))",
+      "space_complexity": "存储结构空间复杂度为O(n)（n为节点数）；递归实现的操作（如递归查找、遍历）的栈空间复杂度为O(h)（h为树的高度，平衡时O(logn)，最坏O(n)）",
+      "common_operations": "查找: 根据给定值查找对应的节点 (用途: 在有序数据集中快速定位特定元素，如字典中的键值查找); 插入: 将新值插入到树中的正确位置，保持二叉搜索树性质 (用途: 向有序集合中添加新元素，如动态维护一个有序的数值列表); 删除: 移除指定值的节点，并调整树结构以保持二叉搜索树性质（分叶子节点、单子节点、双子节点三种情况处理） (用途: 从有序集合中删除元素，如任务调度中移除已完成的任务优先级节点); 中序遍历: 按左子树→根节点→右子树的顺序遍历树，得到升序序列 (用途: 获取有序数据序列，如对二叉搜索树中的元素进行排序输出); 求最小值: 遍历左子树直到最左节点（无左子节点的节点），即为最小值 (用途: 获取有序集合中的最小元素，如获取股票的历史最低价格); 求最大值: 遍历右子树直到最右节点（无右子节点的节点），即为最大值 (用途: 获取有序集合中的最大元素，如获取班级学生的最高分数); 求前驱: 查找比给定节点值小的最大节点（即该节点左子树的最右节点，或向上回溯的祖先节点） (用途: 在有序序列中寻找当前元素的前一个元素，如文本编辑器中的撤销操作查找上一个状态); 求后继: 查找比给定节点值大的最小节点（即该节点右子树的最左节点，或向上回溯的祖先节点） (用途: 在有序序列中寻找当前元素的下一个元素，如日程表中查找下一个未完成的任务)"
+    }
+  },
+  {
+    "topic": "销毁",
+    "attributes": {
+      "type": "概念",
+      "description": "释放数据结构占用的内存或系统资源，使其完全不可用的操作，通常用于回收不再需要的资源",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "任务调度",
+    "attributes": {
+      "type": "概念",
+      "description": "操作系统、分布式系统或并发编程中，依据特定策略将任务（进程、线程、作业等）分配给计算资源（CPU、服务器、线程池等），以优化系统性能目标（如吞吐量、响应时间、资源利用率、实时性）的核心过程",
+      "properties": "",
+      "time_complexity": "",
+      "space_complexity": "",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "前缀树",
+    "attributes": {
+      "type": "数据结构",
+      "description": "前缀树（Trie）是一种用于高效存储和检索字符串集合的树形数据结构，核心特点是利用字符串的公共前缀共享存储空间。每个节点代表一个字符，从根节点到某一节点的路径对应一个字符串的前缀，节点通过布尔标记（如is_end）指示是否为某字符串的结尾。",
+      "properties": "根节点无实际字符，仅作为路径起点; 每个节点的子节点对应不同字符，确保路径唯一性; 从根到节点的路径唯一对应一个字符串前缀; 字符串的完整性由节点的is_end标记决定; 公共前缀的字符串共享路径上的节点，减少存储空间",
+      "time_complexity": "插入 (best_case: O(k), average_case: O(k), worst_case: O(k)); 查找 (best_case: O(k), average_case: O(k), worst_case: O(k)); 删除 (best_case: O(k), average_case: O(k), worst_case: O(k)); 前缀查询 (best_case: O(k), average_case: O(k), worst_case: O(k))",
+      "space_complexity": "best_case: O(k); average_case: O(n×k_avg); worst_case: O(n×k_max)",
+      "common_operations": "插入: 遍历字符串的每个字符，依次创建或访问节点对应的子节点，最后将末尾节点标记为字符串结束位置。 (用途: 构建词库、字典等字符串集合的前缀树索引，如搜索引擎的关键词库存储); 查找: 遍历字符串的每个字符，检查对应子节点是否存在；若路径完整且末尾节点标记为结束，则字符串存在。 (用途: 验证字符串是否在集合中，如密码验证、文本编辑器的关键词检测); 删除: 找到字符串末尾节点，取消其结束标记；若节点无其他子节点，则向上回溯删除所有无意义的父节点（即无其他子节点且非结束节点的节点）。 (用途: 更新字符串集合，如词库中移除过时词汇、用户删除自定义短语); 前缀查询: 先找到前缀对应的节点，再遍历该节点的所有子树，收集所有以该前缀开头的完整字符串。 (用途: 搜索引擎的输入提示、手机输入法的联想词推荐、文档编辑器的关键词补全)"
+    }
+  },
+  {
+    "topic": "单源最短路径",
+    "attributes": {
+      "type": "概念",
+      "description": "单源最短路径算法是一类用于求解图中从某一特定源顶点到所有其他顶点的最短路径的算法统称，核心目标是找到源点到每个顶点的路径中边权之和最小的路径",
+      "properties": "",
+      "time_complexity": "Dijkstra算法（邻接矩阵） (best_case: O(V²), average_case: O(V²), worst_case: O(V²)); Dijkstra算法（斐波那契堆） (best_case: O(E + V log V), average_case: O(E + V log V), worst_case: O(E + V log V)); Bellman-Ford算法 (best_case: O(VE), average_case: O(VE), worst_case: O(VE)); SPFA算法 (best_case: O(E), average_case: O(E), worst_case: O(VE)); DAG拓扑排序优化算法 (best_case: O(V + E), average_case: O(V + E), worst_case: O(V + E))",
+      "space_complexity": "Dijkstra算法（邻接矩阵）: O(V²); Dijkstra算法（邻接表）: O(V + E); Bellman-Ford算法: O(V); SPFA算法: O(V + E); DAG拓扑排序优化算法: O(V + E)",
+      "common_operations": ""
+    }
+  },
+  {
+    "topic": "可持久化数据结构",
+    "attributes": {
+      "type": "概念",
+      "description": "可持久化数据结构是一种支持在修改操作时保留所有历史版本的数据结构，每次修改会生成新的版本而不破坏旧版本，核心通过结构共享（仅复制修改路径上的节点）优化空间开销，允许对任意历史状态进行查询、回溯或分支扩展",
+      "properties": "旧版本不可变性（修改不影响历史版本状态）; 版本分支能力（支持并行生成多个版本分支）; 结构共享性（不同版本复用未修改的子结构）; 时间旅行特性（可访问任意历史版本的完整状态）",
+      "time_complexity": "版本化修改 (best_case: O(1), average_case: O(log n), worst_case: O(log n)); 版本查询 (best_case: O(log n), average_case: O(log n), worst_case: O(log n)); 版本回溯 (best_case: O(1), average_case: O(1), worst_case: O(1)); 版本合并（支持结构） (best_case: O(α(n)), average_case: O(α(n)), worst_case: O(α(n)))",
+      "space_complexity": "单次修改额外空间 (best_case: O(1), average_case: O(log n), worst_case: O(n)); k次修改总空间 (best_case: O(k), average_case: O(k log n), worst_case: O(kn))",
+      "common_operations": "版本化修改: 基于旧版本数据结构进行修改（如插入、删除、更新元素），生成新的版本实例，旧版本保持不变 (用途: 版本控制系统创建文件新版本（如Git commit）、数据库记录历史变更（如时间序列数据库写入）、文档编辑器保存历史版本); 版本查询: 根据版本标识符（如版本号、时间戳）访问对应版本中的元素值或结构状态 (用途: 查看文档历史版本内容（如Word的版本浏览）、数据库查询过去状态（如SQL AS OF语句）、查看代码的历史提交记录); 版本回溯: 将当前工作版本切换到指定的历史版本，后续操作基于该历史版本进行 (用途: 文本编辑器撤销到某一步操作（如多次Ctrl+Z）、系统故障时回滚到稳定版本（如数据库事务回滚）、恢复误删除的文件版本); 版本合并: （仅部分结构支持）将两个或多个分支版本的修改合并为一个新版本，处理冲突并整合变更 (用途: 协同编辑工具合并不同用户的修改（如Google Docs版本合并）、分布式系统合并分叉状态（如区块链分叉合并）、代码仓库合并不同分支（如Git merge）)"
+    }
+  },
+  {
+    "topic": "线段树",
+    "attributes": {
+      "type": "数据结构",
+      "description": "线段树（Segment Tree）是一种基于分治思想的二叉树数据结构，用于高效处理数组的区间查询（如求和、求最值等）和区间更新操作。每个节点代表数组的一个区间，叶子节点对应数组中的单个元素，内部节点存储对应区间的聚合信息（如和、最大值、最小值等），通过递归划分区间实现快速查询与更新",
+      "properties": "完全二叉树结构（数组存储时），每个节点对应数组的一个区间; 父节点区间划分为两个等长（或近似等长）的子区间，左子节点对应左半区间，右子节点对应右半区间; 每个节点存储对应区间的聚合值（如和、最值等），由子节点聚合值合并得到; 支持O(logn)时间复杂度的区间查询和更新（结合懒标记可优化区间更新）",
+      "time_complexity": "构建（build） (best_case: O(n), average_case: O(n), worst_case: O(n)); 区间查询（range_query） (best_case: O(logn), average_case: O(logn), worst_case: O(logn)); 单点更新（point_update） (best_case: O(logn), average_case: O(logn), worst_case: O(logn)); 区间更新（range_update，带懒标记） (best_case: O(logn), average_case: O(logn), worst_case: O(logn))",
+      "space_complexity": "best_case: O(4n); average_case: O(4n); worst_case: O(4n)",
+      "common_operations": "构建线段树（build）: 根据原始数组递归创建线段树，每个节点计算并存储对应区间的聚合值（如和、最值等） (用途: 初始化线段树以支持后续的查询和更新操作); 区间查询（range_query）: 递归查询指定区间[L, R]内的聚合值，通过分解查询区间为线段树中的节点区间并合并结果 (用途: 求数组某区间的和、最大值、最小值等，如统计学生成绩区间的总分、找出某段时间的最高温度等); 单点更新（point_update）: 更新原始数组中单个元素的值，并递归更新线段树中所有包含该元素的节点的聚合值 (用途: 修改数组中某个元素后维护线段树的正确性，如修改某学生的成绩后更新总分线段树); 区间更新（range_update）: 更新指定区间[L, R]内的所有元素（如统一加一个值、统一设置为某个值），通常结合懒标记（Lazy Propagation）优化以避免逐点更新的高时间复杂度 (用途: 批量修改数组某区间的元素后维护线段树，如给某区间的学生成绩加5分、将某段时间的温度统一调整等)"
+    }
+  },
+  {
+    "topic": "B树",
+    "attributes": {
+      "type": "数据结构",
+      "description": "B树是一种自平衡的多路查找树数据结构，旨在优化外存（如磁盘）访问的I/O效率。其核心设计是允许每个节点存储多个关键字和对应子节点指针，通过保持树的高度平衡（所有叶子节点处于同一深度），确保查找、插入、删除操作的时间复杂度为对数级，从而减少磁盘I/O次数",
+      "properties": "1. 最小度数t（t≥2）决定节点容量：根节点关键字数k∈[1,2t-1]，非根节点k∈[t-1,2t-1]；2. 每个节点的子节点数为k+1，且子指针对应关键字的区间划分（子树关键字严格介于相邻父节点关键字之间）；3. 所有叶子节点处于同一深度，保证树高平衡；4. 节点内关键字按非降序排列；5. 叶子节点无空子指针（或指向null）",
+      "time_complexity": "查找 (best_case: O(log_t n), average_case: O(log_t n), worst_case: O(log_t n)); 插入 (best_case: O(log_t n), average_case: O(log_t n), worst_case: O(log_t n)); 删除 (best_case: O(log_t n), average_case: O(log_t n), worst_case: O(log_t n)); 分裂节点 (best_case: O(1), average_case: O(1), worst_case: O(1)); 合并节点 (best_case: O(1), average_case: O(1), worst_case: O(1))",
+      "space_complexity": "O(n)，所有关键字和子指针均需存储，空间开销与数据规模线性相关",
+      "common_operations": "查找 (用途: 数据库索引中根据主键或索引字段快速定位记录（如MySQL的InnoDB引擎非聚集索引）); 插入 (用途: 数据库插入新记录时，将关键字插入对应节点并维护树的平衡（如添加新用户记录到用户表的索引）); 删除 (用途: 数据库删除记录时，移除关键字并调整节点（如删除订单记录后更新订单号索引）); 分裂节点 (用途: 插入操作中节点关键字数达到2t-1时，将节点分裂为两个子节点，中间关键字提升至父节点以保持容量约束); 合并节点 (用途: 删除操作中节点关键字数低于t-1时，将节点与相邻兄弟节点合并，并从父节点下调一个关键字以满足最小容量要求)"
+    }
+  },
+  {
+    "topic": "二叉树",
+    "attributes": {
+      "type": "数据结构",
+      "description": "二叉树（Binary Tree）是一种树形数据结构，其中每个节点最多有两个子节点，分别称为左子节点和右子节点，且子节点的顺序固定（左子树与右子树不可互换）。空树或仅含根节点的结构均属于二叉树，是许多高级树形结构（如二叉搜索树、堆、AVL树）的基础。",
+      "properties": "1. 每个节点最多有2个子节点（左、右子树）；2. 子节点顺序有别，左右互换后为不同二叉树；3. 第k层最多含2^(k-1)个节点（k≥1）；4. 深度为h的二叉树最多含2^h - 1个节点（满二叉树）；5. 任意非空二叉树中，叶子节点数n₀等于度为2的节点数n₂加1（n₀ = n₂ + 1）；6. 完全二叉树的叶子节点仅出现在最后两层，且最后一层的节点靠左排列。",
+      "time_complexity": "前序遍历 (best_case: O(n), average_case: O(n), worst_case: O(n)); 中序遍历 (best_case: O(n), average_case: O(n), worst_case: O(n)); 后序遍历 (best_case: O(n), average_case: O(n), worst_case: O(n)); 层序遍历 (best_case: O(n), average_case: O(n), worst_case: O(n)); 插入节点 (best_case: O(1), average_case: O(n), worst_case: O(n)); 删除节点 (best_case: O(1), average_case: O(n), worst_case: O(n)); 查找节点 (best_case: O(1), average_case: O(n), worst_case: O(n))",
+      "space_complexity": "1. 链式存储：O(n)，每个节点需存储数据和两个指针，空间与节点数线性相关；2. 顺序存储：完全二叉树为O(n)，非完全二叉树为O(2^h - 1)（h为树的深度），空节点需占用数组位置。",
+      "common_operations": "前序遍历 (用途: 用于打印二叉树结构、复制二叉树、前缀表达式求值等场景，遍历顺序为「根→左→右」); 中序遍历 (用途: 用于二叉搜索树的有序访问（升序输出节点值）、查找前驱/后继节点等场景，遍历顺序为「左→根→右」); 后序遍历 (用途: 用于删除二叉树（先删子节点再删根）、计算子树大小/总和等场景，遍历顺序为「左→右→根」); 层序遍历 (用途: 用于按层打印树结构、寻找树的最小深度、广度优先搜索（BFS）等场景，遍历顺序为「按层次从左到右」); 插入节点 (用途: 用于构建二叉树、向现有树中添加新数据等场景，需找到合适的叶子节点位置插入); 删除节点 (用途: 用于维护树结构完整性，删除指定节点后需调整子树（如叶子节点直接删除、非叶子节点用后继节点替换）); 查找节点 (用途: 用于寻找特定值的节点位置，如在二叉树中定位目标元素、统计节点出现次数等场景)"
+    }
+  },
+  {
+    "topic": "栈",
+    "attributes": {
+      "type": "数据结构",
+      "description": "栈（Stack）是一种遵循后进先出（Last-In-First-Out, LIFO）原则的线性数据结构，仅允许在结构的一端（称为栈顶，Top）进行元素的插入（入栈）和删除（出栈）操作，另一端（栈底，Bottom）固定不动",
+      "properties": "1. 后进先出（LIFO）：最后入栈元素最先出栈；2. 操作受限：仅栈顶支持插入（Push）和删除（Pop）；3. 状态特性：存在栈空（无元素）和栈满（数组实现时存储空间耗尽）状态；4. 线性逻辑：元素间保持一对一的顺序关系",
+      "time_complexity": "push (best_case: O(1), average_case: O(1), worst_case: O(n)); pop (best_case: O(1), average_case: O(1), worst_case: O(n)); peek (best_case: O(1), average_case: O(1), worst_case: O(1)); isEmpty (best_case: O(1), average_case: O(1), worst_case: O(1)); isFull (best_case: O(1), average_case: O(1), worst_case: O(1))",
+      "space_complexity": "O(n)，其中n为栈中元素的数量",
+      "common_operations": "push: 将元素添加至栈顶并更新栈顶指针 (用途: 函数调用时压入返回地址、表达式求值时压入操作数或运算符); pop: 移除并返回栈顶元素，更新栈顶指针 (用途: 函数返回时弹出返回地址、括号匹配时弹出左括号进行匹配); peek: 返回栈顶元素但不改变栈状态 (用途: 表达式求值时查看栈顶运算符优先级、检查最近压入的元素); isEmpty: 判断栈是否无元素（栈空状态） (用途: 避免pop操作引发栈下溢错误); isFull: 判断栈是否达到存储上限（仅数组实现） (用途: 避免push操作引发栈溢出错误)"
+    }
+  }
+]

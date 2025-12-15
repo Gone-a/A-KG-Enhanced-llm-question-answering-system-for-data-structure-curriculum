@@ -672,7 +672,7 @@ if __name__ == "__main__":
         # 使用entity_offsets数据源
         file_path = None if args.entity_offsets == 'default' else args.entity_offsets
         print("🔄 使用entity_offsets.json数据源")
-        kg_builder.build_knowledge_graph(data_source='entity_offsets', file_path=file_path)
+        kg_builder.build_knowledge_graph(data_source='full_graph_data', file_path=file_path)
     elif args.json:
         # 使用JSON数据源
         print(f"🔄 使用JSON数据源: {args.json}")
@@ -684,4 +684,4 @@ if __name__ == "__main__":
     else:
         # 默认使用entity_offsets数据源
         print("🔄 使用默认entity_offsets.json数据源")
-        kg_builder.build_knowledge_graph(data_source='entity_offsets')
+        kg_builder.build_knowledge_graph(data_source='full_graph_data')
