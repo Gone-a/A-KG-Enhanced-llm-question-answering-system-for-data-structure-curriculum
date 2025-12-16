@@ -17,6 +17,14 @@ from transformers import AutoTokenizer, AutoModel, AutoConfig
 from torch.utils.data import DataLoader, Dataset
 from collections import defaultdict
 
+# 添加项目根目录到sys.path
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(os.path.dirname(current_dir))
+if project_root not in sys.path:
+    sys.path.append(project_root)
+
+from modules.config_manager import ConfigManager
+
 # 添加DeepKE路径
 sys.path.append('/root/KG_inde/DeepKE/src')
 sys.path.append('/root/KG_inde/DeepKE/example/re/standard')
@@ -37,11 +45,15 @@ def timeout_handler(signum, frame):
     raise TimeoutError("操作超时")
 
 class OptimizedKnowledgeGraphBuilder:
-    def __init__(self, txt_file_path: str, output_dir: str = "data/optimized_output"):
-        self.txt_file_path = txt_file_path
-        self.output_dir = output_dir
-        self.ner_model_path = "/root/KG_inde/DeepKE/example/ner/standard/w2ner"
-        self.re_model_path = "/root/KG_inde/DeepKE/example/re/standard"
+    def __init__(self, txt_file_path: str = None, output_dir: str = None, config_manager: ConfigManager = None):
+        self.config_manager = config_manager or ConfigManager()
+        deepke_config = self.config_manager.get_deepke_config()
+        data_config = self.config_manager.get_data_config()
+        
+        self.txt_file_path = txt_file_path or data_config.get('input_txt_file')
+        self.output_dir = output_dir or data_config.get('output_dir', 'data/optimized_output')
+        self.ner_model_path = deepke_config.get('ner_model_path', '/root/KG_inde/DeepKE/example/ner/standard/w2ner')
+        self.re_model_path = deepke_config.get('re_model_path', '/root/KG_inde/DeepKE/example/re/standard')
         
         # 确保输出目录存在
         os.makedirs(self.output_dir, exist_ok=True)
@@ -79,12 +91,15 @@ class OptimizedKnowledgeGraphBuilder:
                     if file_cfg:
                         cfg.update(file_cfg)
         
+        # 获取模型配置
+        model_config = self.config_manager.get_model_config()
+        
         # 创建配置对象并设置默认值
         config = type('Config', (), {})()
         
         # 设置必需的配置参数
         default_config = {
-            'bert_name': 'bert-base-chinese',
+            'bert_name': model_config.get('bert_model_name', 'bert-base-chinese'),
             'do_lower_case': True,
             'dist_emb_size': 20,
             'type_emb_size': 20,
@@ -97,7 +112,7 @@ class OptimizedKnowledgeGraphBuilder:
             'emb_dropout': 0.5,
             'conv_dropout': 0.5,
             'out_dropout': 0.33,
-            'max_seq_len': 128,
+            'max_seq_len': model_config.get('max_sequence_length', 128),
             'use_bert_last_4_layers': True,
             'device': 'cpu'
         }
@@ -765,13 +780,16 @@ class OptimizedKnowledgeGraphBuilder:
         df.to_csv(csv_file, index=False, encoding='utf-8')
 
 def main():
-    txt_file = "/root/KG_inde/generate_data/data_backups/knowledge_graph_sentences_2.txt"
+    config_manager = ConfigManager()
+    data_config = config_manager.get_data_config()
+    
+    txt_file = data_config.get('input_txt_file', "/root/KG_inde/generate_data/data_backups/knowledge_graph_sentences_2.txt")
     
     if not os.path.exists(txt_file):
         print(f"错误：文件 {txt_file} 不存在")
         return
     
-    builder = OptimizedKnowledgeGraphBuilder(txt_file)
+    builder = OptimizedKnowledgeGraphBuilder(txt_file, config_manager=config_manager)
     result = builder.process_txt_file()
     print(result)
 

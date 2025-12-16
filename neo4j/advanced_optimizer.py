@@ -8,19 +8,35 @@
 import json
 import os
 import re
+import sys
+import os
+
+# 将项目根目录添加到sys.path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from neo4j import GraphDatabase
-from collections import defaultdict
+import json
 import logging
+import time
+from tqdm import tqdm
+from modules.config_manager import ConfigManager
 
 # 配置日志
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 class AdvancedKnowledgeGraphOptimizer:
-    def __init__(self, uri="bolt://localhost:7687", user="neo4j", password="123456"):
-        # 从环境变量获取密码
-        password = os.getenv("NEO4J_KEY", password)
-        self.driver = GraphDatabase.driver(uri, auth=(user, password))
+    def __init__(self, config_manager: ConfigManager = None):
+        self.config_manager = config_manager or ConfigManager()
+        db_config = self.config_manager.get_database_config()
+        
+        self.driver = GraphDatabase.driver(
+            db_config.get('uri', 'bolt://localhost:7687'), 
+            auth=(
+                db_config.get('user_name', 'neo4j'), 
+                db_config.get('password', '123456')
+            )
+        )
         self.data_dir = "/root/KG_inde/neo4j/data"
         
         # 加载质量分析报告

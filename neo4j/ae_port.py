@@ -1,23 +1,34 @@
-from py2neo import Graph, Node, Relationship
+import sys
 import os
+
+# 将项目根目录添加到sys.path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from py2neo import Graph, Node, Relationship
 import json
 from tqdm import tqdm
 import re
+from modules.config_manager import ConfigManager
 
 class Neo4jEntityAttributeImporter:
-    def __init__(self, uri="bolt://localhost:7687", user="neo4j", password="123456"):
+    def __init__(self, config_manager: ConfigManager = None):
         """初始化Neo4j图数据库连接，用于导入实体属性
         
         Args:
-            uri (str): Neo4j数据库URI
-            user (str): 用户名
-            password (str): 密码
+            config_manager: 配置管理器实例
         """
+        self.config_manager = config_manager or ConfigManager()
+        db_config = self.config_manager.get_database_config()
+        
         # Neo4j连接配置
         try:
-            # 从环境变量获取连接信息
-            password = os.getenv("NEO4J_KEY", password)
-            self.graph = Graph(uri, auth=(user, password))
+            self.graph = Graph(
+                db_config.get('uri', 'bolt://localhost:7687'), 
+                auth=(
+                    db_config.get('user_name', 'neo4j'), 
+                    db_config.get('password', '123456')
+                )
+            )
             # 测试连接
             self.graph.run("RETURN 1")
             print("✅ Neo4j图数据库连接成功")

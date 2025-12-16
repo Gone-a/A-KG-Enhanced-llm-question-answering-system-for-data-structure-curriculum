@@ -70,7 +70,8 @@ class KGContextBuilder:
         return {"topic": topic, "attributes": attrs, "relations": picked}
 
 class KGLLMEnhancer:
-    def __init__(self, llm: DoubaoLLM, kg_query: KnowledgeGraphQuery, temperature: float = 0.2, timeout: int = 25, relation_limit: int = 8, trunc_len: int = 300):
+    def __init__(self, llm: DoubaoLLM, kg_query: KnowledgeGraphQuery, temperature: float = 0.2, timeout: int = 25, relation_limit: int = 8, trunc_len: int = 300, config_manager: ConfigManager = None):
+        self.config_manager = config_manager or ConfigManager()
         self.llm = llm
         self.kg_query = kg_query
         self.temperature = temperature
@@ -155,10 +156,10 @@ class KGLLMEnhancer:
         return resp.content.strip()
 
     @staticmethod
-    def from_config() -> "KGLLMEnhancer":
-        cfg = get_config_manager()
-        api_conf = cfg.get_api_config()
-        db_conf = cfg.get_database_config()
-        llm = DoubaoLLM(user_api_key=api_conf.get("ark_api_key"), user_model_id=api_conf.get("doubao_model_id"), base_url=api_conf.get("base_url"))
-        kg = KnowledgeGraphQuery(db_conf["uri"], db_conf["user_name"], db_conf["password"])
-        return KGLLMEnhancer(llm, kg)
+    def from_config(config_manager: ConfigManager = None) -> "KGLLMEnhancer":
+        config_manager = config_manager or ConfigManager()
+        api_conf = config_manager.get_api_config()
+        db_conf = config_manager.get_database_config()
+        llm = DoubaoLLM(user_api_key=api_conf.get("ark_api_key"), user_model_id=api_conf.get("doubao_model_id"), base_url=api_conf.get("base_url"), config_manager=config_manager)
+        kg = KnowledgeGraphQuery(db_conf.get("uri"), db_conf.get("user_name"), db_conf.get("password"), config_manager=config_manager)
+        return KGLLMEnhancer(llm, kg, config_manager=config_manager)

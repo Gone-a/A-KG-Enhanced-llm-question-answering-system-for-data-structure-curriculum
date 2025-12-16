@@ -17,6 +17,14 @@ from transformers import AutoTokenizer, AutoModel, AutoConfig
 from torch.utils.data import DataLoader, Dataset
 from collections import defaultdict
 
+# 添加项目根目录到sys.path
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(os.path.dirname(current_dir))
+if project_root not in sys.path:
+    sys.path.append(project_root)
+
+from modules.config_manager import ConfigManager
+
 # 添加DeepKE路径
 sys.path.append('/root/KG_inde/DeepKE/src')
 sys.path.append('/root/KG_inde/DeepKE/example/re/standard')
@@ -35,10 +43,14 @@ def timeout_handler(signum, frame):
     raise TimeoutError("操作超时")
 
 class REProcessor:
-    def __init__(self, ner_results_file: str, output_dir: str = "data/optimized_output"):
-        self.ner_results_file = ner_results_file
-        self.output_dir = output_dir
-        self.re_model_path = "/root/KG_inde/DeepKE/example/re/standard"
+    def __init__(self, ner_results_file: str = None, output_dir: str = None, config_manager: ConfigManager = None):
+        self.config_manager = config_manager or ConfigManager()
+        deepke_config = self.config_manager.get_deepke_config()
+        data_config = self.config_manager.get_data_config()
+        
+        self.ner_results_file = ner_results_file or os.path.join(data_config.get('output_dir', 'data/optimized_output'), "ner_results.json")
+        self.output_dir = output_dir or data_config.get('output_dir', 'data/optimized_output')
+        self.re_model_path = deepke_config.get('re_model_path', '/root/KG_inde/DeepKE/example/re/standard')
         
         # 确保输出目录存在
         os.makedirs(self.output_dir, exist_ok=True)

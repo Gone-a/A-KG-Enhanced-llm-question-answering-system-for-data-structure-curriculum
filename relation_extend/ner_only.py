@@ -16,6 +16,15 @@ import time
 from transformers import AutoTokenizer, AutoModel, AutoConfig
 from torch.utils.data import DataLoader, Dataset
 from collections import defaultdict
+
+# 添加项目根目录到sys.path
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(os.path.dirname(current_dir))
+if project_root not in sys.path:
+    sys.path.append(project_root)
+
+from modules.config_manager import ConfigManager
+
 os.environ["HF_ENDPOINT"] = "https://huggingface.co"  # 强制走官方源
 # 添加DeepKE路径
 sys.path.append('/root/KG_inde/DeepKE/src')
@@ -35,10 +44,14 @@ def timeout_handler(signum, frame):
     raise TimeoutError("操作超时")
 
 class NERProcessor:
-    def __init__(self, txt_file_path: str, output_dir: str = "data/optimized_output"):
-        self.txt_file_path = txt_file_path
-        self.output_dir = output_dir
-        self.ner_model_path = "/root/KG_inde/DeepKE/example/ner/standard/w2ner"
+    def __init__(self, txt_file_path: str = None, output_dir: str = None, config_manager: ConfigManager = None):
+        self.config_manager = config_manager or ConfigManager()
+        deepke_config = self.config_manager.get_deepke_config()
+        data_config = self.config_manager.get_data_config()
+        
+        self.txt_file_path = txt_file_path or data_config.get('input_txt_file')
+        self.output_dir = output_dir or data_config.get('output_dir', 'data/optimized_output')
+        self.ner_model_path = deepke_config.get('ner_model_path', '/root/KG_inde/DeepKE/example/ner/standard/w2ner')
         
         # 确保输出目录存在
         os.makedirs(self.output_dir, exist_ok=True)

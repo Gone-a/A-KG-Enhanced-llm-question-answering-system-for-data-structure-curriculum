@@ -3,13 +3,23 @@
 # -*- coding: utf-8 -*-
 import torch
 import json
+import os
+import sys
 from transformers import AutoTokenizer, AutoModelForSequenceClassification 
 from sklearn.metrics import classification_report, confusion_matrix
 import numpy as np
 
+# 导入配置管理器
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from modules.config_manager import get_config_manager
+
+# 获取配置管理器实例
+config_manager = get_config_manager()
+model_config = config_manager.get_model_config()
+
 # --- 配置 ---
 # 模型路径，请确保与您的模型文件夹名称一致
-MODEL_PATH = "./my_intent_model"
+MODEL_PATH = model_config.get('nlu_model_path', "./my_intent_model")
 
 # --- 核心：测试样本 ---
 # 这些样本必须与训练样本不同，以检验模型的泛化能力。

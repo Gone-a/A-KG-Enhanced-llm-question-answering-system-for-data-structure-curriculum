@@ -1,28 +1,14 @@
-# import os
-
-# import subprocess
-# def neo4j_restart():
-#     neo_path = os.path.join(os.path.expandvars("$NEO4J_HOME"), "bin")
-
-#     if os.path.exists(neo_path):
-#         os.chdir(neo_path)
-#         subprocess.run(["neo4j", "restart"])
-
-import os
-import contextlib
-from pathlib import Path
-
-#开启neo4j图知识库或Vue
-
 import os
 import contextlib
 import subprocess
 import threading
 import time
+from .config_manager import ConfigManager
 
 class RunServe():
-    def __init__(self):
+    def __init__(self, config_manager: ConfigManager = None):
         self.vue_process = None
+        self.config_manager = config_manager or ConfigManager()
         
     def start_vue_async(self, output_event=None):
         """

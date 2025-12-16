@@ -8,14 +8,27 @@ Neo4j图数据导出脚本
 from py2neo import Graph
 import json
 import os
+import sys
 from collections import defaultdict
 
+# 将项目根目录添加到sys.path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from modules.config_manager import ConfigManager
+
 class Neo4jGraphExporter:
-    def __init__(self, uri="bolt://localhost:7687", user="neo4j", password="123456"):
+    def __init__(self, config_manager: ConfigManager = None):
         """初始化Neo4j连接"""
+        self.config_manager = config_manager or ConfigManager()
+        db_config = self.config_manager.get_database_config()
+        
         try:
-            password = os.getenv("NEO4J_KEY", password)
-            self.graph = Graph(uri, auth=(user, password))
+            self.graph = Graph(
+                db_config.get('uri', 'bolt://localhost:7687'), 
+                auth=(
+                    db_config.get('user_name', 'neo4j'), 
+                    db_config.get('password', '123456')
+                )
+            )
             # 测试连接
             self.graph.run("RETURN 1")
             print("✅ Neo4j图数据库连接成功")

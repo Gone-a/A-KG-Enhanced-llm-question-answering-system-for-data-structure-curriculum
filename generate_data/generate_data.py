@@ -27,22 +27,32 @@ logging.getLogger("httpx").setLevel(logging.WARNING)
 logging.getLogger("urllib3").setLevel(logging.WARNING)
 logging.getLogger("openai").setLevel(logging.WARNING)
 
+# 导入配置管理器
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from modules.config_manager import get_config_manager
+
+# 获取配置管理器实例
+config_manager = get_config_manager()
+api_config = config_manager.get_api_config()
+gen_config = config_manager.get_generation_config()
+
 # ============================= 统一配置 =============================
 class Config:
     """统一配置类"""
     # API配置
-    API_KEY = os.getenv("ARK_API_KEY")
-    BASE_URL = "https://ark.cn-beijing.volces.com/api/v3"
-    MODEL = "doubao-seed-1-6-flash-250828"  # 使用更快的flash模型
-    TIMEOUT = 15  # 减少超时时间
-    RETRY_COUNT = 3  # 增加重试次数
-    DELAY_BETWEEN_REQUESTS = 0.1  # 增加延迟，从0.01秒增加到0.1秒
-    CONCURRENCY = 20  # 大幅减少并发数，从50减少到5
-    BATCH_SIZE = 100  # 减少批处理大小，从1000减少到100
+    API_KEY = api_config.get('ark_api_key')
+    BASE_URL = api_config.get('base_url')
+    MODEL = api_config.get('doubao_model_id')
+    TIMEOUT = gen_config.get('timeout', 15)  # 减少超时时间
+    RETRY_COUNT = gen_config.get('retry_count', 3)  # 增加重试次数
+    DELAY_BETWEEN_REQUESTS = gen_config.get('delay', 0.1)  # 增加延迟，从0.01秒增加到0.1秒
+    CONCURRENCY = gen_config.get('concurrency', 20)  # 大幅减少并发数，从50减少到5
+    BATCH_SIZE = gen_config.get('batch_size', 100)  # 减少批处理大小，从1000减少到100
     
     # 数据生成配置
-    NUM_RECORDS = 21000  # 每个关系3000条，7个关系共21000条
-    RECORDS_PER_RELATION = 3000  # 每个关系的目标数据量
+    NUM_RECORDS = gen_config.get('num_records', 21000)  # 每个关系3000条，7个关系共21000条
+    RECORDS_PER_RELATION = NUM_RECORDS // 7  # 每个关系的目标数据量
     MAX_PROMPTS = 1000
     MIN_PROMPTS_PER_RELATION = 5
     SENTENCES_PER_API_CALL = 3  # 新增：每次API调用生成多个句子
@@ -52,14 +62,14 @@ class Config:
     CACHE_SIZE = 10000  # 缓存大小
     
     # 文件路径配置
-    OUTPUT_FILE = "/root/KG_inde/generate_data/data_backups/knowledge_graph_sentences_new.txt"
-    PROMPTS_FILE = "kg_prompts_new.txt"
-    VOCAB_DICT_FILE = "../vocab_dict.csv"
-    RELATION_FILE = "../relation.csv"
-    STATE_FILE = "/root/KG_inde/generate_data/data_backups/processing_state_new.json"
-    CACHE_FILE = "/root/KG_inde/generate_data/data_backups/api_cache.json"  # 缓存文件
+    OUTPUT_FILE = gen_config.get('output_file')
+    PROMPTS_FILE = gen_config.get('prompts_file')
+    VOCAB_DICT_FILE = gen_config.get('vocab_dict_file')
+    RELATION_FILE = gen_config.get('relation_file')
+    STATE_FILE = gen_config.get('state_file')
+    CACHE_FILE = gen_config.get('cache_file')  # 缓存文件
     
-    ANNOTATION_OUTPUT_DIR = "/root/KG_inde/DeepKE/example/re/standard/data/origin"
+    ANNOTATION_OUTPUT_DIR = gen_config.get('annotation_output_dir')
     TRAIN_FILE = "train_new.csv"
     TEST_FILE = "test_new.csv"
     VALID_FILE = "valid_new.csv"

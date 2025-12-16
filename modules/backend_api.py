@@ -10,6 +10,7 @@ from .knowledge_graph_query import KnowledgeGraphQuery
 from .intent_recognition import IntentRecognizer
 from .doubao_llm import DoubaoLLM
 from .kg_llm_enhancer import KGLLMEnhancer
+from .config_manager import ConfigManager
 import logging
 from typing import Dict, Any, List
 
@@ -19,11 +20,12 @@ class APIHandler:
     负责处理用户请求，提供基本的聊天功能
     """
     
-    def __init__(self, intent_recognizer, kg_query, llm_client=None):
+    def __init__(self, intent_recognizer, kg_query, llm_client=None, config_manager=None):
         """初始化后端API"""
         self.kg_query = kg_query
         self.intent_recognizer = intent_recognizer
         self.llm_client = llm_client
+        self.config_manager = config_manager or ConfigManager()
         self.enhancer = KGLLMEnhancer(llm_client, kg_query) if llm_client and kg_query else None
         
         # 意图到KG接口的映射

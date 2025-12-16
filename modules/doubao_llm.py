@@ -7,6 +7,8 @@ from volcenginesdkarkruntime import Ark  # 火山方舟SDK
 from modules.config_manager import get_config_manager
 import json
 # 复用原LLMResponse数据类，确保返回格式兼容
+from .config_manager import ConfigManager
+
 @dataclass
 class LLMResponse:
     content: str
@@ -18,14 +20,16 @@ class LLMResponse:
 
     """豆包（火山方舟）LLM客户端"""
 class DoubaoLLM:
-    def __init__(self, user_api_key: Optional[str] = None, user_model_id: Optional[str] = None, base_url: Optional[str] = None):
+    def __init__(self, user_api_key: Optional[str] = None, user_model_id: Optional[str] = None, base_url: Optional[str] = None, config_manager: ConfigManager = None):
         """
         初始化豆包客户端（支持用户自定义API Key和模型ID）
         :param user_api_key: 用户传入的火山方舟API Key
         :param user_model_id: 用户传入的豆包Model ID
+        :param config_manager: 配置管理器实例
         """
-        self.config = get_config_manager().get_api_config()
-        self.llm_config = get_config_manager().get_llm_config()
+        self.config_manager = config_manager or ConfigManager()
+        self.config = self.config_manager.get_api_config()
+        self.llm_config = self.config_manager.get_llm_config()
         
         # 1. 优先级：用户传入 > 系统配置
         self.ark_api_key = user_api_key.strip() if (user_api_key and user_api_key.strip()) else self.config.get('ark_api_key')

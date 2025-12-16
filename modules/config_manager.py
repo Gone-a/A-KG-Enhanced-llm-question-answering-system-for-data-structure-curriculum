@@ -108,6 +108,10 @@ class ConfigManager:
         """获取API配置"""
         return self._config.get('api', {})
     
+    def get_model_config(self) -> Dict[str, Any]:
+        """获取模型配置"""
+        return self._config.get('model', {})
+        
     def get_database_config(self) -> Dict[str, Any]:
         """获取数据库配置"""
         return self._config.get('database', {})
@@ -119,6 +123,18 @@ class ConfigManager:
     def get_llm_config(self) -> Dict[str, Any]:
         """获取大模型配置"""
         return self._config.get('llm', {})
+    
+    def get_deepke_config(self) -> Dict[str, Any]:
+        """获取DeepKE配置"""
+        return self._config.get('deepke', {})
+
+    def get_data_config(self) -> Dict[str, Any]:
+        """获取数据路径配置"""
+        return self._config.get('data', {})
+        
+    def get_generation_config(self) -> Dict[str, Any]:
+        """获取数据生成配置"""
+        return self._config.get('generation', {})
     
 
     
@@ -135,6 +151,10 @@ def get_config_manager() -> ConfigManager:
     if _config_manager is None:
         _config_manager = ConfigManager()
     return _config_manager
+
+def get_config(key: str, default: Any = None) -> Any:
+    """快捷方法：获取配置值"""
+    return get_config_manager().get(key, default)
 
 def get_config(key: str, default: Any = None) -> Any:
     """快捷方法：获取配置值"""

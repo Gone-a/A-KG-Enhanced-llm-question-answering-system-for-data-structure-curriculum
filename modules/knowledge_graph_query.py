@@ -13,6 +13,7 @@ import time
 from functools import lru_cache
 from concurrent.futures import ThreadPoolExecutor
 import threading
+from .config_manager import ConfigManager
 
 class KnowledgeGraphQuery:
     """知识图谱查询器
@@ -27,20 +28,29 @@ class KnowledgeGraphQuery:
     QUERY_RESULT_LIMIT = 1000
     FLOAT_PRECISION = 1e-10
     
-    def __init__(self, neo4j_uri: str, username: str, password: str, max_workers: int = 4):
+    def __init__(self, neo4j_uri: str = None, username: str = None, password: str = None, max_workers: int = 4, config_manager: ConfigManager = None):
         """
         初始化知识图谱查询器
         
         Args:
-            neo4j_uri: Neo4j数据库URI
-            username: 用户名
-            password: 密码
+            neo4j_uri: Neo4j数据库URI (可选，如果不传则从ConfigManager获取)
+            username: 用户名 (可选，如果不传则从ConfigManager获取)
+            password: 密码 (可选，如果不传则从ConfigManager获取)
             max_workers: 最大并发工作线程数
+            config_manager: 配置管理器实例
             
         Raises:
             ConnectionError: 数据库连接失败
             ValueError: 参数验证失败
         """
+        self.config_manager = config_manager or ConfigManager()
+        db_config = self.config_manager.get_database_config()
+        
+        # 如果参数未提供，则从配置获取
+        neo4j_uri = neo4j_uri or db_config.get('uri', 'bolt://localhost:7687')
+        username = username or db_config.get('user_name', 'neo4j')
+        password = password or db_config.get('password', '123456')
+        
         self._validate_params(neo4j_uri, username, password)
         
         try:

@@ -1,11 +1,19 @@
 # train_intent_model.py
 import torch
+import os
+import sys
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from datasets import Dataset
 from transformers import Trainer, TrainingArguments
 from train_data import train_data
 
+# 导入配置管理器
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from modules.config_manager import get_config_manager
 
+# 获取配置管理器实例
+config_manager = get_config_manager()
+model_config = config_manager.get_model_config()
 
 # 将文本标签转换为数字ID
 unique_labels = list(set([label for _, label in train_data]))
@@ -14,7 +22,7 @@ id2label = {i: label for label, i in label2id.items()}
 
 print(f"标签映射: {label2id}")
 
-MODEL_NAME = 'bert-base-chinese'
+MODEL_NAME = model_config.get('bert_model_name', 'bert-base-chinese')
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 model = AutoModelForSequenceClassification.from_pretrained(
     MODEL_NAME, 
@@ -33,9 +41,9 @@ def preprocess_function(examples):
 # 对整个数据集进行预处理
 tokenized_dataset = dataset.map(preprocess_function, batched=True)
 training_args = TrainingArguments(
-    output_dir="./intent_classifier", # 训练结果输出目录
-    num_train_epochs=10,             # 训练轮数
-    per_device_train_batch_size=4,   # 每个设备的批处理大小
+    output_dir=model_config.get('output_dir', './intent_classifier'), # 训练结果输出目录
+    num_train_epochs=model_config.get('epochs', 10),             # 训练轮数
+    per_device_train_batch_size=model_config.get('train_batch_size', 4),   # 每个设备的批处理大小
     logging_steps=1,                 # 每隔多少步打印一次日志
     save_strategy="epoch",           # 每个epoch保存一次模型
 )
@@ -51,7 +59,7 @@ trainer.train()
 print("训练完成！")
 
 # 5. 保存模型、分词器和标签映射
-MODEL_SAVE_PATH = "./my_intent_model"
+MODEL_SAVE_PATH = model_config.get('nlu_model_path', "./my_intent_model")
 model.save_pretrained(MODEL_SAVE_PATH)
 tokenizer.save_pretrained(MODEL_SAVE_PATH)
 

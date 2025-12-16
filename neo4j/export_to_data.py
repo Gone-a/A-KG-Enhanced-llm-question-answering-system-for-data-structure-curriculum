@@ -83,21 +83,35 @@ if __name__ == "__main__":
 导出优化后的知识图谱数据到data目录
 """
 
-import json
+import sys
 import os
+
+# 将项目根目录添加到sys.path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+import json
 from neo4j import GraphDatabase
 from datetime import datetime
 import logging
+from tqdm import tqdm
+from modules.config_manager import ConfigManager
 
 # 配置日志
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 class GraphDataExporter:
-    def __init__(self, uri="bolt://localhost:7687", user="neo4j", password="123456"):
-        # 从环境变量获取密码，如果没有则使用默认值
-        password = os.getenv("NEO4J_KEY", password)
-        self.driver = GraphDatabase.driver(uri, auth=(user, password))
+    def __init__(self, config_manager: ConfigManager = None):
+        self.config_manager = config_manager or ConfigManager()
+        db_config = self.config_manager.get_database_config()
+        
+        self.driver = GraphDatabase.driver(
+            db_config.get('uri', 'bolt://localhost:7687'), 
+            auth=(
+                db_config.get('user_name', 'neo4j'), 
+                db_config.get('password', '123456')
+            )
+        )
         self.data_dir = "/root/KG_inde/neo4j/data"
         
         # 确保data目录存在
