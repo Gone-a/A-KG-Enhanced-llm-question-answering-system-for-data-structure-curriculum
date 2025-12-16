@@ -222,29 +222,22 @@ class IntentRecognizer:
         Returns:
             str: 识别的意图类别
         """
-        # 首先尝试BERT模型预测
+        intent_model = None
         if self.model and self.tokenizer:
             try:
-                # 1. 对输入文本进行编码
                 inputs = self.tokenizer(text, return_tensors="pt", truncation=True, padding=True)
-                
-                # 2. 模型预测（推理时不需要计算梯度）
                 with torch.no_grad():
                     logits = self.model(**inputs).logits
-                    
-                # 3. 解码结果
                 predicted_class_id = logits.argmax().item()
-                intent = self.id2label.get(predicted_class_id, "unknown")
-                
-                if intent != "unknown":
-                    return intent
-                    
+                intent_model = self.id2label.get(predicted_class_id, "unknown")
             except Exception as e:
                 logging.error(f"BERT模型意图识别失败: {e}")
-        
-        # 如果BERT模型预测失败或结果为unknown，使用规则匹配
-        rule_based_intent = self._rule_based_intent_recognition(text)
-        return rule_based_intent
+        rule_intent = self._rule_based_intent_recognition(text)
+        if intent_model and intent_model != "unknown":
+            if intent_model == "other" and rule_intent != "other":
+                return rule_intent
+            return intent_model
+        return rule_intent
     
     def _rule_based_intent_recognition(self, text: str) -> str:
         """

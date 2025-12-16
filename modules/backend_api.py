@@ -9,10 +9,9 @@ from flask_cors import CORS
 from .knowledge_graph_query import KnowledgeGraphQuery
 from .intent_recognition import IntentRecognizer
 from .doubao_llm import DoubaoLLM
+from .kg_llm_enhancer import KGLLMEnhancer
 import logging
-import json
-from typing import Dict, Any, List, Optional
-import re
+from typing import Dict, Any, List
 
 class APIHandler:
     """简化的API处理器
@@ -25,6 +24,7 @@ class APIHandler:
         self.kg_query = kg_query
         self.intent_recognizer = intent_recognizer
         self.llm_client = llm_client
+        self.enhancer = KGLLMEnhancer(llm_client, kg_query) if llm_client and kg_query else None
         
         # 意图到KG接口的映射
         self.intent_to_kg_method = {
@@ -69,6 +69,12 @@ class APIHandler:
             # 识别用户意图
             intent = self.intent_recognizer.recognize_intent(user_input)
             logging.info(f"识别到的意图: {intent}")
+            try:
+                ents_dbg = self.intent_recognizer.extract_entities(user_input)
+                rels_dbg = self.intent_recognizer.extract_relations(user_input)
+                logging.info(f"实体识别: {ents_dbg}  关系识别: {rels_dbg}")
+            except Exception:
+                pass
             
             # 根据意图调用相应的处理方法
             if intent in self.intent_to_kg_method:
@@ -101,7 +107,11 @@ class APIHandler:
             return "抱歉，LLM服务暂时不可用。"
         
         try:
-            # 构建上下文信息
+            if self.enhancer:
+                # 使用增强器生成回复，传入查询结果以构建更丰富的上下文
+                return self.enhancer.answer_with_kg(user_query, kg_result=kg_result)
+
+            # Fallback if enhancer is not available (should not happen if initialized correctly)
             context_info = []
             if kg_result:
                 context_info.append("根据知识图谱查询到以下相关信息：")
@@ -176,11 +186,14 @@ class APIHandler:
             
             # 调用LLM生成回复
             response = self.llm_client.generate_response(prompt)
-            return response.content
+            msg = response.content.strip() if response and hasattr(response, "content") else ""
+            if not msg:
+                msg = "抱歉，当前无法生成完整回答。建议换个问法或提供更多信息。"
+            return msg
             
         except Exception as e:
             logging.error(f"LLM回复生成失败: {e}")
-            return f"抱歉，生成回复时出现错误：{str(e)}"
+            return "抱歉，生成回复时出现错误，请稍后再试或简化问题。"
     
     def _handle_find_entity_by_relation(self, query: str) -> Dict[str, Any]:
         """处理根据关系查找实体的查询"""
@@ -248,10 +261,9 @@ class APIHandler:
                     "kg_result": result[:10]  # 保留原始KG结果供调试
                 }
             else:
-                # 即使没有找到足够实体，也尝试生成LLM回复
                 llm_response = self._generate_llm_response(query, [])
                 return {
-                    "success": False,
+                    "success": True,
                     "message": llm_response,
                     "graphData": {}
                 }
@@ -287,10 +299,9 @@ class APIHandler:
                     "kg_result": result[:10]  # 保留原始KG结果供调试
                 }
             else:
-                # 即使没有找到实体，也尝试生成LLM回复
                 llm_response = self._generate_llm_response(query, [])
                 return {
-                    "success": False,
+                    "success": True,
                     "message": llm_response,
                     "graphData": {}
                 }

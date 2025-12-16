@@ -46,9 +46,22 @@ class KnowledgeGraphQuery:
         try:
             # 连接Neo4j数据库
             self.graph = Graph(neo4j_uri, auth=(username, password))
-            # 测试连接
-            self.graph.run("RETURN 1").data()
-            logging.info("Neo4j数据库连接成功")
+            
+            # 增加重试机制，等待Neo4j完全启动
+            max_retries = 30
+            retry_interval = 2
+            
+            for i in range(max_retries):
+                try:
+                    # 测试连接
+                    self.graph.run("RETURN 1").data()
+                    logging.info("Neo4j数据库连接成功")
+                    break
+                except Exception as e:
+                    if i == max_retries - 1:
+                        raise e
+                    logging.info(f"Neo4j尚未准备就绪，正在重试 ({i+1}/{max_retries})...")
+                    time.sleep(retry_interval)
             
         except Exception as e:
             logging.error(f"Neo4j数据库连接失败: {e}")

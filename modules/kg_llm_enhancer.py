@@ -1,6 +1,5 @@
 from typing import Dict, Any, List, Optional
 import json
-import time
 from concurrent.futures import ThreadPoolExecutor
 from modules.doubao_llm import DoubaoLLM, LLMResponse
 from modules.knowledge_graph_query import KnowledgeGraphQuery
@@ -51,8 +50,12 @@ class KGContextBuilder:
                     out[f] = self._truncate(v.strip())
         return out
 
-    def build_context(self, topic: str) -> Dict[str, Any]:
-        rels = self.kg_query.find_entity_relations(topic, limit=50)
+    def build_context(self, topic: str, kg_result: Optional[List[Dict[str, Any]]] = None) -> Dict[str, Any]:
+        if kg_result:
+            rels = kg_result
+        else:
+            rels = self.kg_query.find_entity_relations(topic, limit=50)
+            
         ranked = sorted([r for r in rels if isinstance(r, dict)], key=lambda x: self._score_relation(topic, x), reverse=True)
         picked = []
         for r in ranked:
@@ -110,6 +113,45 @@ class KGLLMEnhancer:
     def generate_pure(self, topic: str) -> str:
         content = f"主题：{topic}\n\n" + self._prompt()
         resp = self._safe_llm(content, temperature=None)
+        return resp.content.strip()
+
+    def answer_with_kg(self, user_query: str, topic: Optional[str] = None, kg_result: Optional[List[Dict[str, Any]]] = None) -> str:
+        if kg_result:
+            # 如果提供了kg_result，使用它来构建上下文，优先于topic查询
+            # 如果topic未提供，尝试从kg_result中推断最相关的实体作为topic
+            if not topic and kg_result:
+                # 简单统计最常出现的实体
+                from collections import Counter
+                names = []
+                for item in kg_result:
+                     if isinstance(item, dict):
+                        e1 = item.get('entity1')
+                        e2 = item.get('entity2')
+                        if isinstance(e1, str): names.append(e1)
+                        if isinstance(e2, str): names.append(e2)
+                if names:
+                    topic = Counter(names).most_common(1)[0][0]
+            
+            ctx = self.builder.build_context(topic or "相关实体", kg_result=kg_result)
+        elif topic:
+            ctx = self.builder.build_context(topic)
+        else:
+            ctx = {"topic": "", "attributes": {}, "relations": []}
+            
+        prompt = (
+            f"用户问题：{user_query}\n\n"
+            f"权威背景（JSON）：\n{json.dumps(ctx, ensure_ascii=False)}\n\n"
+            "请仅依据JSON中的信息作答；若信息不足，请明确说明并给出一般性解释。要求用专业且易懂的中文，合理引用属性与关系。"
+        )
+        resp = self._safe_llm(prompt, temperature=self.temperature)
+        return resp.content.strip()
+
+    def answer_pure(self, user_query: str) -> str:
+        prompt = (
+            f"用户问题：{user_query}\n\n"
+            "请用专业且易懂的中文作答。若涉及数据结构与算法，给出准确术语与要点。"
+        )
+        resp = self._safe_llm(prompt, temperature=None)
         return resp.content.strip()
 
     @staticmethod

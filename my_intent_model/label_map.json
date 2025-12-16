@@ -1,1 +1,1 @@
-{"label2id": {"find_relation_by_two_entities": 0, "find_entity_definition": 1, "find_entity_by_relation_and_entity": 2, "other": 3}, "id2label": {"0": "find_relation_by_two_entities", "1": "find_entity_definition", "2": "find_entity_by_relation_and_entity", "3": "other"}}
+{"label2id": {"find_entity_definition": 0, "other": 1, "find_entity_by_relation_and_entity": 2, "find_relation_by_two_entities": 3}, "id2label": {"0": "find_entity_definition", "1": "other", "2": "find_entity_by_relation_and_entity", "3": "find_relation_by_two_entities"}}

@@ -407,22 +407,26 @@ class ModelEvaluator:
         kg_values = [kg_sim, kg_rouge, kg_bleu, kg_ent]
         llm_values = [pure_sim, pure_rouge, pure_bleu, pure_ent]
         labels = ["Similarity", "ROUGE-L", "BLEU", "Entity Recall (Rate)"]
-        plt.figure(figsize=(10, 6))
+        plt.figure(figsize=(9, 6))
         x = np.arange(len(labels))
-        width = 0.35
+        width = 0.26
         colors = ['#2E86AB', '#A23B72']
-        bars1 = plt.bar(x - width/2, llm_values, width, label='Pure LLM', color=colors[1], alpha=0.85)
-        bars2 = plt.bar(x + width/2, kg_values, width, label='KG-LLM', color=colors[0], alpha=0.85)
-        plt.xticks(x, labels)
-        plt.ylabel('Metric Value')
-        plt.title('Metrics Comparison (Raw Averages Across Topics)')
-        plt.legend()
-        for i, v in enumerate(llm_values):
-            fmt = f"{v:.3f}"
-            plt.text(i - width/2, v, fmt, ha='center', va='bottom')
-        for i, v in enumerate(kg_values):
-            fmt = f"{v:.3f}"
-            plt.text(i + width/2, v, fmt, ha='center', va='bottom')
+        bars1 = plt.bar(x - width/2, llm_values, width, label='Pure LLM', color=colors[1], alpha=0.9, edgecolor='#2F2F2F', linewidth=0.6)
+        bars2 = plt.bar(x + width/2, kg_values, width, label='KG-LLM', color=colors[0], alpha=0.9, edgecolor='#2F2F2F', linewidth=0.6)
+        plt.xticks(x, labels, fontsize=15)
+        plt.ylabel('Metric Value', fontsize=16)
+        plt.title('Metrics Comparison (Raw Averages Across Topics)', fontsize=18)
+        plt.grid(axis='y', linestyle='--', alpha=0.25)
+        plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.03), ncol=2, frameon=False, fontsize=14)
+        ymax = max(max(llm_values), max(kg_values)) * 1.15
+        plt.ylim(0, ymax)
+        for bar in bars1:
+            h = bar.get_height()
+            plt.text(bar.get_x() + bar.get_width()/2, h, f"{h:.3f}", ha='center', va='bottom', fontsize=13)
+        for bar in bars2:
+            h = bar.get_height()
+            plt.text(bar.get_x() + bar.get_width()/2, h, f"{h:.3f}", ha='center', va='bottom', fontsize=13)
+        plt.margins(x=0.04)
         plt.tight_layout()
         plt.savefig(os.path.join(self.output_dir, f"figure_metrics_bar_{timestamp}.png"), dpi=300, bbox_inches='tight')
         try:
@@ -450,21 +454,77 @@ class ModelEvaluator:
         df.to_csv(os.path.join(self.output_dir, f"evaluation_metrics_{timestamp}.csv"), index=False)
         print(f"Results and charts saved to {self.output_dir}")
 
+def regenerate_metrics_bar_from_csv(csv_path, output_png_path=None):
+    df = pd.read_csv(csv_path)
+    kg_sim = float(df["kg_sim"].mean()) if "kg_sim" in df.columns else 0.0
+    pure_sim = float(df["pure_sim"].mean()) if "pure_sim" in df.columns else 0.0
+    kg_rouge = float(df["kg_rouge_l"].mean()) if "kg_rouge_l" in df.columns else 0.0
+    pure_rouge = float(df["pure_rouge_l"].mean()) if "pure_rouge_l" in df.columns else 0.0
+    kg_bleu = float(df["kg_bleu"].mean()) if "kg_bleu" in df.columns else 0.0
+    pure_bleu = float(df["pure_bleu"].mean()) if "pure_bleu" in df.columns else 0.0
+    if {"pure_entity_recall", "kg_entity_recall", "total_entities"}.issubset(df.columns):
+        pure_ent_rates = np.where(df["total_entities"] > 0, df["pure_entity_recall"] / df["total_entities"], 0.0)
+        kg_ent_rates = np.where(df["total_entities"] > 0, df["kg_entity_recall"] / df["total_entities"], 0.0)
+        pure_ent = float(np.mean(pure_ent_rates))
+        kg_ent = float(np.mean(kg_ent_rates))
+    else:
+        pure_ent = 0.0
+        kg_ent = 0.0
+    kg_values = [kg_sim, kg_rouge, kg_bleu, kg_ent]
+    llm_values = [pure_sim, pure_rouge, pure_bleu, pure_ent]
+    labels = ["Similarity", "ROUGE-L", "BLEU", "Entity Recall (Rate)"]
+    fig = plt.figure(figsize=(9, 6))
+    x = np.arange(len(labels))
+    width = 0.26
+    colors = ['#2E86AB', '#A23B72']
+    bars1 = plt.bar(x - width/2, llm_values, width, label='Pure LLM', color=colors[1], alpha=0.9, edgecolor='#2F2F2F', linewidth=0.6)
+    bars2 = plt.bar(x + width/2, kg_values, width, label='KG-LLM', color=colors[0], alpha=0.9, edgecolor='#2F2F2F', linewidth=0.6)
+    plt.xticks(x, labels, fontsize=15)
+    plt.ylabel('Metric Value', fontsize=16)
+    plt.title('Metrics Comparison (Raw Averages Across Topics)', fontsize=18)
+    plt.grid(axis='y', linestyle='--', alpha=0.25)
+    plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.03), ncol=2, frameon=False, fontsize=14)
+    ymax = max(max(llm_values), max(kg_values)) * 1.15
+    plt.ylim(0, ymax)
+    for bar in bars1:
+        h = bar.get_height()
+        plt.text(bar.get_x() + bar.get_width()/2, h, f"{h:.3f}", ha='center', va='bottom', fontsize=13)
+    for bar in bars2:
+        h = bar.get_height()
+        plt.text(bar.get_x() + bar.get_width()/2, h, f"{h:.3f}", ha='center', va='bottom', fontsize=13)
+    plt.margins(x=0.04)
+    plt.tight_layout()
+    output_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "evaluation_results")
+    os.makedirs(output_dir, exist_ok=True)
+    if output_png_path:
+        plt.savefig(output_png_path, dpi=300, bbox_inches='tight')
+    else:
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        plt.savefig(os.path.join(output_dir, f"figure_metrics_bar_{timestamp}.png"), dpi=300, bbox_inches='tight')
+        try:
+            plt.savefig(os.path.join(output_dir, "figure_metrics_bar_latest.png"), dpi=300, bbox_inches='tight')
+        except Exception:
+            pass
+    plt.close(fig)
+
 def main():
-    # Define test topics (Data Structures)
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--from_csv", type=str, default=None)
+    parser.add_argument("--overwrite_png", type=str, default=None)
+    args = parser.parse_args()
+    if args.from_csv:
+        regenerate_metrics_bar_from_csv(args.from_csv, args.overwrite_png)
+        return
     test_topics = ["二叉树", "哈希表", "快速排序", "链表", "图的遍历"]
-    
     evaluator = ModelEvaluator()
     if not evaluator.llm_client or not evaluator.kg_query:
         print("Evaluation cannot proceed due to missing LLM or KG connection.")
         return
-
     print("Starting KG-LLM vs Pure LLM Evaluation...")
     df_results = evaluator.run_comparison(test_topics)
-    
     print("\nEvaluation Results Summary:")
     print(df_results.mean(numeric_only=True))
-    
     evaluator.visualize_results(df_results)
 
 if __name__ == "__main__":
