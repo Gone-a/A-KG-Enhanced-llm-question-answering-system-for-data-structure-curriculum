@@ -49,7 +49,7 @@ class KnowledgeGraphApp:
         
         # 初始化意图识别器
         model_path = self.config.get('model.nlu_model_path')
-        self.intent_recognizer = IntentRecognizer(model_path, KNOWLEDGE_BASE)
+        self.intent_recognizer = IntentRecognizer(model_path, KNOWLEDGE_BASE, use_w2ner=True)
         
         
         # 初始化知识图谱查询器

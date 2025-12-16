@@ -88,8 +88,7 @@ class NERProcessor:
             config.use_bert_last_4_layers = cfg.get('use_bert_last_4_layers', True)
             
             # 设置标签数量 - 根据W2NER的实际标签设置
-            # W2NER使用的是关系标签：<pad>, <suc>, con, ari
-            config.label_num = 4  # 这是W2NER模型的标准标签数量
+            config.label_num = 8
             
             # 设置设备
             device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')

@@ -8,8 +8,9 @@ import torch
 import json
 import os
 from typing import Dict, List, Any
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from transformers import AutoTokenizer, AutoModelForSequenceClassification, AutoModel
 import logging
+from relation_extend.ner_only import NERProcessor
 
 class IntentRecognizer:
     """意图识别器
@@ -17,7 +18,7 @@ class IntentRecognizer:
     负责加载NLU模型，进行意图识别和实体关系提取
     """
     
-    def __init__(self, model_path: str, knowledge_base: Dict[str, Any]):
+    def __init__(self, model_path: str, knowledge_base: Dict[str, Any], use_w2ner: bool = True):
         """
         初始化意图识别器
         
@@ -32,15 +33,33 @@ class IntentRecognizer:
         self.id2label = None
         self.entities_kb = knowledge_base.get("entities", {})
         self.relations_kb = knowledge_base.get("relations", {})
+        self.use_w2ner = use_w2ner
+        self.ner_processor = None
+        self.embed_tokenizer = None
+        self.embed_model = None
+        self.embed_device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+        self.kg_query = None
         
         self._load_model()
+        if self.use_w2ner:
+            try:
+                self.ner_processor = NERProcessor(txt_file_path="")
+            except Exception as e:
+                logging.error(f"加载W2NER失败: {e}")
+                self.use_w2ner = False
+        self._load_embedder()
         
     def _load_model(self):
         """加载NLU模型"""
         try:
-            # 1. 加载模型和分词器
-            self.tokenizer = AutoTokenizer.from_pretrained(self.model_path)
-            self.model = AutoModelForSequenceClassification.from_pretrained(self.model_path)
+            if not (self.model_path and os.path.isdir(self.model_path)):
+                logging.info(f"NLU本地模型目录不存在或未提供，跳过深度学习意图识别加载: {self.model_path}")
+                self.tokenizer = None
+                self.model = None
+                self.id2label = None
+                return
+            self.tokenizer = AutoTokenizer.from_pretrained(self.model_path, local_files_only=True)
+            self.model = AutoModelForSequenceClassification.from_pretrained(self.model_path, local_files_only=True)
             
             # 2. 加载标签映射
             label_map_path = os.path.join(self.model_path, "label_map.json")
@@ -52,8 +71,146 @@ class IntentRecognizer:
             logging.info("深度学习NLU模型加载成功！")
             
         except Exception as e:
-            logging.error(f"加载意图识别模型失败: {e}")
-            raise
+            logging.info(f"NLU模型加载失败，使用规则意图识别: {e}")
+            self.tokenizer = None
+            self.model = None
+            self.id2label = None
+    
+    def _load_embedder(self):
+        try:
+            base = "/root/KG_inde/relation_extend/bert-base-chinese"
+            self.embed_tokenizer = AutoTokenizer.from_pretrained(base)
+            self.embed_model = AutoModel.from_pretrained(base)
+            self.embed_model.to(self.embed_device)
+            self.embed_model.eval()
+        except Exception as e:
+            logging.error(f"加载嵌入模型失败: {e}")
+            self.embed_tokenizer = None
+            self.embed_model = None
+    
+    def set_kg_query(self, kg_query):
+        self.kg_query = kg_query
+    
+    def _text_embedding(self, text: str):
+        if not (self.embed_model and self.embed_tokenizer):
+            return None
+        try:
+            with torch.no_grad():
+                inputs = self.embed_tokenizer(text, return_tensors="pt", truncation=True, padding=True)
+                for k in inputs:
+                    inputs[k] = inputs[k].to(self.embed_device)
+                outputs = self.embed_model(**inputs)
+                hidden = outputs.last_hidden_state
+                emb = hidden.mean(dim=1).squeeze(0).cpu().numpy()
+                return emb
+        except Exception as e:
+            logging.error(f"文本嵌入失败: {e}")
+            return None
+    
+    def _cosine(self, a, b) -> float:
+        import numpy as np
+        if a is None or b is None:
+            return 0.0
+        na = np.linalg.norm(a)
+        nb = np.linalg.norm(b)
+        if na == 0 or nb == 0:
+            return 0.0
+        return float(np.dot(a, b) / (na * nb))
+    
+    def _augment_candidates(self, text: str) -> List[str]:
+        # 使用知识库同义词进行增广匹配
+        cands = set()
+        try:
+            from intent_recognition.knowledge_base import KNOWLEDGE_BASE
+            kb_entities = KNOWLEDGE_BASE.get("entities", {})
+            for std_name, synonyms in kb_entities.items():
+                for syn in synonyms:
+                    if syn and syn in text:
+                        cands.add(syn)
+                        cands.add(std_name)
+        except Exception:
+            pass
+        # 简单句式抽取：X和Y 等连接词
+        import re
+        pair_pat = r'([\\u4e00-\\u9fa5A-Za-z\\+]+?)(?:和|与)([\\u4e00-\\u9fa5A-Za-z\\+]+?)(?:的|之|，|,|。|关系|区别)'
+        for m in re.finditer(pair_pat, text):
+            x = m.group(1).strip()
+            y = m.group(2).strip()
+            if x:
+                cands.add(x)
+            if y:
+                cands.add(y)
+        return list(cands)
+    
+    def _postprocess_entities(self, text: str, entities_raw: List[dict]) -> List[str]:
+        items = []
+        # 原始候选
+        for e in entities_raw:
+            t = e.get("text") if isinstance(e, dict) else str(e)
+            if not t:
+                continue
+            s = e.get("start") if isinstance(e, dict) else text.find(t)
+            epos = e.get("end") if isinstance(e, dict) else (s + len(t) if s >= 0 else -1)
+            label = e.get("label") if isinstance(e, dict) else None
+            items.append({"text": t, "start": s, "end": epos, "label": label})
+        # 增广候选
+        for t in self._augment_candidates(text):
+            if t and all(t != it["text"] for it in items):
+                s = text.find(t)
+                epos = s + len(t) if s >= 0 else -1
+                items.append({"text": t, "start": s, "end": epos, "label": "NAMED_ENTITY"})
+        uniq = {}
+        for it in items:
+            k = it["text"]
+            if k not in uniq:
+                uniq[k] = it
+            else:
+                a = uniq[k]
+                if it.get("label") == "NAMED_ENTITY" and a.get("label") != "NAMED_ENTITY":
+                    uniq[k] = it
+        items = list(uniq.values())
+        items = [it for it in items if isinstance(it["text"], str) and len(it["text"].strip()) > 1]
+        # 最长匹配原则：按长度降序取非重叠片段，过滤泛词
+        keep = []
+        items_sorted = sorted(items, key=lambda x: len(x["text"]), reverse=True)
+        taken_spans = []
+        stopwords = {"排序", "树", "路径", "图", "算法"}
+        for it in items_sorted:
+            txt = it["text"]
+            s = it["start"]
+            epos = it["end"]
+            if txt in stopwords:
+                continue
+            if s >= 0 and epos >= 0:
+                overlap = any(not (epos <= ts or s >= te) for ts, te in taken_spans)
+                if overlap:
+                    continue
+                taken_spans.append((s, epos))
+            keep.append(it)
+        query_emb = self._text_embedding(text)
+        scored = []
+        for it in keep:
+            ent_emb = self._text_embedding(it["text"])
+            sim = self._cosine(query_emb, ent_emb)
+            length_w = max(1.0, (len(it["text"]) ** 0.5))
+            label_w = 1.2 if it.get("label") == "NAMED_ENTITY" else 1.0
+            bonus = 1.5 if it["text"] in {"时间复杂度"} else 1.0
+            score = sim * length_w * label_w * bonus
+            scored.append((score, it))
+        scored.sort(key=lambda x: x[0], reverse=True)
+        result = [x[1]["text"] for x in scored]
+        # KG存在性优先（可选）
+        if self.kg_query:
+            def in_kg(name: str) -> bool:
+                try:
+                    rs = self.kg_query.find_entity_relations(name, limit=1)
+                    return bool(rs)
+                except Exception:
+                    return False
+            # 排序时提升在KG中存在的项
+            result = sorted(result, key=lambda n: (0 if in_kg(n) else 1, -len(n)))
+        result = list(dict.fromkeys(result))
+        return result
     
     def recognize_intent(self, text: str) -> str:
         """
@@ -167,6 +324,17 @@ class IntentRecognizer:
         Returns:
             List[str]: 提取的实体列表
         """
+        if self.use_w2ner and self.ner_processor:
+            try:
+                res = self.ner_processor.run_ner_prediction([text])
+                ents = self._postprocess_entities(text, res[0].get("entities", []))
+                if ents:
+                    return ents
+                else:
+                    entities, _ = self._extract_elements(text)
+                    return entities
+            except Exception as e:
+                logging.error(f"W2NER实体识别失败，回退到词典匹配: {e}")
         entities, _ = self._extract_elements(text)
         return entities
     
