@@ -41,17 +41,19 @@ class KnowledgeGraphApp:
         """初始化应用程序"""
         import threading
         
-        print("正在并行初始化系统组件...")
-        
         # 初始化服务开启器
         self.run_serve = RunServe()
+
+        # 优先启动图数据库
+        print("正在启动图数据库...")
+        self.run_serve.check_and_start_neo4j()
+        
+        print("正在并行初始化其他系统组件...")
         
         # 创建事件用于协调输出
         self.backend_ready_event = threading.Event()
         
         # 定义初始化任务
-        def init_neo4j():
-            self.run_serve.check_and_start_neo4j()
             
         def init_vue():
             # 传入事件对象，Vue输出将等待事件被设置
@@ -91,7 +93,7 @@ class KnowledgeGraphApp:
 
         # 并行执行初始化任务
         threads = []
-        tasks = [init_neo4j, init_vue, init_nlu, init_kg_query, init_llm]
+        tasks = [init_vue, init_nlu, init_kg_query, init_llm]
         
         for task in tasks:
             t = threading.Thread(target=task)
