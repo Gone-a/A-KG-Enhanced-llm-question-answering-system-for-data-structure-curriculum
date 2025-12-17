@@ -360,7 +360,7 @@ class ModelEvaluator:
             plt.figure(figsize=(10, 6))
             x = np.arange(len(df))
             width = 0.35
-            plt.bar(x - width/2, df["pure_sim"], width, label='Pure LLM')
+            plt.bar(x - width/2, df["pure_sim"], width, label='Vanilla LLM')
             plt.bar(x + width/2, df["kg_sim"], width, label='KG-LLM')
             plt.xlabel('Topics')
             plt.ylabel('Cosine Similarity with Ground Truth')
@@ -376,7 +376,7 @@ class ModelEvaluator:
             plt.figure(figsize=(10, 6))
             x = np.arange(len(df))
             width = 0.35
-            plt.bar(x - width/2, df["pure_entity_recall"], width, label='Pure LLM')
+            plt.bar(x - width/2, df["pure_entity_recall"], width, label='Vanilla LLM')
             plt.bar(x + width/2, df["kg_entity_recall"], width, label='KG-LLM')
             # Fix for pandas series indexing error in matplotlib
             total_entities = df["total_entities"].to_numpy()
@@ -411,7 +411,7 @@ class ModelEvaluator:
         x = np.arange(len(labels))
         width = 0.26
         colors = ['#2E86AB', '#A23B72']
-        bars1 = plt.bar(x - width/2, llm_values, width, label='Pure LLM', color=colors[1], alpha=0.9, edgecolor='#2F2F2F', linewidth=0.6)
+        bars1 = plt.bar(x - width/2, llm_values, width, label='Vanilla LLM', color=colors[1], alpha=0.9, edgecolor='#2F2F2F', linewidth=0.6)
         bars2 = plt.bar(x + width/2, kg_values, width, label='KG-LLM', color=colors[0], alpha=0.9, edgecolor='#2F2F2F', linewidth=0.6)
         plt.xticks(x, labels, fontsize=15)
         plt.ylabel('Metric Value', fontsize=16)
@@ -439,7 +439,7 @@ class ModelEvaluator:
         plt.figure(figsize=(10, 6))
         x = np.arange(len(df))
         width = 0.35
-        plt.bar(x - width/2, df["pure_time"], width, label='Pure LLM')
+        plt.bar(x - width/2, df["pure_time"], width, label='Vanilla LLM')
         plt.bar(x + width/2, df["kg_time"], width, label='KG-LLM')
         plt.xlabel('Topics')
         plt.ylabel('Response Time (s)')
@@ -477,7 +477,7 @@ def regenerate_metrics_bar_from_csv(csv_path, output_png_path=None):
     x = np.arange(len(labels))
     width = 0.26
     colors = ['#2E86AB', '#A23B72']
-    bars1 = plt.bar(x - width/2, llm_values, width, label='Pure LLM', color=colors[1], alpha=0.9, edgecolor='#2F2F2F', linewidth=0.6)
+    bars1 = plt.bar(x - width/2, llm_values, width, label='Vanilla LLM', color=colors[1], alpha=0.9, edgecolor='#2F2F2F', linewidth=0.6)
     bars2 = plt.bar(x + width/2, kg_values, width, label='KG-LLM', color=colors[0], alpha=0.9, edgecolor='#2F2F2F', linewidth=0.6)
     plt.xticks(x, labels, fontsize=15)
     plt.ylabel('Metric Value', fontsize=16)
@@ -516,12 +516,41 @@ def main():
     if args.from_csv:
         regenerate_metrics_bar_from_csv(args.from_csv, args.overwrite_png)
         return
-    test_topics = ["二叉树", "哈希表", "快速排序", "链表", "图的遍历"]
+    
+    # Load topics from vocab_dict.csv
+    vocab_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "vocab_dict.csv")
+    test_topics = []
+    if os.path.exists(vocab_path):
+        try:
+            vocab_df = pd.read_csv(vocab_path, header=None, names=["entity", "type"])
+            # Filter for DataStructure and Algorithm types if desired, or take all
+            # Here we take top 50 entities to keep evaluation time reasonable, 
+            # or you can use .sample(50) for random selection.
+            # Let's use a mix of DataStructure and Algorithm
+            ds_topics = vocab_df[vocab_df["type"] == "DataStructure"]["entity"].tolist()
+            algo_topics = vocab_df[vocab_df["type"] == "Algorithm"]["entity"].tolist()
+            
+            # Combine and take up to 50 unique topics
+            test_topics = list(set(ds_topics[:25] + algo_topics[:25]))
+            
+            # If we still have fewer than 50, add more
+            if len(test_topics) < 50:
+                remaining = [t for t in vocab_df["entity"].tolist() if t not in test_topics]
+                test_topics.extend(remaining[:50-len(test_topics)])
+                
+            print(f"Loaded {len(test_topics)} topics from {vocab_path}")
+        except Exception as e:
+            print(f"Error reading vocab_dict.csv: {e}")
+            test_topics = ["二叉树", "哈希表", "快速排序", "链表", "图的遍历"]
+    else:
+        print(f"vocab_dict.csv not found at {vocab_path}, using default topics.")
+        test_topics = ["二叉树", "哈希表", "快速排序", "链表", "图的遍历"]
+
     evaluator = ModelEvaluator()
     if not evaluator.llm_client or not evaluator.kg_query:
         print("Evaluation cannot proceed due to missing LLM or KG connection.")
         return
-    print("Starting KG-LLM vs Pure LLM Evaluation...")
+    print("Starting KG-LLM vs Vanilla LLM Evaluation...")
     df_results = evaluator.run_comparison(test_topics)
     print("\nEvaluation Results Summary:")
     print(df_results.mean(numeric_only=True))

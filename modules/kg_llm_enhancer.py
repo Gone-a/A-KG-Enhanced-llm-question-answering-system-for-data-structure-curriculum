@@ -3,7 +3,7 @@ import json
 from concurrent.futures import ThreadPoolExecutor
 from modules.doubao_llm import DoubaoLLM, LLMResponse
 from modules.knowledge_graph_query import KnowledgeGraphQuery
-from modules.config_manager import get_config_manager
+from modules.config_manager import get_config_manager, ConfigManager
 
 class KGContextBuilder:
     def __init__(self, kg_query: KnowledgeGraphQuery, relation_limit: int = 8, trunc_len: int = 300):
