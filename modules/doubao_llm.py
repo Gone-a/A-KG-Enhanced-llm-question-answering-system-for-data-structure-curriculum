@@ -3,7 +3,10 @@
 import logging
 from typing import Dict, Any, Optional, List
 from dataclasses import dataclass
-from volcenginesdkarkruntime import Ark  # 火山方舟SDK
+try:
+    from volcenginesdkarkruntime import Ark  # 火山方舟SDK
+except Exception:
+    Ark = None
 from modules.config_manager import get_config_manager
 import json
 # 复用原LLMResponse数据类，确保返回格式兼容
@@ -44,7 +47,11 @@ class DoubaoLLM:
             raise ValueError("DOUBAO_MODEL_ID 未配置，请在环境变量中设置 DOUBAO_MODEL_ID")
         
         # 2. 初始化火山方舟客户端
-        self.client = Ark(api_key=self.ark_api_key)
+        if Ark is not None:
+            self.client = Ark(api_key=self.ark_api_key)
+        else:
+            logging.warning("未安装volcenginesdkarkruntime，LLM客户端将不可用")
+            self.client = None
         self.history_messages = []  # 历史对话列表
         # 3. 默认温度（后续可动态修改）
         self.default_temperature = self.llm_config.get('temperature', 0.7)
@@ -90,6 +97,8 @@ class DoubaoLLM:
             messages.append({"role": "user", "content": user_input.strip()})
 
             # 3. 调用豆包API
+            if not self.client:
+                raise RuntimeError("LLM客户端不可用")
             completion = self.client.chat.completions.create(
                 model=self.doubao_model_id,
                 messages=messages,

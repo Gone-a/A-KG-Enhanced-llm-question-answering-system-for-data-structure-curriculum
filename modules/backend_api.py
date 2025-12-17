@@ -27,6 +27,13 @@ class APIHandler:
         self.llm_client = llm_client
         self.config_manager = config_manager or ConfigManager()
         self.enhancer = KGLLMEnhancer(llm_client, kg_query) if llm_client and kg_query else None
+        try:
+            if self.intent_recognizer and self.kg_query:
+                self.intent_recognizer.set_kg_query(self.kg_query)
+            if self.intent_recognizer and self.llm_client:
+                self.intent_recognizer.set_llm_client(self.llm_client)
+        except Exception:
+            pass
         
         # 意图到KG接口的映射
         self.intent_to_kg_method = {

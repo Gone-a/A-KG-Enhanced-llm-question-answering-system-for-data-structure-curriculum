@@ -10,7 +10,7 @@ import os
 from typing import Dict, List, Any
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, AutoModel
 import logging
-from relation_extend.ner_only import NERProcessor
+# 删除W2NER依赖，完全采用LLM方式进行NER
 
 class IntentRecognizer:
     """意图识别器
@@ -18,7 +18,7 @@ class IntentRecognizer:
     负责加载NLU模型，进行意图识别和实体关系提取
     """
     
-    def __init__(self, model_path: str, knowledge_base: Dict[str, Any], use_w2ner: bool = True):
+    def __init__(self, model_path: str, knowledge_base: Dict[str, Any], use_w2ner: bool = False):
         """
         初始化意图识别器
         
@@ -33,20 +33,16 @@ class IntentRecognizer:
         self.id2label = None
         self.entities_kb = knowledge_base.get("entities", {})
         self.relations_kb = knowledge_base.get("relations", {})
-        self.use_w2ner = use_w2ner
+        self.use_w2ner = False
         self.ner_processor = None
         self.embed_tokenizer = None
         self.embed_model = None
         self.embed_device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
         self.kg_query = None
+        self.llm_client = None
         
         self._load_model()
-        if self.use_w2ner:
-            try:
-                self.ner_processor = NERProcessor(txt_file_path="")
-            except Exception as e:
-                logging.error(f"加载W2NER失败: {e}")
-                self.use_w2ner = False
+        # 不再初始化W2NER
         self._load_embedder()
         
     def _load_model(self):
@@ -90,6 +86,9 @@ class IntentRecognizer:
     
     def set_kg_query(self, kg_query):
         self.kg_query = kg_query
+    
+    def set_llm_client(self, llm_client):
+        self.llm_client = llm_client
     
     def _text_embedding(self, text: str):
         if not (self.embed_model and self.embed_tokenizer):
@@ -149,8 +148,16 @@ class IntentRecognizer:
             t = e.get("text") if isinstance(e, dict) else str(e)
             if not t:
                 continue
-            s = e.get("start") if isinstance(e, dict) else text.find(t)
-            epos = e.get("end") if isinstance(e, dict) else (s + len(t) if s >= 0 else -1)
+            if isinstance(e, dict):
+                s = e.get("start")
+                if s is None:
+                    s = text.find(t)
+                epos = e.get("end")
+                if epos is None:
+                    epos = (s + len(t) if s >= 0 else -1)
+            else:
+                s = text.find(t)
+                epos = (s + len(t) if s >= 0 else -1)
             label = e.get("label") if isinstance(e, dict) else None
             items.append({"text": t, "start": s, "end": epos, "label": label})
         # 增广候选
@@ -181,7 +188,7 @@ class IntentRecognizer:
             epos = it["end"]
             if txt in stopwords:
                 continue
-            if s >= 0 and epos >= 0:
+            if isinstance(s, int) and isinstance(epos, int) and s >= 0 and epos >= 0:
                 overlap = any(not (epos <= ts or s >= te) for ts, te in taken_spans)
                 if overlap:
                     continue
@@ -317,6 +324,14 @@ class IntentRecognizer:
         Returns:
             List[str]: 提取的实体列表
         """
+        if (not self.use_w2ner) and self.llm_client:
+            try:
+                ents = self._llm_ner_extract(text)
+                if ents:
+                    raw = [{"text": e} for e in ents]
+                    return self._postprocess_entities(text, raw)
+            except Exception as e:
+                logging.error(f"LLM实体识别失败，回退到词典匹配: {e}")
         if self.use_w2ner and self.ner_processor:
             try:
                 res = self.ner_processor.run_ner_prediction([text])
@@ -330,6 +345,52 @@ class IntentRecognizer:
                 logging.error(f"W2NER实体识别失败，回退到词典匹配: {e}")
         entities, _ = self._extract_elements(text)
         return entities
+    
+    def _llm_ner_extract(self, paragraph: str) -> List[str]:
+        if not self.llm_client:
+            return []
+        system_prompt = """Your task is to extract named entities from the given paragraph.
+Respond with a JSON list of entities."""
+        demo_paragraph = """Radio City
+Radio City is India's first private FM radio station and was started on 3 July 2001.
+It plays Hindi, English and regional songs.
+Radio City recently forayed into New Media in May 2008 with the launch of a music portal - PlanetRadiocity.com that offers music related news, videos, songs, and other music-related features."""
+        demo_output = """{"named_entities": 
+    ["Radio City", "India", "3 July 2001", "Hindi", "English", "May 2008", "PlanetRadiocity.com"] 
+}"""
+        user_prompt = f"""{system_prompt}
+
+Example paragraph:
+{demo_paragraph}
+
+Example output:
+{demo_output}
+
+Paragraph:
+{paragraph}
+
+Output JSON:"""
+        resp = self.llm_client.generate_response(user_prompt, temperature=0.0)
+        content = resp.content if resp else ""
+        try:
+            import json as _json
+            s = content.strip()
+            if not s:
+                return []
+            obj = _json.loads(s)
+            if isinstance(obj, dict) and "named_entities" in obj and isinstance(obj["named_entities"], list):
+                return [str(x).strip() for x in obj["named_entities"] if str(x).strip()]
+            if isinstance(obj, list):
+                return [str(x).strip() for x in obj if str(x).strip()]
+            return []
+        except Exception:
+            import re
+            m = re.search(r'\[(.*?)\]', content, re.S)
+            if not m:
+                return []
+            items = m.group(1)
+            parts = re.findall(r'"(.*?)"', items)
+            return [p.strip() for p in parts if p.strip()]
     
     def extract_relations(self, text: str) -> List[str]:
         """

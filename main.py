@@ -61,7 +61,7 @@ class KnowledgeGraphApp:
             
         def init_nlu():
             model_path = self.config.get('model.nlu_model_path')
-            self.intent_recognizer = IntentRecognizer(model_path, KNOWLEDGE_BASE, use_w2ner=True)
+            self.intent_recognizer = IntentRecognizer(model_path, KNOWLEDGE_BASE, use_w2ner=False)
             
         def init_kg_query():
             db_config = self.config.get_database_config()
